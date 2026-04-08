@@ -3,7 +3,7 @@ import { SectionIntro } from '@/components/SectionIntro';
 import { UseCaseCard } from '@/components/UseCaseCard';
 import { getLocale, ui } from '@/lib/i18n';
 import { useCases } from '@/lib/data';
-import { absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
@@ -13,15 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'Use-case guides for coding, research, and agent automation with recommended models and skills.'
       : '針對 coding、研究與 agent 自動化的使用場景指南，附推薦模型與技能。';
 
-  return {
+  return buildMetadata({
     title: `${siteName} — ${copy.useCases.title}`,
     description,
-    openGraph: {
-      title: `${siteName} — ${copy.useCases.title}`,
-      description,
-      url: absoluteUrl(`/${locale}/use-cases`),
-    },
-  };
+    path: localePath(locale, 'use-cases'),
+    alternates: localizedAlternates('use-cases'),
+  });
 }
 
 export default async function UseCasesPage({ params }: { params: Promise<{ locale: string }> }) {

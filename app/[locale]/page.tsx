@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { featuredModelSlugs, featuredSkillSlugs, modelMap, skillMap, useCases } from '@/lib/data';
 import { getLocale, ui } from '@/lib/i18n';
-import { absoluteUrl, defaultMetadata, siteName } from '@/lib/site';
+import { absoluteUrl, buildMetadata, defaultMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
 import { ModelCard } from '@/components/ModelCard';
 import { SkillCard } from '@/components/SkillCard';
 import { UseCaseCard } from '@/components/UseCaseCard';
@@ -12,21 +12,12 @@ import { JsonLd } from '@/components/JsonLd';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
   const copy = ui[locale];
-  return {
+  return buildMetadata({
     title: `${siteName} — ${copy.sections.exploreModels}`,
     description: copy.hero.body,
-    alternates: {
-      languages: {
-        en: '/en',
-        'zh-TW': '/zh-TW',
-      },
-    },
-    openGraph: {
-      title: `${siteName} — ${copy.sections.exploreModels}`,
-      description: copy.hero.body,
-      url: absoluteUrl(`/${locale}`),
-    },
-  };
+    path: localePath(locale),
+    alternates: localizedAlternates(),
+  });
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {

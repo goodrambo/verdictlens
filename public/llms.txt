@@ -1,0 +1,82 @@
+# ModelAtlas
+
+version: 1
+site: https://goodrambo.github.io/modelatlas/
+name: ModelAtlas
+description: Bilingual directory of AI models, skills, and use-case guides with editorial scoring and public JSON data.
+last_updated: 2026-04-08T06:40:00.000Z
+languages: en, zh-TW
+formats: text/html, application/json
+
+[overview]
+ModelAtlas helps humans and machines compare AI models, supporting tools, and workflow patterns.
+Each entity has a stable slug, a bilingual HTML page, and structured JSON coverage in the public data endpoints.
+
+[entity_types]
+- model | provider, description, modalities, context_window, pricing, scores, strengths, caveats, best_use_cases, updated_at
+- skill | category, supported_providers, install_difficulty, scores, strengths, caveats, best_use_cases, updated_at
+- use_case | title, strapline, summary, evaluation_lens, recommended_models, recommended_skills, updated_at
+
+[important_paths]
+- landing | https://goodrambo.github.io/modelatlas/
+- english_home | https://goodrambo.github.io/modelatlas/en
+- traditional_chinese_home | https://goodrambo.github.io/modelatlas/zh-TW
+- models_index_en | https://goodrambo.github.io/modelatlas/en/models
+- models_index_zh | https://goodrambo.github.io/modelatlas/zh-TW/models
+- skills_index_en | https://goodrambo.github.io/modelatlas/en/skills
+- skills_index_zh | https://goodrambo.github.io/modelatlas/zh-TW/skills
+- use_cases_index_en | https://goodrambo.github.io/modelatlas/en/use-cases
+- use_cases_index_zh | https://goodrambo.github.io/modelatlas/zh-TW/use-cases
+- compare_en | https://goodrambo.github.io/modelatlas/en/compare
+- compare_zh | https://goodrambo.github.io/modelatlas/zh-TW/compare
+
+[url_patterns]
+- model_pages | /{locale}/models/{slug}
+- skill_pages | /{locale}/skills/{slug}
+- use_case_pages | /{locale}/use-cases/{slug}
+- supported_locales | en, zh-TW
+
+[json_endpoints]
+- models | https://goodrambo.github.io/modelatlas/data/models.json | shape: { updatedAt, count, items[] }
+- skills | https://goodrambo.github.io/modelatlas/data/skills.json | shape: { updatedAt, count, items[] }
+- catalog | https://goodrambo.github.io/modelatlas/data/catalog.json | shape: { updatedAt, models[], skills[], useCases[] }
+
+[entities.models]
+- gpt-5-4-pro | GPT-5.4 Pro | provider=OpenAI | best_use_cases=coding,research,agent-automation | page_en=https://goodrambo.github.io/modelatlas/en/models/gpt-5-4-pro | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/gpt-5-4-pro
+- gpt-5-mini | GPT-5 Mini | provider=OpenAI | best_use_cases=agent-automation,research | page_en=https://goodrambo.github.io/modelatlas/en/models/gpt-5-mini | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/gpt-5-mini
+- claude-3-7-sonnet | Claude 3.7 Sonnet | provider=Anthropic | best_use_cases=coding,research | page_en=https://goodrambo.github.io/modelatlas/en/models/claude-3-7-sonnet | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/claude-3-7-sonnet
+- claude-3-5-haiku | Claude 3.5 Haiku | provider=Anthropic | best_use_cases=research,agent-automation | page_en=https://goodrambo.github.io/modelatlas/en/models/claude-3-5-haiku | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/claude-3-5-haiku
+- gemini-2-5-pro | Gemini 2.5 Pro | provider=Google | best_use_cases=research,agent-automation | page_en=https://goodrambo.github.io/modelatlas/en/models/gemini-2-5-pro | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/gemini-2-5-pro
+- gemini-2-5-flash | Gemini 2.5 Flash | provider=Google | best_use_cases=agent-automation,research | page_en=https://goodrambo.github.io/modelatlas/en/models/gemini-2-5-flash | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/gemini-2-5-flash
+- grok-3-beta | Grok 3 Beta | provider=xAI | best_use_cases=research | page_en=https://goodrambo.github.io/modelatlas/en/models/grok-3-beta | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/grok-3-beta
+- deepseek-r1 | DeepSeek R1 | provider=DeepSeek | best_use_cases=coding,research | page_en=https://goodrambo.github.io/modelatlas/en/models/deepseek-r1 | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/deepseek-r1
+- llama-4-maverick | Llama 4 Maverick | provider=Meta | best_use_cases=agent-automation,research | page_en=https://goodrambo.github.io/modelatlas/en/models/llama-4-maverick | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/llama-4-maverick
+- qwen-3-max | Qwen 3 Max | provider=Alibaba Cloud | best_use_cases=research,agent-automation | page_en=https://goodrambo.github.io/modelatlas/en/models/qwen-3-max | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/qwen-3-max
+- mistral-large-2 | Mistral Large 2 | provider=Mistral | best_use_cases=research,coding | page_en=https://goodrambo.github.io/modelatlas/en/models/mistral-large-2 | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/mistral-large-2
+- command-a | Command A | provider=Cohere | best_use_cases=research,agent-automation | page_en=https://goodrambo.github.io/modelatlas/en/models/command-a | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/command-a
+- perplexity-sonar-reasoning-pro | Sonar Reasoning Pro | provider=Perplexity | best_use_cases=research | page_en=https://goodrambo.github.io/modelatlas/en/models/perplexity-sonar-reasoning-pro | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/models/perplexity-sonar-reasoning-pro
+
+[entities.skills]
+- codex-cli | Codex CLI | category=Coding agent | providers=OpenAI | page_en=https://goodrambo.github.io/modelatlas/en/skills/codex-cli | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/codex-cli
+- claude-code | Claude Code | category=Coding agent | providers=Anthropic | page_en=https://goodrambo.github.io/modelatlas/en/skills/claude-code | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/claude-code
+- langgraph | LangGraph | category=Agent orchestration | providers=OpenAI,Anthropic,Google,Meta | page_en=https://goodrambo.github.io/modelatlas/en/skills/langgraph | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/langgraph
+- n8n | n8n | category=Automation | providers=OpenAI,Anthropic,Google,Cohere | page_en=https://goodrambo.github.io/modelatlas/en/skills/n8n | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/n8n
+- playwright | Playwright | category=Browser automation | providers=Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/playwright | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/playwright
+- openai-whisper | OpenAI Whisper | category=Speech to text | providers=OpenAI,Local | page_en=https://goodrambo.github.io/modelatlas/en/skills/openai-whisper | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/openai-whisper
+- 1password-cli | 1Password CLI | category=Secrets | providers=Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/1password-cli | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/1password-cli
+- weaviate | Weaviate | category=Vector retrieval | providers=OpenAI,Anthropic,Google,Meta,Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/weaviate | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/weaviate
+- serpapi | SerpApi | category=Research search | providers=Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/serpapi | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/serpapi
+- mcp-toolbox | MCP Toolbox | category=Tool protocol | providers=OpenAI,Anthropic,Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/mcp-toolbox | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/mcp-toolbox
+- obsidian-memory-vault | Obsidian Memory Vault | category=Knowledge memory | providers=Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/obsidian-memory-vault | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/obsidian-memory-vault
+- zapier-ai-actions | Zapier AI Actions | category=Automation | providers=OpenAI,Anthropic,Google,Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/zapier-ai-actions | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/zapier-ai-actions
+- e2b-sandbox | E2B Sandbox | category=Execution runtime | providers=Any | page_en=https://goodrambo.github.io/modelatlas/en/skills/e2b-sandbox | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/skills/e2b-sandbox
+
+[entities.use_cases]
+- coding | Coding copilots & repo execution | recommended_models=gpt-5-4-pro,claude-3-7-sonnet,deepseek-r1 | recommended_skills=codex-cli,claude-code,playwright,e2b-sandbox | page_en=https://goodrambo.github.io/modelatlas/en/use-cases/coding | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/use-cases/coding
+- research | Research synthesis & analyst workflows | recommended_models=gemini-2-5-pro,claude-3-7-sonnet,perplexity-sonar-reasoning-pro | recommended_skills=serpapi,weaviate,openai-whisper,obsidian-memory-vault | page_en=https://goodrambo.github.io/modelatlas/en/use-cases/research | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/use-cases/research
+- agent-automation | Agent automation & operations | recommended_models=gpt-5-mini,gpt-5-4-pro,gemini-2-5-flash | recommended_skills=langgraph,n8n,1password-cli,mcp-toolbox | page_en=https://goodrambo.github.io/modelatlas/en/use-cases/agent-automation | page_zh=https://goodrambo.github.io/modelatlas/zh-TW/use-cases/agent-automation
+
+[crawl_hints]
+- Prefer localized HTML pages for human-readable summaries and editorial context.
+- Prefer JSON endpoints for structured ingestion, catalog refreshes, and field-level extraction.
+- Scores are editorial guidance, not official vendor benchmark claims.

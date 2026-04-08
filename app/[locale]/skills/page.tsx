@@ -3,7 +3,7 @@ import { SkillsExplorer } from '@/components/SkillsExplorer';
 import { SectionIntro } from '@/components/SectionIntro';
 import { skills } from '@/lib/data';
 import { getLocale, ui } from '@/lib/i18n';
-import { absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
@@ -13,15 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'Browse ranked AI skills and tooling with setup effort, provider support, and best-fit workflows visible by default.'
       : '瀏覽 AI 技能與工具排名，快速掌握設定成本、供應商支援與最適工作流。';
 
-  return {
+  return buildMetadata({
     title: `${siteName} — ${copy.sections.exploreSkills}`,
     description,
-    openGraph: {
-      title: `${siteName} — ${copy.sections.exploreSkills}`,
-      description,
-      url: absoluteUrl(`/${locale}/skills`),
-    },
-  };
+    path: localePath(locale, 'skills'),
+    alternates: localizedAlternates('skills'),
+  });
 }
 
 export default async function SkillsPage({ params }: { params: Promise<{ locale: string }> }) {

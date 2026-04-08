@@ -1,21 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { defaultMetadata, siteUrl } from '@/lib/site';
+import { buildMetadata, defaultMetadata, siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: defaultMetadata.title,
-  description: defaultMetadata.description,
-  openGraph: {
+  ...buildMetadata({
     title: defaultMetadata.title,
     description: defaultMetadata.description,
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: defaultMetadata.title,
-    description: defaultMetadata.description,
-  },
+    path: '/',
+  }),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

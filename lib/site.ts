@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Locale } from '@/lib/types';
 
 export const locales: Locale[] = ['en', 'zh-TW'];
@@ -8,6 +9,13 @@ export const siteName = 'ModelAtlas';
 export const siteTagline = {
   en: 'AI model, skill, and workflow guide',
   'zh-TW': 'AI 模型、技能與工作流指南',
+};
+
+export const ogImage = {
+  path: '/og-cover.png',
+  width: 1200,
+  height: 630,
+  alt: 'ModelAtlas — AI model rankings, skills, and workflow guides',
 };
 
 export const defaultMetadata = {
@@ -22,5 +30,58 @@ export function relativeUrl(path: string) {
 }
 
 export function absoluteUrl(path: string) {
-  return `${siteUrl}${relativeUrl(path)}`;
+  return new URL(relativeUrl(path), siteUrl).toString();
+}
+
+export function localePath(locale: Locale, path = '') {
+  const normalized = path.replace(/^\/+|\/+$/g, '');
+  return normalized ? `/${locale}/${normalized}` : `/${locale}`;
+}
+
+export function localizedAlternates(path = '') {
+  return Object.fromEntries(locales.map((locale) => [locale, localePath(locale, path)])) as Record<Locale, string>;
+}
+
+export function buildMetadata({
+  title,
+  description,
+  path,
+  alternates,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  alternates?: Partial<Record<Locale, string>>;
+}): Metadata {
+  const imageUrl = absoluteUrl(ogImage.path);
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: path,
+      ...(alternates ? { languages: alternates } : {}),
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      siteName,
+      url: absoluteUrl(path),
+      images: [
+        {
+          url: imageUrl,
+          width: ogImage.width,
+          height: ogImage.height,
+          alt: ogImage.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [imageUrl],
+    },
+  };
 }

@@ -48,6 +48,11 @@ These files are generated during build:
 - `/data/models.json`
 - `/data/skills.json`
 - `/data/catalog.json`
+- `/sitemap.xml`
+- `/robots.txt`
+- `/llms.txt`
+
+The site also ships with a static social preview image at `/og-cover.png` for Open Graph and Twitter cards.
 
 ## GitHub Pages deployment
 

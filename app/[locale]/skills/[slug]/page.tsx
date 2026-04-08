@@ -6,7 +6,7 @@ import { ScoreBar } from '@/components/ScoreBar';
 import { skillMap, skills, useCases } from '@/lib/data';
 import { formatDate, localizeDifficulty } from '@/lib/helpers';
 import { getLocale, pick, ui } from '@/lib/i18n';
-import { locales, absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, locales, absoluteUrl, siteName } from '@/lib/site';
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => skills.map((skill) => ({ locale, slug: skill.slug })));
@@ -18,15 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const skill = skillMap[slug];
   if (!skill) return {};
 
-  return {
+  return buildMetadata({
     title: `${skill.name} — ${siteName}`,
     description: pick(locale, skill.description),
-    openGraph: {
-      title: `${skill.name} — ${siteName}`,
-      description: pick(locale, skill.description),
-      url: absoluteUrl(`/${locale}/skills/${skill.slug}`),
-    },
-  };
+    path: localePath(locale, `skills/${skill.slug}`),
+    alternates: localizedAlternates(`skills/${skill.slug}`),
+  });
 }
 
 export default async function SkillDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {

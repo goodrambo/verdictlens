@@ -6,7 +6,7 @@ import { ScoreBar } from '@/components/ScoreBar';
 import { modelMap, models, useCases } from '@/lib/data';
 import { formatDate, localizeSpeed } from '@/lib/helpers';
 import { getLocale, pick, ui } from '@/lib/i18n';
-import { locales, absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, locales, absoluteUrl, siteName } from '@/lib/site';
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => models.map((model) => ({ locale, slug: model.slug })));
@@ -18,15 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const model = modelMap[slug];
   if (!model) return {};
 
-  return {
+  return buildMetadata({
     title: `${model.name} — ${siteName}`,
     description: pick(locale, model.description),
-    openGraph: {
-      title: `${model.name} — ${siteName}`,
-      description: pick(locale, model.description),
-      url: absoluteUrl(`/${locale}/models/${model.slug}`),
-    },
-  };
+    path: localePath(locale, `models/${model.slug}`),
+    alternates: localizedAlternates(`models/${model.slug}`),
+  });
 }
 
 export default async function ModelDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {

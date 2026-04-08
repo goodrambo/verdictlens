@@ -3,7 +3,7 @@ import { ModelsExplorer } from '@/components/ModelsExplorer';
 import { SectionIntro } from '@/components/SectionIntro';
 import { models } from '@/lib/data';
 import { getLocale, ui } from '@/lib/i18n';
-import { absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
@@ -13,15 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'Browse ranked AI models with pricing, speed, context window, and best-fit use cases visible at a glance.'
       : '瀏覽 AI 模型排名，快速掌握價格、速度、上下文視窗與最適使用場景。';
 
-  return {
+  return buildMetadata({
     title: `${siteName} — ${copy.sections.exploreModels}`,
     description,
-    openGraph: {
-      title: `${siteName} — ${copy.sections.exploreModels}`,
-      description,
-      url: absoluteUrl(`/${locale}/models`),
-    },
-  };
+    path: localePath(locale, 'models'),
+    alternates: localizedAlternates('models'),
+  });
 }
 
 export default async function ModelsPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -7,7 +7,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { modelMap, skillMap, useCaseMap, useCases } from '@/lib/data';
 import { formatDate } from '@/lib/helpers';
 import { getLocale, pick, ui } from '@/lib/i18n';
-import { locales, absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, locales, absoluteUrl, siteName } from '@/lib/site';
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => useCases.map((item) => ({ locale, slug: item.slug })));
@@ -19,15 +19,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const item = useCaseMap[slug];
   if (!item) return {};
 
-  return {
+  return buildMetadata({
     title: `${pick(locale, item.title)} — ${siteName}`,
     description: pick(locale, item.summary),
-    openGraph: {
-      title: `${pick(locale, item.title)} — ${siteName}`,
-      description: pick(locale, item.summary),
-      url: absoluteUrl(`/${locale}/use-cases/${item.slug}`),
-    },
-  };
+    path: localePath(locale, `use-cases/${item.slug}`),
+    alternates: localizedAlternates(`use-cases/${item.slug}`),
+  });
 }
 
 export default async function UseCaseDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {

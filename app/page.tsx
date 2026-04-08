@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMetadata, siteName } from '@/lib/site';
+
+export const metadata: Metadata = buildMetadata({
+  title: `${siteName} — Choose your language`,
+  description: 'Choose English or Traditional Chinese to browse the bilingual ModelAtlas catalog of AI models, skills, and use-case guides.',
+  path: '/',
+});
 
 export default function RootPage() {
   return (

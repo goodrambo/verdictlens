@@ -3,7 +3,7 @@ import { CompareWorkbench } from '@/components/CompareWorkbench';
 import { SectionIntro } from '@/components/SectionIntro';
 import { models } from '@/lib/data';
 import { getLocale, ui } from '@/lib/i18n';
-import { absoluteUrl, siteName } from '@/lib/site';
+import { buildMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
@@ -13,15 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'Compare AI models side by side across score, pricing, speed, context window, and agent readiness.'
       : '並排比較 AI 模型的分數、價格、速度、上下文視窗與 agent readiness。';
 
-  return {
+  return buildMetadata({
     title: `${siteName} — ${copy.compare.title}`,
     description,
-    openGraph: {
-      title: `${siteName} — ${copy.compare.title}`,
-      description,
-      url: absoluteUrl(`/${locale}/compare`),
-    },
-  };
+    path: localePath(locale, 'compare'),
+    alternates: localizedAlternates('compare'),
+  });
 }
 
 export default async function ComparePage({ params }: { params: Promise<{ locale: string }> }) {

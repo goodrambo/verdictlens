@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Machine-readable guide for AI crawlers and answer engines
+# https://goodrambo.github.io/modelatlas/llms.txt
+
+Sitemap: https://goodrambo.github.io/modelatlas/sitemap.xml
