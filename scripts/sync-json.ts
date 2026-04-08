@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { models, skills, useCases } from '../lib/data';
+import { providerMap } from '../lib/content/providers';
 
 const root = process.cwd();
 const dataDir = join(root, 'public', 'data');
@@ -159,18 +160,18 @@ function buildLlmsTxt(siteUpdatedAt: string) {
     'version: 1',
     `site: ${absoluteUrl('/')}`,
     'name: VerdictLens',
-    'description: Bilingual directory of AI models, skills, and use-case guides with editorial scoring and public JSON data.',
+    'description: Bilingual directory of AI models, skills, and use-case guides with editorial scoring, official links, and public JSON data.',
     `last_updated: ${new Date(siteUpdatedAt).toISOString()}`,
     'languages: en, zh-TW',
     'formats: text/html, application/json',
     '',
     '[overview]',
     'VerdictLens helps humans and machines compare AI models, supporting tools, and workflow patterns.',
-    'Each entity has a stable slug, a bilingual HTML page, and structured JSON coverage in the public data endpoints.',
+    'Each entity has a stable slug, a bilingual HTML page, an official link, and structured JSON coverage in the public data endpoints.',
     '',
     '[entity_types]',
-    '- model | provider, description, modalities, context_window, pricing, scores, strengths, caveats, best_use_cases, updated_at',
-    '- skill | category, supported_providers, install_difficulty, scores, strengths, caveats, best_use_cases, updated_at',
+    '- model | provider, official_url, description, modalities, context_window, pricing, scores, strengths, caveats, best_use_cases, updated_at',
+    '- skill | category, official_url, source_label, supported_providers, install_difficulty, scores, strengths, caveats, best_use_cases, updated_at',
     '- use_case | title, strapline, summary, evaluation_lens, recommended_models, recommended_skills, updated_at',
     '',
     '[important_paths]',
@@ -198,15 +199,14 @@ function buildLlmsTxt(siteUpdatedAt: string) {
     `- catalog | ${absoluteUrl('/data/catalog.json')} | shape: { updatedAt, models[], skills[], useCases[] }`,
     '',
     '[entities.models]',
-    ...models.map(
-      (model) =>
-        `- ${model.slug} | ${model.name} | provider=${model.provider} | best_use_cases=${model.bestUseCases.join(',')} | page_en=${absoluteUrl(localePath('en', `models/${model.slug}`))} | page_zh=${absoluteUrl(localePath('zh-TW', `models/${model.slug}`))}`,
-    ),
+    ...models.map((model) => {
+      const provider = providerMap[model.providerId];
+      return `- ${model.slug} | ${model.name} | provider=${provider.name} | official=${model.officialUrl} | best_use_cases=${model.bestUseCases.join(',')} | page_en=${absoluteUrl(localePath('en', `models/${model.slug}`))} | page_zh=${absoluteUrl(localePath('zh-TW', `models/${model.slug}`))}`;
+    }),
     '',
     '[entities.skills]',
-    ...skills.map(
-      (skill) =>
-        `- ${skill.slug} | ${skill.name} | category=${skill.category} | providers=${skill.supportedProviders.join(',')} | page_en=${absoluteUrl(localePath('en', `skills/${skill.slug}`))} | page_zh=${absoluteUrl(localePath('zh-TW', `skills/${skill.slug}`))}`,
+    ...skills.map((skill) =>
+      `- ${skill.slug} | ${skill.name} | category=${skill.category} | source=${skill.officialSourceLabel} | providers=${skill.supportedProviderIds.map((providerId) => providerMap[providerId].shortName).join(',')} | page_en=${absoluteUrl(localePath('en', `skills/${skill.slug}`))} | page_zh=${absoluteUrl(localePath('zh-TW', `skills/${skill.slug}`))}`,
     ),
     '',
     '[entities.use_cases]',
@@ -226,18 +226,18 @@ function buildLlmsTxt(siteUpdatedAt: string) {
 
 async function main() {
   const nowIso = new Date().toISOString();
-  const siteUpdatedAt = [
-    ...models.map((model) => model.updatedAt),
-    ...skills.map((skill) => skill.updatedAt),
-    ...useCases.map((useCase) => useCase.updatedAt),
-  ]
-    .sort()
-    .at(-1) ?? nowIso;
+  const siteUpdatedAt = [...models.map((model) => model.updatedAt), ...skills.map((skill) => skill.updatedAt), ...useCases.map((useCase) => useCase.updatedAt)].sort().at(-1) ?? nowIso;
 
   const modelsJson = {
     updatedAt: nowIso,
     count: models.length,
-    items: models,
+    items: models.map((model) => ({
+      ...model,
+      provider: providerMap[model.providerId].name,
+      providerShortName: providerMap[model.providerId].shortName,
+      providerOfficialUrl: providerMap[model.providerId].officialUrl,
+      providerLogoPath: providerMap[model.providerId].logoPath,
+    })),
   };
 
   const skillsJson = {
@@ -246,6 +246,7 @@ async function main() {
     items: skills.map((skill) => ({
       ...skill,
       easeOfSetupScore: difficultyToScore(skill.installDifficulty),
+      supportedProviders: skill.supportedProviderIds.map((providerId) => providerMap[providerId].name),
     })),
   };
 

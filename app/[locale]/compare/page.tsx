@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { CompareWorkbench } from '@/components/CompareWorkbench';
-import { SectionIntro } from '@/components/SectionIntro';
+import { CompareWorkbench } from '@/components/compare/CompareWorkbench';
+import { SectionIntro } from '@/components/shared/SectionIntro';
 import { models } from '@/lib/data';
 import { getLocale, ui } from '@/lib/i18n';
 import { buildMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const copy = ui[locale];
   const description =
     locale === 'en'
-      ? 'Compare AI models side by side across score, pricing, speed, context window, and agent readiness.'
-      : '並排比較 AI 模型的分數、價格、速度、上下文視窗與 agent readiness。';
+      ? 'Compare AI models side by side across score, pricing, speed, context window, and official links.'
+      : '並排比較 AI 模型的分數、價格、速度、上下文視窗與官方連結。';
 
   return buildMetadata({
     title: `${siteName} — ${copy.compare.title}`,

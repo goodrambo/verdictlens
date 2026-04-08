@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { SectionIntro } from '@/components/SectionIntro';
-import { UseCaseCard } from '@/components/UseCaseCard';
+import { SectionIntro } from '@/components/shared/SectionIntro';
+import { UseCaseCard } from '@/components/use-cases/UseCaseCard';
 import { getLocale, ui } from '@/lib/i18n';
 import { useCases } from '@/lib/data';
 import { buildMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
@@ -33,8 +33,8 @@ export default async function UseCasesPage({ params }: { params: Promise<{ local
           title={copy.useCases.title}
           body={
             locale === 'en'
-              ? 'Start with the job to be done. Each guide points to the models and skills most likely to fit.'
-              : '先從要完成的工作出發，每份指南都會指出更適合的模型與技能組合。'
+              ? 'Start with the job to be done. Each guide points to the models and tools most likely to fit.'
+              : '先從要完成的工作出發，每份指南都會指出更適合的模型與工具組合。'
           }
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">

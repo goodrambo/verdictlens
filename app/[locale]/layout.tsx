@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { getLocale } from '@/lib/i18n';
 import { locales } from '@/lib/site';
-import { SiteHeader } from '@/components/SiteHeader';
-import { SiteFooter } from '@/components/SiteFooter';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { SiteFooter } from '@/components/layout/SiteFooter';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

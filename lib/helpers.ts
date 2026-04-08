@@ -1,5 +1,5 @@
-import { models, skills } from '@/lib/data';
-import { Locale } from '@/lib/types';
+import { providerMap } from '@/lib/content/providers';
+import { Locale, ProviderId } from '@/lib/types';
 import { pick } from '@/lib/i18n';
 
 const useCaseLabels = {
@@ -16,14 +16,6 @@ const useCaseLabels = {
     'zh-TW': 'Agent 自動化',
   },
 } as const;
-
-export function getModel(slug: string) {
-  return models.find((item) => item.slug === slug);
-}
-
-export function getSkill(slug: string) {
-  return skills.find((item) => item.slug === slug);
-}
 
 export function formatDate(locale: Locale, value: string) {
   return new Intl.DateTimeFormat(locale === 'zh-TW' ? 'zh-TW' : 'en-US', {
@@ -42,10 +34,6 @@ export function scoreTone(score: number) {
 
 export function speedRank(speed: string) {
   return speed === 'Fast' ? 3 : speed === 'Balanced' ? 2 : 1;
-}
-
-export function difficultyRank(difficulty: string) {
-  return difficulty === 'Easy' ? 3 : difficulty === 'Moderate' ? 2 : 1;
 }
 
 export function easeOfSetupScore(difficulty: string, score?: number) {
@@ -79,6 +67,14 @@ export function localizeUseCase(locale: Locale, slug: string) {
   return pick(locale, useCaseLabels[slug as keyof typeof useCaseLabels] ?? { en: slug, 'zh-TW': slug });
 }
 
-export function summarizeTags(locale: Locale, tags: string[]) {
-  return tags.map((tag) => pick(locale, { en: tag, 'zh-TW': tag })).join(' · ');
+export function getProvider(providerId: ProviderId) {
+  return providerMap[providerId];
+}
+
+export function providerName(providerId: ProviderId) {
+  return providerMap[providerId]?.name ?? providerId;
+}
+
+export function providerNames(providerIds: ProviderId[]) {
+  return providerIds.map((providerId) => providerName(providerId));
 }

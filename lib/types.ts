@@ -1,5 +1,19 @@
 export type Locale = 'en' | 'zh-TW';
 
+export type ProviderId =
+  | 'openai'
+  | 'anthropic'
+  | 'google'
+  | 'xai'
+  | 'deepseek'
+  | 'meta'
+  | 'alibaba-cloud'
+  | 'mistral'
+  | 'cohere'
+  | 'perplexity'
+  | 'any'
+  | 'local';
+
 export type LocalizedText = {
   en: string;
   'zh-TW': string;
@@ -15,25 +29,24 @@ export type ScoreBlock = {
   ecosystem: number;
 };
 
-export type SkillScoreBlock = {
-  utility: number;
-  compatibility: number;
-  easeOfSetup: number;
-  reliability: number;
-  docsQuality: number;
-  adoption: number;
-  safetyMaintenance: number;
-};
-
 export type Pricing = {
   input: string;
   output: string;
 };
 
+export type ProviderMetadata = {
+  id: ProviderId;
+  name: string;
+  shortName: string;
+  officialUrl: string;
+  logoPath: string;
+};
+
 export type Model = {
   slug: string;
   name: string;
-  provider: string;
+  providerId: ProviderId;
+  officialUrl: string;
   description: LocalizedText;
   modalities: string[];
   contextWindow: string;
@@ -52,8 +65,10 @@ export type Skill = {
   slug: string;
   name: string;
   category: string;
+  officialUrl: string;
+  officialSourceLabel: string;
   description: LocalizedText;
-  supportedProviders: string[];
+  supportedProviderIds: ProviderId[];
   installDifficulty: 'Easy' | 'Moderate' | 'Advanced';
   utilityScore: number;
   compatibilityScore: number;

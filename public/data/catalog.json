@@ -1,10 +1,11 @@
 {
-  "updatedAt": "2026-04-08T18:08:30.265Z",
+  "updatedAt": "2026-04-08T20:30:01.146Z",
   "models": [
     {
       "slug": "gpt-5-4-pro",
       "name": "GPT-5.4 Pro",
-      "provider": "OpenAI",
+      "providerId": "openai",
+      "officialUrl": "https://openai.com/api/",
       "description": {
         "en": "Top-tier generalist model with excellent reasoning depth, strong coding reliability, and mature agent tooling support.",
         "zh-TW": "頂級全能模型，具備出色的推理深度、穩定的程式能力，以及成熟的 agent 工具鏈支援。"
@@ -61,12 +62,17 @@
           "zh-TW": "速度夠用，但不是最低延遲與最低成本選擇"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "OpenAI",
+      "providerShortName": "OpenAI",
+      "providerOfficialUrl": "https://openai.com/",
+      "providerLogoPath": "/brand/providers/openai.svg"
     },
     {
       "slug": "gpt-5-mini",
       "name": "GPT-5 Mini",
-      "provider": "OpenAI",
+      "providerId": "openai",
+      "officialUrl": "https://openai.com/api/",
       "description": {
         "en": "Lean, affordable OpenAI model tuned for responsive assistants, classification, and operational agent tasks.",
         "zh-TW": "輕量且價格友善的 OpenAI 模型，適合即時助理、分類與日常 agent 任務。"
@@ -121,12 +127,17 @@
           "zh-TW": "做細緻分析時需要更好的提示框架"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "OpenAI",
+      "providerShortName": "OpenAI",
+      "providerOfficialUrl": "https://openai.com/",
+      "providerLogoPath": "/brand/providers/openai.svg"
     },
     {
       "slug": "claude-3-7-sonnet",
       "name": "Claude 3.7 Sonnet",
-      "provider": "Anthropic",
+      "providerId": "anthropic",
+      "officialUrl": "https://www.anthropic.com/claude",
       "description": {
         "en": "Highly trusted reasoning and coding model with exceptional writing quality and calm, consistent outputs.",
         "zh-TW": "高信任度的推理與程式模型，寫作品質優秀，輸出穩定且一致性高。"
@@ -181,12 +192,17 @@
           "zh-TW": "超長推理提示下延遲可能上升"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Anthropic",
+      "providerShortName": "Anthropic",
+      "providerOfficialUrl": "https://www.anthropic.com/",
+      "providerLogoPath": "/brand/providers/anthropic.svg"
     },
     {
       "slug": "claude-3-5-haiku",
       "name": "Claude 3.5 Haiku",
-      "provider": "Anthropic",
+      "providerId": "anthropic",
+      "officialUrl": "https://www.anthropic.com/claude",
       "description": {
         "en": "Fast and lightweight model ideal for summarization, routing, support tasks, and budget-sensitive assistants.",
         "zh-TW": "快速輕量模型，適合摘要、任務路由、客服與成本敏感型助理。"
@@ -240,12 +256,17 @@
           "zh-TW": "需要更複雜工具狀態的 agent 流程較不適合"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Anthropic",
+      "providerShortName": "Anthropic",
+      "providerOfficialUrl": "https://www.anthropic.com/",
+      "providerLogoPath": "/brand/providers/anthropic.svg"
     },
     {
       "slug": "gemini-2-5-pro",
       "name": "Gemini 2.5 Pro",
-      "provider": "Google",
+      "providerId": "google",
+      "officialUrl": "https://ai.google.dev/gemini-api",
       "description": {
         "en": "Powerful multimodal model with strong long-context analysis, research workflows, and broad document understanding.",
         "zh-TW": "強大的多模態模型，擅長長上下文分析、研究流程與複雜文件理解。"
@@ -302,12 +323,17 @@
           "zh-TW": "互動式回應未必是最快選擇"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Google",
+      "providerShortName": "Google",
+      "providerOfficialUrl": "https://ai.google.dev/",
+      "providerLogoPath": "/brand/providers/google.svg"
     },
     {
       "slug": "gemini-2-5-flash",
       "name": "Gemini 2.5 Flash",
-      "provider": "Google",
+      "providerId": "google",
+      "officialUrl": "https://ai.google.dev/gemini-api",
       "description": {
         "en": "Low-latency multimodal workhorse for assistant surfaces, routing layers, and lightweight agent execution.",
         "zh-TW": "低延遲多模態工作馬，適合助理介面、路由層與輕量 agent 執行。"
@@ -363,12 +389,17 @@
           "zh-TW": "高敏感輸出情境可能需要更高階備援模型"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Google",
+      "providerShortName": "Google",
+      "providerOfficialUrl": "https://ai.google.dev/",
+      "providerLogoPath": "/brand/providers/google.svg"
     },
     {
       "slug": "grok-3-beta",
       "name": "Grok 3 Beta",
-      "provider": "xAI",
+      "providerId": "xai",
+      "officialUrl": "https://x.ai/",
       "description": {
         "en": "Strong real-time orientation and increasingly capable reasoning model with distinctive web freshness advantages.",
         "zh-TW": "偏向即時資訊場景、推理能力持續增強，且具備新鮮網路資訊優勢的模型。"
@@ -422,12 +453,17 @@
           "zh-TW": "複雜 agent loop 的實戰驗證較少"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "xAI",
+      "providerShortName": "xAI",
+      "providerOfficialUrl": "https://x.ai/",
+      "providerLogoPath": "/brand/providers/xai.svg"
     },
     {
       "slug": "deepseek-r1",
       "name": "DeepSeek R1",
-      "provider": "DeepSeek",
+      "providerId": "deepseek",
+      "officialUrl": "https://www.deepseek.com/",
       "description": {
         "en": "High-value reasoning model that punches above its price tier for technical problem solving and analytical depth.",
         "zh-TW": "高性價比推理模型，在技術解題與分析深度上常有超出價格帶的表現。"
@@ -480,12 +516,17 @@
           "zh-TW": "不同部署路徑下的穩定性保證不一"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "DeepSeek",
+      "providerShortName": "DeepSeek",
+      "providerOfficialUrl": "https://www.deepseek.com/",
+      "providerLogoPath": "/brand/providers/deepseek.svg"
     },
     {
       "slug": "llama-4-maverick",
       "name": "Llama 4 Maverick",
-      "provider": "Meta",
+      "providerId": "meta",
+      "officialUrl": "https://ai.meta.com/llama/",
       "description": {
         "en": "Flexible open-weight option with broad community experimentation and strong customization potential.",
         "zh-TW": "彈性高的開放權重模型，社群實驗豐富，客製化潛力強。"
@@ -539,12 +580,17 @@
           "zh-TW": "benchmark 成績不一定等於實際體驗成熟"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Meta",
+      "providerShortName": "Meta",
+      "providerOfficialUrl": "https://ai.meta.com/",
+      "providerLogoPath": "/brand/providers/meta.svg"
     },
     {
       "slug": "qwen-3-max",
       "name": "Qwen 3 Max",
-      "provider": "Alibaba Cloud",
+      "providerId": "alibaba-cloud",
+      "officialUrl": "https://www.alibabacloud.com/product/model-studio",
       "description": {
         "en": "Ambitious frontier contender with strong multilingual performance and good enterprise utility across Asian markets.",
         "zh-TW": "具競爭力的前沿模型，在多語言尤其亞洲市場企業場景中有不錯表現。"
@@ -599,12 +645,17 @@
           "zh-TW": "文件與案例完整度因地區而異"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Alibaba Cloud",
+      "providerShortName": "Alibaba",
+      "providerOfficialUrl": "https://www.alibabacloud.com/",
+      "providerLogoPath": "/brand/providers/alibaba-cloud.svg"
     },
     {
       "slug": "mistral-large-2",
       "name": "Mistral Large 2",
-      "provider": "Mistral",
+      "providerId": "mistral",
+      "officialUrl": "https://mistral.ai/products/la-plateforme",
       "description": {
         "en": "European flagship model with solid reasoning, concise style, and attractive deployment flexibility.",
         "zh-TW": "歐洲旗艦模型，具備紮實推理、精簡風格與靈活部署優勢。"
@@ -658,12 +709,17 @@
           "zh-TW": "對多模態產品面來說差異化較少"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Mistral",
+      "providerShortName": "Mistral",
+      "providerOfficialUrl": "https://mistral.ai/",
+      "providerLogoPath": "/brand/providers/mistral.svg"
     },
     {
       "slug": "command-a",
       "name": "Command A",
-      "provider": "Cohere",
+      "providerId": "cohere",
+      "officialUrl": "https://cohere.com/",
       "description": {
         "en": "Enterprise-oriented model with strong retrieval posture, business language handling, and dependable workflow integration.",
         "zh-TW": "偏企業導向的模型，適合檢索增強、商務語言處理與穩定工作流整合。"
@@ -717,12 +773,17 @@
           "zh-TW": "多模態體驗不是它的主打強項"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Cohere",
+      "providerShortName": "Cohere",
+      "providerOfficialUrl": "https://cohere.com/",
+      "providerLogoPath": "/brand/providers/cohere.svg"
     },
     {
       "slug": "perplexity-sonar-reasoning-pro",
       "name": "Sonar Reasoning Pro",
-      "provider": "Perplexity",
+      "providerId": "perplexity",
+      "officialUrl": "https://www.perplexity.ai/hub/blog/sonar",
       "description": {
         "en": "Research-first model experience optimized for answer grounding, current web synthesis, and citation-friendly output.",
         "zh-TW": "偏研究導向的模型體驗，強調有根據的答案、即時網頁整合與引用友善輸出。"
@@ -775,7 +836,11 @@
           "zh-TW": "相比完整平台 API，可控性較低"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00"
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "provider": "Perplexity",
+      "providerShortName": "Perplexity",
+      "providerOfficialUrl": "https://www.perplexity.ai/",
+      "providerLogoPath": "/brand/providers/perplexity.svg"
     }
   ],
   "skills": [
@@ -783,12 +848,14 @@
       "slug": "codex-cli",
       "name": "Codex CLI",
       "category": "Coding agent",
+      "officialUrl": "https://github.com/openai/codex",
+      "officialSourceLabel": "GitHub",
       "description": {
         "en": "Terminal-native coding agent workflow for implementing features, refactors, and technical reviews from a real repo.",
         "zh-TW": "終端機原生的 coding agent 工作流，可直接在真實 repo 中完成功能、重構與技術審查。"
       },
-      "supportedProviders": [
-        "OpenAI"
+      "supportedProviderIds": [
+        "openai"
       ],
       "installDifficulty": "Moderate",
       "utilityScore": 95,
@@ -828,18 +895,23 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78
+      "easeOfSetupScore": 78,
+      "supportedProviders": [
+        "OpenAI"
+      ]
     },
     {
       "slug": "claude-code",
       "name": "Claude Code",
       "category": "Coding agent",
+      "officialUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+      "officialSourceLabel": "Docs",
       "description": {
         "en": "Strong coding and refactor assistant with especially high-quality explanations and calm change planning.",
         "zh-TW": "擅長程式與重構的助理，特別強在高品質說明與穩健的變更規劃。"
       },
-      "supportedProviders": [
-        "Anthropic"
+      "supportedProviderIds": [
+        "anthropic"
       ],
       "installDifficulty": "Moderate",
       "utilityScore": 92,
@@ -878,21 +950,26 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78
+      "easeOfSetupScore": 78,
+      "supportedProviders": [
+        "Anthropic"
+      ]
     },
     {
       "slug": "langgraph",
       "name": "LangGraph",
       "category": "Agent orchestration",
+      "officialUrl": "https://langchain-ai.github.io/langgraph/",
+      "officialSourceLabel": "Docs",
       "description": {
         "en": "Graph-based runtime for durable agent workflows, branching logic, and stateful multi-step execution.",
         "zh-TW": "圖狀工作流框架，適合有狀態、多分支、可恢復的 agent 執行流程。"
       },
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Meta"
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "meta"
       ],
       "installDifficulty": "Advanced",
       "utilityScore": 93,
@@ -932,21 +1009,29 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 62
+      "easeOfSetupScore": 62,
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Meta"
+      ]
     },
     {
       "slug": "n8n",
       "name": "n8n",
       "category": "Automation",
+      "officialUrl": "https://n8n.io/",
+      "officialSourceLabel": "Website",
       "description": {
         "en": "Popular workflow builder for gluing APIs, LLM calls, and back-office tasks into practical automations.",
         "zh-TW": "高人氣工作流工具，適合把 API、LLM 呼叫與後台作業串成實用自動化。"
       },
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Cohere"
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "cohere"
       ],
       "installDifficulty": "Easy",
       "utilityScore": 90,
@@ -985,18 +1070,26 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94
+      "easeOfSetupScore": 94,
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Cohere"
+      ]
     },
     {
       "slug": "playwright",
       "name": "Playwright",
       "category": "Browser automation",
+      "officialUrl": "https://playwright.dev/",
+      "officialSourceLabel": "Docs",
       "description": {
         "en": "Reliable browser automation layer for agent actions, QA checks, scraping flows, and human-in-the-loop web tasks.",
         "zh-TW": "可靠的瀏覽器自動化層，適合 agent 操作、QA 檢查、爬取流程與人機協作網頁任務。"
       },
-      "supportedProviders": [
-        "Any"
+      "supportedProviderIds": [
+        "any"
       ],
       "installDifficulty": "Moderate",
       "utilityScore": 91,
@@ -1036,19 +1129,24 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78
+      "easeOfSetupScore": 78,
+      "supportedProviders": [
+        "Any provider"
+      ]
     },
     {
       "slug": "openai-whisper",
       "name": "OpenAI Whisper",
       "category": "Speech to text",
+      "officialUrl": "https://github.com/openai/whisper",
+      "officialSourceLabel": "GitHub",
       "description": {
         "en": "Battle-tested transcription layer for meetings, podcasts, multilingual notes, and voice-driven workflows.",
         "zh-TW": "成熟穩定的語音轉文字層，適合會議、Podcast、多語筆記與語音工作流。"
       },
-      "supportedProviders": [
-        "OpenAI",
-        "Local"
+      "supportedProviderIds": [
+        "openai",
+        "local"
       ],
       "installDifficulty": "Easy",
       "utilityScore": 87,
@@ -1088,18 +1186,24 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94
+      "easeOfSetupScore": 94,
+      "supportedProviders": [
+        "OpenAI",
+        "Local runtime"
+      ]
     },
     {
       "slug": "1password-cli",
       "name": "1Password CLI",
       "category": "Secrets",
+      "officialUrl": "https://developer.1password.com/docs/cli/",
+      "officialSourceLabel": "Docs",
       "description": {
         "en": "Practical secret access layer for agents and scripts that need secure credential injection without hardcoding.",
         "zh-TW": "讓 agent 與腳本安全讀取憑證的實用層，可避免把密鑰寫死在程式裡。"
       },
-      "supportedProviders": [
-        "Any"
+      "supportedProviderIds": [
+        "any"
       ],
       "installDifficulty": "Moderate",
       "utilityScore": 86,
@@ -1139,22 +1243,27 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78
+      "easeOfSetupScore": 78,
+      "supportedProviders": [
+        "Any provider"
+      ]
     },
     {
       "slug": "weaviate",
       "name": "Weaviate",
       "category": "Vector retrieval",
+      "officialUrl": "https://weaviate.io/",
+      "officialSourceLabel": "Website",
       "description": {
         "en": "Vector database and retrieval layer for grounding answers, semantic search, and memory-augmented agents.",
         "zh-TW": "向量資料庫與檢索層，適合做答案 grounding、語意搜尋與記憶增強 agent。"
       },
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Meta",
-        "Any"
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "meta",
+        "any"
       ],
       "installDifficulty": "Advanced",
       "utilityScore": 88,
@@ -1194,18 +1303,27 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 62
+      "easeOfSetupScore": 62,
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Meta",
+        "Any provider"
+      ]
     },
     {
       "slug": "serpapi",
       "name": "SerpApi",
       "category": "Research search",
+      "officialUrl": "https://serpapi.com/",
+      "officialSourceLabel": "Website",
       "description": {
         "en": "Search data API that helps agents gather current web signals with consistent, parseable results.",
         "zh-TW": "搜尋資料 API，讓 agent 可以穩定取得最新網路訊號與易解析結果。"
       },
-      "supportedProviders": [
-        "Any"
+      "supportedProviderIds": [
+        "any"
       ],
       "installDifficulty": "Easy",
       "utilityScore": 85,
@@ -1245,20 +1363,25 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94
+      "easeOfSetupScore": 94,
+      "supportedProviders": [
+        "Any provider"
+      ]
     },
     {
       "slug": "mcp-toolbox",
       "name": "MCP Toolbox",
       "category": "Tool protocol",
+      "officialUrl": "https://modelcontextprotocol.io/",
+      "officialSourceLabel": "Docs",
       "description": {
         "en": "A practical toolbox around the Model Context Protocol for exposing actions, files, and resources to compatible agents.",
         "zh-TW": "圍繞 Model Context Protocol 的實用工具組，可把動作、檔案與資源暴露給相容 agent。"
       },
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Any"
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "any"
       ],
       "installDifficulty": "Advanced",
       "utilityScore": 89,
@@ -1298,18 +1421,25 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 62
+      "easeOfSetupScore": 62,
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Any provider"
+      ]
     },
     {
       "slug": "obsidian-memory-vault",
       "name": "Obsidian Memory Vault",
       "category": "Knowledge memory",
+      "officialUrl": "https://obsidian.md/",
+      "officialSourceLabel": "Website",
       "description": {
         "en": "Personal knowledge layer that turns agent memory into editable markdown instead of opaque hidden state.",
         "zh-TW": "把 agent 記憶做成可編輯 Markdown，而不是不可見黑盒狀態的個人知識層。"
       },
-      "supportedProviders": [
-        "Any"
+      "supportedProviderIds": [
+        "any"
       ],
       "installDifficulty": "Easy",
       "utilityScore": 84,
@@ -1349,21 +1479,26 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94
+      "easeOfSetupScore": 94,
+      "supportedProviders": [
+        "Any provider"
+      ]
     },
     {
       "slug": "zapier-ai-actions",
       "name": "Zapier AI Actions",
       "category": "Automation",
+      "officialUrl": "https://zapier.com/ai",
+      "officialSourceLabel": "Website",
       "description": {
         "en": "Fast path to business automation through prebuilt actions across SaaS tools and operational systems.",
         "zh-TW": "透過大量 SaaS 預建動作，快速把商務系統串成 AI 自動化流程。"
       },
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Any"
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
       ],
       "installDifficulty": "Easy",
       "utilityScore": 86,
@@ -1402,18 +1537,26 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94
+      "easeOfSetupScore": 94,
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Any provider"
+      ]
     },
     {
       "slug": "e2b-sandbox",
       "name": "E2B Sandbox",
       "category": "Execution runtime",
+      "officialUrl": "https://e2b.dev/",
+      "officialSourceLabel": "Website",
       "description": {
         "en": "Ephemeral execution environment for agent-generated code, notebooks, and dynamic analysis tasks.",
         "zh-TW": "提供臨時執行環境，適合 agent 產生的程式、notebook 與動態分析任務。"
       },
-      "supportedProviders": [
-        "Any"
+      "supportedProviderIds": [
+        "any"
       ],
       "installDifficulty": "Moderate",
       "utilityScore": 88,
@@ -1453,7 +1596,10 @@
         }
       ],
       "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78
+      "easeOfSetupScore": 78,
+      "supportedProviders": [
+        "Any provider"
+      ]
     }
   ],
   "useCases": [
