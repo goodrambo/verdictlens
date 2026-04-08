@@ -1,0 +1,682 @@
+{
+  "updatedAt": "2026-04-08T06:44:10.533Z",
+  "count": 13,
+  "items": [
+    {
+      "slug": "codex-cli",
+      "name": "Codex CLI",
+      "category": "Coding agent",
+      "description": {
+        "en": "Terminal-native coding agent workflow for implementing features, refactors, and technical reviews from a real repo.",
+        "zh-TW": "終端機原生的 coding agent 工作流，可直接在真實 repo 中完成功能、重構與技術審查。"
+      },
+      "supportedProviders": [
+        "OpenAI"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 95,
+      "compatibilityScore": 86,
+      "reliabilityScore": 89,
+      "docsScore": 84,
+      "adoptionScore": 88,
+      "safetyMaintenanceScore": 78,
+      "overallScore": 88,
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "tags": [
+        "terminal",
+        "repo-aware",
+        "coding"
+      ],
+      "strengths": [
+        {
+          "en": "Excellent for shipping actual code, not just snippets",
+          "zh-TW": "擅長交付真正可執行的程式碼，而不只是片段"
+        },
+        {
+          "en": "Strong fit for agent-orchestrated development loops",
+          "zh-TW": "非常適合 agent 協作式開發流程"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Requires a disciplined repo environment and trust boundaries",
+          "zh-TW": "需要乾淨 repo 環境與清楚的信任邊界"
+        },
+        {
+          "en": "Interactive behavior benefits from PTY-capable tooling",
+          "zh-TW": "互動型行為很依賴支援 PTY 的工具環境"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 78
+    },
+    {
+      "slug": "claude-code",
+      "name": "Claude Code",
+      "category": "Coding agent",
+      "description": {
+        "en": "Strong coding and refactor assistant with especially high-quality explanations and calm change planning.",
+        "zh-TW": "擅長程式與重構的助理，特別強在高品質說明與穩健的變更規劃。"
+      },
+      "supportedProviders": [
+        "Anthropic"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 92,
+      "compatibilityScore": 84,
+      "reliabilityScore": 91,
+      "docsScore": 86,
+      "adoptionScore": 83,
+      "safetyMaintenanceScore": 80,
+      "overallScore": 87,
+      "bestUseCases": [
+        "coding"
+      ],
+      "tags": [
+        "coding",
+        "refactor",
+        "terminal"
+      ],
+      "strengths": [
+        {
+          "en": "Great at diff-aware edits and review-style feedback",
+          "zh-TW": "很擅長 diff-aware 修改與 review 式回饋"
+        },
+        {
+          "en": "Output quality is especially readable for teams",
+          "zh-TW": "輸出可讀性高，團隊協作很舒服"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Tool conventions differ from PTY-first coding agents",
+          "zh-TW": "工具操作習慣與 PTY 型 coding agent 不同"
+        },
+        {
+          "en": "Best performance assumes a clean, well-scoped prompt",
+          "zh-TW": "要發揮最佳效果，提示範圍需要夠清楚"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 78
+    },
+    {
+      "slug": "langgraph",
+      "name": "LangGraph",
+      "category": "Agent orchestration",
+      "description": {
+        "en": "Graph-based runtime for durable agent workflows, branching logic, and stateful multi-step execution.",
+        "zh-TW": "圖狀工作流框架，適合有狀態、多分支、可恢復的 agent 執行流程。"
+      },
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Meta"
+      ],
+      "installDifficulty": "Advanced",
+      "utilityScore": 93,
+      "compatibilityScore": 90,
+      "reliabilityScore": 88,
+      "docsScore": 82,
+      "adoptionScore": 84,
+      "safetyMaintenanceScore": 76,
+      "overallScore": 86,
+      "bestUseCases": [
+        "agent-automation",
+        "research"
+      ],
+      "tags": [
+        "graph",
+        "state",
+        "multi-agent"
+      ],
+      "strengths": [
+        {
+          "en": "Excellent for non-trivial agent state machines",
+          "zh-TW": "處理複雜 agent 狀態機非常好用"
+        },
+        {
+          "en": "Supports inspection and controlled branching",
+          "zh-TW": "方便觀察狀態與控制分支邏輯"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "More framework overhead than simple workflow tools",
+          "zh-TW": "相較簡單工作流工具，框架負擔較大"
+        },
+        {
+          "en": "Teams need architectural discipline to avoid graph sprawl",
+          "zh-TW": "若缺乏架構紀律，圖會很快失控"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 62
+    },
+    {
+      "slug": "n8n",
+      "name": "n8n",
+      "category": "Automation",
+      "description": {
+        "en": "Popular workflow builder for gluing APIs, LLM calls, and back-office tasks into practical automations.",
+        "zh-TW": "高人氣工作流工具，適合把 API、LLM 呼叫與後台作業串成實用自動化。"
+      },
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Cohere"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 90,
+      "compatibilityScore": 92,
+      "reliabilityScore": 84,
+      "docsScore": 83,
+      "adoptionScore": 91,
+      "safetyMaintenanceScore": 74,
+      "overallScore": 86,
+      "bestUseCases": [
+        "agent-automation"
+      ],
+      "tags": [
+        "workflow",
+        "low-code",
+        "integrations"
+      ],
+      "strengths": [
+        {
+          "en": "Fastest path from idea to automation demo",
+          "zh-TW": "從想法到自動化 demo 的速度很快"
+        },
+        {
+          "en": "Huge connector surface for business operations",
+          "zh-TW": "商務整合連接器非常多"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Complex flows can become visually messy",
+          "zh-TW": "複雜流程容易變得視覺上凌亂"
+        },
+        {
+          "en": "Still needs governance when touching sensitive systems",
+          "zh-TW": "碰到敏感系統時仍需要治理與權限控管"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 94
+    },
+    {
+      "slug": "playwright",
+      "name": "Playwright",
+      "category": "Browser automation",
+      "description": {
+        "en": "Reliable browser automation layer for agent actions, QA checks, scraping flows, and human-in-the-loop web tasks.",
+        "zh-TW": "可靠的瀏覽器自動化層，適合 agent 操作、QA 檢查、爬取流程與人機協作網頁任務。"
+      },
+      "supportedProviders": [
+        "Any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 91,
+      "compatibilityScore": 95,
+      "reliabilityScore": 90,
+      "docsScore": 90,
+      "adoptionScore": 89,
+      "safetyMaintenanceScore": 71,
+      "overallScore": 88,
+      "bestUseCases": [
+        "agent-automation",
+        "research"
+      ],
+      "tags": [
+        "browser",
+        "qa",
+        "web"
+      ],
+      "strengths": [
+        {
+          "en": "Production-grade browser control with testable steps",
+          "zh-TW": "可測試且偏正式環境的瀏覽器控制能力"
+        },
+        {
+          "en": "Pairs well with agents that need a web actuator",
+          "zh-TW": "很適合當 agent 的網頁操作手腳"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Requires careful handling of flaky sites and auth flows",
+          "zh-TW": "面對不穩網站與登入流程時要特別處理"
+        },
+        {
+          "en": "Maintenance cost rises when UI targets change often",
+          "zh-TW": "目標網站 UI 常變時維護成本會升高"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 78
+    },
+    {
+      "slug": "openai-whisper",
+      "name": "OpenAI Whisper",
+      "category": "Speech to text",
+      "description": {
+        "en": "Battle-tested transcription layer for meetings, podcasts, multilingual notes, and voice-driven workflows.",
+        "zh-TW": "成熟穩定的語音轉文字層，適合會議、Podcast、多語筆記與語音工作流。"
+      },
+      "supportedProviders": [
+        "OpenAI",
+        "Local"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 87,
+      "compatibilityScore": 89,
+      "reliabilityScore": 91,
+      "docsScore": 84,
+      "adoptionScore": 92,
+      "safetyMaintenanceScore": 82,
+      "overallScore": 87,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "tags": [
+        "audio",
+        "transcription",
+        "multilingual"
+      ],
+      "strengths": [
+        {
+          "en": "Still one of the most dependable transcription building blocks",
+          "zh-TW": "依然是最可靠的轉錄基礎元件之一"
+        },
+        {
+          "en": "Useful across local and API-backed pipelines",
+          "zh-TW": "可同時用於本地與 API 型流程"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Not a full audio intelligence stack by itself",
+          "zh-TW": "它本身不是完整音訊 intelligence stack"
+        },
+        {
+          "en": "Post-processing is still needed for polished summaries",
+          "zh-TW": "要做漂亮摘要仍需後處理"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 94
+    },
+    {
+      "slug": "1password-cli",
+      "name": "1Password CLI",
+      "category": "Secrets",
+      "description": {
+        "en": "Practical secret access layer for agents and scripts that need secure credential injection without hardcoding.",
+        "zh-TW": "讓 agent 與腳本安全讀取憑證的實用層，可避免把密鑰寫死在程式裡。"
+      },
+      "supportedProviders": [
+        "Any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 86,
+      "compatibilityScore": 88,
+      "reliabilityScore": 93,
+      "docsScore": 87,
+      "adoptionScore": 80,
+      "safetyMaintenanceScore": 94,
+      "overallScore": 88,
+      "bestUseCases": [
+        "agent-automation",
+        "coding"
+      ],
+      "tags": [
+        "secrets",
+        "security",
+        "cli"
+      ],
+      "strengths": [
+        {
+          "en": "Strong security posture for credential-heavy workflows",
+          "zh-TW": "對憑證密集流程的安全姿態很強"
+        },
+        {
+          "en": "Reduces copy-paste secret sprawl",
+          "zh-TW": "能有效降低祕密資訊到處複製貼上的問題"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Onboarding is slower than plain env files",
+          "zh-TW": "上手速度比純 env 檔案慢一些"
+        },
+        {
+          "en": "Desktop integration may be required for a smooth experience",
+          "zh-TW": "順暢體驗通常需要桌面整合"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 78
+    },
+    {
+      "slug": "weaviate",
+      "name": "Weaviate",
+      "category": "Vector retrieval",
+      "description": {
+        "en": "Vector database and retrieval layer for grounding answers, semantic search, and memory-augmented agents.",
+        "zh-TW": "向量資料庫與檢索層，適合做答案 grounding、語意搜尋與記憶增強 agent。"
+      },
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Meta",
+        "Any"
+      ],
+      "installDifficulty": "Advanced",
+      "utilityScore": 88,
+      "compatibilityScore": 86,
+      "reliabilityScore": 87,
+      "docsScore": 80,
+      "adoptionScore": 78,
+      "safetyMaintenanceScore": 75,
+      "overallScore": 82,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "tags": [
+        "retrieval",
+        "memory",
+        "vector-db"
+      ],
+      "strengths": [
+        {
+          "en": "Useful backbone for high-recall retrieval systems",
+          "zh-TW": "很適合做高召回檢索系統骨幹"
+        },
+        {
+          "en": "Supports semantic memory architectures cleanly",
+          "zh-TW": "支援語意記憶架構相當自然"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Requires ongoing tuning for chunking and ranking quality",
+          "zh-TW": "chunking 與排序品質需要持續調校"
+        },
+        {
+          "en": "Infrastructure overhead is non-trivial",
+          "zh-TW": "基礎設施維護成本不低"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 62
+    },
+    {
+      "slug": "serpapi",
+      "name": "SerpApi",
+      "category": "Research search",
+      "description": {
+        "en": "Search data API that helps agents gather current web signals with consistent, parseable results.",
+        "zh-TW": "搜尋資料 API，讓 agent 可以穩定取得最新網路訊號與易解析結果。"
+      },
+      "supportedProviders": [
+        "Any"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 85,
+      "compatibilityScore": 91,
+      "reliabilityScore": 88,
+      "docsScore": 85,
+      "adoptionScore": 83,
+      "safetyMaintenanceScore": 81,
+      "overallScore": 85,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "tags": [
+        "search",
+        "web",
+        "signals"
+      ],
+      "strengths": [
+        {
+          "en": "Simple way to add current web signals to agents",
+          "zh-TW": "快速幫 agent 補上即時網路資訊"
+        },
+        {
+          "en": "More parseable than raw HTML scraping flows",
+          "zh-TW": "比直接抓 HTML 更容易解析與維護"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Search APIs still need ranking logic on top",
+          "zh-TW": "搜尋 API 上層仍需要自行做 ranking 邏輯"
+        },
+        {
+          "en": "Coverage quality depends on the target domain",
+          "zh-TW": "不同領域的覆蓋品質會有差異"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 94
+    },
+    {
+      "slug": "mcp-toolbox",
+      "name": "MCP Toolbox",
+      "category": "Tool protocol",
+      "description": {
+        "en": "A practical toolbox around the Model Context Protocol for exposing actions, files, and resources to compatible agents.",
+        "zh-TW": "圍繞 Model Context Protocol 的實用工具組，可把動作、檔案與資源暴露給相容 agent。"
+      },
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Any"
+      ],
+      "installDifficulty": "Advanced",
+      "utilityScore": 89,
+      "compatibilityScore": 82,
+      "reliabilityScore": 81,
+      "docsScore": 77,
+      "adoptionScore": 79,
+      "safetyMaintenanceScore": 73,
+      "overallScore": 81,
+      "bestUseCases": [
+        "agent-automation",
+        "coding"
+      ],
+      "tags": [
+        "mcp",
+        "tools",
+        "agent-interfaces"
+      ],
+      "strengths": [
+        {
+          "en": "Powerful abstraction for standardizing agent tools",
+          "zh-TW": "很適合標準化 agent 工具介面"
+        },
+        {
+          "en": "Helps decouple capabilities from model vendors",
+          "zh-TW": "有助於把能力層從模型供應商中解耦"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Protocol maturity and conventions are still evolving",
+          "zh-TW": "協議成熟度與慣例仍在演進"
+        },
+        {
+          "en": "Needs careful permission design",
+          "zh-TW": "權限設計要做得很仔細"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 62
+    },
+    {
+      "slug": "obsidian-memory-vault",
+      "name": "Obsidian Memory Vault",
+      "category": "Knowledge memory",
+      "description": {
+        "en": "Personal knowledge layer that turns agent memory into editable markdown instead of opaque hidden state.",
+        "zh-TW": "把 agent 記憶做成可編輯 Markdown，而不是不可見黑盒狀態的個人知識層。"
+      },
+      "supportedProviders": [
+        "Any"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 84,
+      "compatibilityScore": 86,
+      "reliabilityScore": 85,
+      "docsScore": 78,
+      "adoptionScore": 76,
+      "safetyMaintenanceScore": 88,
+      "overallScore": 82,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "tags": [
+        "memory",
+        "markdown",
+        "knowledge"
+      ],
+      "strengths": [
+        {
+          "en": "Human-readable memory is easier to trust and audit",
+          "zh-TW": "人類可讀的記憶更容易信任與稽核"
+        },
+        {
+          "en": "Pairs well with assistant continuity workflows",
+          "zh-TW": "很適合有持續上下文需求的助理流程"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Manual curation is still needed for quality",
+          "zh-TW": "品質仍需要人工整理與維護"
+        },
+        {
+          "en": "Not a substitute for robust retrieval design at scale",
+          "zh-TW": "無法完全取代大規模檢索設計"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 94
+    },
+    {
+      "slug": "zapier-ai-actions",
+      "name": "Zapier AI Actions",
+      "category": "Automation",
+      "description": {
+        "en": "Fast path to business automation through prebuilt actions across SaaS tools and operational systems.",
+        "zh-TW": "透過大量 SaaS 預建動作，快速把商務系統串成 AI 自動化流程。"
+      },
+      "supportedProviders": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Any"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 86,
+      "compatibilityScore": 93,
+      "reliabilityScore": 83,
+      "docsScore": 84,
+      "adoptionScore": 90,
+      "safetyMaintenanceScore": 72,
+      "overallScore": 84,
+      "bestUseCases": [
+        "agent-automation"
+      ],
+      "tags": [
+        "business",
+        "automation",
+        "saas"
+      ],
+      "strengths": [
+        {
+          "en": "Very quick to demo high-value business flows",
+          "zh-TW": "很快就能 demo 出高價值商務流程"
+        },
+        {
+          "en": "Broad integration surface reduces engineering overhead",
+          "zh-TW": "整合面廣，可降低工程負擔"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Custom logic can hit platform limits quickly",
+          "zh-TW": "遇到客製化邏輯時很快會碰到平台限制"
+        },
+        {
+          "en": "Costs can stack once usage scales",
+          "zh-TW": "規模化後費用容易疊高"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 94
+    },
+    {
+      "slug": "e2b-sandbox",
+      "name": "E2B Sandbox",
+      "category": "Execution runtime",
+      "description": {
+        "en": "Safe-ish ephemeral execution environment for agent-generated code, notebooks, and dynamic analysis tasks.",
+        "zh-TW": "提供臨時執行環境，適合 agent 產生的程式、notebook 與動態分析任務。"
+      },
+      "supportedProviders": [
+        "Any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 88,
+      "compatibilityScore": 85,
+      "reliabilityScore": 82,
+      "docsScore": 79,
+      "adoptionScore": 75,
+      "safetyMaintenanceScore": 84,
+      "overallScore": 82,
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "tags": [
+        "sandbox",
+        "execution",
+        "code"
+      ],
+      "strengths": [
+        {
+          "en": "Improves safety posture for generated-code execution",
+          "zh-TW": "能改善執行生成程式碼時的安全姿態"
+        },
+        {
+          "en": "Helpful for notebook and experiment workflows",
+          "zh-TW": "對 notebook 與實驗流程很有幫助"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Still requires policy design and runtime controls",
+          "zh-TW": "仍然需要政策設計與執行環境控管"
+        },
+        {
+          "en": "Cold-start and environment setup can affect UX",
+          "zh-TW": "冷啟動與環境設定可能影響體驗"
+        }
+      ],
+      "updatedAt": "2026-04-08T14:40:00+08:00",
+      "easeOfSetupScore": 78
+    }
+  ]
+}

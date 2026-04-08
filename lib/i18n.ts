@@ -1,0 +1,190 @@
+import { Locale, LocalizedText } from '@/lib/types';
+import { defaultLocale, locales } from '@/lib/site';
+
+export function isLocale(value: string): value is Locale {
+  return locales.includes(value as Locale);
+}
+
+export function getLocale(value?: string): Locale {
+  return value && isLocale(value) ? value : defaultLocale;
+}
+
+export function pick<T extends LocalizedText | string>(locale: Locale, value: T): string {
+  if (typeof value === 'string') return value;
+  return value[locale] ?? value[defaultLocale];
+}
+
+export const ui = {
+  en: {
+    brand: 'ModelAtlas',
+    nav: {
+      home: 'Home',
+      models: 'Models',
+      skills: 'Skills',
+      compare: 'Compare',
+      useCases: 'Use cases',
+    },
+    hero: {
+      eyebrow: 'Editorial benchmark layer for humans and agents',
+      title: 'Choose the right AI model and skill stack with confidence.',
+      body:
+        'ModelAtlas helps teams compare frontier models, practical tools, and agent workflows through structured criteria, clear trade-offs, and machine-readable data.',
+      primary: 'Explore models',
+      secondary: 'Compare top models',
+      meta1: '12 curated models',
+      meta2: '12 operational skills',
+      meta3: 'Bilingual catalog + JSON APIs',
+    },
+    sections: {
+      featuredModels: 'Featured models',
+      featuredSkills: 'Featured skills',
+      topUseCases: 'Top use cases',
+      scoring: 'How scoring works',
+      exploreModels: 'Explore the model landscape',
+      exploreSkills: 'Operational skills that actually matter',
+      compareHeadline: 'Compare models side by side',
+      dataHeadline: 'Built for both humans and AI agents',
+    },
+    labels: {
+      overallScore: 'Overall score',
+      provider: 'Provider',
+      contextWindow: 'Context window',
+      speed: 'Speed',
+      bestFor: 'Best for',
+      filters: 'Filters',
+      sort: 'Sort',
+      search: 'Search',
+      category: 'Category',
+      difficulty: 'Difficulty',
+      supportedProviders: 'Supported providers',
+      scoringDisclaimer: 'MVP scores are framework examples combining benchmark-informed inputs, structured criteria, and editorial weighting. They are directional, not absolute truth.',
+      updatedAt: 'Updated',
+      compareUpTo: 'Compare up to 3 models',
+      noResults: 'No items matched the current filters.',
+      apiReady: 'Machine-readable data',
+      viewDetails: 'View details',
+      openCatalog: 'Open catalog',
+      clear: 'Clear',
+      all: 'All',
+      sortTop: 'Top score',
+      sortFast: 'Fastest',
+      sortCost: 'Best cost efficiency',
+      compareNow: 'Compare now',
+      scoreBreakdown: 'Score breakdown',
+      strengths: 'Strengths',
+      caveats: 'Watch-outs',
+      recommendedStack: 'Recommended stack',
+      modelApi: 'Models API',
+      skillApi: 'Skills API',
+      catalogApi: 'Catalog API',
+      backToModels: 'Back to models',
+      backToSkills: 'Back to skills',
+      backToUseCases: 'Back to use cases',
+      showAll: 'Show all',
+    },
+    scoring: {
+      model: 'Model score = capability 30, use-case fitness 25, cost efficiency 15, speed 10, reliability 10, agent readiness 10.',
+      skill: 'Skill score = utility 25, compatibility 20, ease of setup 15, reliability 15, docs quality 10, adoption 10, safety & maintenance 5.',
+    },
+    compare: {
+      title: 'Model comparison cockpit',
+      body: 'Shortlist two or three models to see strengths, cost posture, speed, and agent readiness in one view.',
+      selectSlot: 'Select model',
+      empty: 'Pick at least two models to unlock comparison insights.',
+    },
+    useCases: {
+      title: 'Use-case playbooks',
+      body: 'Start from the job to be done, then narrow down the model and operational skill mix that fits.',
+    },
+    footer: {
+      line1: 'A launch-ready MVP for comparing models, tools, and agent workflows.',
+      line2: 'Structured today. Extensible into a full evaluation platform tomorrow.',
+    },
+  },
+  'zh-TW': {
+    brand: 'ModelAtlas',
+    nav: {
+      home: '首頁',
+      models: '模型',
+      skills: '技能',
+      compare: '比較',
+      useCases: '使用場景',
+    },
+    hero: {
+      eyebrow: '給人類與 AI 代理都能讀懂的評測層',
+      title: '更有把握地選對 AI 模型與技能工具組。',
+      body:
+        'ModelAtlas 用結構化評分、清楚的取捨說明與機器可讀資料，幫團隊比較前沿模型、實用工具與 agent 工作流。',
+      primary: '探索模型',
+      secondary: '比較熱門模型',
+      meta1: '12 個精選模型',
+      meta2: '12 個實戰技能',
+      meta3: '雙語目錄 + JSON API',
+    },
+    sections: {
+      featuredModels: '精選模型',
+      featuredSkills: '精選技能',
+      topUseCases: '重點使用場景',
+      scoring: '評分方式',
+      exploreModels: '快速掌握模型版圖',
+      exploreSkills: '真正影響落地品質的操作技能',
+      compareHeadline: '模型並排比較',
+      dataHeadline: '同時為人類與 AI 代理設計',
+    },
+    labels: {
+      overallScore: '總分',
+      provider: '供應商',
+      contextWindow: '上下文視窗',
+      speed: '速度',
+      bestFor: '適合場景',
+      filters: '篩選',
+      sort: '排序',
+      search: '搜尋',
+      category: '分類',
+      difficulty: '難度',
+      supportedProviders: '支援供應商',
+      scoringDisclaimer: 'MVP 分數是示範性評估框架，綜合 benchmark 參考、結構化標準與編輯權重，適合做方向判斷，不代表絕對真理。',
+      updatedAt: '更新時間',
+      compareUpTo: '最多比較 3 個模型',
+      noResults: '目前篩選條件下沒有結果。',
+      apiReady: '機器可讀資料',
+      viewDetails: '查看詳情',
+      openCatalog: '打開目錄',
+      clear: '清除',
+      all: '全部',
+      sortTop: '總分最高',
+      sortFast: '速度最快',
+      sortCost: '成本效率最佳',
+      compareNow: '立即比較',
+      scoreBreakdown: '分項評分',
+      strengths: '優勢',
+      caveats: '注意事項',
+      recommendedStack: '推薦組合',
+      modelApi: '模型 API',
+      skillApi: '技能 API',
+      catalogApi: '總目錄 API',
+      backToModels: '返回模型列表',
+      backToSkills: '返回技能列表',
+      backToUseCases: '返回使用場景',
+      showAll: '顯示全部',
+    },
+    scoring: {
+      model: '模型分數 = 能力 30、場景適配 25、成本效率 15、速度 10、可靠性 10、Agent 就緒度 10。',
+      skill: '技能分數 = 實用性 25、相容性 20、安裝難度 15、可靠性 15、文件品質 10、採用度 10、安全維護 5。',
+    },
+    compare: {
+      title: '模型比較駕駛艙',
+      body: '挑 2 到 3 個模型，快速對照能力、成本、速度與 agent readiness。',
+      selectSlot: '選擇模型',
+      empty: '至少選兩個模型，才會顯示比較洞察。',
+    },
+    useCases: {
+      title: '使用場景攻略',
+      body: '從工作目標出發，再往下選最適合的模型與技能組合。',
+    },
+    footer: {
+      line1: '一個今天就能展示的 MVP：比較模型、工具與 agent 工作流。',
+      line2: '今天先結構化，明天能擴成完整評測平台。',
+    },
+  },
+};
