@@ -6,14 +6,14 @@ export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export const siteName = 'ModelAtlas';
 export const siteTagline = {
-  en: 'AI Models & Skills Ratings',
-  'zh-TW': 'AI 模型與技能評分平台',
+  en: 'AI model, skill, and workflow guide',
+  'zh-TW': 'AI 模型、技能與工作流指南',
 };
 
 export const defaultMetadata = {
-  title: 'ModelAtlas — AI Models & Skills Ratings',
+  title: 'ModelAtlas — AI model rankings, skills, and workflow guides',
   description:
-    'Compare AI models and practical agent skills with structured scores, bilingual explanations, and machine-readable data.',
+    'Compare AI models, operational skills, and use-case guides with structured scores, pricing context, and machine-readable data.',
 };
 
 export function relativeUrl(path: string) {

@@ -91,27 +91,28 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
   ];
 
   const activeFilterCount = [query, category !== 'all', difficulty !== 'all', provider !== 'all', useCase !== 'all'].filter(Boolean).length;
+  const leader = filtered[0];
 
   return (
-    <div className="space-y-6">
-      <section className="glass-panel rounded-[32px] p-4 md:p-5">
+    <div className="space-y-6 md:space-y-7">
+      <section className="glass-panel rounded-[32px] px-4 py-5 md:px-6 md:py-6">
         <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-indigo-100/70">{locale === 'en' ? 'Operational stack board' : '工具堆疊看板'}</p>
-            <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
-              {locale === 'en' ? 'Review skills like a real operator deck.' : '用真正做營運與落地的角度來看技能清單。'}
+          <div className="max-w-3xl">
+            <p className="text-[11px] uppercase tracking-[0.32em] text-indigo-100/70">{locale === 'en' ? 'AI skills and tooling' : 'AI 技能與工具層'}</p>
+            <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl [text-wrap:balance]">
+              {locale === 'en' ? 'A clearer list for the operational layer.' : '更清楚呈現工作流層的排名清單。'}
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300 md:text-base">
               {locale === 'en'
-                ? 'Compatibility, support coverage, setup friction, and use-case fit stay visible row by row, so teams can shortlist the operational layer faster.'
-                : '把相容性、支援面、設定摩擦與場景適配逐列攤開，團隊更快決定要先導入哪一層能力。'}
+                ? 'Compatibility, provider coverage, setup effort, and workflow fit stay visible row by row, so teams can shortlist the supporting stack faster.'
+                : '把相容性、供應商支援、設定成本與工作流適配逐列攤開，讓團隊更快縮小工具選擇範圍。'}
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3 xl:min-w-[26rem]">
+          <div className="grid gap-3 sm:grid-cols-3 xl:min-w-[28rem]">
             <MetricCard label={copy.labels.results} value={String(filtered.length)} tone="indigo" />
-            <MetricCard label={copy.labels.overallScore} value={filtered[0] ? String(filtered[0].overallScore) : '—'} tone="violet" />
-            <MetricCard label={copy.labels.category} value={filtered[0]?.category ?? '—'} tone="slate" />
+            <MetricCard label={copy.labels.overallScore} value={leader ? String(leader.overallScore) : '—'} tone="violet" />
+            <MetricCard label={locale === 'en' ? 'Leading category' : '目前領先分類'} value={leader?.category ?? '—'} tone="slate" />
           </div>
         </div>
 
@@ -121,7 +122,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="automation, browser, secrets..."
+              placeholder={locale === 'en' ? 'Search by skill, category, provider, or workflow' : '依技能、分類、供應商或工作流搜尋'}
               className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-indigo-300/40"
             />
           </label>
@@ -205,57 +206,57 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
         <>
           <section className="hidden overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.045] shadow-[0_24px_80px_rgba(2,8,23,0.28)] backdrop-blur-xl lg:block">
             <div className="overflow-x-auto">
-              <table className="min-w-[1180px] w-full border-collapse text-left">
+              <table className="w-full min-w-[1160px] border-collapse text-left">
                 <thead>
-                  <tr className="border-b border-white/10 bg-slate-950/55 text-xs uppercase tracking-[0.22em] text-slate-400">
+                  <tr className="border-b border-white/10 bg-slate-950/55 text-[11px] uppercase tracking-[0.22em] text-slate-400">
                     <SortableHead label={copy.labels.rank} active={sortKey === 'overall'} direction={sortDirection} onClick={() => updateSort('overall')} />
                     <SortableHead label={copy.labels.name} active={sortKey === 'name'} direction={sortDirection} onClick={() => updateSort('name')} wide />
                     <SortableHead label={copy.labels.category} active={sortKey === 'category'} direction={sortDirection} onClick={() => updateSort('category')} />
                     <SortableHead label={copy.labels.overallScore} active={sortKey === 'overall'} direction={sortDirection} onClick={() => updateSort('overall')} />
                     <SortableHead label={copy.labels.compatibilitySupport} active={sortKey === 'compatibility'} direction={sortDirection} onClick={() => updateSort('compatibility')} />
                     <SortableHead label={copy.labels.setupDifficulty} active={sortKey === 'setup'} direction={sortDirection} onClick={() => updateSort('setup')} />
-                    <th className="px-4 py-4 font-medium">{copy.labels.bestFor}</th>
-                    <th className="px-4 py-4 font-medium">{copy.labels.viewDetails}</th>
+                    <th className="px-5 py-4 font-medium">{copy.labels.bestFor}</th>
+                    <th className="px-5 py-4 font-medium">{copy.labels.viewDetails}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {filtered.map((skill) => (
-                    <tr key={skill.slug} className="border-b border-white/6 align-top text-sm text-slate-200 transition hover:bg-indigo-300/[0.06]">
-                      <td className="px-4 py-4">
+                  {filtered.map((skill, index) => (
+                    <tr key={skill.slug} className={clsx('border-b border-white/6 align-top text-[15px] text-slate-200 transition hover:bg-indigo-300/[0.06]', index % 2 === 0 ? 'bg-white/[0.015]' : undefined)}>
+                      <td className="px-5 py-5">
                         <div className="inline-flex min-w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/6 px-3 py-2 text-sm font-semibold text-white">
                           #{rankMap[skill.slug]}
                         </div>
                       </td>
-                      <td className="px-4 py-4">
-                        <div className="min-w-[14rem] max-w-[18rem]">
+                      <td className="px-5 py-5">
+                        <div className="min-w-[16rem] max-w-[20rem]">
                           <div className="text-base font-semibold text-white">{skill.name}</div>
                           <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">{pick(locale, skill.description)}</p>
                         </div>
                       </td>
-                      <td className="px-4 py-4">
-                        <span className="inline-flex rounded-full border border-white/10 bg-white/6 px-3 py-1 text-sm text-slate-200">{skill.category}</span>
+                      <td className="px-5 py-5">
+                        <span className="inline-flex rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-sm text-slate-200">{skill.category}</span>
                       </td>
-                      <td className="px-4 py-4">
-                        <div className={clsx('inline-flex min-w-[5.5rem] flex-col rounded-[22px] border border-white/10 bg-gradient-to-br px-3 py-2', scoreTone(skill.overallScore))}>
+                      <td className="px-5 py-5">
+                        <div className={clsx('inline-flex min-w-[5.75rem] flex-col rounded-[22px] border border-white/10 bg-gradient-to-br px-3 py-2.5', scoreTone(skill.overallScore))}>
                           <span className="text-[11px] uppercase tracking-[0.22em] text-white/60">Score</span>
                           <span className="mt-1 text-2xl font-semibold text-white">{skill.overallScore}</span>
                         </div>
                       </td>
-                      <td className="px-4 py-4">
-                        <div className="min-w-[14rem] max-w-[16rem]">
+                      <td className="px-5 py-5">
+                        <div className="min-w-[14rem] max-w-[16rem] space-y-2">
                           <div className="font-medium text-white">{locale === 'en' ? 'Compatibility' : '相容性'} {skill.compatibilityScore}</div>
-                          <div className="mt-2 text-sm leading-6 text-slate-400">{skill.supportedProviders.join(' · ')}</div>
+                          <div className="text-sm leading-6 text-slate-400">{skill.supportedProviders.join(' · ')}</div>
                         </div>
                       </td>
-                      <td className="px-4 py-4">
-                        <div className="min-w-[10rem]">
-                          <span className="inline-flex rounded-full border border-indigo-300/20 bg-indigo-300/10 px-3 py-1 text-sm text-indigo-100">
+                      <td className="px-5 py-5">
+                        <div className="min-w-[10rem] space-y-2">
+                          <span className="inline-flex rounded-full border border-indigo-300/20 bg-indigo-300/10 px-3 py-1.5 text-sm text-indigo-100">
                             {localizeDifficulty(locale, skill.installDifficulty)}
                           </span>
-                          <div className="mt-2 text-sm text-slate-400">{locale === 'en' ? 'Ease score' : '易用分數'} {easeOfSetupScore(skill.installDifficulty, skill.easeOfSetupScore)}</div>
+                          <div className="text-sm text-slate-400">{locale === 'en' ? 'Ease score' : '易用分數'} {easeOfSetupScore(skill.installDifficulty, skill.easeOfSetupScore)}</div>
                         </div>
                       </td>
-                      <td className="px-4 py-4">
+                      <td className="px-5 py-5">
                         <div className="flex max-w-[16rem] flex-wrap gap-2">
                           {skill.bestUseCases.map((item) => (
                             <span key={item} className="rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs text-slate-300">
@@ -264,7 +265,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                           ))}
                         </div>
                       </td>
-                      <td className="px-4 py-4">
+                      <td className="px-5 py-5">
                         <Link href={`/${locale}/skills/${skill.slug}`} className="inline-flex items-center rounded-full border border-indigo-300/25 bg-indigo-300/10 px-4 py-2 text-sm font-medium text-indigo-100 transition hover:bg-indigo-300/20">
                           {copy.labels.viewDetails} →
                         </Link>
@@ -276,7 +277,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
             </div>
           </section>
 
-          <section className="grid gap-4 lg:hidden">
+          <section className="grid gap-4 md:grid-cols-2 lg:hidden">
             {filtered.map((skill) => (
               <article key={skill.slug} className="rounded-[28px] border border-white/10 bg-white/[0.055] p-4 shadow-[0_20px_60px_rgba(2,8,23,0.24)] backdrop-blur-xl">
                 <div className="flex items-start justify-between gap-3">
@@ -337,7 +338,7 @@ function SortableHead({
   wide?: boolean;
 }) {
   return (
-    <th className={clsx('px-4 py-4 font-medium', wide ? 'min-w-[18rem]' : undefined)}>
+    <th className={clsx('px-5 py-4 font-medium', wide ? 'min-w-[20rem]' : undefined)}>
       <button type="button" onClick={onClick} className={clsx('inline-flex items-center gap-2 transition', active ? 'text-white' : 'hover:text-slate-200')}>
         {label}
         <span className="text-[11px] text-slate-500">{active ? (direction === 'desc' ? '↓' : '↑') : '↕'}</span>
@@ -347,16 +348,17 @@ function SortableHead({
 }
 
 function MetricCard({ label, value, tone }: { label: string; value: string; tone: 'indigo' | 'violet' | 'slate' }) {
-  const toneClass = tone === 'indigo'
-    ? 'border-indigo-300/20 bg-indigo-300/10 text-indigo-50'
-    : tone === 'violet'
-      ? 'border-violet-300/20 bg-violet-300/10 text-violet-50'
-      : 'border-white/10 bg-white/5 text-white';
+  const toneClass =
+    tone === 'indigo'
+      ? 'border-indigo-300/20 bg-indigo-300/10 text-indigo-50'
+      : tone === 'violet'
+        ? 'border-violet-300/20 bg-violet-300/10 text-violet-50'
+        : 'border-white/10 bg-white/5 text-white';
 
   return (
-    <div className={clsx('rounded-[24px] border px-4 py-3', toneClass)}>
+    <div className={clsx('rounded-[24px] border px-4 py-3.5', toneClass)}>
       <div className="text-[11px] uppercase tracking-[0.24em] text-white/60">{label}</div>
-      <div className="mt-2 text-xl font-semibold">{value}</div>
+      <div className="mt-2 text-xl font-semibold leading-7">{value}</div>
     </div>
   );
 }

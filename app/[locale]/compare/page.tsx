@@ -8,12 +8,17 @@ import { absoluteUrl, siteName } from '@/lib/site';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
   const copy = ui[locale];
+  const description =
+    locale === 'en'
+      ? 'Compare AI models side by side across score, pricing, speed, context window, and agent readiness.'
+      : '並排比較 AI 模型的分數、價格、速度、上下文視窗與 agent readiness。';
+
   return {
-    title: `${siteName} — ${copy.nav.compare}`,
-    description: copy.compare.body,
+    title: `${siteName} — ${copy.compare.title}`,
+    description,
     openGraph: {
-      title: `${siteName} — ${copy.nav.compare}`,
-      description: copy.compare.body,
+      title: `${siteName} — ${copy.compare.title}`,
+      description,
       url: absoluteUrl(`/${locale}/compare`),
     },
   };

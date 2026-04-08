@@ -8,12 +8,17 @@ import { absoluteUrl, siteName } from '@/lib/site';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const locale = getLocale((await params).locale);
   const copy = ui[locale];
+  const description =
+    locale === 'en'
+      ? 'Browse ranked AI models with pricing, speed, context window, and best-fit use cases visible at a glance.'
+      : '瀏覽 AI 模型排名，快速掌握價格、速度、上下文視窗與最適使用場景。';
+
   return {
-    title: `${siteName} — ${copy.nav.models}`,
-    description: locale === 'en' ? 'Search, filter, and compare curated AI model profiles.' : '搜尋、篩選並比較精選 AI 模型檔案。',
+    title: `${siteName} — ${copy.sections.exploreModels}`,
+    description,
     openGraph: {
-      title: `${siteName} — ${copy.nav.models}`,
-      description: locale === 'en' ? 'Search, filter, and compare curated AI model profiles.' : '搜尋、篩選並比較精選 AI 模型檔案。',
+      title: `${siteName} — ${copy.sections.exploreModels}`,
+      description,
       url: absoluteUrl(`/${locale}/models`),
     },
   };
@@ -29,7 +34,11 @@ export default async function ModelsPage({ params }: { params: Promise<{ locale:
         <SectionIntro
           eyebrow={copy.nav.models}
           title={copy.sections.exploreModels}
-          body={locale === 'en' ? 'Browse a ranked, sortable model board with score, pricing, speed, and best-fit use cases visible by default.' : '用排名 + 可排序表格直接瀏覽模型，預設就看得到總分、價格、速度與最佳使用場景。'}
+          body={
+            locale === 'en'
+              ? 'Browse ranked AI models with score, pricing, speed, context window, and best-fit use cases visible at a glance.'
+              : '用更容易掃描的排名視圖比較 AI 模型，直接掌握分數、價格、速度、上下文視窗與最適場景。'
+          }
         />
         <ModelsExplorer models={models} locale={locale} />
       </div>

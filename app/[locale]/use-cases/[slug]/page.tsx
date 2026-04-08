@@ -38,21 +38,21 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
 
   if (!item) notFound();
 
-  const recommendedModels = item.recommendedModels.map((slug) => modelMap[slug]).filter(Boolean);
-  const recommendedSkills = item.recommendedSkills.map((slug) => skillMap[slug]).filter(Boolean);
+  const recommendedModels = item.recommendedModels.map((modelSlug) => modelMap[modelSlug]).filter(Boolean);
+  const recommendedSkills = item.recommendedSkills.map((skillSlug) => skillMap[skillSlug]).filter(Boolean);
 
   return (
     <main>
       <div className="container-shell py-10 md:py-14">
-        <Link href={`/${locale}/use-cases`} className="inline-flex rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
+        <Link href={`/${locale}/use-cases`} className="inline-flex rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/10">
           ← {copy.labels.backToUseCases}
         </Link>
 
         <section className="mt-6 glass-panel rounded-[34px] p-6 md:p-8">
-          <div className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-cyan-100">
+          <div className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-[11px] uppercase tracking-[0.32em] text-cyan-100">
             {item.slug}
           </div>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white md:text-5xl">{pick(locale, item.title)}</h1>
+          <h1 className="mt-5 text-4xl font-semibold text-white md:text-5xl [text-wrap:balance]">{pick(locale, item.title)}</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">{pick(locale, item.strapline)}</p>
           <p className="mt-4 max-w-4xl text-base leading-8 text-slate-300">{pick(locale, item.summary)}</p>
 
@@ -67,14 +67,12 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
           <div className="mt-8 text-sm text-slate-400">{copy.labels.updatedAt}: {formatDate(locale, item.updatedAt)}</div>
         </section>
 
-        <section className="mt-8">
-          <div className="mb-6 flex items-center justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.32em] text-cyan-100/80">{copy.labels.recommendedStack}</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">{locale === 'en' ? 'Recommended models' : '推薦模型'}</h2>
-            </div>
+        <section className="mt-8 md:mt-10">
+          <div className="mb-6">
+            <p className="text-[11px] uppercase tracking-[0.32em] text-cyan-100/80">{copy.labels.recommendedStack}</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">{locale === 'en' ? 'Recommended models' : '推薦模型'}</h2>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {recommendedModels.map((model) => (
               <ModelCard key={model.slug} model={model} locale={locale} />
             ))}
@@ -85,7 +83,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
           <div className="mb-6">
             <h2 className="text-3xl font-semibold text-white">{locale === 'en' ? 'Recommended skills' : '推薦技能'}</h2>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {recommendedSkills.map((skill) => (
               <SkillCard key={skill.slug} skill={skill} locale={locale} />
             ))}

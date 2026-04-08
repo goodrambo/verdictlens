@@ -555,7 +555,7 @@ export const skills: Skill[] = [
     bestUseCases: ['agent-automation'],
     tags: ['workflow', 'low-code', 'integrations'],
     strengths: [
-      { en: 'Fastest path from idea to automation demo', 'zh-TW': '從想法到自動化 demo 的速度很快' },
+      { en: 'One of the fastest paths from idea to working automation', 'zh-TW': '從想法走到可運作自動化流程的速度非常快' },
       { en: 'Huge connector surface for business operations', 'zh-TW': '商務整合連接器非常多' },
     ],
     caveats: [
@@ -787,7 +787,7 @@ export const skills: Skill[] = [
     bestUseCases: ['agent-automation'],
     tags: ['business', 'automation', 'saas'],
     strengths: [
-      { en: 'Very quick to demo high-value business flows', 'zh-TW': '很快就能 demo 出高價值商務流程' },
+      { en: 'Very quick to launch high-value business automations', 'zh-TW': '很快就能啟動高價值的商務自動化流程' },
       { en: 'Broad integration surface reduces engineering overhead', 'zh-TW': '整合面廣，可降低工程負擔' },
     ],
     caveats: [
@@ -801,7 +801,7 @@ export const skills: Skill[] = [
     name: 'E2B Sandbox',
     category: 'Execution runtime',
     description: {
-      en: 'Safe-ish ephemeral execution environment for agent-generated code, notebooks, and dynamic analysis tasks.',
+      en: 'Ephemeral execution environment for agent-generated code, notebooks, and dynamic analysis tasks.',
       'zh-TW': '提供臨時執行環境，適合 agent 產生的程式、notebook 與動態分析任務。',
     },
     supportedProviders: ['Any'],
@@ -835,8 +835,8 @@ export const useCases: UseCase[] = [
       'zh-TW': 'Coding 助理與 repo 執行',
     },
     strapline: {
-      en: 'When shipping working code matters more than flashy demos.',
-      'zh-TW': '當重點是交付真正能跑的程式，而不是好看的 demo。',
+      en: 'When shipping dependable code matters more than surface-level polish.',
+      'zh-TW': '當重點是交付可靠可用的程式，而不是只看表面效果。',
     },
     summary: {
       en: 'Prioritize reliability, diff quality, tool-calling control, and the ability to maintain focus across multi-file edits.',
