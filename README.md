@@ -1,4 +1,4 @@
-# ModelAtlas — AI Models & Skills Ratings MVP
+# VerdictLens — AI Models & Skills Ratings MVP
 
 A polished bilingual MVP website for comparing AI models and practical agent skills.
 

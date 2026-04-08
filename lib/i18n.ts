@@ -16,7 +16,7 @@ export function pick<T extends LocalizedText | string>(locale: Locale, value: T)
 
 export const ui = {
   en: {
-    brand: 'ModelAtlas',
+    brand: 'VerdictLens',
     nav: {
       home: 'Home',
       models: 'Models',
@@ -28,7 +28,7 @@ export const ui = {
       eyebrow: 'Independent AI model and workflow guide',
       title: 'Find the right AI model and skill stack faster.',
       body:
-        'ModelAtlas helps teams compare frontier models, practical tools, and agent workflows with structured scores, clear trade-offs, and machine-readable data they can actually use.',
+        'VerdictLens helps teams compare frontier models, practical tools, and agent workflows with structured scores, clear trade-offs, and machine-readable data they can actually use.',
       primary: 'Explore models',
       secondary: 'Compare top models',
       meta1: '12 curated AI models',
@@ -115,7 +115,7 @@ export const ui = {
     },
   },
   'zh-TW': {
-    brand: 'ModelAtlas',
+    brand: 'VerdictLens',
     nav: {
       home: '首頁',
       models: '模型',
@@ -127,7 +127,7 @@ export const ui = {
       eyebrow: '獨立整理的 AI 模型與工作流指南',
       title: '更快找到適合的 AI 模型與技能工具組。',
       body:
-        'ModelAtlas 用結構化評分、清楚的取捨說明與機器可讀資料，幫團隊比較前沿模型、實用工具與 agent 工作流。',
+        'VerdictLens 用結構化評分、清楚的取捨說明與機器可讀資料，幫團隊比較前沿模型、實用工具與 agent 工作流。',
       primary: '探索模型',
       secondary: '比較熱門模型',
       meta1: '12 個精選 AI 模型',

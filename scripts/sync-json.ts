@@ -154,18 +154,18 @@ Sitemap: ${absoluteUrl('/sitemap.xml')}
 
 function buildLlmsTxt(siteUpdatedAt: string) {
   const lines = [
-    '# ModelAtlas',
+    '# VerdictLens',
     '',
     'version: 1',
     `site: ${absoluteUrl('/')}`,
-    'name: ModelAtlas',
+    'name: VerdictLens',
     'description: Bilingual directory of AI models, skills, and use-case guides with editorial scoring and public JSON data.',
     `last_updated: ${new Date(siteUpdatedAt).toISOString()}`,
     'languages: en, zh-TW',
     'formats: text/html, application/json',
     '',
     '[overview]',
-    'ModelAtlas helps humans and machines compare AI models, supporting tools, and workflow patterns.',
+    'VerdictLens helps humans and machines compare AI models, supporting tools, and workflow patterns.',
     'Each entity has a stable slug, a bilingual HTML page, and structured JSON coverage in the public data endpoints.',
     '',
     '[entity_types]',

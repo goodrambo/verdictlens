@@ -4,7 +4,7 @@ import { buildMetadata, siteName } from '@/lib/site';
 
 export const metadata: Metadata = buildMetadata({
   title: `${siteName} — Choose your language`,
-  description: 'Choose English or Traditional Chinese to browse the bilingual ModelAtlas catalog of AI models, skills, and use-case guides.',
+  description: 'Choose English or Traditional Chinese to browse the bilingual VerdictLens catalog of AI models, skills, and use-case guides.',
   path: '/',
 });
 
@@ -14,7 +14,7 @@ export default function RootPage() {
       <div className="container-shell flex min-h-screen items-center justify-center py-16">
         <div className="glass-panel w-full max-w-2xl rounded-[36px] p-8 text-center md:p-10">
           <div className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-cyan-100">
-            ModelAtlas
+            VerdictLens
           </div>
           <h1 className="mt-6 text-4xl font-semibold text-white md:text-5xl [text-wrap:balance]">
             AI model rankings, skills, and workflow guides
