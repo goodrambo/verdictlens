@@ -1,21 +1,23 @@
 import { providerMap } from '@/lib/content/providers';
-import { Locale, ProviderId } from '@/lib/types';
+import { Locale, Model, ProviderId, Skill, SourceKind, SourceRef } from '@/lib/types';
 import { pick } from '@/lib/i18n';
 
 const useCaseLabels = {
-  coding: {
-    en: 'Coding',
-    'zh-TW': 'Coding',
-  },
-  research: {
-    en: 'Research',
-    'zh-TW': '研究',
-  },
-  'agent-automation': {
-    en: 'Agent automation',
-    'zh-TW': 'Agent 自動化',
-  },
+  coding: { en: 'Coding', 'zh-TW': 'Coding' },
+  research: { en: 'Research', 'zh-TW': '研究' },
+  'agent-automation': { en: 'Agent automation', 'zh-TW': 'Agent 自動化' },
 } as const;
+
+const sourceKindLabels: Record<SourceKind, { en: string; 'zh-TW': string }> = {
+  'official-docs': { en: 'Official docs', 'zh-TW': '官方文件' },
+  'official-site': { en: 'Official site', 'zh-TW': '官方網站' },
+  'official-registry': { en: 'Official registry', 'zh-TW': '官方 registry' },
+  github: { en: 'GitHub', 'zh-TW': 'GitHub' },
+  'pricing-page': { en: 'Pricing page', 'zh-TW': '價格頁' },
+  blog: { en: 'Blog', 'zh-TW': '部落格' },
+  benchmark: { en: 'Benchmark', 'zh-TW': 'Benchmark' },
+  'manual-review': { en: 'Manual review', 'zh-TW': '人工整理' },
+};
 
 export function formatDate(locale: Locale, value: string) {
   return new Intl.DateTimeFormat(locale === 'zh-TW' ? 'zh-TW' : 'en-US', {
@@ -67,6 +69,10 @@ export function localizeUseCase(locale: Locale, slug: string) {
   return pick(locale, useCaseLabels[slug as keyof typeof useCaseLabels] ?? { en: slug, 'zh-TW': slug });
 }
 
+export function localizeSourceKind(locale: Locale, kind: SourceKind) {
+  return pick(locale, sourceKindLabels[kind] ?? { en: kind, 'zh-TW': kind });
+}
+
 export function getProvider(providerId: ProviderId) {
   return providerMap[providerId];
 }
@@ -77,4 +83,32 @@ export function providerName(providerId: ProviderId) {
 
 export function providerNames(providerIds: ProviderId[]) {
   return providerIds.map((providerId) => providerName(providerId));
+}
+
+export function getPrimarySource(item: { sourceRefs: SourceRef[]; preferredSourceUrl?: string; officialUrl?: string }) {
+  if (item.preferredSourceUrl) {
+    const preferred = item.sourceRefs.find((source) => source.url === item.preferredSourceUrl);
+    if (preferred) return preferred;
+  }
+
+  if (item.officialUrl) {
+    const official = item.sourceRefs.find((source) => source.url === item.officialUrl);
+    if (official) return official;
+  }
+
+  return item.sourceRefs[0];
+}
+
+export function compareHref(locale: Locale, slugs: string[]) {
+  const cleaned = Array.from(new Set(slugs.filter(Boolean))).slice(0, 3);
+  const query = cleaned.length ? `?models=${cleaned.join(',')}` : '';
+  return `/${locale}/compare${query}`;
+}
+
+export function modelBestFor(model: Model) {
+  return model.bestFor.length ? model.bestFor : model.bestUseCases;
+}
+
+export function skillBestFor(skill: Skill) {
+  return skill.bestFor.length ? skill.bestFor : skill.bestUseCases;
 }

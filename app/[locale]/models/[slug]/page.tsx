@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   return buildMetadata({
     title: `${model.name} — ${siteName}`,
-    description: pick(locale, model.description),
+    description: pick(locale, model.summary),
     path: localePath(locale, `models/${model.slug}`),
     alternates: localizedAlternates(`models/${model.slug}`),
   });
@@ -37,7 +37,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
   if (!model) notFound();
 
   const provider = getProvider(model.providerId);
-  const relevantUseCases = useCases.filter((item) => model.bestUseCases.includes(item.slug));
+  const relevantUseCases = useCases.filter((item) => model.bestFor.includes(item.slug));
 
   return (
     <main>
@@ -54,10 +54,10 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
                   <ProviderLogo providerId={model.providerId} className="h-12 w-12 rounded-2xl" />
                   <div>
                     <p className="text-label text-[var(--accent)]">{provider.name}</p>
-                    <h1 className="mt-2 text-4xl font-semibold text-white md:text-5xl [text-wrap:balance]">{model.name}</h1>
+                    <h1 className="mt-2 text-4xl font-semibold text-white md:text-5xl [text-wrap:balance]">{model.displayName}</h1>
                   </div>
                 </div>
-                <p className="mt-5 text-base leading-8 text-[var(--text-muted)] md:text-[1.05rem]">{pick(locale, model.description)}</p>
+                <p className="mt-5 text-base leading-8 text-[var(--text-muted)] md:text-[1.05rem]">{pick(locale, model.summary)}</p>
               </div>
               <div className="rounded-[28px] border border-[var(--border-strong)] bg-[var(--accent-soft)] px-5 py-4 text-right">
                 <div className="text-xs uppercase tracking-[0.28em] text-[var(--accent-contrast)]/70">{copy.labels.overallScore}</div>
@@ -73,26 +73,15 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
 
             <div className="mt-6 flex flex-wrap gap-3">
               <ExternalLink href={model.officialUrl}>{copy.labels.officialSite}</ExternalLink>
-              <ExternalLink href={provider.officialUrl} subtle>{copy.labels.providerSite}</ExternalLink>
+              {model.docsUrl ? <ExternalLink href={model.docsUrl} subtle>{copy.labels.officialDocs}</ExternalLink> : null}
+              {model.pricingUrl ? <ExternalLink href={model.pricingUrl} subtle>{copy.labels.pricing}</ExternalLink> : null}
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              <div className="panel-subtle p-4">
-                <div className="text-sm text-[var(--text-muted)]">{copy.labels.contextWindow}</div>
-                <div className="mt-1 text-lg font-medium text-white">{model.contextWindow}</div>
-              </div>
-              <div className="panel-subtle p-4">
-                <div className="text-sm text-[var(--text-muted)]">{copy.labels.speed}</div>
-                <div className="mt-1 text-lg font-medium text-white">{localizeSpeed(locale, model.speedCategory)}</div>
-              </div>
-              <div className="panel-subtle p-4">
-                <div className="text-sm text-[var(--text-muted)]">{copy.labels.inputPricing}</div>
-                <div className="mt-1 text-lg font-medium text-white">{model.pricing.input}</div>
-              </div>
-              <div className="panel-subtle p-4">
-                <div className="text-sm text-[var(--text-muted)]">{copy.labels.outputPricing}</div>
-                <div className="mt-1 text-lg font-medium text-white">{model.pricing.output}</div>
-              </div>
+              <MetricCard label={copy.labels.contextWindow} value={model.contextWindow} />
+              <MetricCard label={copy.labels.speed} value={localizeSpeed(locale, model.speedCategory)} />
+              <MetricCard label={copy.labels.inputPricing} value={model.pricing.input} />
+              <MetricCard label={copy.labels.outputPricing} value={model.pricing.output} />
             </div>
           </div>
 
@@ -108,6 +97,47 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
               <ScoreBar label={locale === 'en' ? 'Ecosystem' : '生態'} value={model.scores.ecosystem} />
             </div>
             <p className="mt-6 text-sm leading-7 text-[var(--text-muted)]">{copy.labels.scoringDisclaimer}</p>
+          </div>
+        </section>
+
+        <section className="mt-6 grid gap-6 xl:grid-cols-[1fr_0.95fr]">
+          <div className="panel p-6">
+            <h2 className="text-2xl font-semibold text-white">{copy.labels.bestFor}</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {model.bestFor.map((item) => (
+                <span key={item} className="chip text-sm text-[var(--text-muted)]">{item}</span>
+              ))}
+            </div>
+
+            <h3 className="mt-6 text-sm uppercase tracking-[0.28em] text-[var(--text-muted-2)]">{copy.labels.worksWith}</h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {model.worksWith.map((item) => (
+                <span key={item} className="chip text-xs text-[var(--text-muted)]">{item}</span>
+              ))}
+            </div>
+
+            <h3 className="mt-6 text-sm uppercase tracking-[0.28em] text-[var(--text-muted-2)]">{copy.labels.modalities}</h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {model.modalities.map((item) => (
+                <span key={item} className="chip text-xs text-[var(--text-muted)]">{item}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="panel p-6">
+            <h2 className="text-2xl font-semibold text-white">{copy.labels.sourceSignals}</h2>
+            <div className="mt-4 space-y-3">
+              {model.sourceRefs.map((source) => (
+                <a key={source.id} href={source.url} target="_blank" rel="noreferrer" className="panel-subtle flex items-center justify-between gap-4 px-4 py-3 transition hover:bg-white/8">
+                  <div>
+                    <div className="text-sm font-medium text-white">{source.label}</div>
+                    <div className="mt-1 text-xs text-[var(--text-muted)]">Tier {source.trustTier} · {formatDate(locale, source.fetchedAt)}</div>
+                  </div>
+                  <span className="text-[var(--accent)]">↗</span>
+                </a>
+              ))}
+            </div>
+            <div className="mt-5 text-sm text-[var(--text-muted)]">{copy.labels.lastVerified}: {formatDate(locale, model.lastVerifiedAt)}</div>
           </div>
         </section>
 
@@ -130,28 +160,15 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
           </div>
         </section>
 
-        <section className="mt-6 grid gap-6 xl:grid-cols-[1fr_0.9fr]">
-          <div className="panel p-6">
-            <h2 className="text-2xl font-semibold text-white">{copy.labels.bestFor}</h2>
-            <div className="mt-4 grid gap-3 md:grid-cols-2">
-              {relevantUseCases.map((item) => (
-                <Link key={item.slug} href={`/${locale}/use-cases/${item.slug}`} className="panel-subtle px-4 py-4 transition hover:bg-white/8">
-                  <div className="text-base font-medium text-white">{pick(locale, item.title)}</div>
-                  <div className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{pick(locale, item.summary)}</div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="panel p-6">
-            <h2 className="text-2xl font-semibold text-white">{copy.labels.updatedAt}</h2>
-            <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{formatDate(locale, model.updatedAt)}</p>
-            <h3 className="mt-6 text-sm uppercase tracking-[0.28em] text-[var(--text-muted-2)]">{copy.labels.modalities}</h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {model.modalities.map((item) => (
-                <span key={item} className="chip text-xs text-[var(--text-muted)]">{item}</span>
-              ))}
-            </div>
+        <section className="mt-6 panel p-6">
+          <h2 className="text-2xl font-semibold text-white">{copy.labels.bestFor}</h2>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            {relevantUseCases.map((item) => (
+              <Link key={item.slug} href={`/${locale}/use-cases/${item.slug}`} className="panel-subtle px-4 py-4 transition hover:bg-white/8">
+                <div className="text-base font-medium text-white">{pick(locale, item.title)}</div>
+                <div className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{pick(locale, item.summary)}</div>
+              </Link>
+            ))}
           </div>
         </section>
       </div>
@@ -161,7 +178,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
           name: model.name,
-          description: pick(locale, model.description),
+          description: pick(locale, model.summary),
           applicationCategory: 'AI Model',
           offers: {
             '@type': 'Offer',
@@ -179,5 +196,14 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
         }}
       />
     </main>
+  );
+}
+
+function MetricCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="panel-subtle p-4">
+      <div className="text-sm text-[var(--text-muted)]">{label}</div>
+      <div className="mt-1 text-lg font-medium text-white">{value}</div>
+    </div>
   );
 }

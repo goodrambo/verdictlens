@@ -1,82 +1,66 @@
 # VerdictLens
 
-version: 1
+version: 2
 site: http://localhost:3000/
 name: VerdictLens
-description: Bilingual directory of AI models, skills, and use-case guides with editorial scoring, official links, and public JSON data.
-last_updated: 2026-04-08T06:40:00.000Z
+description: Discovery, shortlist, compare, and compatibility guide for AI models and skills with official-source signals and structured public data.
+last_updated: 2026-04-08T20:20:00.000Z
 languages: en, zh-TW
 formats: text/html, application/json
 
-[overview]
-VerdictLens helps humans and machines compare AI models, supporting tools, and workflow patterns.
-Each entity has a stable slug, a bilingual HTML page, an official link, and structured JSON coverage in the public data endpoints.
+[product_direction]
+- verdictlens is not a generic marketplace clone
+- primary flow is discovery -> shortlist -> compare -> routing/compatibility
+- skills are modeled as a normalized registry/index layer
+- public JSON is shaped for future APIs, team features, registration, saved lists, and routing logic
 
 [entity_types]
-- model | provider, official_url, description, modalities, context_window, pricing, scores, strengths, caveats, best_use_cases, updated_at
-- skill | category, official_url, source_label, supported_providers, install_difficulty, scores, strengths, caveats, best_use_cases, updated_at
-- use_case | title, strapline, summary, evaluation_lens, recommended_models, recommended_skills, updated_at
+- provider | official_url, docs_url, logo, source_refs, last_verified_at
+- model | provider, official_url, docs_url, pricing_url, best_for, works_with, source_refs, last_verified_at, scores, pricing, modalities
+- skill | category, skill_type, preferred_source_url, install_method, deployment, supported_hosts, supported_providers, capabilities, permission_profile, works_with, source_refs, last_verified_at
+- use_case | title, summary, evaluation_lens, recommended_models, recommended_skills, source_refs, last_verified_at
 
 [important_paths]
 - landing | http://localhost:3000/
-- english_home | http://localhost:3000/en
-- traditional_chinese_home | http://localhost:3000/zh-TW
 - models_index_en | http://localhost:3000/en/models
-- models_index_zh | http://localhost:3000/zh-TW/models
 - skills_index_en | http://localhost:3000/en/skills
-- skills_index_zh | http://localhost:3000/zh-TW/skills
-- use_cases_index_en | http://localhost:3000/en/use-cases
-- use_cases_index_zh | http://localhost:3000/zh-TW/use-cases
 - compare_en | http://localhost:3000/en/compare
-- compare_zh | http://localhost:3000/zh-TW/compare
-
-[url_patterns]
-- model_pages | /{locale}/models/{slug}
-- skill_pages | /{locale}/skills/{slug}
-- use_case_pages | /{locale}/use-cases/{slug}
-- supported_locales | en, zh-TW
-
-[json_endpoints]
-- models | http://localhost:3000/data/models.json | shape: { updatedAt, count, items[] }
-- skills | http://localhost:3000/data/skills.json | shape: { updatedAt, count, items[] }
-- catalog | http://localhost:3000/data/catalog.json | shape: { updatedAt, models[], skills[], useCases[] }
+- models_json | http://localhost:3000/data/models.json
+- skills_json | http://localhost:3000/data/skills.json
+- providers_json | http://localhost:3000/data/providers.json
+- catalog_json | http://localhost:3000/data/catalog.json
 
 [entities.models]
-- gpt-5-4-pro | GPT-5.4 Pro | provider=OpenAI | official=https://openai.com/api/ | best_use_cases=coding,research,agent-automation | page_en=http://localhost:3000/en/models/gpt-5-4-pro | page_zh=http://localhost:3000/zh-TW/models/gpt-5-4-pro
-- gpt-5-mini | GPT-5 Mini | provider=OpenAI | official=https://openai.com/api/ | best_use_cases=agent-automation,research | page_en=http://localhost:3000/en/models/gpt-5-mini | page_zh=http://localhost:3000/zh-TW/models/gpt-5-mini
-- claude-3-7-sonnet | Claude 3.7 Sonnet | provider=Anthropic | official=https://www.anthropic.com/claude | best_use_cases=coding,research | page_en=http://localhost:3000/en/models/claude-3-7-sonnet | page_zh=http://localhost:3000/zh-TW/models/claude-3-7-sonnet
-- claude-3-5-haiku | Claude 3.5 Haiku | provider=Anthropic | official=https://www.anthropic.com/claude | best_use_cases=research,agent-automation | page_en=http://localhost:3000/en/models/claude-3-5-haiku | page_zh=http://localhost:3000/zh-TW/models/claude-3-5-haiku
-- gemini-2-5-pro | Gemini 2.5 Pro | provider=Google | official=https://ai.google.dev/gemini-api | best_use_cases=research,agent-automation | page_en=http://localhost:3000/en/models/gemini-2-5-pro | page_zh=http://localhost:3000/zh-TW/models/gemini-2-5-pro
-- gemini-2-5-flash | Gemini 2.5 Flash | provider=Google | official=https://ai.google.dev/gemini-api | best_use_cases=agent-automation,research | page_en=http://localhost:3000/en/models/gemini-2-5-flash | page_zh=http://localhost:3000/zh-TW/models/gemini-2-5-flash
-- grok-3-beta | Grok 3 Beta | provider=xAI | official=https://x.ai/ | best_use_cases=research | page_en=http://localhost:3000/en/models/grok-3-beta | page_zh=http://localhost:3000/zh-TW/models/grok-3-beta
-- deepseek-r1 | DeepSeek R1 | provider=DeepSeek | official=https://www.deepseek.com/ | best_use_cases=coding,research | page_en=http://localhost:3000/en/models/deepseek-r1 | page_zh=http://localhost:3000/zh-TW/models/deepseek-r1
-- llama-4-maverick | Llama 4 Maverick | provider=Meta | official=https://ai.meta.com/llama/ | best_use_cases=agent-automation,research | page_en=http://localhost:3000/en/models/llama-4-maverick | page_zh=http://localhost:3000/zh-TW/models/llama-4-maverick
-- qwen-3-max | Qwen 3 Max | provider=Alibaba Cloud | official=https://www.alibabacloud.com/product/model-studio | best_use_cases=research,agent-automation | page_en=http://localhost:3000/en/models/qwen-3-max | page_zh=http://localhost:3000/zh-TW/models/qwen-3-max
-- mistral-large-2 | Mistral Large 2 | provider=Mistral | official=https://mistral.ai/products/la-plateforme | best_use_cases=research,coding | page_en=http://localhost:3000/en/models/mistral-large-2 | page_zh=http://localhost:3000/zh-TW/models/mistral-large-2
-- command-a | Command A | provider=Cohere | official=https://cohere.com/ | best_use_cases=research,agent-automation | page_en=http://localhost:3000/en/models/command-a | page_zh=http://localhost:3000/zh-TW/models/command-a
-- perplexity-sonar-reasoning-pro | Sonar Reasoning Pro | provider=Perplexity | official=https://www.perplexity.ai/hub/blog/sonar | best_use_cases=research | page_en=http://localhost:3000/en/models/perplexity-sonar-reasoning-pro | page_zh=http://localhost:3000/zh-TW/models/perplexity-sonar-reasoning-pro
+- gpt-5-4-pro | GPT-5.4 Pro | provider=openai | best_for=coding,research,agent-automation | works_with=Codex CLI,LangGraph,MCP servers,Playwright | official=https://openai.com/api/
+- gpt-5-mini | GPT-5 Mini | provider=openai | best_for=agent-automation,research | works_with=n8n,Zapier AI Actions,1Password CLI,MCP servers | official=https://openai.com/api/
+- claude-3-7-sonnet | Claude 3.7 Sonnet | provider=anthropic | best_for=coding,research | works_with=Claude Code,LangGraph,Playwright,MCP servers | official=https://www.anthropic.com/claude
+- claude-3-5-haiku | Claude 3.5 Haiku | provider=anthropic | best_for=research,agent-automation | works_with=LangGraph,SerpApi,Slack assistants | official=https://www.anthropic.com/claude
+- gemini-2-5-pro | Gemini 2.5 Pro | provider=google | best_for=research,agent-automation | works_with=Notebook workflows,Document analysis,n8n,Vertex AI stacks | official=https://ai.google.dev/gemini-api
+- gemini-2-5-flash | Gemini 2.5 Flash | provider=google | best_for=agent-automation,research | works_with=Routing layers,Multimodal inboxes,n8n,Vertex AI stacks | official=https://ai.google.dev/gemini-api
+- grok-3-beta | Grok 3 Beta | provider=xai | best_for=research | works_with=Fresh web scans,Market monitoring,social-context workflows | official=https://x.ai/
+- deepseek-r1 | DeepSeek R1 | provider=deepseek | best_for=coding,research | works_with=Cost-sensitive reasoning stacks,batch analysis,fallback reasoning lanes | official=https://www.deepseek.com/
+- llama-4-maverick | Llama 4 Maverick | provider=meta | best_for=agent-automation,research | works_with=self-hosted inference,vector retrieval,custom fine-tuning | official=https://ai.meta.com/llama/
+- qwen-3-max | Qwen 3 Max | provider=alibaba-cloud | best_for=research,agent-automation | works_with=multilingual support workflows,enterprise copilots,Asian-market products | official=https://www.alibabacloud.com/product/model-studio
+- mistral-large-2 | Mistral Large 2 | provider=mistral | best_for=research,coding | works_with=EU deployment needs,internal copilots,API-first stacks | official=https://mistral.ai/products/la-plateforme
+- command-a | Command A | provider=cohere | best_for=research,agent-automation | works_with=RAG stacks,enterprise search,business writing workflows | official=https://cohere.com/
+- perplexity-sonar-reasoning-pro | Sonar Reasoning Pro | provider=perplexity | best_for=research | works_with=citation-heavy briefs,market scans,answer-grounding workflows | official=https://www.perplexity.ai/hub/blog/sonar
 
 [entities.skills]
-- codex-cli | Codex CLI | category=Coding agent | source=GitHub | providers=OpenAI | page_en=http://localhost:3000/en/skills/codex-cli | page_zh=http://localhost:3000/zh-TW/skills/codex-cli
-- claude-code | Claude Code | category=Coding agent | source=Docs | providers=Anthropic | page_en=http://localhost:3000/en/skills/claude-code | page_zh=http://localhost:3000/zh-TW/skills/claude-code
-- langgraph | LangGraph | category=Agent orchestration | source=Docs | providers=OpenAI,Anthropic,Google,Meta | page_en=http://localhost:3000/en/skills/langgraph | page_zh=http://localhost:3000/zh-TW/skills/langgraph
-- n8n | n8n | category=Automation | source=Website | providers=OpenAI,Anthropic,Google,Cohere | page_en=http://localhost:3000/en/skills/n8n | page_zh=http://localhost:3000/zh-TW/skills/n8n
-- playwright | Playwright | category=Browser automation | source=Docs | providers=Any | page_en=http://localhost:3000/en/skills/playwright | page_zh=http://localhost:3000/zh-TW/skills/playwright
-- openai-whisper | OpenAI Whisper | category=Speech to text | source=GitHub | providers=OpenAI,Local | page_en=http://localhost:3000/en/skills/openai-whisper | page_zh=http://localhost:3000/zh-TW/skills/openai-whisper
-- 1password-cli | 1Password CLI | category=Secrets | source=Docs | providers=Any | page_en=http://localhost:3000/en/skills/1password-cli | page_zh=http://localhost:3000/zh-TW/skills/1password-cli
-- weaviate | Weaviate | category=Vector retrieval | source=Website | providers=OpenAI,Anthropic,Google,Meta,Any | page_en=http://localhost:3000/en/skills/weaviate | page_zh=http://localhost:3000/zh-TW/skills/weaviate
-- serpapi | SerpApi | category=Research search | source=Website | providers=Any | page_en=http://localhost:3000/en/skills/serpapi | page_zh=http://localhost:3000/zh-TW/skills/serpapi
-- mcp-toolbox | MCP Toolbox | category=Tool protocol | source=Docs | providers=OpenAI,Anthropic,Any | page_en=http://localhost:3000/en/skills/mcp-toolbox | page_zh=http://localhost:3000/zh-TW/skills/mcp-toolbox
-- obsidian-memory-vault | Obsidian Memory Vault | category=Knowledge memory | source=Website | providers=Any | page_en=http://localhost:3000/en/skills/obsidian-memory-vault | page_zh=http://localhost:3000/zh-TW/skills/obsidian-memory-vault
-- zapier-ai-actions | Zapier AI Actions | category=Automation | source=Website | providers=OpenAI,Anthropic,Google,Any | page_en=http://localhost:3000/en/skills/zapier-ai-actions | page_zh=http://localhost:3000/zh-TW/skills/zapier-ai-actions
-- e2b-sandbox | E2B Sandbox | category=Execution runtime | source=Website | providers=Any | page_en=http://localhost:3000/en/skills/e2b-sandbox | page_zh=http://localhost:3000/zh-TW/skills/e2b-sandbox
-
-[entities.use_cases]
-- coding | Coding copilots & repo execution | recommended_models=gpt-5-4-pro,claude-3-7-sonnet,deepseek-r1 | recommended_skills=codex-cli,claude-code,playwright,e2b-sandbox | page_en=http://localhost:3000/en/use-cases/coding | page_zh=http://localhost:3000/zh-TW/use-cases/coding
-- research | Research synthesis & analyst workflows | recommended_models=gemini-2-5-pro,claude-3-7-sonnet,perplexity-sonar-reasoning-pro | recommended_skills=serpapi,weaviate,openai-whisper,obsidian-memory-vault | page_en=http://localhost:3000/en/use-cases/research | page_zh=http://localhost:3000/zh-TW/use-cases/research
-- agent-automation | Agent automation & operations | recommended_models=gpt-5-mini,gpt-5-4-pro,gemini-2-5-flash | recommended_skills=langgraph,n8n,1password-cli,mcp-toolbox | page_en=http://localhost:3000/en/use-cases/agent-automation | page_zh=http://localhost:3000/zh-TW/use-cases/agent-automation
+- codex-cli | Codex CLI | type=coding | install=npm | deployment=local | providers=openai | preferred_source=https://github.com/openai/codex
+- claude-code | Claude Code | type=coding | install=npm | deployment=local | providers=anthropic | preferred_source=https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview
+- langgraph | LangGraph | type=workflow | install=pip | deployment=hybrid | providers=openai,anthropic,google,meta | preferred_source=https://langchain-ai.github.io/langgraph/
+- n8n | n8n | type=workflow | install=hosted | deployment=hybrid | providers=openai,anthropic,google,cohere | preferred_source=https://docs.n8n.io/
+- playwright | Playwright | type=browser | install=npm | deployment=local | providers=any | preferred_source=https://playwright.dev/docs/intro
+- openai-whisper | OpenAI Whisper | type=extraction | install=pip | deployment=local | providers=openai,local | preferred_source=https://github.com/openai/whisper
+- 1password-cli | 1Password CLI | type=security | install=manual | deployment=hybrid | providers=any | preferred_source=https://developer.1password.com/docs/cli/
+- weaviate | Weaviate | type=connector | install=hosted | deployment=hybrid | providers=openai,anthropic,google,meta,any | preferred_source=https://docs.weaviate.io/
+- serpapi | SerpApi | type=search | install=hosted | deployment=hosted | providers=any | preferred_source=https://serpapi.com/search-api
+- mcp-toolbox | MCP Toolbox | type=mcp | install=manual | deployment=hybrid | providers=openai,anthropic,any | preferred_source=https://modelcontextprotocol.io/introduction
+- obsidian-memory-vault | Obsidian Memory Vault | type=memory | install=manual | deployment=local | providers=any | preferred_source=https://help.obsidian.md/
+- zapier-ai-actions | Zapier AI Actions | type=workflow | install=hosted | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://zapier.com/ai
+- e2b-sandbox | E2B Sandbox | type=connector | install=hosted | deployment=hosted | providers=any | preferred_source=https://e2b.dev/docs
 
 [crawl_hints]
 - Prefer localized HTML pages for human-readable summaries and editorial context.
-- Prefer JSON endpoints for structured ingestion, catalog refreshes, and field-level extraction.
-- Scores are editorial guidance, not official vendor benchmark claims.
+- Prefer JSON endpoints for structured ingestion, shortlist generation, and compatibility analysis.
+- Scores are editorial guidance, not vendor benchmark claims.

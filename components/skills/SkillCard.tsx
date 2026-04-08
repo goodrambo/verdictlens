@@ -43,7 +43,7 @@ export function SkillCard({ skill, locale }: { skill: Skill; locale: Locale }) {
       </div>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
-        <ExternalLink href={skill.officialUrl} subtle>
+        <ExternalLink href={skill.preferredSourceUrl} subtle>
           {copy.labels.officialSource}
         </ExternalLink>
         <Link href={`/${locale}/skills/${skill.slug}`} className="btn-primary ml-auto">

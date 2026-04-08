@@ -4,148 +4,102 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Skill } from '@/lib/types';
-import { ui, pick } from '@/lib/i18n';
-import { easeOfSetupScore, localizeDifficulty, localizeUseCase, providerNames, scoreTone } from '@/lib/helpers';
+import { pick, ui } from '@/lib/i18n';
+import { easeOfSetupScore, formatDate, getPrimarySource, localizeDifficulty, localizeUseCase, providerNames, scoreTone, skillBestFor } from '@/lib/helpers';
 
-type SkillSortKey = 'overall' | 'name' | 'category' | 'compatibility' | 'setup';
-type SortDirection = 'asc' | 'desc';
+type SkillSortKey = 'overall' | 'name' | 'compatibility' | 'setup';
 
 export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Locale }) {
   const copy = ui[locale];
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('all');
-  const [difficulty, setDifficulty] = useState('all');
+  const [skillType, setSkillType] = useState('all');
   const [provider, setProvider] = useState('all');
   const [useCase, setUseCase] = useState('all');
   const [sortKey, setSortKey] = useState<SkillSortKey>('overall');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
 
-  const categories = useMemo(() => Array.from(new Set(skills.map((item) => item.category))).sort(), [skills]);
+  const skillTypes = useMemo(() => Array.from(new Set(skills.map((item) => item.skillType))).sort(), [skills]);
   const providers = useMemo(() => Array.from(new Set(skills.flatMap((item) => item.supportedProviderIds))).sort(), [skills]);
-  const useCases = useMemo(() => Array.from(new Set(skills.flatMap((item) => item.bestUseCases))), [skills]);
-
-  const rankMap = useMemo(
-    () =>
-      Object.fromEntries(
-        [...skills]
-          .sort((a, b) => b.overallScore - a.overallScore || a.name.localeCompare(b.name))
-          .map((item, index) => [item.slug, index + 1]),
-      ),
-    [skills],
-  );
+  const useCases = useMemo(() => Array.from(new Set(skills.flatMap((item) => skillBestFor(item)))).sort(), [skills]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const result = skills.filter((item) => {
-      const text = `${item.name} ${item.category} ${item.tags.join(' ')} ${providerNames(item.supportedProviderIds).join(' ')} ${item.bestUseCases.join(' ')}`.toLowerCase();
-      return (
-        (!q || text.includes(q)) &&
-        (category === 'all' || item.category === category) &&
-        (difficulty === 'all' || item.installDifficulty === difficulty) &&
-        (provider === 'all' || item.supportedProviderIds.includes(provider as Skill['supportedProviderIds'][number])) &&
-        (useCase === 'all' || item.bestUseCases.includes(useCase))
-      );
-    });
 
-    const direction = sortDirection === 'asc' ? 1 : -1;
+    return [...skills]
+      .filter((item) => {
+        const searchable = [
+          item.name,
+          item.category,
+          item.skillType,
+          ...item.tags,
+          ...item.worksWith,
+          ...providerNames(item.supportedProviderIds),
+          ...skillBestFor(item),
+          ...item.capabilities,
+        ]
+          .join(' ')
+          .toLowerCase();
 
-    return result.sort((a, b) => {
-      let value = 0;
-
-      if (sortKey === 'name') value = a.name.localeCompare(b.name);
-      else if (sortKey === 'category') value = a.category.localeCompare(b.category) || b.overallScore - a.overallScore;
-      else if (sortKey === 'compatibility') value = a.compatibilityScore - b.compatibilityScore || a.supportedProviderIds.length - b.supportedProviderIds.length;
-      else if (sortKey === 'setup') value = easeOfSetupScore(a.installDifficulty, a.easeOfSetupScore) - easeOfSetupScore(b.installDifficulty, b.easeOfSetupScore);
-      else value = a.overallScore - b.overallScore || a.name.localeCompare(b.name);
-
-      return value * direction;
-    });
-  }, [skills, category, difficulty, provider, query, sortDirection, sortKey, useCase]);
-
-  function updateSort(nextKey: SkillSortKey) {
-    if (nextKey === sortKey) {
-      setSortDirection((current) => (current === 'desc' ? 'asc' : 'desc'));
-      return;
-    }
-
-    setSortKey(nextKey);
-    setSortDirection(nextKey === 'name' || nextKey === 'category' ? 'asc' : 'desc');
-  }
+        return (!q || searchable.includes(q)) && (skillType === 'all' || item.skillType === skillType) && (provider === 'all' || item.supportedProviderIds.includes(provider as Skill['supportedProviderIds'][number])) && (useCase === 'all' || skillBestFor(item).includes(useCase));
+      })
+      .sort((a, b) => {
+        if (sortKey === 'name') return a.name.localeCompare(b.name);
+        if (sortKey === 'compatibility') return b.compatibilityScore - a.compatibilityScore || b.supportedProviderIds.length - a.supportedProviderIds.length;
+        if (sortKey === 'setup') return easeOfSetupScore(b.installDifficulty, b.easeOfSetupScore) - easeOfSetupScore(a.installDifficulty, a.easeOfSetupScore) || a.name.localeCompare(b.name);
+        return b.overallScore - a.overallScore || a.name.localeCompare(b.name);
+      });
+  }, [provider, query, skillType, skills, sortKey, useCase]);
 
   function clearFilters() {
     setQuery('');
-    setCategory('all');
-    setDifficulty('all');
+    setSkillType('all');
     setProvider('all');
     setUseCase('all');
     setSortKey('overall');
-    setSortDirection('desc');
   }
-
-  const sortOptions: { key: SkillSortKey; label: string }[] = [
-    { key: 'overall', label: copy.labels.sortTop },
-    { key: 'compatibility', label: copy.labels.compatibilitySupport },
-    { key: 'setup', label: copy.labels.setupDifficulty },
-    { key: 'name', label: copy.labels.name },
-    { key: 'category', label: copy.labels.category },
-  ];
-
-  const activeFilterCount = [query, category !== 'all', difficulty !== 'all', provider !== 'all', useCase !== 'all'].filter(Boolean).length;
-  const leader = filtered[0];
 
   return (
     <div className="space-y-6 md:space-y-7">
-      <section className="panel p-4 md:p-6">
-        <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-          <div className="max-w-3xl">
-            <p className="text-label text-[var(--accent-2)]">{locale === 'en' ? 'AI skills and tooling' : 'AI 技能與工具層'}</p>
+      <section className="panel p-5 md:p-6">
+        <div className="grid gap-5 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
+          <div>
+            <p className="text-label text-[var(--accent-2)]">{locale === 'en' ? 'Normalized skill registry' : '正規化技能 registry'}</p>
             <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl [text-wrap:balance]">
-              {locale === 'en' ? 'The operational layer, organized for faster decisions.' : '把落地工具層整理成更容易判斷的清單。'}
+              {locale === 'en' ? 'Skills are treated as compatibility and operations infrastructure.' : '把 Skills 當成相容性與營運基礎設施來整理。'}
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-muted)] md:text-base">
               {locale === 'en'
-                ? 'Official sources, provider coverage, setup effort, and workflow fit stay visible row by row so teams can evaluate supporting tools quickly.'
-                : '把官方來源、供應商支援、設定成本與工作流適配逐列攤開，讓團隊更快看懂支援工具值不值得用。'}
+                ? 'Official sources, install method, deployment model, permission posture, provider support, and works-with relationships are first-class fields so this can evolve into a real registry and routing layer later.'
+                : '把官方來源、安裝方式、部署模式、權限姿態、供應商支援與 works-with 關係都做成一等欄位，未來才有機會自然長成真正的 registry 與 routing layer。'}
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3 xl:min-w-[28rem]">
-            <MetricCard label={copy.labels.results} value={String(filtered.length)} tone="accent" />
-            <MetricCard label={copy.labels.overallScore} value={leader ? String(leader.overallScore) : '—'} tone="secondary" />
-            <MetricCard label={locale === 'en' ? 'Leading category' : '目前領先分類'} value={leader?.category ?? '—'} tone="neutral" />
+          <div className="grid gap-3 sm:grid-cols-3">
+            <MetricCard label={copy.labels.results} value={String(filtered.length)} />
+            <MetricCard label={copy.labels.supportedProviders} value={String(providers.length)} />
+            <MetricCard label={copy.labels.sourceSignals} value={locale === 'en' ? 'Official-first' : '官方優先'} />
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
             <span>{copy.labels.search}</span>
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder={locale === 'en' ? 'Search by skill, category, provider, or workflow' : '依技能、分類、供應商或工作流搜尋'}
+              placeholder={locale === 'en' ? 'Search by skill, type, provider, or capability' : '依技能、類型、供應商或能力搜尋'}
               className="input-base"
             />
           </label>
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
-            <span>{copy.labels.category}</span>
-            <select value={category} onChange={(event) => setCategory(event.target.value)} className="input-base">
+            <span>{locale === 'en' ? 'Registry type' : 'Registry 類型'}</span>
+            <select value={skillType} onChange={(event) => setSkillType(event.target.value)} className="input-base">
               <option value="all">{copy.labels.all}</option>
-              {categories.map((item) => (
+              {skillTypes.map((item) => (
                 <option key={item} value={item}>
                   {item}
                 </option>
               ))}
-            </select>
-          </label>
-
-          <label className="space-y-2 text-sm text-[var(--text-muted)]">
-            <span>{copy.labels.difficulty}</span>
-            <select value={difficulty} onChange={(event) => setDifficulty(event.target.value)} className="input-base">
-              <option value="all">{copy.labels.all}</option>
-              <option value="Easy">{localizeDifficulty(locale, 'Easy')}</option>
-              <option value="Moderate">{localizeDifficulty(locale, 'Moderate')}</option>
-              <option value="Advanced">{localizeDifficulty(locale, 'Advanced')}</option>
             </select>
           </label>
 
@@ -162,7 +116,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           </label>
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
-            <span>{copy.labels.useCase}</span>
+            <span>{copy.labels.bestFor}</span>
             <select value={useCase} onChange={(event) => setUseCase(event.target.value)} className="input-base">
               <option value="all">{copy.labels.all}</option>
               {useCases.map((item) => (
@@ -175,190 +129,169 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
         </div>
 
         <div className="mt-5 flex flex-wrap items-center gap-2">
-          {sortOptions.map((option) => {
-            const active = sortKey === option.key;
-            return (
-              <button key={option.key} type="button" onClick={() => updateSort(option.key)} className={clsx('chip text-sm transition', active ? 'border-[var(--border-strong-2)] bg-[var(--accent-soft-2)] text-white' : 'text-[var(--text-muted)] hover:border-white/20 hover:bg-white/8 hover:text-white')}>
-                {option.label}
-                {active ? <span className="text-xs opacity-70">{sortDirection === 'desc' ? '↓' : '↑'}</span> : null}
-              </button>
-            );
-          })}
-
+          {[
+            { key: 'overall' as const, label: copy.labels.sortTop },
+            { key: 'compatibility' as const, label: copy.labels.compatibilitySupport },
+            { key: 'setup' as const, label: copy.labels.setupDifficulty },
+            { key: 'name' as const, label: copy.labels.name },
+          ].map((option) => (
+            <button
+              key={option.key}
+              type="button"
+              onClick={() => setSortKey(option.key)}
+              className={clsx(
+                'chip text-sm transition',
+                sortKey === option.key ? 'border-[var(--border-strong-2)] bg-[var(--accent-soft-2)] text-white' : 'text-[var(--text-muted)] hover:border-white/20 hover:bg-white/8 hover:text-white',
+              )}
+            >
+              {option.label}
+            </button>
+          ))}
           <button type="button" onClick={clearFilters} className="chip ml-auto text-sm text-[var(--text-muted)] hover:border-white/20 hover:bg-white/8 hover:text-white">
             {copy.labels.clearFilters}
-            {activeFilterCount ? <span className="ml-2 rounded-full bg-white/10 px-2 py-0.5 text-xs text-white">{activeFilterCount}</span> : null}
           </button>
         </div>
       </section>
 
-      {filtered.length ? (
-        <>
-          <section className="hidden overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.045] shadow-[var(--shadow-soft)] backdrop-blur-xl lg:block">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[1260px] border-collapse text-left">
-                <thead>
-                  <tr className="border-b border-white/10 bg-[var(--surface-2)] text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted-2)]">
-                    <SortableHead label={copy.labels.rank} active={sortKey === 'overall'} direction={sortDirection} onClick={() => updateSort('overall')} />
-                    <SortableHead label={copy.labels.name} active={sortKey === 'name'} direction={sortDirection} onClick={() => updateSort('name')} wide />
-                    <SortableHead label={copy.labels.category} active={sortKey === 'category'} direction={sortDirection} onClick={() => updateSort('category')} />
-                    <SortableHead label={copy.labels.overallScore} active={sortKey === 'overall'} direction={sortDirection} onClick={() => updateSort('overall')} />
-                    <SortableHead label={copy.labels.compatibilitySupport} active={sortKey === 'compatibility'} direction={sortDirection} onClick={() => updateSort('compatibility')} />
-                    <SortableHead label={copy.labels.setupDifficulty} active={sortKey === 'setup'} direction={sortDirection} onClick={() => updateSort('setup')} />
-                    <th className="px-5 py-4 font-medium">{copy.labels.officialLink}</th>
-                    <th className="px-5 py-4 font-medium">{copy.labels.viewDetails}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map((skill, index) => (
-                    <tr key={skill.slug} className={clsx('border-b border-white/6 align-top text-[15px] text-slate-200 transition hover:bg-[var(--accent-soft-2)]', index % 2 === 0 ? 'bg-white/[0.015]' : undefined)}>
-                      <td className="px-5 py-5">
-                        <div className="inline-flex min-w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/6 px-3 py-2 text-sm font-semibold text-white">
-                          #{rankMap[skill.slug]}
+      <section className="hidden overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.045] shadow-[var(--shadow-soft)] backdrop-blur-xl lg:block">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[1420px] border-collapse text-left">
+            <thead>
+              <tr className="border-b border-white/10 bg-[var(--surface-2)] text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted-2)]">
+                <th className="px-5 py-4 font-medium">{copy.labels.name}</th>
+                <th className="px-5 py-4 font-medium">{copy.labels.bestFor}</th>
+                <th className="px-5 py-4 font-medium">{copy.labels.worksWith}</th>
+                <th className="px-5 py-4 font-medium">{copy.labels.installMethod}</th>
+                <th className="px-5 py-4 font-medium">{copy.labels.trustSignals}</th>
+                <th className="px-5 py-4 font-medium">{copy.labels.viewDetails}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((skill, index) => {
+                const primarySource = getPrimarySource(skill);
+
+                return (
+                  <tr key={skill.slug} className={clsx('border-b border-white/6 align-top text-[15px] text-slate-200 transition hover:bg-[var(--accent-soft-2)]', index % 2 === 0 ? 'bg-white/[0.015]' : undefined)}>
+                    <td className="px-5 py-5">
+                      <div className="min-w-[18rem] max-w-[20rem]">
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <div className="text-base font-semibold text-white">{skill.displayName}</div>
+                            <div className="mt-1 text-sm text-[var(--text-muted)]">{skill.category} · {skill.skillType}</div>
+                          </div>
+                          <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
+                            <div className="text-[11px] uppercase tracking-[0.2em] text-white/65">Score</div>
+                            <div className="text-xl font-semibold text-white">{skill.overallScore}</div>
+                          </div>
                         </div>
-                      </td>
-                      <td className="px-5 py-5">
-                        <div className="min-w-[18rem] max-w-[22rem]">
-                          <div className="text-base font-semibold text-white">{skill.name}</div>
-                          <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--text-muted)]">{pick(locale, skill.description)}</p>
-                        </div>
-                      </td>
-                      <td className="px-5 py-5">
-                        <span className="chip text-sm text-white">{skill.category}</span>
-                      </td>
-                      <td className="px-5 py-5">
-                        <div className={clsx('inline-flex min-w-[5.75rem] flex-col rounded-[22px] border border-white/10 bg-gradient-to-br px-3 py-2.5', scoreTone(skill.overallScore))}>
-                          <span className="text-[11px] uppercase tracking-[0.22em] text-white/60">Score</span>
-                          <span className="mt-1 text-2xl font-semibold text-white">{skill.overallScore}</span>
-                        </div>
-                      </td>
-                      <td className="px-5 py-5">
-                        <div className="min-w-[14rem] max-w-[18rem] space-y-2">
-                          <div className="font-medium text-white">{locale === 'en' ? 'Compatibility' : '相容性'} {skill.compatibilityScore}</div>
-                          <div className="text-sm leading-6 text-[var(--text-muted)]">{providerNames(skill.supportedProviderIds).join(' · ')}</div>
-                        </div>
-                      </td>
-                      <td className="px-5 py-5">
-                        <div className="min-w-[10rem] space-y-2">
-                          <span className="inline-flex rounded-full border border-[var(--border-strong-2)] bg-[var(--accent-soft-2)] px-3 py-1.5 text-sm text-white">
-                            {localizeDifficulty(locale, skill.installDifficulty)}
+                        <p className="mt-3 line-clamp-2 text-sm leading-6 text-[var(--text-muted)]">{pick(locale, skill.summary)}</p>
+                      </div>
+                    </td>
+                    <td className="px-5 py-5">
+                      <div className="flex max-w-[14rem] flex-wrap gap-2">
+                        {skillBestFor(skill).map((item) => (
+                          <span key={item} className="chip text-xs text-[var(--text-muted)]">
+                            {localizeUseCase(locale, item)}
                           </span>
-                          <div className="text-sm text-[var(--text-muted)]">{locale === 'en' ? 'Ease score' : '易用分數'} {easeOfSetupScore(skill.installDifficulty, skill.easeOfSetupScore)}</div>
-                        </div>
-                      </td>
-                      <td className="px-5 py-5">
-                        <a href={skill.officialUrl} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm text-[var(--accent)] transition hover:text-white">
-                          {skill.officialSourceLabel} ↗
+                        ))}
+                      </div>
+                    </td>
+                    <td className="px-5 py-5">
+                      <div className="max-w-[18rem] space-y-2 text-sm">
+                        <div className="text-white">{providerNames(skill.supportedProviderIds).join(' · ')}</div>
+                        <div className="text-[var(--text-muted)]">{skill.worksWith.slice(0, 3).join(' · ')}</div>
+                      </div>
+                    </td>
+                    <td className="px-5 py-5">
+                      <div className="min-w-[15rem] space-y-2 text-sm">
+                        <div className="text-white">{skill.installMethod} · {skill.deployment}</div>
+                        <div className="text-[var(--text-muted)]">{localizeDifficulty(locale, skill.installDifficulty)} · {copy.labels.supportedHosts}: {skill.supportedHosts.slice(0, 2).join(' / ')}</div>
+                        <div className="text-[var(--accent-2)]">{locale === 'en' ? 'Permission' : '權限'}: {skill.permissionProfile?.level ?? '—'}</div>
+                      </div>
+                    </td>
+                    <td className="px-5 py-5">
+                      <div className="min-w-[14rem] space-y-2 text-sm">
+                        <a href={primarySource.url} target="_blank" rel="noreferrer" className="inline-flex items-center text-[var(--accent)] hover:text-white">
+                          {primarySource.label} ↗
                         </a>
-                      </td>
-                      <td className="px-5 py-5">
-                        <Link href={`/${locale}/skills/${skill.slug}`} className="btn-primary">
-                          {copy.labels.viewDetails}
-                        </Link>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
+                        <div className="text-[var(--text-muted)]">{copy.labels.lastVerified}: {formatDate(locale, skill.lastVerifiedAt)}</div>
+                      </div>
+                    </td>
+                    <td className="px-5 py-5">
+                      <Link href={`/${locale}/skills/${skill.slug}`} className="btn-primary">
+                        {copy.labels.viewDetails}
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-          <section className="grid gap-4 md:grid-cols-2 lg:hidden">
-            {filtered.map((skill) => (
-              <article key={skill.slug} className="card p-4">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--text-muted)]">
-                      #{rankMap[skill.slug]} · {skill.category}
-                    </div>
-                    <h3 className="mt-3 text-xl font-semibold text-white">{skill.name}</h3>
-                  </div>
-                  <div className={clsx('rounded-[22px] border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-white/60">{copy.labels.overallScore}</div>
-                    <div className="mt-1 text-2xl font-semibold text-white">{skill.overallScore}</div>
-                  </div>
+      <div className="grid gap-4 lg:hidden">
+        {filtered.map((skill) => {
+          const primarySource = getPrimarySource(skill);
+
+          return (
+            <article key={skill.slug} className="card p-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-sm text-[var(--text-muted)]">{skill.category} · {skill.skillType}</div>
+                  <h3 className="mt-1 text-xl font-semibold text-white">{skill.displayName}</h3>
                 </div>
-
-                <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{pick(locale, skill.description)}</p>
-
-                <div className="mt-4 grid gap-3 rounded-[24px] border border-white/8 bg-[var(--surface-2)] p-4 text-sm md:grid-cols-2">
-                  <InfoPair label={copy.labels.compatibilitySupport} value={`${locale === 'en' ? 'Score' : '分數'} ${skill.compatibilityScore} · ${providerNames(skill.supportedProviderIds).join(' · ')}`} />
-                  <InfoPair label={copy.labels.setupDifficulty} value={`${localizeDifficulty(locale, skill.installDifficulty)} · ${locale === 'en' ? 'Ease' : '易用'} ${easeOfSetupScore(skill.installDifficulty, skill.easeOfSetupScore)}`} />
-                  <InfoPair label={copy.labels.bestFor} value={skill.bestUseCases.map((item) => localizeUseCase(locale, item)).join(' · ')} />
-                  <InfoPair label={copy.labels.source} value={skill.officialSourceLabel} />
+                <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-white/65">Score</div>
+                  <div className="text-xl font-semibold text-white">{skill.overallScore}</div>
                 </div>
+              </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {skill.tags.slice(0, 4).map((tag) => (
-                    <span key={tag} className="chip text-xs text-[var(--text-muted)]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{pick(locale, skill.summary)}</p>
 
-                <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <a href={skill.officialUrl} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm text-[var(--accent)] transition hover:text-white">
-                    {copy.labels.officialSource} ↗
-                  </a>
-                  <Link href={`/${locale}/skills/${skill.slug}`} className="btn-primary ml-auto">
-                    {copy.labels.viewDetails}
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </section>
-        </>
-      ) : (
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <InfoBlock label={copy.labels.bestFor} value={skillBestFor(skill).map((item) => localizeUseCase(locale, item)).join(' · ')} />
+                <InfoBlock label={copy.labels.worksWith} value={skill.worksWith.slice(0, 3).join(' · ')} />
+                <InfoBlock label={copy.labels.installMethod} value={`${skill.installMethod} · ${skill.deployment}`} />
+                <InfoBlock label={copy.labels.supportedProviders} value={providerNames(skill.supportedProviderIds).join(' · ')} />
+                <InfoBlock label={copy.labels.supportedHosts} value={skill.supportedHosts.join(' · ')} />
+                <InfoBlock label={copy.labels.lastVerified} value={formatDate(locale, skill.lastVerifiedAt)} />
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                <a href={primarySource.url} target="_blank" rel="noreferrer" className="btn-secondary text-sm">
+                  {copy.labels.preferredSource} ↗
+                </a>
+                <Link href={`/${locale}/skills/${skill.slug}`} className="btn-primary ml-auto">
+                  {copy.labels.viewDetails}
+                </Link>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      {!filtered.length ? (
         <div className="rounded-[28px] border border-dashed border-white/12 bg-white/4 p-10 text-center text-[var(--text-muted)]">{copy.labels.noResults}</div>
-      )}
+      ) : null}
     </div>
   );
 }
 
-function SortableHead({
-  label,
-  active,
-  direction,
-  onClick,
-  wide = false,
-}: {
-  label: string;
-  active: boolean;
-  direction: SortDirection;
-  onClick: () => void;
-  wide?: boolean;
-}) {
+function MetricCard({ label, value }: { label: string; value: string }) {
   return (
-    <th className={clsx('px-5 py-4 font-medium', wide ? 'min-w-[20rem]' : undefined)}>
-      <button type="button" onClick={onClick} className={clsx('inline-flex items-center gap-2 transition', active ? 'text-white' : 'hover:text-slate-200')}>
-        {label}
-        <span className="text-[11px] text-[var(--text-muted-2)]">{active ? (direction === 'desc' ? '↓' : '↑') : '↕'}</span>
-      </button>
-    </th>
-  );
-}
-
-function MetricCard({ label, value, tone }: { label: string; value: string; tone: 'accent' | 'secondary' | 'neutral' }) {
-  const toneClass =
-    tone === 'accent'
-      ? 'border-[var(--border-strong-2)] bg-[var(--accent-soft-2)] text-white'
-      : tone === 'secondary'
-        ? 'border-[var(--border-strong)] bg-[var(--accent-soft)] text-[var(--accent-contrast)]'
-        : 'border-white/10 bg-white/5 text-white';
-
-  return (
-    <div className={clsx('rounded-[24px] border px-4 py-3.5', toneClass)}>
-      <div className="text-[11px] uppercase tracking-[0.24em] text-white/60">{label}</div>
-      <div className="mt-2 text-xl font-semibold leading-7">{value}</div>
+    <div className="panel-subtle p-4">
+      <div className="text-xs uppercase tracking-[0.22em] text-[var(--text-muted-2)]">{label}</div>
+      <div className="mt-2 text-lg font-semibold text-white">{value}</div>
     </div>
   );
 }
 
-function InfoPair({ label, value }: { label: string; value: string }) {
+function InfoBlock({ label, value }: { label: string; value: string }) {
   return (
-    <div>
-      <div className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted-2)]">{label}</div>
-      <div className="mt-2 text-sm leading-6 text-white">{value}</div>
+    <div className="panel-subtle p-3.5">
+      <div className="text-xs uppercase tracking-[0.22em] text-[var(--text-muted-2)]">{label}</div>
+      <div className="mt-2 text-sm leading-6 text-white">{value || '—'}</div>
     </div>
   );
 }

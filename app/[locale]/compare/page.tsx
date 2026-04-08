@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { CompareWorkbench } from '@/components/compare/CompareWorkbench';
 import { SectionIntro } from '@/components/shared/SectionIntro';
 import { models } from '@/lib/data';
@@ -10,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const copy = ui[locale];
   const description =
     locale === 'en'
-      ? 'Compare AI models side by side across score, pricing, speed, context window, and official links.'
-      : '並排比較 AI 模型的分數、價格、速度、上下文視窗與官方連結。';
+      ? 'Compare shortlisted AI models side by side across practical fit, pricing, speed, official links, and workflow support.'
+      : '把 shortlisted AI 模型並排比較，集中檢視實際適配、價格、速度、官方連結與工作流支援。';
 
   return buildMetadata({
     title: `${siteName} — ${copy.compare.title}`,
@@ -29,7 +30,9 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
     <main>
       <div className="container-shell py-10 md:py-14">
         <SectionIntro eyebrow={copy.nav.compare} title={copy.compare.title} body={copy.compare.body} />
-        <CompareWorkbench models={models} locale={locale} />
+        <Suspense fallback={<div className="rounded-[28px] border border-white/10 bg-white/4 p-8 text-sm text-[var(--text-muted)]">{copy.compare.shortlistHint}</div>}>
+          <CompareWorkbench models={models} locale={locale} initialSelected={[]} />
+        </Suspense>
       </div>
     </main>
   );

@@ -1,21 +1,46 @@
 {
-  "updatedAt": "2026-04-08T20:30:01.146Z",
+  "updatedAt": "2026-04-08T21:37:09.585Z",
   "count": 13,
+  "registryReady": true,
   "items": [
     {
       "slug": "codex-cli",
       "name": "Codex CLI",
       "category": "Coding agent",
+      "skillType": "coding",
       "officialUrl": "https://github.com/openai/codex",
+      "repoUrl": "https://github.com/openai/codex",
+      "preferredSourceUrl": "https://github.com/openai/codex",
       "officialSourceLabel": "GitHub",
       "description": {
         "en": "Terminal-native coding agent workflow for implementing features, refactors, and technical reviews from a real repo.",
         "zh-TW": "終端機原生的 coding agent 工作流，可直接在真實 repo 中完成功能、重構與技術審查。"
       },
+      "providerId": "openai",
       "supportedProviderIds": [
         "openai"
       ],
+      "supportedHosts": [
+        "CLI",
+        "Repo workspace"
+      ],
+      "capabilities": [
+        "multi-file edits",
+        "repo-aware execution",
+        "review loops",
+        "commit assistance"
+      ],
+      "auth": {
+        "type": "api-key",
+        "notes": "Requires provider auth and repo access."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Acts directly inside repositories."
+      },
       "installDifficulty": "Moderate",
+      "installMethod": "npm",
+      "deployment": "local",
       "utilityScore": 95,
       "compatibilityScore": 86,
       "reliabilityScore": 89,
@@ -26,6 +51,11 @@
       "bestUseCases": [
         "coding",
         "agent-automation"
+      ],
+      "worksWith": [
+        "OpenAI models",
+        "Git repos",
+        "terminal-first dev workflows"
       ],
       "tags": [
         "terminal",
@@ -52,26 +82,84 @@
           "zh-TW": "互動型行為很依賴支援 PTY 的工具環境"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78,
-      "supportedProviders": [
-        "OpenAI"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:codex-cli",
+      "status": "active",
+      "displayName": "Codex CLI",
+      "summary": {
+        "en": "Terminal-native coding agent workflow for implementing features, refactors, and technical reviews from a real repo.",
+        "zh-TW": "終端機原生的 coding agent 工作流，可直接在真實 repo 中完成功能、重構與技術審查。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "github:codex-cli-repo",
+          "label": "Codex CLI repo",
+          "url": "https://github.com/openai/codex",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "manual-review:codex-cli-verdictlens-review",
+          "label": "Codex CLI VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "claude-code",
       "name": "Claude Code",
       "category": "Coding agent",
+      "skillType": "coding",
       "officialUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+      "docsUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+      "preferredSourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
       "officialSourceLabel": "Docs",
       "description": {
         "en": "Strong coding and refactor assistant with especially high-quality explanations and calm change planning.",
         "zh-TW": "擅長程式與重構的助理，特別強在高品質說明與穩健的變更規劃。"
       },
+      "providerId": "anthropic",
       "supportedProviderIds": [
         "anthropic"
       ],
+      "supportedHosts": [
+        "CLI",
+        "Repo workspace"
+      ],
+      "capabilities": [
+        "diff-aware refactors",
+        "code review feedback",
+        "change planning"
+      ],
+      "auth": {
+        "type": "api-key"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Designed for direct codebase operations."
+      },
       "installDifficulty": "Moderate",
+      "installMethod": "npm",
+      "deployment": "local",
       "utilityScore": 92,
       "compatibilityScore": 84,
       "reliabilityScore": 91,
@@ -81,6 +169,11 @@
       "overallScore": 87,
       "bestUseCases": [
         "coding"
+      ],
+      "worksWith": [
+        "Anthropic models",
+        "repo refactors",
+        "review-oriented workflows"
       ],
       "tags": [
         "coding",
@@ -107,17 +200,55 @@
           "zh-TW": "要發揮最佳效果，提示範圍需要夠清楚"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78,
-      "supportedProviders": [
-        "Anthropic"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:claude-code",
+      "status": "active",
+      "displayName": "Claude Code",
+      "summary": {
+        "en": "Strong coding and refactor assistant with especially high-quality explanations and calm change planning.",
+        "zh-TW": "擅長程式與重構的助理，特別強在高品質說明與穩健的變更規劃。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "coding"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:claude-code-docs",
+          "label": "Claude Code docs",
+          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "manual-review:claude-code-verdictlens-review",
+          "label": "Claude Code VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "langgraph",
       "name": "LangGraph",
       "category": "Agent orchestration",
+      "skillType": "workflow",
       "officialUrl": "https://langchain-ai.github.io/langgraph/",
+      "docsUrl": "https://langchain-ai.github.io/langgraph/",
+      "preferredSourceUrl": "https://langchain-ai.github.io/langgraph/",
       "officialSourceLabel": "Docs",
       "description": {
         "en": "Graph-based runtime for durable agent workflows, branching logic, and stateful multi-step execution.",
@@ -129,7 +260,27 @@
         "google",
         "meta"
       ],
+      "supportedHosts": [
+        "Python apps",
+        "Node apps",
+        "agent backends"
+      ],
+      "capabilities": [
+        "durable state",
+        "branching",
+        "multi-agent routing",
+        "checkpointing"
+      ],
+      "auth": {
+        "type": "none"
+      },
+      "permissionProfile": {
+        "level": "medium",
+        "notes": "Depends on connected tools and model permissions."
+      },
       "installDifficulty": "Advanced",
+      "installMethod": "pip",
+      "deployment": "hybrid",
       "utilityScore": 93,
       "compatibilityScore": 90,
       "reliabilityScore": 88,
@@ -140,6 +291,12 @@
       "bestUseCases": [
         "agent-automation",
         "research"
+      ],
+      "worksWith": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "tool-rich workflows"
       ],
       "tags": [
         "graph",
@@ -166,20 +323,56 @@
           "zh-TW": "若缺乏架構紀律，圖會很快失控"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 62,
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Meta"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:langgraph",
+      "status": "active",
+      "displayName": "LangGraph",
+      "summary": {
+        "en": "Graph-based runtime for durable agent workflows, branching logic, and stateful multi-step execution.",
+        "zh-TW": "圖狀工作流框架，適合有狀態、多分支、可恢復的 agent 執行流程。"
+      },
+      "setupDifficulty": "advanced",
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:langgraph-docs",
+          "label": "LangGraph docs",
+          "url": "https://langchain-ai.github.io/langgraph/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "manual-review:langgraph-verdictlens-review",
+          "label": "LangGraph VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "n8n",
       "name": "n8n",
       "category": "Automation",
+      "skillType": "workflow",
       "officialUrl": "https://n8n.io/",
+      "docsUrl": "https://docs.n8n.io/",
+      "preferredSourceUrl": "https://docs.n8n.io/",
       "officialSourceLabel": "Website",
       "description": {
         "en": "Popular workflow builder for gluing APIs, LLM calls, and back-office tasks into practical automations.",
@@ -191,7 +384,27 @@
         "google",
         "cohere"
       ],
+      "supportedHosts": [
+        "Hosted app",
+        "Self-hosted",
+        "browser UI"
+      ],
+      "capabilities": [
+        "drag-and-drop workflows",
+        "connectors",
+        "scheduled automations",
+        "webhooks"
+      ],
+      "auth": {
+        "type": "oauth"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Often touches production systems and SaaS accounts."
+      },
       "installDifficulty": "Easy",
+      "installMethod": "hosted",
+      "deployment": "hybrid",
       "utilityScore": 90,
       "compatibilityScore": 92,
       "reliabilityScore": 84,
@@ -201,6 +414,11 @@
       "overallScore": 86,
       "bestUseCases": [
         "agent-automation"
+      ],
+      "worksWith": [
+        "SaaS connectors",
+        "LLM APIs",
+        "ops workflows"
       ],
       "tags": [
         "workflow",
@@ -227,20 +445,66 @@
           "zh-TW": "碰到敏感系統時仍需要治理與權限控管"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94,
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Cohere"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:n8n",
+      "status": "active",
+      "displayName": "n8n",
+      "summary": {
+        "en": "Popular workflow builder for gluing APIs, LLM calls, and back-office tasks into practical automations.",
+        "zh-TW": "高人氣工作流工具，適合把 API、LLM 呼叫與後台作業串成實用自動化。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:n8n-docs",
+          "label": "n8n docs",
+          "url": "https://docs.n8n.io/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:n8n-official",
+          "label": "n8n official",
+          "url": "https://n8n.io/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:n8n-verdictlens-review",
+          "label": "n8n VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "playwright",
       "name": "Playwright",
       "category": "Browser automation",
+      "skillType": "browser",
       "officialUrl": "https://playwright.dev/",
+      "docsUrl": "https://playwright.dev/docs/intro",
+      "preferredSourceUrl": "https://playwright.dev/docs/intro",
       "officialSourceLabel": "Docs",
       "description": {
         "en": "Reliable browser automation layer for agent actions, QA checks, scraping flows, and human-in-the-loop web tasks.",
@@ -249,7 +513,27 @@
       "supportedProviderIds": [
         "any"
       ],
+      "supportedHosts": [
+        "Node apps",
+        "Python apps",
+        "browser testing environments"
+      ],
+      "capabilities": [
+        "browser control",
+        "test automation",
+        "web extraction",
+        "human-in-the-loop actions"
+      ],
+      "auth": {
+        "type": "none"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Acts on external web surfaces and authenticated sessions."
+      },
       "installDifficulty": "Moderate",
+      "installMethod": "npm",
+      "deployment": "local",
       "utilityScore": 91,
       "compatibilityScore": 95,
       "reliabilityScore": 90,
@@ -260,6 +544,11 @@
       "bestUseCases": [
         "agent-automation",
         "research"
+      ],
+      "worksWith": [
+        "any model",
+        "web-actuation stacks",
+        "QA automation"
       ],
       "tags": [
         "browser",
@@ -286,27 +575,97 @@
           "zh-TW": "目標網站 UI 常變時維護成本會升高"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78,
-      "supportedProviders": [
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:playwright",
+      "status": "active",
+      "displayName": "Playwright",
+      "summary": {
+        "en": "Reliable browser automation layer for agent actions, QA checks, scraping flows, and human-in-the-loop web tasks.",
+        "zh-TW": "可靠的瀏覽器自動化層，適合 agent 操作、QA 檢查、爬取流程與人機協作網頁任務。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:playwright-docs",
+          "label": "Playwright docs",
+          "url": "https://playwright.dev/docs/intro",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:playwright-official",
+          "label": "Playwright official",
+          "url": "https://playwright.dev/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:playwright-verdictlens-review",
+          "label": "Playwright VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "openai-whisper",
       "name": "OpenAI Whisper",
       "category": "Speech to text",
+      "skillType": "extraction",
       "officialUrl": "https://github.com/openai/whisper",
+      "repoUrl": "https://github.com/openai/whisper",
+      "preferredSourceUrl": "https://github.com/openai/whisper",
       "officialSourceLabel": "GitHub",
       "description": {
         "en": "Battle-tested transcription layer for meetings, podcasts, multilingual notes, and voice-driven workflows.",
         "zh-TW": "成熟穩定的語音轉文字層，適合會議、Podcast、多語筆記與語音工作流。"
       },
+      "providerId": "openai",
       "supportedProviderIds": [
         "openai",
         "local"
       ],
+      "supportedHosts": [
+        "CLI",
+        "Python apps",
+        "local pipelines"
+      ],
+      "capabilities": [
+        "speech-to-text",
+        "multilingual transcription",
+        "batch audio processing"
+      ],
+      "auth": {
+        "type": "none",
+        "notes": "Local model usage does not require hosted auth."
+      },
+      "permissionProfile": {
+        "level": "low"
+      },
       "installDifficulty": "Easy",
+      "installMethod": "pip",
+      "deployment": "local",
       "utilityScore": 87,
       "compatibilityScore": 89,
       "reliabilityScore": 91,
@@ -317,6 +676,11 @@
       "bestUseCases": [
         "research",
         "agent-automation"
+      ],
+      "worksWith": [
+        "audio pipelines",
+        "meeting notes",
+        "local transcription stacks"
       ],
       "tags": [
         "audio",
@@ -343,18 +707,56 @@
           "zh-TW": "要做漂亮摘要仍需後處理"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94,
-      "supportedProviders": [
-        "OpenAI",
-        "Local runtime"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:openai-whisper",
+      "status": "active",
+      "displayName": "OpenAI Whisper",
+      "summary": {
+        "en": "Battle-tested transcription layer for meetings, podcasts, multilingual notes, and voice-driven workflows.",
+        "zh-TW": "成熟穩定的語音轉文字層，適合會議、Podcast、多語筆記與語音工作流。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "github:openai-whisper-repo",
+          "label": "OpenAI Whisper repo",
+          "url": "https://github.com/openai/whisper",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "manual-review:openai-whisper-verdictlens-review",
+          "label": "OpenAI Whisper VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "1password-cli",
       "name": "1Password CLI",
       "category": "Secrets",
+      "skillType": "security",
       "officialUrl": "https://developer.1password.com/docs/cli/",
+      "docsUrl": "https://developer.1password.com/docs/cli/",
+      "preferredSourceUrl": "https://developer.1password.com/docs/cli/",
       "officialSourceLabel": "Docs",
       "description": {
         "en": "Practical secret access layer for agents and scripts that need secure credential injection without hardcoding.",
@@ -363,7 +765,27 @@
       "supportedProviderIds": [
         "any"
       ],
+      "supportedHosts": [
+        "CLI",
+        "local scripts",
+        "CI environments"
+      ],
+      "capabilities": [
+        "secret injection",
+        "vault access",
+        "credential management"
+      ],
+      "auth": {
+        "type": "local-config",
+        "notes": "Requires local app/session sign-in."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Touches secrets and credentials directly."
+      },
       "installDifficulty": "Moderate",
+      "installMethod": "manual",
+      "deployment": "hybrid",
       "utilityScore": 86,
       "compatibilityScore": 88,
       "reliabilityScore": 93,
@@ -374,6 +796,11 @@
       "bestUseCases": [
         "agent-automation",
         "coding"
+      ],
+      "worksWith": [
+        "agent runtimes",
+        "CI jobs",
+        "local developer machines"
       ],
       "tags": [
         "secrets",
@@ -400,17 +827,56 @@
           "zh-TW": "順暢體驗通常需要桌面整合"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78,
-      "supportedProviders": [
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:1password-cli",
+      "status": "active",
+      "displayName": "1Password CLI",
+      "summary": {
+        "en": "Practical secret access layer for agents and scripts that need secure credential injection without hardcoding.",
+        "zh-TW": "讓 agent 與腳本安全讀取憑證的實用層，可避免把密鑰寫死在程式裡。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "agent-automation",
+        "coding"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:1password-cli-docs",
+          "label": "1Password CLI docs",
+          "url": "https://developer.1password.com/docs/cli/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "manual-review:1password-cli-verdictlens-review",
+          "label": "1Password CLI VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "weaviate",
       "name": "Weaviate",
       "category": "Vector retrieval",
+      "skillType": "connector",
       "officialUrl": "https://weaviate.io/",
+      "docsUrl": "https://docs.weaviate.io/",
+      "preferredSourceUrl": "https://docs.weaviate.io/",
       "officialSourceLabel": "Website",
       "description": {
         "en": "Vector database and retrieval layer for grounding answers, semantic search, and memory-augmented agents.",
@@ -423,7 +889,26 @@
         "meta",
         "any"
       ],
+      "supportedHosts": [
+        "Cloud",
+        "Self-hosted",
+        "Kubernetes"
+      ],
+      "capabilities": [
+        "vector search",
+        "hybrid retrieval",
+        "semantic memory",
+        "RAG backends"
+      ],
+      "auth": {
+        "type": "api-key"
+      },
+      "permissionProfile": {
+        "level": "medium"
+      },
       "installDifficulty": "Advanced",
+      "installMethod": "hosted",
+      "deployment": "hybrid",
       "utilityScore": 88,
       "compatibilityScore": 86,
       "reliabilityScore": 87,
@@ -434,6 +919,11 @@
       "bestUseCases": [
         "research",
         "agent-automation"
+      ],
+      "worksWith": [
+        "RAG systems",
+        "memory-heavy agents",
+        "semantic search"
       ],
       "tags": [
         "retrieval",
@@ -460,21 +950,67 @@
           "zh-TW": "基礎設施維護成本不低"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 62,
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Meta",
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:weaviate",
+      "status": "active",
+      "displayName": "Weaviate",
+      "summary": {
+        "en": "Vector database and retrieval layer for grounding answers, semantic search, and memory-augmented agents.",
+        "zh-TW": "向量資料庫與檢索層，適合做答案 grounding、語意搜尋與記憶增強 agent。"
+      },
+      "setupDifficulty": "advanced",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:weaviate-docs",
+          "label": "Weaviate docs",
+          "url": "https://docs.weaviate.io/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:weaviate-official",
+          "label": "Weaviate official",
+          "url": "https://weaviate.io/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:weaviate-verdictlens-review",
+          "label": "Weaviate VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "serpapi",
       "name": "SerpApi",
       "category": "Research search",
+      "skillType": "search",
       "officialUrl": "https://serpapi.com/",
+      "docsUrl": "https://serpapi.com/search-api",
+      "preferredSourceUrl": "https://serpapi.com/search-api",
       "officialSourceLabel": "Website",
       "description": {
         "en": "Search data API that helps agents gather current web signals with consistent, parseable results.",
@@ -483,7 +1019,25 @@
       "supportedProviderIds": [
         "any"
       ],
+      "supportedHosts": [
+        "API backends",
+        "automation tools",
+        "research stacks"
+      ],
+      "capabilities": [
+        "search API",
+        "SERP extraction",
+        "current web signals"
+      ],
+      "auth": {
+        "type": "api-key"
+      },
+      "permissionProfile": {
+        "level": "low"
+      },
       "installDifficulty": "Easy",
+      "installMethod": "hosted",
+      "deployment": "hosted",
       "utilityScore": 85,
       "compatibilityScore": 91,
       "reliabilityScore": 88,
@@ -494,6 +1048,11 @@
       "bestUseCases": [
         "research",
         "agent-automation"
+      ],
+      "worksWith": [
+        "research agents",
+        "market scans",
+        "evidence gathering"
       ],
       "tags": [
         "search",
@@ -520,17 +1079,67 @@
           "zh-TW": "不同領域的覆蓋品質會有差異"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94,
-      "supportedProviders": [
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:serpapi",
+      "status": "active",
+      "displayName": "SerpApi",
+      "summary": {
+        "en": "Search data API that helps agents gather current web signals with consistent, parseable results.",
+        "zh-TW": "搜尋資料 API，讓 agent 可以穩定取得最新網路訊號與易解析結果。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:serpapi-docs",
+          "label": "SerpApi docs",
+          "url": "https://serpapi.com/search-api",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:serpapi-official",
+          "label": "SerpApi official",
+          "url": "https://serpapi.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:serpapi-verdictlens-review",
+          "label": "SerpApi VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "mcp-toolbox",
       "name": "MCP Toolbox",
       "category": "Tool protocol",
+      "skillType": "mcp",
       "officialUrl": "https://modelcontextprotocol.io/",
+      "docsUrl": "https://modelcontextprotocol.io/introduction",
+      "preferredSourceUrl": "https://modelcontextprotocol.io/introduction",
       "officialSourceLabel": "Docs",
       "description": {
         "en": "A practical toolbox around the Model Context Protocol for exposing actions, files, and resources to compatible agents.",
@@ -541,7 +1150,27 @@
         "anthropic",
         "any"
       ],
+      "supportedHosts": [
+        "desktop agents",
+        "local runtimes",
+        "tool servers"
+      ],
+      "capabilities": [
+        "tool exposure",
+        "resource sharing",
+        "agent protocol normalization"
+      ],
+      "auth": {
+        "type": "custom",
+        "notes": "Depends on host and server design."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Permission model depends on connected tools."
+      },
       "installDifficulty": "Advanced",
+      "installMethod": "manual",
+      "deployment": "hybrid",
       "utilityScore": 89,
       "compatibilityScore": 82,
       "reliabilityScore": 81,
@@ -552,6 +1181,11 @@
       "bestUseCases": [
         "agent-automation",
         "coding"
+      ],
+      "worksWith": [
+        "OpenAI-compatible agents",
+        "Anthropic-compatible agents",
+        "tool servers"
       ],
       "tags": [
         "mcp",
@@ -578,19 +1212,67 @@
           "zh-TW": "權限設計要做得很仔細"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 62,
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:mcp-toolbox",
+      "status": "active",
+      "displayName": "MCP Toolbox",
+      "summary": {
+        "en": "A practical toolbox around the Model Context Protocol for exposing actions, files, and resources to compatible agents.",
+        "zh-TW": "圍繞 Model Context Protocol 的實用工具組，可把動作、檔案與資源暴露給相容 agent。"
+      },
+      "setupDifficulty": "advanced",
+      "bestFor": [
+        "agent-automation",
+        "coding"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:mcp-toolbox-docs",
+          "label": "MCP Toolbox docs",
+          "url": "https://modelcontextprotocol.io/introduction",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:mcp-toolbox-official",
+          "label": "MCP Toolbox official",
+          "url": "https://modelcontextprotocol.io/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:mcp-toolbox-verdictlens-review",
+          "label": "MCP Toolbox VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "obsidian-memory-vault",
       "name": "Obsidian Memory Vault",
       "category": "Knowledge memory",
+      "skillType": "memory",
       "officialUrl": "https://obsidian.md/",
+      "docsUrl": "https://help.obsidian.md/",
+      "preferredSourceUrl": "https://help.obsidian.md/",
       "officialSourceLabel": "Website",
       "description": {
         "en": "Personal knowledge layer that turns agent memory into editable markdown instead of opaque hidden state.",
@@ -599,7 +1281,25 @@
       "supportedProviderIds": [
         "any"
       ],
+      "supportedHosts": [
+        "desktop app",
+        "local markdown repos"
+      ],
+      "capabilities": [
+        "editable memory",
+        "markdown knowledge base",
+        "human-readable context"
+      ],
+      "auth": {
+        "type": "none"
+      },
+      "permissionProfile": {
+        "level": "medium",
+        "notes": "Can expose personal knowledge if poorly scoped."
+      },
       "installDifficulty": "Easy",
+      "installMethod": "manual",
+      "deployment": "local",
       "utilityScore": 84,
       "compatibilityScore": 86,
       "reliabilityScore": 85,
@@ -610,6 +1310,11 @@
       "bestUseCases": [
         "research",
         "agent-automation"
+      ],
+      "worksWith": [
+        "assistant continuity",
+        "markdown-based memory",
+        "human review loops"
       ],
       "tags": [
         "memory",
@@ -636,17 +1341,67 @@
           "zh-TW": "無法完全取代大規模檢索設計"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94,
-      "supportedProviders": [
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:obsidian-memory-vault",
+      "status": "active",
+      "displayName": "Obsidian Memory Vault",
+      "summary": {
+        "en": "Personal knowledge layer that turns agent memory into editable markdown instead of opaque hidden state.",
+        "zh-TW": "把 agent 記憶做成可編輯 Markdown，而不是不可見黑盒狀態的個人知識層。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:obsidian-memory-vault-docs",
+          "label": "Obsidian Memory Vault docs",
+          "url": "https://help.obsidian.md/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:obsidian-memory-vault-official",
+          "label": "Obsidian Memory Vault official",
+          "url": "https://obsidian.md/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:obsidian-memory-vault-verdictlens-review",
+          "label": "Obsidian Memory Vault VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "zapier-ai-actions",
       "name": "Zapier AI Actions",
       "category": "Automation",
+      "skillType": "workflow",
       "officialUrl": "https://zapier.com/ai",
+      "docsUrl": "https://zapier.com/apps",
+      "preferredSourceUrl": "https://zapier.com/ai",
       "officialSourceLabel": "Website",
       "description": {
         "en": "Fast path to business automation through prebuilt actions across SaaS tools and operational systems.",
@@ -658,7 +1413,26 @@
         "google",
         "any"
       ],
+      "supportedHosts": [
+        "Hosted app",
+        "SaaS integrations",
+        "browser UI"
+      ],
+      "capabilities": [
+        "prebuilt actions",
+        "business automation",
+        "SaaS orchestration"
+      ],
+      "auth": {
+        "type": "oauth"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Can operate across business systems."
+      },
       "installDifficulty": "Easy",
+      "installMethod": "hosted",
+      "deployment": "hosted",
       "utilityScore": 86,
       "compatibilityScore": 93,
       "reliabilityScore": 83,
@@ -668,6 +1442,11 @@
       "overallScore": 84,
       "bestUseCases": [
         "agent-automation"
+      ],
+      "worksWith": [
+        "SaaS-heavy businesses",
+        "no-code ops teams",
+        "AI action layers"
       ],
       "tags": [
         "business",
@@ -694,20 +1473,66 @@
           "zh-TW": "規模化後費用容易疊高"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 94,
-      "supportedProviders": [
-        "OpenAI",
-        "Anthropic",
-        "Google",
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:zapier-ai-actions",
+      "status": "active",
+      "displayName": "Zapier AI Actions",
+      "summary": {
+        "en": "Fast path to business automation through prebuilt actions across SaaS tools and operational systems.",
+        "zh-TW": "透過大量 SaaS 預建動作，快速把商務系統串成 AI 自動化流程。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:zapier-ai-actions-docs",
+          "label": "Zapier AI Actions docs",
+          "url": "https://zapier.com/apps",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:zapier-ai-actions-official",
+          "label": "Zapier AI Actions official",
+          "url": "https://zapier.com/ai",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:zapier-ai-actions-verdictlens-review",
+          "label": "Zapier AI Actions VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     },
     {
       "slug": "e2b-sandbox",
       "name": "E2B Sandbox",
       "category": "Execution runtime",
+      "skillType": "connector",
       "officialUrl": "https://e2b.dev/",
+      "docsUrl": "https://e2b.dev/docs",
+      "preferredSourceUrl": "https://e2b.dev/docs",
       "officialSourceLabel": "Website",
       "description": {
         "en": "Ephemeral execution environment for agent-generated code, notebooks, and dynamic analysis tasks.",
@@ -716,7 +1541,26 @@
       "supportedProviderIds": [
         "any"
       ],
+      "supportedHosts": [
+        "cloud runtime",
+        "agent backends",
+        "notebook flows"
+      ],
+      "capabilities": [
+        "ephemeral sandboxes",
+        "code execution",
+        "runtime isolation"
+      ],
+      "auth": {
+        "type": "api-key"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Executes generated code in isolated environments."
+      },
       "installDifficulty": "Moderate",
+      "installMethod": "hosted",
+      "deployment": "hosted",
       "utilityScore": 88,
       "compatibilityScore": 85,
       "reliabilityScore": 82,
@@ -727,6 +1571,11 @@
       "bestUseCases": [
         "coding",
         "agent-automation"
+      ],
+      "worksWith": [
+        "generated-code flows",
+        "analysis notebooks",
+        "agent sandboxes"
       ],
       "tags": [
         "sandbox",
@@ -753,11 +1602,58 @@
           "zh-TW": "冷啟動與環境設定可能影響體驗"
         }
       ],
-      "updatedAt": "2026-04-08T14:40:00+08:00",
-      "easeOfSetupScore": 78,
-      "supportedProviders": [
-        "Any provider"
-      ]
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "id": "skill:e2b-sandbox",
+      "status": "active",
+      "displayName": "E2B Sandbox",
+      "summary": {
+        "en": "Ephemeral execution environment for agent-generated code, notebooks, and dynamic analysis tasks.",
+        "zh-TW": "提供臨時執行環境，適合 agent 產生的程式、notebook 與動態分析任務。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "sourceRefs": [
+        {
+          "id": "official-docs:e2b-sandbox-docs",
+          "label": "E2B Sandbox docs",
+          "url": "https://e2b.dev/docs",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        },
+        {
+          "id": "official-site:e2b-sandbox-official",
+          "label": "E2B Sandbox official",
+          "url": "https://e2b.dev/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:e2b-sandbox-verdictlens-review",
+          "label": "E2B Sandbox VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
     }
   ]
 }

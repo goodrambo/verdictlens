@@ -1,0 +1,498 @@
+{
+  "updatedAt": "2026-04-08T21:37:09.585Z",
+  "count": 12,
+  "items": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "shortName": "OpenAI",
+      "kind": "model-vendor",
+      "officialUrl": "https://openai.com/",
+      "docsUrl": "https://platform.openai.com/docs",
+      "logoPath": "/brand/providers/openai.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "openai",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/openai.svg",
+        "alt": "OpenAI logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:openai-official",
+          "label": "OpenAI official",
+          "url": "https://openai.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:openai-docs",
+          "label": "OpenAI docs",
+          "url": "https://platform.openai.com/docs",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "shortName": "Anthropic",
+      "kind": "model-vendor",
+      "officialUrl": "https://www.anthropic.com/",
+      "docsUrl": "https://docs.anthropic.com/",
+      "logoPath": "/brand/providers/anthropic.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "anthropic",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/anthropic.svg",
+        "alt": "Anthropic logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:anthropic-official",
+          "label": "Anthropic official",
+          "url": "https://www.anthropic.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:anthropic-docs",
+          "label": "Anthropic docs",
+          "url": "https://docs.anthropic.com/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "shortName": "Google",
+      "kind": "model-vendor",
+      "officialUrl": "https://ai.google.dev/",
+      "docsUrl": "https://ai.google.dev/gemini-api/docs",
+      "logoPath": "/brand/providers/google.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "google",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/google.svg",
+        "alt": "Google logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:google-official",
+          "label": "Google official",
+          "url": "https://ai.google.dev/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:google-docs",
+          "label": "Google docs",
+          "url": "https://ai.google.dev/gemini-api/docs",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "shortName": "xAI",
+      "kind": "model-vendor",
+      "officialUrl": "https://x.ai/",
+      "docsUrl": "https://docs.x.ai/",
+      "logoPath": "/brand/providers/xai.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "xai",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/xai.svg",
+        "alt": "xAI logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:xai-official",
+          "label": "xAI official",
+          "url": "https://x.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:xai-docs",
+          "label": "xAI docs",
+          "url": "https://docs.x.ai/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "shortName": "DeepSeek",
+      "kind": "model-vendor",
+      "officialUrl": "https://www.deepseek.com/",
+      "docsUrl": "https://api-docs.deepseek.com/",
+      "logoPath": "/brand/providers/deepseek.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "deepseek",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/deepseek.svg",
+        "alt": "DeepSeek logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:deepseek-official",
+          "label": "DeepSeek official",
+          "url": "https://www.deepseek.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:deepseek-docs",
+          "label": "DeepSeek docs",
+          "url": "https://api-docs.deepseek.com/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "shortName": "Meta",
+      "kind": "open-source",
+      "officialUrl": "https://ai.meta.com/",
+      "docsUrl": "https://ai.meta.com/llama/",
+      "logoPath": "/brand/providers/meta.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "meta",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/meta.svg",
+        "alt": "Meta logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:meta-official",
+          "label": "Meta official",
+          "url": "https://ai.meta.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:meta-docs",
+          "label": "Meta docs",
+          "url": "https://ai.meta.com/llama/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "alibaba-cloud",
+      "name": "Alibaba Cloud",
+      "shortName": "Alibaba",
+      "kind": "model-vendor",
+      "officialUrl": "https://www.alibabacloud.com/",
+      "docsUrl": "https://www.alibabacloud.com/help/en/model-studio/",
+      "logoPath": "/brand/providers/alibaba-cloud.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "alibaba-cloud",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/alibaba-cloud.svg",
+        "alt": "Alibaba Cloud logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:alibaba-cloud-official",
+          "label": "Alibaba Cloud official",
+          "url": "https://www.alibabacloud.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:alibaba-cloud-docs",
+          "label": "Alibaba Cloud docs",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral",
+      "shortName": "Mistral",
+      "kind": "model-vendor",
+      "officialUrl": "https://mistral.ai/",
+      "docsUrl": "https://docs.mistral.ai/",
+      "logoPath": "/brand/providers/mistral.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "mistral",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/mistral.svg",
+        "alt": "Mistral logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:mistral-official",
+          "label": "Mistral official",
+          "url": "https://mistral.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:mistral-docs",
+          "label": "Mistral docs",
+          "url": "https://docs.mistral.ai/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "shortName": "Cohere",
+      "kind": "model-vendor",
+      "officialUrl": "https://cohere.com/",
+      "docsUrl": "https://docs.cohere.com/",
+      "logoPath": "/brand/providers/cohere.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "cohere",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/cohere.svg",
+        "alt": "Cohere logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:cohere-official",
+          "label": "Cohere official",
+          "url": "https://cohere.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:cohere-docs",
+          "label": "Cohere docs",
+          "url": "https://docs.cohere.com/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "shortName": "Perplexity",
+      "kind": "model-vendor",
+      "officialUrl": "https://www.perplexity.ai/",
+      "docsUrl": "https://docs.perplexity.ai/",
+      "logoPath": "/brand/providers/perplexity.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "perplexity",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/perplexity.svg",
+        "alt": "Perplexity logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:perplexity-official",
+          "label": "Perplexity official",
+          "url": "https://www.perplexity.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:perplexity-docs",
+          "label": "Perplexity docs",
+          "url": "https://docs.perplexity.ai/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "any",
+      "name": "Any provider",
+      "shortName": "Any",
+      "kind": "framework",
+      "officialUrl": "https://modelcontextprotocol.io/",
+      "docsUrl": "https://modelcontextprotocol.io/introduction",
+      "logoPath": "/brand/providers/any.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "any",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/any.svg",
+        "alt": "Any provider logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:any-provider-official",
+          "label": "Any provider official",
+          "url": "https://modelcontextprotocol.io/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:any-provider-docs",
+          "label": "Any provider docs",
+          "url": "https://modelcontextprotocol.io/introduction",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    },
+    {
+      "id": "local",
+      "name": "Local runtime",
+      "shortName": "Local",
+      "kind": "open-source",
+      "officialUrl": "https://github.com/openai/whisper",
+      "docsUrl": "https://github.com/openai/whisper",
+      "logoPath": "/brand/providers/local.svg",
+      "updatedAt": "2026-04-09T04:20:00+08:00",
+      "slug": "local",
+      "logo": {
+        "type": "svg",
+        "path": "/brand/providers/local.svg",
+        "alt": "Local runtime logo"
+      },
+      "sourceRefs": [
+        {
+          "id": "official-site:local-runtime-official",
+          "label": "Local runtime official",
+          "url": "https://github.com/openai/whisper",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:local-runtime-docs",
+          "label": "Local runtime docs",
+          "url": "https://github.com/openai/whisper",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fieldPaths": [
+            "docsUrl"
+          ]
+        }
+      ],
+      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+    }
+  ]
+}
