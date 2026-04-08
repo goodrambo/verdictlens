@@ -2,6 +2,21 @@ import { models, skills } from '@/lib/data';
 import { Locale } from '@/lib/types';
 import { pick } from '@/lib/i18n';
 
+const useCaseLabels = {
+  coding: {
+    en: 'Coding',
+    'zh-TW': 'Coding',
+  },
+  research: {
+    en: 'Research',
+    'zh-TW': '研究',
+  },
+  'agent-automation': {
+    en: 'Agent automation',
+    'zh-TW': 'Agent 自動化',
+  },
+} as const;
+
 export function getModel(slug: string) {
   return models.find((item) => item.slug === slug);
 }
@@ -27,6 +42,41 @@ export function scoreTone(score: number) {
 
 export function speedRank(speed: string) {
   return speed === 'Fast' ? 3 : speed === 'Balanced' ? 2 : 1;
+}
+
+export function difficultyRank(difficulty: string) {
+  return difficulty === 'Easy' ? 3 : difficulty === 'Moderate' ? 2 : 1;
+}
+
+export function easeOfSetupScore(difficulty: string, score?: number) {
+  if (typeof score === 'number') return score;
+  if (difficulty === 'Easy') return 94;
+  if (difficulty === 'Moderate') return 78;
+  return 62;
+}
+
+export function localizeSpeed(locale: Locale, speed: string) {
+  const labels = {
+    Fast: { en: 'Fast', 'zh-TW': '快速' },
+    Balanced: { en: 'Balanced', 'zh-TW': '均衡' },
+    Deliberate: { en: 'Deliberate', 'zh-TW': '深思型' },
+  } as const;
+
+  return pick(locale, labels[speed as keyof typeof labels] ?? { en: speed, 'zh-TW': speed });
+}
+
+export function localizeDifficulty(locale: Locale, difficulty: string) {
+  const labels = {
+    Easy: { en: 'Easy', 'zh-TW': '容易' },
+    Moderate: { en: 'Moderate', 'zh-TW': '中等' },
+    Advanced: { en: 'Advanced', 'zh-TW': '進階' },
+  } as const;
+
+  return pick(locale, labels[difficulty as keyof typeof labels] ?? { en: difficulty, 'zh-TW': difficulty });
+}
+
+export function localizeUseCase(locale: Locale, slug: string) {
+  return pick(locale, useCaseLabels[slug as keyof typeof useCaseLabels] ?? { en: slug, 'zh-TW': slug });
 }
 
 export function summarizeTags(locale: Locale, tags: string[]) {

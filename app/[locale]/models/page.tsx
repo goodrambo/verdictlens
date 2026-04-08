@@ -29,7 +29,7 @@ export default async function ModelsPage({ params }: { params: Promise<{ locale:
         <SectionIntro
           eyebrow={copy.nav.models}
           title={copy.sections.exploreModels}
-          body={locale === 'en' ? 'Find the right trade-off between capability, cost, speed, and agent readiness.' : '快速找到能力、成本、速度與 agent readiness 之間最適合的平衡。'}
+          body={locale === 'en' ? 'Browse a ranked, sortable model board with score, pricing, speed, and best-fit use cases visible by default.' : '用排名 + 可排序表格直接瀏覽模型，預設就看得到總分、價格、速度與最佳使用場景。'}
         />
         <ModelsExplorer models={models} locale={locale} />
       </div>

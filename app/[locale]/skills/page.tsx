@@ -29,7 +29,7 @@ export default async function SkillsPage({ params }: { params: Promise<{ locale:
         <SectionIntro
           eyebrow={copy.nav.skills}
           title={copy.sections.exploreSkills}
-          body={locale === 'en' ? 'Because a great model without the right tool layer still fails in production.' : '因為再好的模型，缺了正確工具層，正式上線依然會失敗。'}
+          body={locale === 'en' ? 'Review operational skills in a ranked list where compatibility, setup friction, and best-fit workflows stay above the fold.' : '用排名清單檢視技能，把相容性、設定摩擦與最適工作流直接放在第一屏。'}
         />
         <SkillsExplorer skills={skills} locale={locale} />
       </div>
