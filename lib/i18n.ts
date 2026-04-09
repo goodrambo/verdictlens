@@ -34,7 +34,7 @@ export const ui = {
       secondary: 'Browse skills',
       tertiary: 'Start from use cases',
       meta1: '12 curated AI models',
-      meta2: '12 practical AI skills',
+      meta2: '32 practical AI skills',
       meta3: 'Official links + bilingual structured data',
     },
     sections: {
@@ -171,7 +171,7 @@ export const ui = {
       secondary: '瀏覽技能',
       tertiary: '從使用場景開始',
       meta1: '12 個精選 AI 模型',
-      meta2: '12 個實用 AI 技能',
+      meta2: '32 個實用 AI 技能',
       meta3: '官方連結 + 雙語結構化資料',
     },
     sections: {

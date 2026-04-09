@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-09T09:05:27.310Z",
+  "updatedAt": "2026-04-09T17:49:28.418Z",
   "productDirection": {
     "mode": "discovery-shortlist-compare-routing",
     "marketplaceClone": false,
@@ -7215,6 +7215,1593 @@
         "agent-automation"
       ],
       "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "notion-mcp-server",
+      "name": "Notion MCP",
+      "providerId": "any",
+      "categoryId": "memory-knowledge",
+      "subCategory": "Workspace knowledge access",
+      "skillType": "mcp",
+      "officialUrl": "https://www.notion.com/",
+      "docsUrl": "https://developers.notion.com/docs/mcp",
+      "repoUrl": "https://github.com/makenotion/notion-mcp-server",
+      "preferredSourceUrl": "https://developers.notion.com/docs/mcp",
+      "officialSourceLabel": "Notion docs",
+      "description": {
+        "en": "Notion’s official MCP integration for exposing workspace search, pages, comments, and structured data sources to AI clients.",
+        "zh-TW": "Notion 官方的 MCP 整合，可把 workspace 搜尋、頁面、留言與結構化資料來源暴露給 AI client。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 88,
+      "compatibilityScore": 86,
+      "reliabilityScore": 86,
+      "docsScore": 88,
+      "adoptionScore": 85,
+      "safetyMaintenanceScore": 78,
+      "overallScore": 86,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "deployment": "hybrid",
+      "installMethod": "manual",
+      "supportedHosts": [
+        "MCP clients",
+        "Claude Desktop",
+        "Cursor"
+      ],
+      "capabilities": [
+        "workspace search",
+        "page editing",
+        "comments",
+        "database/data source access"
+      ],
+      "auth": {
+        "type": "oauth",
+        "notes": "Remote Notion MCP supports OAuth; self-hosted mode can require API tokens."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Workspace read/write access should be scoped carefully, especially for page edits and comments."
+      },
+      "worksWith": [
+        "Claude Desktop",
+        "Cursor",
+        "Notion workspaces"
+      ],
+      "tags": [
+        "mcp",
+        "notion",
+        "knowledge"
+      ],
+      "strengths": [
+        {
+          "en": "Official Notion stewardship makes the integration direction clear.",
+          "zh-TW": "由 Notion 官方維護，整合方向更清楚。"
+        },
+        {
+          "en": "High-value bridge for teams whose operating context already lives in Notion.",
+          "zh-TW": "對上下文本來就在 Notion 的團隊特別有價值。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Read/write workspace permissions need careful governance.",
+          "zh-TW": "workspace 的讀寫權限需要嚴格治理。"
+        },
+        {
+          "en": "The open-source local server is no longer the primary support path versus Notion’s remote MCP.",
+          "zh-TW": "相較於 Notion 的 remote MCP，開源本地 server 已不是主要支援路徑。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:notion-mcp-docs",
+          "label": "Notion MCP docs",
+          "url": "https://developers.notion.com/docs/mcp",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "auth",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:notion-mcp-repo",
+          "label": "Notion MCP repo",
+          "url": "https://github.com/makenotion/notion-mcp-server",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:notion-mcp-official",
+          "label": "Notion MCP official",
+          "url": "https://www.notion.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:notion-mcp-verdictlens-review",
+          "label": "Notion MCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Memory & knowledge",
+      "categoryLabel": {
+        "en": "Memory & knowledge",
+        "zh-TW": "記憶與知識層"
+      },
+      "id": "skill:notion-mcp-server",
+      "status": "active",
+      "displayName": "Notion MCP",
+      "summary": {
+        "en": "Notion’s official MCP integration for exposing workspace search, pages, comments, and structured data sources to AI clients.",
+        "zh-TW": "Notion 官方的 MCP 整合，可把 workspace 搜尋、頁面、留言與結構化資料來源暴露給 AI client。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "playwright-mcp",
+      "name": "Playwright MCP",
+      "providerId": "any",
+      "categoryId": "browser-web",
+      "subCategory": "Browser automation via MCP",
+      "skillType": "browser",
+      "officialUrl": "https://playwright.dev/",
+      "docsUrl": "https://playwright.dev/docs/getting-started-mcp",
+      "repoUrl": "https://github.com/microsoft/playwright-mcp",
+      "preferredSourceUrl": "https://playwright.dev/docs/getting-started-mcp",
+      "officialSourceLabel": "Playwright docs",
+      "description": {
+        "en": "Microsoft’s Playwright MCP server for structured browser automation, navigation, and testing-friendly web interaction.",
+        "zh-TW": "Microsoft 的 Playwright MCP server，可做結構化瀏覽器自動化、導航與偏測試友善的網頁互動。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 89,
+      "compatibilityScore": 88,
+      "reliabilityScore": 87,
+      "docsScore": 88,
+      "adoptionScore": 86,
+      "safetyMaintenanceScore": 80,
+      "overallScore": 87,
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "deployment": "local",
+      "installMethod": "npm",
+      "supportedHosts": [
+        "VS Code",
+        "Cursor",
+        "Claude Desktop",
+        "MCP clients"
+      ],
+      "capabilities": [
+        "browser automation",
+        "accessibility-tree navigation",
+        "page interaction",
+        "test recording"
+      ],
+      "auth": {
+        "type": "none"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Browser automation can click, submit forms, and affect external systems if not sandboxed."
+      },
+      "worksWith": [
+        "Playwright",
+        "Claude Desktop",
+        "Cursor"
+      ],
+      "tags": [
+        "browser",
+        "mcp",
+        "playwright"
+      ],
+      "strengths": [
+        {
+          "en": "Structured accessibility snapshots are more agent-friendly than screenshot-heavy approaches.",
+          "zh-TW": "結構化 accessibility snapshot 比起大量螢幕截圖更 agent-friendly。"
+        },
+        {
+          "en": "Official Playwright docs and repo make setup and usage easier to verify.",
+          "zh-TW": "有官方 Playwright 文件與 repo，安裝與用途都比較容易驗證。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Real browser control still carries obvious side-effect risk.",
+          "zh-TW": "真實瀏覽器控制仍然有明顯副作用風險。"
+        },
+        {
+          "en": "More useful for interactive web tasks than simple static scraping.",
+          "zh-TW": "比較適合互動式網頁任務，不是單純靜態爬取。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:playwright-mcp-docs",
+          "label": "Playwright MCP docs",
+          "url": "https://playwright.dev/docs/getting-started-mcp",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:playwright-mcp-repo",
+          "label": "Playwright MCP repo",
+          "url": "https://github.com/microsoft/playwright-mcp",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:playwright-mcp-official",
+          "label": "Playwright MCP official",
+          "url": "https://playwright.dev/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:playwright-mcp-verdictlens-review",
+          "label": "Playwright MCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Browser & web interaction",
+      "categoryLabel": {
+        "en": "Browser & web interaction",
+        "zh-TW": "瀏覽器與網頁互動"
+      },
+      "id": "skill:playwright-mcp",
+      "status": "active",
+      "displayName": "Playwright MCP",
+      "summary": {
+        "en": "Microsoft’s Playwright MCP server for structured browser automation, navigation, and testing-friendly web interaction.",
+        "zh-TW": "Microsoft 的 Playwright MCP server，可做結構化瀏覽器自動化、導航與偏測試友善的網頁互動。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "docker-mcp-gateway",
+      "name": "Docker MCP Gateway",
+      "providerId": "any",
+      "categoryId": "execution-sandboxes",
+      "subCategory": "Containerized MCP gateway",
+      "skillType": "connector",
+      "officialUrl": "https://www.docker.com/",
+      "docsUrl": "https://docs.docker.com/guides/lab-mcp-gateway/",
+      "repoUrl": "https://github.com/docker/mcp-gateway",
+      "preferredSourceUrl": "https://docs.docker.com/guides/lab-mcp-gateway/",
+      "officialSourceLabel": "Docker docs",
+      "description": {
+        "en": "Docker’s gateway for running and brokering MCP servers in containerized, easier-to-govern environments.",
+        "zh-TW": "Docker 的 gateway，可在容器化且較容易治理的環境中執行並代理 MCP servers。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 87,
+      "compatibilityScore": 84,
+      "reliabilityScore": 86,
+      "docsScore": 85,
+      "adoptionScore": 84,
+      "safetyMaintenanceScore": 85,
+      "overallScore": 85,
+      "bestUseCases": [
+        "agent-automation",
+        "coding"
+      ],
+      "deployment": "local",
+      "installMethod": "manual",
+      "supportedHosts": [
+        "Docker Desktop",
+        "containerized deployments",
+        "MCP clients"
+      ],
+      "capabilities": [
+        "containerized server lifecycle",
+        "gateway endpoint",
+        "server brokering",
+        "credential centralization"
+      ],
+      "auth": {
+        "type": "custom",
+        "notes": "Auth depends on connected MCP servers and Docker host configuration."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Safer than ad hoc local servers, but Docker socket and connected server permissions still matter."
+      },
+      "worksWith": [
+        "Docker Desktop",
+        "MCP clients",
+        "containerized MCP servers"
+      ],
+      "tags": [
+        "docker",
+        "mcp",
+        "gateway"
+      ],
+      "strengths": [
+        {
+          "en": "Gives teams one place to route and contain multiple MCP servers.",
+          "zh-TW": "讓團隊可以用單一入口路由並管控多個 MCP server。"
+        },
+        {
+          "en": "Container isolation is a meaningful quality signal for production-minded setups.",
+          "zh-TW": "對偏 production 的團隊來說，容器隔離是有意義的品質信號。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Still operationally heavier than a single local MCP server.",
+          "zh-TW": "相較單一在地 MCP server，營運上仍然更重。"
+        },
+        {
+          "en": "Security depends on how carefully Docker host access is constrained.",
+          "zh-TW": "安全性仍取決於 Docker host 權限是否被妥善限制。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:docker-mcp-gateway-docs",
+          "label": "Docker MCP Gateway docs",
+          "url": "https://docs.docker.com/guides/lab-mcp-gateway/",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "auth",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:docker-mcp-gateway-repo",
+          "label": "Docker MCP Gateway repo",
+          "url": "https://github.com/docker/mcp-gateway",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:docker-mcp-gateway-official",
+          "label": "Docker MCP Gateway official",
+          "url": "https://www.docker.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:docker-mcp-gateway-verdictlens-review",
+          "label": "Docker MCP Gateway VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Execution & sandboxes",
+      "categoryLabel": {
+        "en": "Execution & sandboxes",
+        "zh-TW": "執行環境與沙盒"
+      },
+      "id": "skill:docker-mcp-gateway",
+      "status": "active",
+      "displayName": "Docker MCP Gateway",
+      "summary": {
+        "en": "Docker’s gateway for running and brokering MCP servers in containerized, easier-to-govern environments.",
+        "zh-TW": "Docker 的 gateway，可在容器化且較容易治理的環境中執行並代理 MCP servers。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "agent-automation",
+        "coding"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "tavily-mcp",
+      "name": "Tavily MCP",
+      "providerId": "any",
+      "categoryId": "research-retrieval",
+      "subCategory": "Real-time web search via MCP",
+      "skillType": "search",
+      "officialUrl": "https://tavily.com/",
+      "docsUrl": "https://docs.tavily.com/documentation/mcp",
+      "repoUrl": "https://github.com/tavily-ai/tavily-mcp",
+      "preferredSourceUrl": "https://docs.tavily.com/documentation/mcp",
+      "officialSourceLabel": "Tavily docs",
+      "description": {
+        "en": "Tavily’s production-focused MCP server for web search, extraction, crawl, and map operations inside agent workflows.",
+        "zh-TW": "Tavily 偏 production 的 MCP server，可在 agent workflow 內做網頁搜尋、抽取、crawl 與 map。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 89,
+      "compatibilityScore": 87,
+      "reliabilityScore": 85,
+      "docsScore": 87,
+      "adoptionScore": 84,
+      "safetyMaintenanceScore": 80,
+      "overallScore": 86,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "deployment": "local",
+      "installMethod": "npm",
+      "supportedHosts": [
+        "Cursor",
+        "Claude Desktop",
+        "MCP clients"
+      ],
+      "capabilities": [
+        "web search",
+        "content extraction",
+        "crawl",
+        "site mapping"
+      ],
+      "auth": {
+        "type": "api-key",
+        "notes": "Requires Tavily API access."
+      },
+      "permissionProfile": {
+        "level": "medium",
+        "notes": "Mostly network-bound retrieval risk, but external content quality still needs verification."
+      },
+      "worksWith": [
+        "Cursor",
+        "Claude Desktop",
+        "research agents"
+      ],
+      "tags": [
+        "search",
+        "mcp",
+        "tavily"
+      ],
+      "strengths": [
+        {
+          "en": "Clear search-and-extract focus makes it easier to reason about than generic tool bundles.",
+          "zh-TW": "聚焦搜尋與抽取，比泛用工具包更容易理解與評估。"
+        },
+        {
+          "en": "Official Tavily docs expose concrete client compatibility and package signals.",
+          "zh-TW": "官方 Tavily 文件有明確 client 相容性與套件信號。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "External web content remains noisy, regardless of the MCP wrapper.",
+          "zh-TW": "即使包成 MCP，外部網頁內容本身仍然有雜訊。"
+        },
+        {
+          "en": "Requires API spend and good prompting discipline to stay efficient.",
+          "zh-TW": "需要 API 成本與好的 prompting 紀律才能保持效率。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:tavily-mcp-docs",
+          "label": "Tavily MCP docs",
+          "url": "https://docs.tavily.com/documentation/mcp",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "auth"
+          ]
+        },
+        {
+          "id": "github:tavily-mcp-repo",
+          "label": "Tavily MCP repo",
+          "url": "https://github.com/tavily-ai/tavily-mcp",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:tavily-mcp-official",
+          "label": "Tavily MCP official",
+          "url": "https://tavily.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:tavily-mcp-verdictlens-review",
+          "label": "Tavily MCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Research & retrieval",
+      "categoryLabel": {
+        "en": "Research & retrieval",
+        "zh-TW": "研究與檢索"
+      },
+      "id": "skill:tavily-mcp",
+      "status": "active",
+      "displayName": "Tavily MCP",
+      "summary": {
+        "en": "Tavily’s production-focused MCP server for web search, extraction, crawl, and map operations inside agent workflows.",
+        "zh-TW": "Tavily 偏 production 的 MCP server，可在 agent workflow 內做網頁搜尋、抽取、crawl 與 map。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "grafana-mcp",
+      "name": "Grafana MCP",
+      "providerId": "any",
+      "categoryId": "research-retrieval",
+      "subCategory": "Observability retrieval and control",
+      "skillType": "mcp",
+      "officialUrl": "https://grafana.com/",
+      "docsUrl": "https://grafana.com/developers/plugin-tools/how-to-guides/app-plugins/use-llms-and-mcp",
+      "repoUrl": "https://github.com/grafana/mcp-grafana",
+      "preferredSourceUrl": "https://github.com/grafana/mcp-grafana",
+      "officialSourceLabel": "Grafana repo",
+      "description": {
+        "en": "Grafana’s MCP server for querying dashboards, metrics, and incident context from Grafana instances.",
+        "zh-TW": "Grafana 的 MCP server，可從 Grafana instance 查詢 dashboards、metrics 與 incident context。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 84,
+      "compatibilityScore": 82,
+      "reliabilityScore": 84,
+      "docsScore": 80,
+      "adoptionScore": 79,
+      "safetyMaintenanceScore": 78,
+      "overallScore": 82,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "deployment": "hybrid",
+      "installMethod": "pip",
+      "supportedHosts": [
+        "Grafana Cloud",
+        "Grafana OSS",
+        "MCP clients"
+      ],
+      "capabilities": [
+        "dashboard search",
+        "dashboard summaries",
+        "metric access",
+        "incident context"
+      ],
+      "auth": {
+        "type": "api-key",
+        "notes": "Requires Grafana URL plus service account or compatible token."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Observability systems often expose sensitive operational data and should stay tightly scoped."
+      },
+      "worksWith": [
+        "Grafana Cloud",
+        "Prometheus-backed dashboards",
+        "Claude Desktop"
+      ],
+      "tags": [
+        "grafana",
+        "mcp",
+        "observability"
+      ],
+      "strengths": [
+        {
+          "en": "Useful for teams that want AI access to real operational context instead of screenshots or summaries.",
+          "zh-TW": "對想讓 AI 直接讀取真實營運上下文的團隊很有幫助。"
+        },
+        {
+          "en": "Official Grafana repo plus developer guidance made the integration legible enough to promote.",
+          "zh-TW": "官方 Grafana repo 加上官方開發者指引，讓這項整合清楚到足以 promotion。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Less broadly applicable than general-purpose search or browser tools.",
+          "zh-TW": "不像通用搜尋或瀏覽器工具那麼泛用。"
+        },
+        {
+          "en": "Access to dashboards and incidents can expose sensitive production details.",
+          "zh-TW": "dashboard 與 incident 存取可能暴露敏感的 production 細節。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:grafana-mcp-docs",
+          "label": "Grafana MCP docs",
+          "url": "https://grafana.com/developers/plugin-tools/how-to-guides/app-plugins/use-llms-and-mcp",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "auth",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:grafana-mcp-repo",
+          "label": "Grafana MCP repo",
+          "url": "https://github.com/grafana/mcp-grafana",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:grafana-mcp-official",
+          "label": "Grafana MCP official",
+          "url": "https://grafana.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:grafana-mcp-verdictlens-review",
+          "label": "Grafana MCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Research & retrieval",
+      "categoryLabel": {
+        "en": "Research & retrieval",
+        "zh-TW": "研究與檢索"
+      },
+      "id": "skill:grafana-mcp",
+      "status": "active",
+      "displayName": "Grafana MCP",
+      "summary": {
+        "en": "Grafana’s MCP server for querying dashboards, metrics, and incident context from Grafana instances.",
+        "zh-TW": "Grafana 的 MCP server，可從 Grafana instance 查詢 dashboards、metrics 與 incident context。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "xcodebuildmcp",
+      "name": "XcodeBuildMCP",
+      "providerId": "any",
+      "categoryId": "coding-devtools",
+      "subCategory": "Apple platform build tooling",
+      "skillType": "coding",
+      "officialUrl": "https://github.com/getsentry/XcodeBuildMCP",
+      "docsUrl": "https://github.com/getsentry/XcodeBuildMCP",
+      "repoUrl": "https://github.com/getsentry/XcodeBuildMCP",
+      "preferredSourceUrl": "https://github.com/getsentry/XcodeBuildMCP",
+      "officialSourceLabel": "GitHub repo",
+      "description": {
+        "en": "Sentry’s XcodeBuildMCP gives coding agents build, simulator, testing, and inspection tools for iOS/macOS projects.",
+        "zh-TW": "Sentry 的 XcodeBuildMCP 讓 coding agents 可取得 iOS/macOS 專案的 build、simulator、測試與檢查工具。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 83,
+      "compatibilityScore": 80,
+      "reliabilityScore": 83,
+      "docsScore": 82,
+      "adoptionScore": 77,
+      "safetyMaintenanceScore": 77,
+      "overallScore": 81,
+      "bestUseCases": [
+        "coding"
+      ],
+      "deployment": "local",
+      "installMethod": "npm",
+      "supportedHosts": [
+        "Claude Code",
+        "Cursor",
+        "Apple developer workstations"
+      ],
+      "capabilities": [
+        "xcode builds",
+        "simulator control",
+        "UI testing",
+        "log capture"
+      ],
+      "auth": {
+        "type": "none"
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Direct control over local build tooling, simulators, and project files requires strong operator boundaries."
+      },
+      "worksWith": [
+        "Claude Code",
+        "Cursor",
+        "iOS/macOS repositories"
+      ],
+      "tags": [
+        "xcode",
+        "apple",
+        "coding"
+      ],
+      "strengths": [
+        {
+          "en": "Very concrete capability set for Apple-platform coding agents.",
+          "zh-TW": "對 Apple 平台 coding agents 來說，能力邊界非常具體。"
+        },
+        {
+          "en": "Maintainer-controlled repo and install instructions are explicit enough for live cataloging.",
+          "zh-TW": "maintainer 控制的 repo 與安裝說明夠清楚，適合進 live catalog。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Niche compared with broader coding tools.",
+          "zh-TW": "比起更廣泛的 coding 工具，它偏 niche。"
+        },
+        {
+          "en": "Only relevant if your team actually ships iOS or macOS software.",
+          "zh-TW": "只有團隊真的在做 iOS 或 macOS 軟體時才會 relevant。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:xcodebuildmcp-docs",
+          "label": "XcodeBuildMCP docs",
+          "url": "https://github.com/getsentry/XcodeBuildMCP",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:xcodebuildmcp-repo",
+          "label": "XcodeBuildMCP repo",
+          "url": "https://github.com/getsentry/XcodeBuildMCP",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:xcodebuildmcp-official",
+          "label": "XcodeBuildMCP official",
+          "url": "https://github.com/getsentry/XcodeBuildMCP",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:xcodebuildmcp-verdictlens-review",
+          "label": "XcodeBuildMCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Coding & devtools",
+      "categoryLabel": {
+        "en": "Coding & devtools",
+        "zh-TW": "Coding 與開發工具"
+      },
+      "id": "skill:xcodebuildmcp",
+      "status": "active",
+      "displayName": "XcodeBuildMCP",
+      "summary": {
+        "en": "Sentry’s XcodeBuildMCP gives coding agents build, simulator, testing, and inspection tools for iOS/macOS projects.",
+        "zh-TW": "Sentry 的 XcodeBuildMCP 讓 coding agents 可取得 iOS/macOS 專案的 build、simulator、測試與檢查工具。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "coding"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "terraform-mcp-server",
+      "name": "Terraform MCP Server",
+      "providerId": "any",
+      "categoryId": "coding-devtools",
+      "subCategory": "Infrastructure-as-code context",
+      "skillType": "coding",
+      "officialUrl": "https://www.hashicorp.com/",
+      "docsUrl": "https://developer.hashicorp.com/terraform/mcp-server",
+      "repoUrl": "https://github.com/hashicorp/terraform-mcp-server",
+      "preferredSourceUrl": "https://developer.hashicorp.com/terraform/mcp-server",
+      "officialSourceLabel": "HashiCorp docs",
+      "description": {
+        "en": "HashiCorp’s Terraform MCP server gives agents current registry docs, modules, policies, and workspace context for IaC work.",
+        "zh-TW": "HashiCorp 的 Terraform MCP server 可讓 agents 取得最新 registry 文件、modules、policies 與 workspace context，以支援 IaC 工作。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Advanced",
+      "utilityScore": 87,
+      "compatibilityScore": 84,
+      "reliabilityScore": 84,
+      "docsScore": 88,
+      "adoptionScore": 82,
+      "safetyMaintenanceScore": 79,
+      "overallScore": 84,
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "deployment": "hybrid",
+      "installMethod": "manual",
+      "supportedHosts": [
+        "MCP clients",
+        "Terraform teams",
+        "local workstation"
+      ],
+      "capabilities": [
+        "registry documentation access",
+        "module lookup",
+        "policy lookup",
+        "workspace operations"
+      ],
+      "auth": {
+        "type": "custom",
+        "notes": "Can involve Terraform Registry, HCP Terraform, Terraform Enterprise, and local credentials."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "Workspace and infrastructure operations can have direct production impact if write scopes are enabled."
+      },
+      "worksWith": [
+        "Terraform Registry",
+        "HCP Terraform",
+        "MCP clients"
+      ],
+      "tags": [
+        "terraform",
+        "iac",
+        "mcp"
+      ],
+      "strengths": [
+        {
+          "en": "Strong official-docs signal and very clear IaC-specific utility.",
+          "zh-TW": "官方文件信號強，而且 IaC 用途非常清楚。"
+        },
+        {
+          "en": "Helps reduce stale Terraform knowledge by pulling current registry context.",
+          "zh-TW": "能透過最新 registry context 降低 Terraform 知識過時問題。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Still beta and not something to wire into production blindly.",
+          "zh-TW": "仍是 beta，不適合不加思考就接進 production。"
+        },
+        {
+          "en": "High-impact permissions make write access especially sensitive.",
+          "zh-TW": "高影響權限讓寫入能力特別敏感。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:terraform-mcp-server-docs",
+          "label": "Terraform MCP Server docs",
+          "url": "https://developer.hashicorp.com/terraform/mcp-server",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "auth",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:terraform-mcp-server-repo",
+          "label": "Terraform MCP Server repo",
+          "url": "https://github.com/hashicorp/terraform-mcp-server",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:terraform-mcp-server-official",
+          "label": "Terraform MCP Server official",
+          "url": "https://www.hashicorp.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:terraform-mcp-server-verdictlens-review",
+          "label": "Terraform MCP Server VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Coding & devtools",
+      "categoryLabel": {
+        "en": "Coding & devtools",
+        "zh-TW": "Coding 與開發工具"
+      },
+      "id": "skill:terraform-mcp-server",
+      "status": "active",
+      "displayName": "Terraform MCP Server",
+      "summary": {
+        "en": "HashiCorp’s Terraform MCP server gives agents current registry docs, modules, policies, and workspace context for IaC work.",
+        "zh-TW": "HashiCorp 的 Terraform MCP server 可讓 agents 取得最新 registry 文件、modules、policies 與 workspace context，以支援 IaC 工作。"
+      },
+      "setupDifficulty": "advanced",
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "elevenlabs-mcp",
+      "name": "ElevenLabs MCP",
+      "providerId": "any",
+      "categoryId": "data-extraction",
+      "subCategory": "Voice and audio tooling",
+      "skillType": "extraction",
+      "officialUrl": "https://elevenlabs.io/",
+      "docsUrl": "https://elevenlabs.io/blog/introducing-elevenlabs-mcp",
+      "repoUrl": "https://github.com/elevenlabs/elevenlabs-mcp",
+      "preferredSourceUrl": "https://github.com/elevenlabs/elevenlabs-mcp",
+      "officialSourceLabel": "ElevenLabs repo",
+      "description": {
+        "en": "ElevenLabs’ official MCP server exposes text-to-speech, voice cloning, transcription, and audio-generation tools to MCP clients.",
+        "zh-TW": "ElevenLabs 官方 MCP server，可把文字轉語音、聲音複製、轉錄與音訊生成工具暴露給 MCP clients。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 84,
+      "compatibilityScore": 82,
+      "reliabilityScore": 84,
+      "docsScore": 83,
+      "adoptionScore": 82,
+      "safetyMaintenanceScore": 78,
+      "overallScore": 82,
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "deployment": "local",
+      "installMethod": "pip",
+      "supportedHosts": [
+        "Claude Desktop",
+        "Cursor",
+        "OpenAI Agents",
+        "MCP clients"
+      ],
+      "capabilities": [
+        "text to speech",
+        "voice cloning",
+        "speech transcription",
+        "audio generation"
+      ],
+      "auth": {
+        "type": "api-key",
+        "notes": "Requires ElevenLabs API access and usage credits."
+      },
+      "permissionProfile": {
+        "level": "medium",
+        "notes": "Mostly API-bound, but generated or cloned voices still raise brand and consent considerations."
+      },
+      "worksWith": [
+        "Claude Desktop",
+        "Cursor",
+        "OpenAI Agents"
+      ],
+      "tags": [
+        "audio",
+        "voice",
+        "mcp"
+      ],
+      "strengths": [
+        {
+          "en": "Official maintainer signal is strong and the capability surface is easy to understand.",
+          "zh-TW": "官方維護信號強，而且能力面容易理解。"
+        },
+        {
+          "en": "Useful when teams want speech or transcription inside general MCP-based agent workflows.",
+          "zh-TW": "當團隊想把語音或轉錄放進一般 MCP workflow 時很有用。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Usage credits and API cost matter quickly for audio-heavy workflows.",
+          "zh-TW": "音訊密集 workflow 很快就會受到 credits 與 API 成本影響。"
+        },
+        {
+          "en": "Voice cloning features need stronger policy review than ordinary text tools.",
+          "zh-TW": "聲音複製功能比一般文字工具更需要嚴格政策審查。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:elevenlabs-mcp-docs",
+          "label": "ElevenLabs MCP docs",
+          "url": "https://elevenlabs.io/blog/introducing-elevenlabs-mcp",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "auth"
+          ]
+        },
+        {
+          "id": "github:elevenlabs-mcp-repo",
+          "label": "ElevenLabs MCP repo",
+          "url": "https://github.com/elevenlabs/elevenlabs-mcp",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:elevenlabs-mcp-official",
+          "label": "ElevenLabs MCP official",
+          "url": "https://elevenlabs.io/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:elevenlabs-mcp-verdictlens-review",
+          "label": "ElevenLabs MCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Data extraction",
+      "categoryLabel": {
+        "en": "Data extraction",
+        "zh-TW": "資料擷取"
+      },
+      "id": "skill:elevenlabs-mcp",
+      "status": "active",
+      "displayName": "ElevenLabs MCP",
+      "summary": {
+        "en": "ElevenLabs’ official MCP server exposes text-to-speech, voice cloning, transcription, and audio-generation tools to MCP clients.",
+        "zh-TW": "ElevenLabs 官方 MCP server，可把文字轉語音、聲音複製、轉錄與音訊生成工具暴露給 MCP clients。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "vercel-skills",
+      "name": "Vercel Skills",
+      "providerId": "any",
+      "categoryId": "coding-devtools",
+      "subCategory": "Agent skill installer and discovery CLI",
+      "skillType": "coding",
+      "officialUrl": "https://vercel.com/",
+      "docsUrl": "https://vercel.com/docs/agent-resources/skills",
+      "repoUrl": "https://github.com/vercel-labs/skills",
+      "preferredSourceUrl": "https://vercel.com/docs/agent-resources/skills",
+      "officialSourceLabel": "Vercel docs",
+      "description": {
+        "en": "Vercel’s open skills CLI for discovering, installing, and managing reusable agent skills across multiple coding agents.",
+        "zh-TW": "Vercel 的 open skills CLI，可在多種 coding agents 之間探索、安裝與管理可重用的 agent skills。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Easy",
+      "utilityScore": 87,
+      "compatibilityScore": 88,
+      "reliabilityScore": 84,
+      "docsScore": 88,
+      "adoptionScore": 86,
+      "safetyMaintenanceScore": 79,
+      "overallScore": 86,
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "deployment": "local",
+      "installMethod": "npm",
+      "supportedHosts": [
+        "Claude Code",
+        "GitHub Copilot",
+        "Cursor",
+        "Cline"
+      ],
+      "capabilities": [
+        "skill discovery",
+        "skill installation",
+        "multi-agent compatibility",
+        "repo-based skill management"
+      ],
+      "auth": {
+        "type": "none"
+      },
+      "permissionProfile": {
+        "level": "medium",
+        "notes": "It installs skill packages into agent directories, so source trust still matters."
+      },
+      "worksWith": [
+        "skills.sh",
+        "Claude Code",
+        "GitHub Copilot",
+        "Cursor"
+      ],
+      "tags": [
+        "skills",
+        "cli",
+        "agentskills"
+      ],
+      "strengths": [
+        {
+          "en": "This is one of the clearest bridges from the emerging agent-skills ecosystem into practical day-to-day use.",
+          "zh-TW": "這是新興 agent-skills 生態進入日常實用場景最清楚的橋樑之一。"
+        },
+        {
+          "en": "Official Vercel docs explicitly document compatibility across many coding agents.",
+          "zh-TW": "Vercel 官方文件明確說明了對多種 coding agent 的相容性。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "The CLI is only as good as the quality of the skills you install through it.",
+          "zh-TW": "CLI 的價值仍取決於你透過它安裝的 skill 品質。"
+        },
+        {
+          "en": "Discovery momentum is strong, but the broader skill ecosystem is still maturing quickly.",
+          "zh-TW": "discovery 動能很強，但更廣泛的 skill 生態仍在快速演化。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-docs:vercel-skills-docs",
+          "label": "Vercel Skills docs",
+          "url": "https://vercel.com/docs/agent-resources/skills",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "installMethod",
+            "deployment",
+            "supportedHosts",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "github:vercel-skills-repo",
+          "label": "Vercel Skills repo",
+          "url": "https://github.com/vercel-labs/skills",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl"
+          ]
+        },
+        {
+          "id": "official-site:vercel-skills-official",
+          "label": "Vercel Skills official",
+          "url": "https://vercel.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "manual-review:vercel-skills-verdictlens-review",
+          "label": "Vercel Skills VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official product facts."
+        }
+      ],
+      "category": "Coding & devtools",
+      "categoryLabel": {
+        "en": "Coding & devtools",
+        "zh-TW": "Coding 與開發工具"
+      },
+      "id": "skill:vercel-skills",
+      "status": "active",
+      "displayName": "Vercel Skills",
+      "summary": {
+        "en": "Vercel’s open skills CLI for discovering, installing, and managing reusable agent skills across multiple coding agents.",
+        "zh-TW": "Vercel 的 open skills CLI，可在多種 coding agents 之間探索、安裝與管理可重用的 agent skills。"
+      },
+      "setupDifficulty": "easy",
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "x-research-skill",
+      "name": "X Research Skill",
+      "providerId": "any",
+      "categoryId": "research-retrieval",
+      "subCategory": "Social research workflow",
+      "skillType": "search",
+      "repoUrl": "https://github.com/rohunvora/x-research-skill",
+      "preferredSourceUrl": "https://github.com/rohunvora/x-research-skill",
+      "officialSourceLabel": "GitHub repo",
+      "description": {
+        "en": "A focused AgentSkills-style workflow for searching X/Twitter, following threads, monitoring accounts, and producing sourced briefings.",
+        "zh-TW": "一個聚焦的 AgentSkills 風格 workflow，可搜尋 X/Twitter、追蹤 threads、監看帳號並產出有來源的 briefings。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 79,
+      "compatibilityScore": 82,
+      "reliabilityScore": 76,
+      "docsScore": 80,
+      "adoptionScore": 74,
+      "safetyMaintenanceScore": 72,
+      "overallScore": 78,
+      "bestUseCases": [
+        "research"
+      ],
+      "deployment": "local",
+      "installMethod": "github",
+      "supportedHosts": [
+        "Claude Code",
+        "OpenClaw",
+        "AgentSkills-compatible agents"
+      ],
+      "capabilities": [
+        "X search",
+        "thread following",
+        "watchlists",
+        "sourced briefings"
+      ],
+      "auth": {
+        "type": "api-key",
+        "notes": "Requires X API bearer token or equivalent configured credentials."
+      },
+      "permissionProfile": {
+        "level": "medium",
+        "notes": "Mostly retrieval-oriented, but it still reaches an external social feed and can incur API spend."
+      },
+      "worksWith": [
+        "Claude Code",
+        "OpenClaw",
+        "X API"
+      ],
+      "tags": [
+        "research",
+        "x",
+        "agentskills"
+      ],
+      "strengths": [
+        {
+          "en": "Narrow scope makes it more legible than generic “do research” repos.",
+          "zh-TW": "範圍夠窄，比泛泛的「做研究」repo 更容易理解。"
+        },
+        {
+          "en": "It showed both maintainer repo clarity and independent discovery listings, which is exactly the kind of staged item worth promoting.",
+          "zh-TW": "它同時有清楚的 maintainer repo 與獨立 discovery listing，正是值得 promotion 的 staged item。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Depends on X API access, pricing, and the quality of a noisy social feed.",
+          "zh-TW": "依賴 X API 權限、定價，以及本身就很吵雜的社群資料流。"
+        },
+        {
+          "en": "Use it as a research signal, not a truth oracle.",
+          "zh-TW": "應把它當成 research signal，而不是 truth oracle。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "github:x-research-skill-repo",
+          "label": "X Research Skill repo",
+          "url": "https://github.com/rohunvora/x-research-skill",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl",
+            "summary",
+            "description",
+            "installMethod",
+            "supportedHosts",
+            "auth"
+          ]
+        },
+        {
+          "id": "manual-review:x-research-skill-verdictlens-review",
+          "label": "X Research Skill VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Validated against the maintainer repo plus independent AgentSkills discovery listings; live entry keeps claims narrow and workflow-scoped."
+        }
+      ],
+      "category": "Research & retrieval",
+      "categoryLabel": {
+        "en": "Research & retrieval",
+        "zh-TW": "研究與檢索"
+      },
+      "id": "skill:x-research-skill",
+      "status": "active",
+      "displayName": "X Research Skill",
+      "summary": {
+        "en": "A focused AgentSkills-style workflow for searching X/Twitter, following threads, monitoring accounts, and producing sourced briefings.",
+        "zh-TW": "一個聚焦的 AgentSkills 風格 workflow，可搜尋 X/Twitter、追蹤 threads、監看帳號並產出有來源的 briefings。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
     }
   ],
   "useCases": [

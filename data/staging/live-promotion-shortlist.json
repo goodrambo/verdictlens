@@ -1,0 +1,12 @@
+[
+  "gh-makenotion-notion-mcp-server",
+  "gh-microsoft-playwright-mcp",
+  "gh-docker-mcp-gateway",
+  "gh-tavily-ai-tavily-mcp",
+  "gh-grafana-mcp-grafana",
+  "gh-getsentry-xcodebuildmcp",
+  "gh-hashicorp-terraform-mcp-server",
+  "gh-elevenlabs-elevenlabs-mcp",
+  "gh-vercel-labs-skills",
+  "gh-rohunvora-x-research-skill"
+]

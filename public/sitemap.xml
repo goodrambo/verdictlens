@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:3000/</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>http://localhost:3000/en</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en" />
@@ -16,7 +16,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/zh-TW</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en" />
@@ -24,7 +24,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/en/models</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/models" />
@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/zh-TW/models</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/models" />
@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/en/skills</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills" />
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/zh-TW/skills</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills" />
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/en/compare</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/compare" />
@@ -64,7 +64,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/zh-TW/compare</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/compare" />
@@ -72,7 +72,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/en/use-cases</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/use-cases" />
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>http://localhost:3000/zh-TW/use-cases</loc>
-    <lastmod>2026-04-09T08:00:00.000Z</lastmod>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/use-cases" />
@@ -789,6 +789,166 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/zapier-ai-actions" />
     <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/zapier-ai-actions" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/notion-mcp-server</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/notion-mcp-server" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/notion-mcp-server" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/notion-mcp-server</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/notion-mcp-server" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/notion-mcp-server" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/playwright-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/playwright-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/playwright-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/playwright-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/playwright-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/playwright-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/docker-mcp-gateway</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/docker-mcp-gateway" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/docker-mcp-gateway" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/docker-mcp-gateway</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/docker-mcp-gateway" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/docker-mcp-gateway" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/tavily-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/tavily-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/tavily-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/tavily-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/tavily-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/tavily-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/grafana-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/grafana-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/grafana-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/grafana-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/grafana-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/grafana-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/xcodebuildmcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/xcodebuildmcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/xcodebuildmcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/xcodebuildmcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/xcodebuildmcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/xcodebuildmcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/terraform-mcp-server</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/terraform-mcp-server" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/terraform-mcp-server" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/terraform-mcp-server</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/terraform-mcp-server" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/terraform-mcp-server" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/elevenlabs-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/elevenlabs-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/elevenlabs-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/elevenlabs-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/elevenlabs-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/elevenlabs-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/vercel-skills</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/vercel-skills" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/vercel-skills" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/vercel-skills</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/vercel-skills" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/vercel-skills" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/en/skills/x-research-skill</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/x-research-skill" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/x-research-skill" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/x-research-skill</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/x-research-skill" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/x-research-skill" />
   </url>
   <url>
     <loc>http://localhost:3000/en/use-cases/coding</loc>

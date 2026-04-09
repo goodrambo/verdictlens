@@ -4,7 +4,7 @@ version: 2
 site: http://localhost:3000/
 name: VerdictLens
 description: Discovery, shortlist, compare, and compatibility guide for AI models and skills with official-source signals and structured public data.
-last_updated: 2026-04-09T08:00:00.000Z
+last_updated: 2026-04-10T01:45:00.000Z
 languages: en, zh-TW
 formats: text/html, application/json
 
@@ -77,6 +77,16 @@ formats: text/html, application/json
 - mcp-toolbox | Gen AI Toolbox for Databases | type=mcp | install=manual | deployment=hybrid | providers=google,openai,anthropic,any | preferred_source=https://github.com/googleapis/genai-toolbox
 - e2b-sandbox | E2B Sandbox | type=connector | install=npm | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://e2b.dev/docs
 - zapier-ai-actions | Zapier AI Actions | type=connector | install=hosted | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://actions.zapier.com/docs/platform/gpt/
+- notion-mcp-server | Notion MCP | type=mcp | install=manual | deployment=hybrid | providers=openai,anthropic,google,any | preferred_source=https://developers.notion.com/docs/mcp
+- playwright-mcp | Playwright MCP | type=browser | install=npm | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://playwright.dev/docs/getting-started-mcp
+- docker-mcp-gateway | Docker MCP Gateway | type=connector | install=manual | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://docs.docker.com/guides/lab-mcp-gateway/
+- tavily-mcp | Tavily MCP | type=search | install=npm | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://docs.tavily.com/documentation/mcp
+- grafana-mcp | Grafana MCP | type=mcp | install=pip | deployment=hybrid | providers=openai,anthropic,google,any | preferred_source=https://github.com/grafana/mcp-grafana
+- xcodebuildmcp | XcodeBuildMCP | type=coding | install=npm | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://github.com/getsentry/XcodeBuildMCP
+- terraform-mcp-server | Terraform MCP Server | type=coding | install=manual | deployment=hybrid | providers=openai,anthropic,google,any | preferred_source=https://developer.hashicorp.com/terraform/mcp-server
+- elevenlabs-mcp | ElevenLabs MCP | type=extraction | install=pip | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://github.com/elevenlabs/elevenlabs-mcp
+- vercel-skills | Vercel Skills | type=coding | install=npm | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://vercel.com/docs/agent-resources/skills
+- x-research-skill | X Research Skill | type=search | install=github | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://github.com/rohunvora/x-research-skill
 
 [crawl_hints]
 - Prefer localized HTML pages for human-readable summaries and editorial context.
