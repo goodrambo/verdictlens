@@ -123,6 +123,17 @@ export type Model = {
   lastVerifiedAt: string;
 };
 
+export type SkillCategoryId =
+  | 'agent-frameworks'
+  | 'workflow-automation'
+  | 'browser-web'
+  | 'research-retrieval'
+  | 'memory-knowledge'
+  | 'coding-devtools'
+  | 'security-secrets'
+  | 'execution-sandboxes'
+  | 'data-extraction';
+
 export type Skill = {
   id: string;
   slug: string;
@@ -131,7 +142,10 @@ export type Skill = {
   shortName?: string;
   name: string;
   providerId?: ProviderId;
+  categoryId: SkillCategoryId;
+  categoryLabel: LocalizedText;
   category: string;
+  subCategory?: string;
   skillType: 'mcp' | 'api' | 'connector' | 'browser' | 'workflow' | 'coding' | 'memory' | 'search' | 'security' | 'extraction';
   summary: LocalizedText;
   description: LocalizedText;
@@ -143,7 +157,7 @@ export type Skill = {
   officialSourceLabel: string;
   logo?: ProviderLogo;
   deployment: 'local' | 'hosted' | 'hybrid';
-  installMethod: 'github' | 'registry' | 'npm' | 'pip' | 'manual' | 'hosted';
+  installMethod: 'github' | 'registry' | 'npm' | 'pip' | 'manual' | 'hosted' | 'api';
   supportedHosts: string[];
   supportedProviderIds: ProviderId[];
   supportedModels?: string[];

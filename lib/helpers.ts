@@ -1,4 +1,5 @@
 import { providerMap } from '@/lib/content/providers';
+import { getSkillCategory } from '@/lib/content/skill-categories';
 import { Locale, Model, ProviderId, Skill, SourceKind, SourceRef } from '@/lib/types';
 import { pick } from '@/lib/i18n';
 
@@ -71,6 +72,56 @@ export function localizeUseCase(locale: Locale, slug: string) {
 
 export function localizeSourceKind(locale: Locale, kind: SourceKind) {
   return pick(locale, sourceKindLabels[kind] ?? { en: kind, 'zh-TW': kind });
+}
+
+export function localizeSkillCategory(locale: Locale, skill: Pick<Skill, 'categoryId' | 'categoryLabel'>) {
+  return pick(locale, skill.categoryLabel ?? getSkillCategory(skill.categoryId).label);
+}
+
+const fieldPathLabels: Record<string, { en: string; 'zh-TW': string }> = {
+  officialUrl: { en: 'Official link', 'zh-TW': '官方連結' },
+  docsUrl: { en: 'Docs link', 'zh-TW': '文件連結' },
+  pricing: { en: 'Pricing', 'zh-TW': '價格' },
+  pricingUrl: { en: 'Pricing page', 'zh-TW': '價格頁' },
+  summary: { en: 'Summary', 'zh-TW': '摘要' },
+  description: { en: 'Description', 'zh-TW': '說明' },
+  modalities: { en: 'Modalities', 'zh-TW': '模態' },
+  modalityProfile: { en: 'Modality profile', 'zh-TW': '模態設定' },
+  contextWindow: { en: 'Context window', 'zh-TW': '上下文視窗' },
+  maxOutputTokens: { en: 'Max output', 'zh-TW': '最大輸出' },
+  toolSupport: { en: 'Tool support', 'zh-TW': '工具支援' },
+  supportedProviderIds: { en: 'Supported providers', 'zh-TW': '支援供應商' },
+  supportedHosts: { en: 'Supported hosts', 'zh-TW': '支援載體' },
+  installMethod: { en: 'Install method', 'zh-TW': '安裝方式' },
+  deployment: { en: 'Deployment model', 'zh-TW': '部署模式' },
+  auth: { en: 'Auth', 'zh-TW': '驗證方式' },
+  permissionProfile: { en: 'Permission posture', 'zh-TW': '權限姿態' },
+  repoUrl: { en: 'Repository', 'zh-TW': '程式庫' },
+  registryUrl: { en: 'Registry link', 'zh-TW': 'Registry 連結' },
+  officialSourceLabel: { en: 'Preferred source label', 'zh-TW': '主要來源標籤' },
+  categoryId: { en: 'Category', 'zh-TW': '分類' },
+  subCategory: { en: 'Subcategory', 'zh-TW': '子分類' },
+  capabilities: { en: 'Capabilities', 'zh-TW': '能力' },
+  bestFor: { en: 'Best-fit guidance', 'zh-TW': '適合場景建議' },
+  worksWith: { en: 'Works-with guidance', 'zh-TW': '搭配建議' },
+  strengths: { en: 'Strengths', 'zh-TW': '優勢' },
+  caveats: { en: 'Caveats', 'zh-TW': '注意事項' },
+  overallScore: { en: 'Overall score', 'zh-TW': '總分' },
+  scores: { en: 'Score breakdown', 'zh-TW': '分項評分' },
+};
+
+export function localizeFieldPath(locale: Locale, fieldPath: string) {
+  return pick(locale, fieldPathLabels[fieldPath] ?? { en: fieldPath, 'zh-TW': fieldPath });
+}
+
+export function getOfficialFieldPaths(item: { sourceRefs: SourceRef[] }) {
+  return Array.from(
+    new Set(
+      item.sourceRefs
+        .filter((source) => source.trustTier >= 5)
+        .flatMap((source) => source.fieldPaths ?? []),
+    ),
+  );
 }
 
 export function getProvider(providerId: ProviderId) {

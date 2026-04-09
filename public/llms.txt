@@ -4,7 +4,7 @@ version: 2
 site: http://localhost:3000/
 name: VerdictLens
 description: Discovery, shortlist, compare, and compatibility guide for AI models and skills with official-source signals and structured public data.
-last_updated: 2026-04-08T20:20:00.000Z
+last_updated: 2026-04-09T08:00:00.000Z
 languages: en, zh-TW
 formats: text/html, application/json
 
@@ -31,34 +31,52 @@ formats: text/html, application/json
 - catalog_json | http://localhost:3000/data/catalog.json
 
 [entities.models]
-- gpt-5-4-pro | GPT-5.4 Pro | provider=openai | best_for=coding,research,agent-automation | works_with=Codex CLI,LangGraph,MCP servers,Playwright | official=https://openai.com/api/
-- gpt-5-mini | GPT-5 Mini | provider=openai | best_for=agent-automation,research | works_with=n8n,Zapier AI Actions,1Password CLI,MCP servers | official=https://openai.com/api/
-- claude-3-7-sonnet | Claude 3.7 Sonnet | provider=anthropic | best_for=coding,research | works_with=Claude Code,LangGraph,Playwright,MCP servers | official=https://www.anthropic.com/claude
-- claude-3-5-haiku | Claude 3.5 Haiku | provider=anthropic | best_for=research,agent-automation | works_with=LangGraph,SerpApi,Slack assistants | official=https://www.anthropic.com/claude
-- gemini-2-5-pro | Gemini 2.5 Pro | provider=google | best_for=research,agent-automation | works_with=Notebook workflows,Document analysis,n8n,Vertex AI stacks | official=https://ai.google.dev/gemini-api
-- gemini-2-5-flash | Gemini 2.5 Flash | provider=google | best_for=agent-automation,research | works_with=Routing layers,Multimodal inboxes,n8n,Vertex AI stacks | official=https://ai.google.dev/gemini-api
-- grok-3-beta | Grok 3 Beta | provider=xai | best_for=research | works_with=Fresh web scans,Market monitoring,social-context workflows | official=https://x.ai/
-- deepseek-r1 | DeepSeek R1 | provider=deepseek | best_for=coding,research | works_with=Cost-sensitive reasoning stacks,batch analysis,fallback reasoning lanes | official=https://www.deepseek.com/
-- llama-4-maverick | Llama 4 Maverick | provider=meta | best_for=agent-automation,research | works_with=self-hosted inference,vector retrieval,custom fine-tuning | official=https://ai.meta.com/llama/
-- qwen-3-max | Qwen 3 Max | provider=alibaba-cloud | best_for=research,agent-automation | works_with=multilingual support workflows,enterprise copilots,Asian-market products | official=https://www.alibabacloud.com/product/model-studio
-- mistral-large-2 | Mistral Large 2 | provider=mistral | best_for=research,coding | works_with=EU deployment needs,internal copilots,API-first stacks | official=https://mistral.ai/products/la-plateforme
-- command-a | Command A | provider=cohere | best_for=research,agent-automation | works_with=RAG stacks,enterprise search,business writing workflows | official=https://cohere.com/
-- perplexity-sonar-reasoning-pro | Sonar Reasoning Pro | provider=perplexity | best_for=research | works_with=citation-heavy briefs,market scans,answer-grounding workflows | official=https://www.perplexity.ai/hub/blog/sonar
+- gpt-5 | GPT-5 | provider=openai | best_for=coding,agent-automation | works_with=Codex CLI,OpenAI Responses API,LangGraph,E2B | official=https://openai.com/
+- gpt-5-mini | GPT-5 mini | provider=openai | best_for=coding,agent-automation | works_with=Codex CLI,OpenAI Responses API,LangChain,Browserbase | official=https://openai.com/
+- gpt-5-nano | GPT-5 nano | provider=openai | best_for=agent-automation,research | works_with=LangChain,Zapier AI Actions,n8n,OpenAI Responses API | official=https://openai.com/
+- gpt-realtime-mini | gpt-realtime-mini | provider=openai | best_for=agent-automation | works_with=Voice agents,WebRTC apps,Telephony | official=https://openai.com/
+- gpt-image-1-mini | gpt-image-1-mini | provider=openai | best_for=research | works_with=Creative tooling,Marketing pipelines,Image editing flows | official=https://openai.com/
+- claude-opus-4-6 | Claude Opus 4.6 | provider=anthropic | best_for=coding,research,agent-automation | works_with=Claude Code,Anthropic API,LangGraph,MCP clients | official=https://www.anthropic.com/
+- claude-sonnet-4-6 | Claude Sonnet 4.6 | provider=anthropic | best_for=coding,agent-automation | works_with=Claude Code,Anthropic API,LangChain,MCP clients | official=https://www.anthropic.com/
+- claude-haiku-4-5 | Claude Haiku 4.5 | provider=anthropic | best_for=agent-automation,research | works_with=Anthropic API,automation workers,classification flows | official=https://www.anthropic.com/
+- gemini-2-5-pro | Gemini 2.5 Pro | provider=google | best_for=coding,research | works_with=Gemini API,Vertex AI,grounded search flows | official=https://ai.google.dev/
+- gemini-2-5-flash | Gemini 2.5 Flash | provider=google | best_for=agent-automation,research | works_with=Gemini API,Vertex AI,grounded search flows | official=https://ai.google.dev/
+- deepseek-chat-v3-2 | deepseek-chat (DeepSeek-V3.2) | provider=deepseek | best_for=coding,agent-automation | works_with=DeepSeek API,routing layers,budget coding flows | official=https://www.deepseek.com/
+- deepseek-reasoner-v3-2 | deepseek-reasoner (DeepSeek-V3.2) | provider=deepseek | best_for=coding,research | works_with=DeepSeek API,longer reasoning flows,budget research stacks | official=https://www.deepseek.com/
+- command-a | Command A | provider=cohere | best_for=agent-automation,research | works_with=Cohere API,RAG pipelines,enterprise search | official=https://cohere.com/
+- command-a-reasoning | Command A Reasoning | provider=cohere | best_for=agent-automation,research | works_with=Cohere API,enterprise agents,tool-use workflows | official=https://cohere.com/
+- command-r7b | Command R7B | provider=cohere | best_for=agent-automation | works_with=Cohere API,classification,budget enterprise assistants | official=https://cohere.com/
+- sonar | Sonar | provider=perplexity | best_for=research | works_with=Search-backed answers,news monitoring,web-grounded assistants | official=https://www.perplexity.ai/
+- sonar-pro | Sonar Pro | provider=perplexity | best_for=research | works_with=research copilots,search-grounded Q&A,news workflows | official=https://www.perplexity.ai/
+- sonar-reasoning-pro | Sonar Reasoning Pro | provider=perplexity | best_for=research | works_with=deeper search workflows,analysis assistants,research copilots | official=https://www.perplexity.ai/
+- sonar-deep-research | Sonar Deep Research | provider=perplexity | best_for=research | works_with=deep research workflows,citation-heavy reports,analyst assistants | official=https://www.perplexity.ai/
+- mistral-large-3 | Mistral Large 3 | provider=mistral | best_for=coding,research | works_with=Mistral API,self-hosted evaluation,document workflows | official=https://mistral.ai/
+- mistral-medium-3 | Mistral Medium 3 | provider=mistral | best_for=coding,agent-automation | works_with=Mistral API,agent toolchains,document Q&A | official=https://mistral.ai/
+- mistral-small-3-2 | Mistral Small 3.2 | provider=mistral | best_for=agent-automation | works_with=Mistral API,classification,routing layers | official=https://mistral.ai/
 
 [entities.skills]
-- codex-cli | Codex CLI | type=coding | install=npm | deployment=local | providers=openai | preferred_source=https://github.com/openai/codex
-- claude-code | Claude Code | type=coding | install=npm | deployment=local | providers=anthropic | preferred_source=https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview
-- langgraph | LangGraph | type=workflow | install=pip | deployment=hybrid | providers=openai,anthropic,google,meta | preferred_source=https://langchain-ai.github.io/langgraph/
-- n8n | n8n | type=workflow | install=hosted | deployment=hybrid | providers=openai,anthropic,google,cohere | preferred_source=https://docs.n8n.io/
-- playwright | Playwright | type=browser | install=npm | deployment=local | providers=any | preferred_source=https://playwright.dev/docs/intro
-- openai-whisper | OpenAI Whisper | type=extraction | install=pip | deployment=local | providers=openai,local | preferred_source=https://github.com/openai/whisper
-- 1password-cli | 1Password CLI | type=security | install=manual | deployment=hybrid | providers=any | preferred_source=https://developer.1password.com/docs/cli/
-- weaviate | Weaviate | type=connector | install=hosted | deployment=hybrid | providers=openai,anthropic,google,meta,any | preferred_source=https://docs.weaviate.io/
-- serpapi | SerpApi | type=search | install=hosted | deployment=hosted | providers=any | preferred_source=https://serpapi.com/search-api
-- mcp-toolbox | MCP Toolbox | type=mcp | install=manual | deployment=hybrid | providers=openai,anthropic,any | preferred_source=https://modelcontextprotocol.io/introduction
-- obsidian-memory-vault | Obsidian Memory Vault | type=memory | install=manual | deployment=local | providers=any | preferred_source=https://help.obsidian.md/
-- zapier-ai-actions | Zapier AI Actions | type=workflow | install=hosted | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://zapier.com/ai
-- e2b-sandbox | E2B Sandbox | type=connector | install=hosted | deployment=hosted | providers=any | preferred_source=https://e2b.dev/docs
+- codex-cli | Codex CLI | type=coding | install=npm | deployment=local | providers=openai | preferred_source=https://developers.openai.com/codex/cli/
+- claude-code | Claude Code | type=coding | install=npm | deployment=local | providers=anthropic | preferred_source=https://docs.anthropic.com/en/docs/claude-code/overview
+- langgraph | LangGraph | type=workflow | install=pip | deployment=hybrid | providers=openai,anthropic,google,deepseek,mistral,cohere,perplexity,local | preferred_source=https://langchain-ai.github.io/langgraph/
+- langchain | LangChain | type=workflow | install=pip | deployment=hybrid | providers=openai,anthropic,google,deepseek,mistral,cohere,perplexity,local | preferred_source=https://docs.langchain.com/
+- openai-agents-sdk | OpenAI Agents SDK | type=api | install=pip | deployment=hybrid | providers=openai | preferred_source=https://openai.github.io/openai-agents-python/
+- n8n | n8n | type=workflow | install=manual | deployment=hybrid | providers=openai,anthropic,google,deepseek,mistral,cohere,perplexity,any | preferred_source=https://docs.n8n.io/
+- pipedream | Pipedream | type=workflow | install=hosted | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://pipedream.com/docs/
+- playwright | Playwright | type=browser | install=npm | deployment=hybrid | providers=any | preferred_source=https://playwright.dev/docs/intro
+- browserbase | Browserbase | type=browser | install=npm | deployment=hosted | providers=any | preferred_source=https://docs.browserbase.com/
+- firecrawl | Firecrawl | type=extraction | install=npm | deployment=hybrid | providers=openai,anthropic,google,any | preferred_source=https://docs.firecrawl.dev/
+- tavily | Tavily | type=search | install=api | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://docs.tavily.com/
+- exa | Exa | type=search | install=api | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://docs.exa.ai/
+- serpapi | SerpApi | type=search | install=api | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://serpapi.com/search-api
+- openai-whisper | OpenAI Whisper | type=extraction | install=pip | deployment=local | providers=local | preferred_source=https://github.com/openai/whisper
+- 1password-cli | 1Password CLI | type=security | install=manual | deployment=local | providers=any | preferred_source=https://developer.1password.com/docs/cli/
+- weaviate | Weaviate | type=memory | install=manual | deployment=hybrid | providers=openai,anthropic,google,local,any | preferred_source=https://docs.weaviate.io/
+- mem0 | Mem0 | type=memory | install=pip | deployment=hybrid | providers=openai,anthropic,google,any | preferred_source=https://docs.mem0.ai/
+- github-mcp-server | GitHub MCP Server | type=mcp | install=npm | deployment=hybrid | providers=openai,anthropic,any | preferred_source=https://github.com/github/github-mcp-server
+- supabase-mcp-server | Supabase MCP Server | type=mcp | install=manual | deployment=hybrid | providers=openai,anthropic,any | preferred_source=https://supabase.com/docs/guides/getting-started/mcp
+- mcp-toolbox | Gen AI Toolbox for Databases | type=mcp | install=manual | deployment=hybrid | providers=google,openai,anthropic,any | preferred_source=https://github.com/googleapis/genai-toolbox
+- e2b-sandbox | E2B Sandbox | type=connector | install=npm | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://e2b.dev/docs
+- zapier-ai-actions | Zapier AI Actions | type=connector | install=hosted | deployment=hosted | providers=openai,anthropic,google,any | preferred_source=https://actions.zapier.com/docs/platform/gpt/
 
 [crawl_hints]
 - Prefer localized HTML pages for human-readable summaries and editorial context.

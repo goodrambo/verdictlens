@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Model } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
-import { compareHref, formatDate, getPrimarySource, getProvider, localizeSpeed, localizeUseCase, modelBestFor, scoreTone, speedRank } from '@/lib/helpers';
+import { compareHref, formatDate, getOfficialFieldPaths, getPrimarySource, getProvider, localizeFieldPath, localizeSpeed, localizeUseCase, modelBestFor, scoreTone, speedRank } from '@/lib/helpers';
 
 type ModelSortKey = 'overall' | 'name' | 'cost' | 'speed';
 
@@ -15,7 +15,7 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
   const [provider, setProvider] = useState('all');
   const [useCase, setUseCase] = useState('all');
   const [sortKey, setSortKey] = useState<ModelSortKey>('overall');
-  const [compareSelection, setCompareSelection] = useState<string[]>(['gpt-5-4-pro', 'claude-3-7-sonnet']);
+  const [compareSelection, setCompareSelection] = useState<string[]>([]);
 
   const providers = useMemo(
     () => Array.from(new Set(models.map((item) => item.providerId))).map((providerId) => getProvider(providerId)).sort((a, b) => a.name.localeCompare(b.name)),
@@ -254,6 +254,13 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
                           {primarySource.label} ↗
                         </a>
                         <div className="text-[var(--text-muted)]">{copy.labels.lastVerified}: {formatDate(locale, model.lastVerifiedAt)}</div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {getOfficialFieldPaths(model).slice(0, 3).map((fieldPath) => (
+                            <span key={fieldPath} className="chip text-[11px] text-[var(--text-muted)]">
+                              {localizeFieldPath(locale, fieldPath)}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </td>
                     <td className="px-5 py-5">
@@ -304,6 +311,7 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
                 <InfoBlock label={copy.labels.worksWith} value={model.worksWith.slice(0, 3).join(' · ')} />
                 <InfoBlock label={copy.labels.pricing} value={`${model.pricing.input} · ${localizeSpeed(locale, model.speedCategory)}`} />
                 <InfoBlock label={copy.labels.lastVerified} value={formatDate(locale, model.lastVerifiedAt)} />
+                <InfoBlock label={copy.labels.sourceSignals} value={getOfficialFieldPaths(model).slice(0, 3).map((fieldPath) => localizeFieldPath(locale, fieldPath)).join(' · ')} />
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">

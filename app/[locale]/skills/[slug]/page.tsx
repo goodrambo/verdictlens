@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { ScoreBar } from '@/components/shared/ScoreBar';
 import { skillMap, skills, useCases } from '@/lib/data';
-import { easeOfSetupScore, formatDate, localizeDifficulty, providerNames } from '@/lib/helpers';
+import { easeOfSetupScore, formatDate, getOfficialFieldPaths, localizeDifficulty, localizeFieldPath, localizeSkillCategory, localizeSourceKind, localizeUseCase, providerNames } from '@/lib/helpers';
 import { getLocale, pick, ui } from '@/lib/i18n';
 import { buildMetadata, localePath, localizedAlternates, locales, absoluteUrl, siteName } from '@/lib/site';
 import { ExternalLink } from '@/components/shared/ExternalLink';
@@ -36,6 +36,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ lo
   if (!skill) notFound();
 
   const relevantUseCases = useCases.filter((item) => skill.bestFor.some((useCaseSlug) => item.slug === useCaseSlug));
+  const officialFieldPaths = getOfficialFieldPaths(skill);
 
   return (
     <main>
@@ -48,7 +49,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ lo
           <div className="panel p-6 md:p-8">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="max-w-3xl">
-                <p className="text-label text-[var(--accent-2)]">{skill.category} · {skill.skillType}</p>
+                <p className="text-label text-[var(--accent-2)]">{localizeSkillCategory(locale, skill)}{skill.subCategory ? ` · ${skill.subCategory}` : ''} · {skill.skillType}</p>
                 <h1 className="mt-3 text-4xl font-semibold text-white md:text-5xl [text-wrap:balance]">{skill.displayName}</h1>
                 <p className="mt-4 text-base leading-8 text-[var(--text-muted)] md:text-[1.05rem]">{pick(locale, skill.summary)}</p>
               </div>
@@ -100,7 +101,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ lo
             <h2 className="text-2xl font-semibold text-white">{copy.labels.bestFor}</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {skill.bestFor.map((item) => (
-                <span key={item} className="chip text-sm text-[var(--text-muted)]">{item}</span>
+                <span key={item} className="chip text-sm text-[var(--text-muted)]">{localizeUseCase(locale, item)}</span>
               ))}
             </div>
 
@@ -121,12 +122,32 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ lo
 
           <div className="panel p-6">
             <h2 className="text-2xl font-semibold text-white">{copy.labels.sourceSignals}</h2>
+            <div className="mt-4 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
+              <div className="text-sm font-medium text-white">{locale === 'en' ? 'Officially verified registry fields' : '官方已驗證 registry 欄位'}</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {officialFieldPaths.map((fieldPath) => (
+                  <span key={fieldPath} className="chip text-xs text-[var(--text-muted)]">{localizeFieldPath(locale, fieldPath)}</span>
+                ))}
+              </div>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
+                {locale === 'en'
+                  ? 'Editorial guidance like best-fit recommendations, strengths, caveats, and scoring is kept separate from official registry facts.'
+                  : '適合場景建議、優勢、注意事項與評分等編輯欄位，會和官方 registry 事實分開呈現。'}
+              </p>
+            </div>
             <div className="mt-4 space-y-3">
               {skill.sourceRefs.map((source) => (
                 <a key={source.id} href={source.url} target="_blank" rel="noreferrer" className="panel-subtle flex items-center justify-between gap-4 px-4 py-3 transition hover:bg-white/8">
                   <div>
                     <div className="text-sm font-medium text-white">{source.label}</div>
-                    <div className="mt-1 text-xs text-[var(--text-muted)]">Tier {source.trustTier} · {formatDate(locale, source.fetchedAt)}</div>
+                    <div className="mt-1 text-xs text-[var(--text-muted)]">{localizeSourceKind(locale, source.kind)} · Tier {source.trustTier} · {formatDate(locale, source.fetchedAt)}</div>
+                    {source.fieldPaths?.length ? (
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {source.fieldPaths.map((fieldPath) => (
+                          <span key={fieldPath} className="chip text-[11px] text-[var(--text-muted)]">{localizeFieldPath(locale, fieldPath)}</span>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                   <span className="text-[var(--accent)]">↗</span>
                 </a>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { featuredModelSlugs, featuredSkillSlugs, modelMap, skillMap, useCases } from '@/lib/data';
+import { featuredModelSlugs, featuredSkillSlugs, modelMap, models, skillMap, skills, useCases } from '@/lib/data';
 import { getProvider } from '@/lib/helpers';
 import { getLocale, ui } from '@/lib/i18n';
 import { absoluteUrl, buildMetadata, defaultMetadata, localePath, localizedAlternates, siteName } from '@/lib/site';
@@ -81,7 +81,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="grid gap-4">
               <div className="panel p-5 md:p-6">
                 <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
-                  {[copy.hero.meta1, copy.hero.meta2, copy.hero.meta3].map((item, index) => (
+                  {[
+                    locale === 'en' ? `${models.length} verified AI models` : `${models.length} 個已驗證 AI 模型`,
+                    locale === 'en' ? `${skills.length} verified AI skills` : `${skills.length} 個已驗證 AI 技能`,
+                    locale === 'en' ? 'Official-source mapping + bilingual structured data' : '官方來源映射 + 雙語結構化資料',
+                  ].map((item, index) => (
                     <div key={item} className="panel-subtle p-4">
                       <div className="text-[11px] uppercase tracking-[0.28em] text-[var(--text-muted-2)]">0{index + 1}</div>
                       <div className="mt-2 text-base font-medium leading-7 text-white">{item}</div>

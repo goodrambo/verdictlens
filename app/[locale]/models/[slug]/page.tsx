@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { ScoreBar } from '@/components/shared/ScoreBar';
 import { modelMap, models, useCases } from '@/lib/data';
-import { formatDate, getProvider, localizeSpeed } from '@/lib/helpers';
+import { compareHref, formatDate, getOfficialFieldPaths, getProvider, localizeFieldPath, localizeSourceKind, localizeSpeed, localizeUseCase } from '@/lib/helpers';
 import { getLocale, pick, ui } from '@/lib/i18n';
 import { buildMetadata, localePath, localizedAlternates, locales, absoluteUrl, siteName } from '@/lib/site';
 import { ProviderLogo } from '@/components/brand/ProviderLogo';
@@ -38,6 +38,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
 
   const provider = getProvider(model.providerId);
   const relevantUseCases = useCases.filter((item) => model.bestFor.includes(item.slug));
+  const officialFieldPaths = getOfficialFieldPaths(model);
 
   return (
     <main>
@@ -75,6 +76,9 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
               <ExternalLink href={model.officialUrl}>{copy.labels.officialSite}</ExternalLink>
               {model.docsUrl ? <ExternalLink href={model.docsUrl} subtle>{copy.labels.officialDocs}</ExternalLink> : null}
               {model.pricingUrl ? <ExternalLink href={model.pricingUrl} subtle>{copy.labels.pricing}</ExternalLink> : null}
+              <Link href={compareHref(locale, [model.slug])} className="btn-secondary text-sm">
+                {locale === 'en' ? 'Start shortlist' : '加入 shortlist'}
+              </Link>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -105,7 +109,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
             <h2 className="text-2xl font-semibold text-white">{copy.labels.bestFor}</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {model.bestFor.map((item) => (
-                <span key={item} className="chip text-sm text-[var(--text-muted)]">{item}</span>
+                <span key={item} className="chip text-sm text-[var(--text-muted)]">{localizeUseCase(locale, item)}</span>
               ))}
             </div>
 
@@ -126,12 +130,32 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ lo
 
           <div className="panel p-6">
             <h2 className="text-2xl font-semibold text-white">{copy.labels.sourceSignals}</h2>
+            <div className="mt-4 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
+              <div className="text-sm font-medium text-white">{locale === 'en' ? 'Officially verified core fields' : '官方已驗證核心欄位'}</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {officialFieldPaths.map((fieldPath) => (
+                  <span key={fieldPath} className="chip text-xs text-[var(--text-muted)]">{localizeFieldPath(locale, fieldPath)}</span>
+                ))}
+              </div>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
+                {locale === 'en'
+                  ? 'Editorial fields such as shortlist guidance, strengths, caveats, and scoring remain clearly separated from official provider data.'
+                  : 'shortlist 建議、優勢、注意事項與評分等編輯欄位，會和官方供應商資料明確分開。'}
+              </p>
+            </div>
             <div className="mt-4 space-y-3">
               {model.sourceRefs.map((source) => (
                 <a key={source.id} href={source.url} target="_blank" rel="noreferrer" className="panel-subtle flex items-center justify-between gap-4 px-4 py-3 transition hover:bg-white/8">
                   <div>
                     <div className="text-sm font-medium text-white">{source.label}</div>
-                    <div className="mt-1 text-xs text-[var(--text-muted)]">Tier {source.trustTier} · {formatDate(locale, source.fetchedAt)}</div>
+                    <div className="mt-1 text-xs text-[var(--text-muted)]">{localizeSourceKind(locale, source.kind)} · Tier {source.trustTier} · {formatDate(locale, source.fetchedAt)}</div>
+                    {source.fieldPaths?.length ? (
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {source.fieldPaths.map((fieldPath) => (
+                          <span key={fieldPath} className="chip text-[11px] text-[var(--text-muted)]">{localizeFieldPath(locale, fieldPath)}</span>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                   <span className="text-[var(--accent)]">↗</span>
                 </a>

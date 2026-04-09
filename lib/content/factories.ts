@@ -1,4 +1,5 @@
-import { Model, Pricing, Provider, ProviderId, ScoreBlock, Skill, SourceKind, SourceRef, UseCase, LocalizedText } from '@/lib/types';
+import { Model, Pricing, Provider, ProviderId, ScoreBlock, Skill, SkillCategoryId, SourceKind, SourceRef, UseCase, LocalizedText } from '@/lib/types';
+import { getSkillCategory } from './skill-categories';
 
 type SharedSourceInput = Omit<SourceRef, 'fetchedAt'> & { fetchedAt?: string };
 
@@ -124,7 +125,9 @@ export function defineModel(seed: ModelSeed): Model {
 type SkillSeed = {
   slug: string;
   name: string;
-  category: string;
+  categoryId: SkillCategoryId;
+  category?: string;
+  subCategory?: string;
   skillType: Skill['skillType'];
   officialUrl?: string;
   docsUrl?: string;
@@ -166,9 +169,12 @@ type SkillSeed = {
 export function defineSkill(seed: SkillSeed): Skill {
   const lastVerifiedAt = seed.lastVerifiedAt ?? seed.updatedAt;
   const preferredSourceUrl = seed.preferredSourceUrl ?? seed.docsUrl ?? seed.repoUrl ?? seed.registryUrl ?? seed.officialUrl ?? '';
+  const categoryMeta = getSkillCategory(seed.categoryId);
 
   return {
     ...seed,
+    category: seed.category ?? categoryMeta.label.en,
+    categoryLabel: categoryMeta.label,
     id: `skill:${seed.slug}`,
     status: seed.status ?? 'active',
     displayName: seed.name,

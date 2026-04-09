@@ -5,18 +5,20 @@ import { useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Skill } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
-import { easeOfSetupScore, formatDate, getPrimarySource, localizeDifficulty, localizeUseCase, providerNames, scoreTone, skillBestFor } from '@/lib/helpers';
+import { easeOfSetupScore, formatDate, getOfficialFieldPaths, getPrimarySource, localizeDifficulty, localizeFieldPath, localizeSkillCategory, localizeUseCase, providerNames, scoreTone, skillBestFor } from '@/lib/helpers';
 
 type SkillSortKey = 'overall' | 'name' | 'compatibility' | 'setup';
 
 export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Locale }) {
   const copy = ui[locale];
   const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('all');
   const [skillType, setSkillType] = useState('all');
   const [provider, setProvider] = useState('all');
   const [useCase, setUseCase] = useState('all');
   const [sortKey, setSortKey] = useState<SkillSortKey>('overall');
 
+  const categories = useMemo(() => Array.from(new Set(skills.map((item) => item.categoryId))).sort(), [skills]);
   const skillTypes = useMemo(() => Array.from(new Set(skills.map((item) => item.skillType))).sort(), [skills]);
   const providers = useMemo(() => Array.from(new Set(skills.flatMap((item) => item.supportedProviderIds))).sort(), [skills]);
   const useCases = useMemo(() => Array.from(new Set(skills.flatMap((item) => skillBestFor(item)))).sort(), [skills]);
@@ -29,6 +31,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
         const searchable = [
           item.name,
           item.category,
+          item.subCategory ?? '',
           item.skillType,
           ...item.tags,
           ...item.worksWith,
@@ -39,7 +42,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           .join(' ')
           .toLowerCase();
 
-        return (!q || searchable.includes(q)) && (skillType === 'all' || item.skillType === skillType) && (provider === 'all' || item.supportedProviderIds.includes(provider as Skill['supportedProviderIds'][number])) && (useCase === 'all' || skillBestFor(item).includes(useCase));
+        return (!q || searchable.includes(q)) && (category === 'all' || item.categoryId === category) && (skillType === 'all' || item.skillType === skillType) && (provider === 'all' || item.supportedProviderIds.includes(provider as Skill['supportedProviderIds'][number])) && (useCase === 'all' || skillBestFor(item).includes(useCase));
       })
       .sort((a, b) => {
         if (sortKey === 'name') return a.name.localeCompare(b.name);
@@ -47,10 +50,11 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
         if (sortKey === 'setup') return easeOfSetupScore(b.installDifficulty, b.easeOfSetupScore) - easeOfSetupScore(a.installDifficulty, a.easeOfSetupScore) || a.name.localeCompare(b.name);
         return b.overallScore - a.overallScore || a.name.localeCompare(b.name);
       });
-  }, [provider, query, skillType, skills, sortKey, useCase]);
+  }, [category, provider, query, skillType, skills, sortKey, useCase]);
 
   function clearFilters() {
     setQuery('');
+    setCategory('all');
     setSkillType('all');
     setProvider('all');
     setUseCase('all');
@@ -80,15 +84,27 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <label className="space-y-2 text-sm text-[var(--text-muted)]">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <label className="space-y-2 text-sm text-[var(--text-muted)] xl:col-span-2">
             <span>{copy.labels.search}</span>
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder={locale === 'en' ? 'Search by skill, type, provider, or capability' : '依技能、類型、供應商或能力搜尋'}
+              placeholder={locale === 'en' ? 'Search by skill, category, provider, or capability' : '依技能、分類、供應商或能力搜尋'}
               className="input-base"
             />
+          </label>
+
+          <label className="space-y-2 text-sm text-[var(--text-muted)]">
+            <span>{copy.labels.category}</span>
+            <select value={category} onChange={(event) => setCategory(event.target.value)} className="input-base">
+              <option value="all">{copy.labels.all}</option>
+              {categories.map((item) => (
+                <option key={item} value={item}>
+                  {localizeSkillCategory(locale, skills.find((skill) => skill.categoryId === item) ?? skills[0])}
+                </option>
+              ))}
+            </select>
           </label>
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
@@ -115,7 +131,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
             </select>
           </label>
 
-          <label className="space-y-2 text-sm text-[var(--text-muted)]">
+          <label className="space-y-2 text-sm text-[var(--text-muted)] xl:col-start-5">
             <span>{copy.labels.bestFor}</span>
             <select value={useCase} onChange={(event) => setUseCase(event.target.value)} className="input-base">
               <option value="all">{copy.labels.all}</option>
@@ -177,7 +193,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                         <div className="flex items-start justify-between gap-3">
                           <div>
                             <div className="text-base font-semibold text-white">{skill.displayName}</div>
-                            <div className="mt-1 text-sm text-[var(--text-muted)]">{skill.category} · {skill.skillType}</div>
+                            <div className="mt-1 text-sm text-[var(--text-muted)]">{localizeSkillCategory(locale, skill)}{skill.subCategory ? ` · ${skill.subCategory}` : ''} · {skill.skillType}</div>
                           </div>
                           <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
                             <div className="text-[11px] uppercase tracking-[0.2em] text-white/65">Score</div>
@@ -215,6 +231,13 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                           {primarySource.label} ↗
                         </a>
                         <div className="text-[var(--text-muted)]">{copy.labels.lastVerified}: {formatDate(locale, skill.lastVerifiedAt)}</div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {getOfficialFieldPaths(skill).slice(0, 3).map((fieldPath) => (
+                            <span key={fieldPath} className="chip text-[11px] text-[var(--text-muted)]">
+                              {localizeFieldPath(locale, fieldPath)}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </td>
                     <td className="px-5 py-5">
@@ -238,7 +261,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
             <article key={skill.slug} className="card p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-sm text-[var(--text-muted)]">{skill.category} · {skill.skillType}</div>
+                  <div className="text-sm text-[var(--text-muted)]">{localizeSkillCategory(locale, skill)}{skill.subCategory ? ` · ${skill.subCategory}` : ''} · {skill.skillType}</div>
                   <h3 className="mt-1 text-xl font-semibold text-white">{skill.displayName}</h3>
                 </div>
                 <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
@@ -256,6 +279,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                 <InfoBlock label={copy.labels.supportedProviders} value={providerNames(skill.supportedProviderIds).join(' · ')} />
                 <InfoBlock label={copy.labels.supportedHosts} value={skill.supportedHosts.join(' · ')} />
                 <InfoBlock label={copy.labels.lastVerified} value={formatDate(locale, skill.lastVerifiedAt)} />
+                <InfoBlock label={copy.labels.sourceSignals} value={getOfficialFieldPaths(skill).slice(0, 3).map((fieldPath) => localizeFieldPath(locale, fieldPath)).join(' · ')} />
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">

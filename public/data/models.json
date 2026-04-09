@@ -1,475 +1,20 @@
 {
-  "updatedAt": "2026-04-08T21:37:09.585Z",
-  "count": 13,
+  "updatedAt": "2026-04-09T09:05:27.310Z",
+  "count": 22,
   "shortlistReady": true,
   "comparePath": "/compare",
   "items": [
     {
-      "slug": "gpt-5-4-pro",
-      "name": "GPT-5.4 Pro",
-      "shortName": "GPT-5.4 Pro",
-      "family": "GPT-5",
+      "slug": "gpt-5",
+      "name": "GPT-5",
       "providerId": "openai",
-      "officialUrl": "https://openai.com/api/",
-      "docsUrl": "https://platform.openai.com/docs/models",
+      "family": "GPT-5",
+      "officialUrl": "https://openai.com/",
+      "docsUrl": "https://platform.openai.com/docs/models/gpt-5",
       "pricingUrl": "https://openai.com/api/pricing/",
       "description": {
-        "en": "Top-tier generalist model with excellent reasoning depth, strong coding reliability, and mature agent tooling support.",
-        "zh-TW": "頂級全能模型，具備出色的推理深度、穩定的程式能力，以及成熟的 agent 工具鏈支援。"
-      },
-      "modalities": [
-        "text",
-        "image",
-        "tools"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text",
-          "json"
-        ]
-      },
-      "contextWindow": "400K",
-      "pricing": {
-        "input": "$12 / 1M tok",
-        "output": "$48 / 1M tok",
-        "inputUsdPerMillion": "12",
-        "outputUsdPerMillion": "48"
-      },
-      "speedCategory": "Balanced",
-      "toolSupport": {
-        "functionCalling": true,
-        "structuredOutput": true,
-        "webSearch": true,
-        "remoteMcp": true,
-        "codeExecution": true
-      },
-      "overallScore": 93,
-      "scores": {
-        "capability": 97,
-        "useCaseFitness": 94,
-        "costEfficiency": 71,
-        "speed": 82,
-        "reliability": 94,
-        "agentReadiness": 97,
-        "ecosystem": 98
-      },
-      "bestUseCases": [
-        "coding",
-        "research",
-        "agent-automation"
-      ],
-      "worksWith": [
-        "Codex CLI",
-        "LangGraph",
-        "MCP servers",
-        "Playwright"
-      ],
-      "tags": [
-        "flagship",
-        "coding",
-        "agents",
-        "multimodal"
-      ],
-      "strengths": [
-        {
-          "en": "Very strong long-horizon task execution",
-          "zh-TW": "長流程任務執行能力非常強"
-        },
-        {
-          "en": "Deep ecosystem integration across tools and APIs",
-          "zh-TW": "工具與 API 生態整合成熟"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Premium pricing for heavy batch usage",
-          "zh-TW": "大量批次使用時成本偏高"
-        },
-        {
-          "en": "Fast enough, but not the cheapest latency pick",
-          "zh-TW": "速度夠用，但不是最低延遲與最低成本選擇"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:gpt-5-4-pro",
-      "status": "active",
-      "displayName": "GPT-5.4 Pro",
-      "summary": {
-        "en": "Top-tier generalist model with excellent reasoning depth, strong coding reliability, and mature agent tooling support.",
-        "zh-TW": "頂級全能模型，具備出色的推理深度、穩定的程式能力，以及成熟的 agent 工具鏈支援。"
-      },
-      "bestFor": [
-        "coding",
-        "research",
-        "agent-automation"
-      ],
-      "sourceRefs": [
-        {
-          "id": "official-site:gpt-5-4-pro-official",
-          "label": "GPT-5.4 Pro official",
-          "url": "https://openai.com/api/",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:gpt-5-4-pro-docs",
-          "label": "GPT-5.4 Pro docs",
-          "url": "https://platform.openai.com/docs/models",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "pricing-page:gpt-5-4-pro-pricing",
-          "label": "GPT-5.4 Pro pricing",
-          "url": "https://openai.com/api/pricing/",
-          "kind": "pricing-page",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "pricing"
-          ]
-        },
-        {
-          "id": "manual-review:gpt-5-4-pro-verdictlens-review",
-          "label": "GPT-5.4 Pro VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "gpt-5-mini",
-      "name": "GPT-5 Mini",
-      "family": "GPT-5",
-      "providerId": "openai",
-      "officialUrl": "https://openai.com/api/",
-      "docsUrl": "https://platform.openai.com/docs/models",
-      "pricingUrl": "https://openai.com/api/pricing/",
-      "description": {
-        "en": "Lean, affordable OpenAI model tuned for responsive assistants, classification, and operational agent tasks.",
-        "zh-TW": "輕量且價格友善的 OpenAI 模型，適合即時助理、分類與日常 agent 任務。"
-      },
-      "modalities": [
-        "text",
-        "image",
-        "tools"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text",
-          "json"
-        ]
-      },
-      "contextWindow": "200K",
-      "pricing": {
-        "input": "$1.1 / 1M tok",
-        "output": "$4.4 / 1M tok",
-        "inputUsdPerMillion": "1.1",
-        "outputUsdPerMillion": "4.4"
-      },
-      "speedCategory": "Fast",
-      "toolSupport": {
-        "functionCalling": true,
-        "structuredOutput": true,
-        "webSearch": true,
-        "remoteMcp": true,
-        "codeExecution": true
-      },
-      "overallScore": 87,
-      "scores": {
-        "capability": 85,
-        "useCaseFitness": 88,
-        "costEfficiency": 94,
-        "speed": 94,
-        "reliability": 88,
-        "agentReadiness": 91,
-        "ecosystem": 96
-      },
-      "bestUseCases": [
-        "agent-automation",
-        "research"
-      ],
-      "worksWith": [
-        "n8n",
-        "Zapier AI Actions",
-        "1Password CLI",
-        "MCP servers"
-      ],
-      "tags": [
-        "efficient",
-        "assistant",
-        "ops"
-      ],
-      "strengths": [
-        {
-          "en": "Excellent throughput-per-dollar",
-          "zh-TW": "單位成本產出效率很高"
-        },
-        {
-          "en": "Strong tool-calling ergonomics",
-          "zh-TW": "工具呼叫體驗成熟穩定"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Less depth for frontier-grade reasoning",
-          "zh-TW": "面對最前沿推理任務時深度較不足"
-        },
-        {
-          "en": "May need stronger prompt scaffolding for nuanced analysis",
-          "zh-TW": "做細緻分析時需要更好的提示框架"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:gpt-5-mini",
-      "status": "active",
-      "displayName": "GPT-5 Mini",
-      "summary": {
-        "en": "Lean, affordable OpenAI model tuned for responsive assistants, classification, and operational agent tasks.",
-        "zh-TW": "輕量且價格友善的 OpenAI 模型，適合即時助理、分類與日常 agent 任務。"
-      },
-      "bestFor": [
-        "agent-automation",
-        "research"
-      ],
-      "sourceRefs": [
-        {
-          "id": "official-site:gpt-5-mini-official",
-          "label": "GPT-5 Mini official",
-          "url": "https://openai.com/api/",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:gpt-5-mini-docs",
-          "label": "GPT-5 Mini docs",
-          "url": "https://platform.openai.com/docs/models",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "pricing-page:gpt-5-mini-pricing",
-          "label": "GPT-5 Mini pricing",
-          "url": "https://openai.com/api/pricing/",
-          "kind": "pricing-page",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "pricing"
-          ]
-        },
-        {
-          "id": "manual-review:gpt-5-mini-verdictlens-review",
-          "label": "GPT-5 Mini VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "claude-3-7-sonnet",
-      "name": "Claude 3.7 Sonnet",
-      "family": "Claude 3.7",
-      "providerId": "anthropic",
-      "officialUrl": "https://www.anthropic.com/claude",
-      "docsUrl": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
-      "pricingUrl": "https://www.anthropic.com/pricing#api",
-      "description": {
-        "en": "Highly trusted reasoning and coding model with exceptional writing quality and calm, consistent outputs.",
-        "zh-TW": "高信任度的推理與程式模型，寫作品質優秀，輸出穩定且一致性高。"
-      },
-      "modalities": [
-        "text",
-        "image",
-        "tools"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text",
-          "json"
-        ]
-      },
-      "contextWindow": "200K",
-      "pricing": {
-        "input": "$3 / 1M tok",
-        "output": "$15 / 1M tok",
-        "inputUsdPerMillion": "3",
-        "outputUsdPerMillion": "15"
-      },
-      "speedCategory": "Balanced",
-      "toolSupport": {
-        "functionCalling": true,
-        "structuredOutput": true,
-        "remoteMcp": true
-      },
-      "overallScore": 91,
-      "scores": {
-        "capability": 94,
-        "useCaseFitness": 92,
-        "costEfficiency": 82,
-        "speed": 84,
-        "reliability": 95,
-        "agentReadiness": 91,
-        "ecosystem": 90
-      },
-      "bestUseCases": [
-        "coding",
-        "research"
-      ],
-      "worksWith": [
-        "Claude Code",
-        "LangGraph",
-        "Playwright",
-        "MCP servers"
-      ],
-      "tags": [
-        "reasoning",
-        "coding",
-        "writing"
-      ],
-      "strengths": [
-        {
-          "en": "Excellent code edits and technical explanations",
-          "zh-TW": "程式修改與技術解說能力出色"
-        },
-        {
-          "en": "Strong output consistency for editorial workflows",
-          "zh-TW": "在編輯與寫作流程中穩定度高"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Tool ecosystem is strong but narrower than the broadest platform stacks",
-          "zh-TW": "工具生態不錯，但仍略窄於最完整的平台型生態"
-        },
-        {
-          "en": "Latency can rise on very long deliberative prompts",
-          "zh-TW": "超長推理提示下延遲可能上升"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:claude-3-7-sonnet",
-      "status": "active",
-      "displayName": "Claude 3.7 Sonnet",
-      "summary": {
-        "en": "Highly trusted reasoning and coding model with exceptional writing quality and calm, consistent outputs.",
-        "zh-TW": "高信任度的推理與程式模型，寫作品質優秀，輸出穩定且一致性高。"
-      },
-      "bestFor": [
-        "coding",
-        "research"
-      ],
-      "sourceRefs": [
-        {
-          "id": "official-site:claude-3-7-sonnet-official",
-          "label": "Claude 3.7 Sonnet official",
-          "url": "https://www.anthropic.com/claude",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:claude-3-7-sonnet-docs",
-          "label": "Claude 3.7 Sonnet docs",
-          "url": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "pricing-page:claude-3-7-sonnet-pricing",
-          "label": "Claude 3.7 Sonnet pricing",
-          "url": "https://www.anthropic.com/pricing#api",
-          "kind": "pricing-page",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "pricing"
-          ]
-        },
-        {
-          "id": "manual-review:claude-3-7-sonnet-verdictlens-review",
-          "label": "Claude 3.7 Sonnet VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "claude-3-5-haiku",
-      "name": "Claude 3.5 Haiku",
-      "family": "Claude 3.5",
-      "providerId": "anthropic",
-      "officialUrl": "https://www.anthropic.com/claude",
-      "docsUrl": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
-      "pricingUrl": "https://www.anthropic.com/pricing#api",
-      "description": {
-        "en": "Fast and lightweight model ideal for summarization, routing, support tasks, and budget-sensitive assistants.",
-        "zh-TW": "快速輕量模型，適合摘要、任務路由、客服與成本敏感型助理。"
+        "en": "OpenAI’s previous flagship reasoning model for coding, agentic tasks, and broad professional work.",
+        "zh-TW": "OpenAI 先前的旗艦推理模型，適合 coding、agent 任務與廣泛專業工作。"
       },
       "modalities": [
         "text",
@@ -478,298 +23,1274 @@
       "modalityProfile": {
         "input": [
           "text",
-          "image",
-          "file"
+          "image"
         ],
         "output": [
           "text",
           "json"
         ]
       },
-      "contextWindow": "200K",
+      "contextWindow": "400K tokens",
+      "maxOutputTokens": "128K tokens",
       "pricing": {
-        "input": "$0.8 / 1M tok",
-        "output": "$4 / 1M tok",
-        "inputUsdPerMillion": "0.8",
-        "outputUsdPerMillion": "4"
-      },
-      "speedCategory": "Fast",
-      "toolSupport": {
-        "functionCalling": true,
-        "structuredOutput": true
-      },
-      "overallScore": 84,
-      "scores": {
-        "capability": 78,
-        "useCaseFitness": 85,
-        "costEfficiency": 92,
-        "speed": 96,
-        "reliability": 88,
-        "agentReadiness": 80,
-        "ecosystem": 85
-      },
-      "bestUseCases": [
-        "research",
-        "agent-automation"
-      ],
-      "worksWith": [
-        "LangGraph",
-        "SerpApi",
-        "Slack assistants"
-      ],
-      "tags": [
-        "fast",
-        "budget",
-        "summaries"
-      ],
-      "strengths": [
-        {
-          "en": "Responsive and economical for high-volume operations",
-          "zh-TW": "高量操作下反應快且成本低"
-        },
-        {
-          "en": "Strong default tone quality for concise outputs",
-          "zh-TW": "簡潔輸出時語氣表現穩定"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Limited ceiling for complex multi-step planning",
-          "zh-TW": "複雜多步驟規劃能力上限有限"
-        },
-        {
-          "en": "Less appealing for agent workflows that require richer tool state",
-          "zh-TW": "需要更複雜工具狀態的 agent 流程較不適合"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:claude-3-5-haiku",
-      "status": "active",
-      "displayName": "Claude 3.5 Haiku",
-      "summary": {
-        "en": "Fast and lightweight model ideal for summarization, routing, support tasks, and budget-sensitive assistants.",
-        "zh-TW": "快速輕量模型，適合摘要、任務路由、客服與成本敏感型助理。"
-      },
-      "bestFor": [
-        "research",
-        "agent-automation"
-      ],
-      "sourceRefs": [
-        {
-          "id": "official-site:claude-3-5-haiku-official",
-          "label": "Claude 3.5 Haiku official",
-          "url": "https://www.anthropic.com/claude",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:claude-3-5-haiku-docs",
-          "label": "Claude 3.5 Haiku docs",
-          "url": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "pricing-page:claude-3-5-haiku-pricing",
-          "label": "Claude 3.5 Haiku pricing",
-          "url": "https://www.anthropic.com/pricing#api",
-          "kind": "pricing-page",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "pricing"
-          ]
-        },
-        {
-          "id": "manual-review:claude-3-5-haiku-verdictlens-review",
-          "label": "Claude 3.5 Haiku VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "gemini-2-5-pro",
-      "name": "Gemini 2.5 Pro",
-      "family": "Gemini 2.5",
-      "providerId": "google",
-      "officialUrl": "https://ai.google.dev/gemini-api",
-      "docsUrl": "https://ai.google.dev/gemini-api/docs/models",
-      "pricingUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "description": {
-        "en": "Powerful multimodal model with strong long-context analysis, research workflows, and broad document understanding.",
-        "zh-TW": "強大的多模態模型，擅長長上下文分析、研究流程與複雜文件理解。"
-      },
-      "modalities": [
-        "text",
-        "image",
-        "audio",
-        "video",
-        "tools"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "file"
-        ],
-        "output": [
-          "text",
-          "json"
-        ]
-      },
-      "contextWindow": "1M",
-      "pricing": {
-        "input": "$3.5 / 1M tok",
-        "output": "$10.5 / 1M tok",
-        "inputUsdPerMillion": "3.5",
-        "outputUsdPerMillion": "10.5"
+        "input": "$1.25 / 1M input tokens",
+        "output": "$10 / 1M output tokens",
+        "inputUsdPerMillion": "1.25",
+        "outputUsdPerMillion": "10"
       },
       "speedCategory": "Balanced",
       "toolSupport": {
         "functionCalling": true,
         "structuredOutput": true,
         "webSearch": true,
+        "remoteMcp": true,
         "codeExecution": true
       },
-      "overallScore": 90,
+      "overallScore": 92,
       "scores": {
-        "capability": 95,
-        "useCaseFitness": 92,
-        "costEfficiency": 84,
-        "speed": 81,
-        "reliability": 89,
-        "agentReadiness": 88,
-        "ecosystem": 92
+        "capability": 94,
+        "useCaseFitness": 93,
+        "costEfficiency": 82,
+        "speed": 85,
+        "reliability": 92,
+        "agentReadiness": 94,
+        "ecosystem": 96
       },
       "bestUseCases": [
-        "research",
+        "coding",
         "agent-automation"
       ],
       "worksWith": [
-        "Notebook workflows",
-        "Document analysis",
-        "n8n",
-        "Vertex AI stacks"
+        "Codex CLI",
+        "OpenAI Responses API",
+        "LangGraph",
+        "E2B"
       ],
       "tags": [
-        "long-context",
-        "multimodal",
-        "research"
+        "reasoning",
+        "coding",
+        "agentic"
       ],
       "strengths": [
         {
-          "en": "Outstanding large-document synthesis",
-          "zh-TW": "大型文件整合與歸納能力突出"
+          "en": "Strong coding and tool-use baseline with broad ecosystem support.",
+          "zh-TW": "coding 與工具使用基線強，且生態支援廣。"
         },
         {
-          "en": "One of the best multimodal coverage profiles",
-          "zh-TW": "多模態覆蓋面非常完整"
+          "en": "Large context and mature Responses API integration.",
+          "zh-TW": "上下文大，且 Responses API 整合成熟。"
         }
       ],
       "caveats": [
         {
-          "en": "UX across endpoints can feel less uniform than the most polished competitors",
-          "zh-TW": "不同端點體驗的一致性略遜於最成熟對手"
+          "en": "No longer OpenAI’s newest flagship tier.",
+          "zh-TW": "已不是 OpenAI 最新旗艦層級。"
         },
         {
-          "en": "Not always the fastest interactive pick",
-          "zh-TW": "互動式回應未必是最快選擇"
+          "en": "Costs rise quickly on long, high-output workflows.",
+          "zh-TW": "長上下文與高輸出工作流成本會快速上升。"
         }
       ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:gemini-2-5-pro",
-      "status": "active",
-      "displayName": "Gemini 2.5 Pro",
-      "summary": {
-        "en": "Powerful multimodal model with strong long-context analysis, research workflows, and broad document understanding.",
-        "zh-TW": "強大的多模態模型，擅長長上下文分析、研究流程與複雜文件理解。"
-      },
-      "bestFor": [
-        "research",
-        "agent-automation"
-      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
       "sourceRefs": [
         {
-          "id": "official-site:gemini-2-5-pro-official",
-          "label": "Gemini 2.5 Pro official",
-          "url": "https://ai.google.dev/gemini-api",
+          "id": "official-site:openai-official",
+          "label": "OpenAI official",
+          "url": "https://openai.com/",
           "kind": "official-site",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "officialUrl"
           ]
         },
         {
-          "id": "official-docs:gemini-2-5-pro-docs",
-          "label": "Gemini 2.5 Pro docs",
-          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "id": "official-docs:gpt-5-model-docs",
+          "label": "GPT-5 model docs",
+          "url": "https://platform.openai.com/docs/models/gpt-5",
           "kind": "official-docs",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "docsUrl"
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
           ]
         },
         {
-          "id": "pricing-page:gemini-2-5-pro-pricing",
-          "label": "Gemini 2.5 Pro pricing",
-          "url": "https://ai.google.dev/gemini-api/docs/pricing",
+          "id": "pricing-page:openai-api-pricing",
+          "label": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
           "kind": "pricing-page",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "pricing"
+            "pricing",
+            "pricingUrl"
           ]
         },
         {
-          "id": "manual-review:gemini-2-5-pro-verdictlens-review",
-          "label": "Gemini 2.5 Pro VerdictLens review",
+          "id": "manual-review:gpt-5-verdictlens-review",
+          "label": "GPT-5 VerdictLens review",
           "url": "https://verdictlens.local/manual-review",
           "kind": "manual-review",
           "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "bestFor",
             "worksWith",
             "strengths",
-            "caveats"
-          ]
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
         }
       ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+      "id": "model:gpt-5",
+      "status": "active",
+      "displayName": "GPT-5",
+      "summary": {
+        "en": "OpenAI’s previous flagship reasoning model for coding, agentic tasks, and broad professional work.",
+        "zh-TW": "OpenAI 先前的旗艦推理模型，適合 coding、agent 任務與廣泛專業工作。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
     },
     {
-      "slug": "gemini-2-5-flash",
-      "name": "Gemini 2.5 Flash",
-      "family": "Gemini 2.5",
+      "slug": "gpt-5-mini",
+      "name": "GPT-5 mini",
+      "providerId": "openai",
+      "family": "GPT-5",
+      "officialUrl": "https://openai.com/",
+      "docsUrl": "https://platform.openai.com/docs/models/gpt-5-mini",
+      "pricingUrl": "https://openai.com/api/pricing/",
+      "description": {
+        "en": "A lower-cost GPT-5 variant tuned for low-latency, high-volume workloads.",
+        "zh-TW": "較低成本的 GPT-5 變體，適合低延遲與高吞吐工作負載。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "400K tokens",
+      "maxOutputTokens": "128K tokens",
+      "pricing": {
+        "input": "$0.25 / 1M input tokens",
+        "output": "$2 / 1M output tokens",
+        "inputUsdPerMillion": "0.25",
+        "outputUsdPerMillion": "2"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 89,
+      "scores": {
+        "capability": 88,
+        "useCaseFitness": 90,
+        "costEfficiency": 91,
+        "speed": 92,
+        "reliability": 89,
+        "agentReadiness": 90,
+        "ecosystem": 95
+      },
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Codex CLI",
+        "OpenAI Responses API",
+        "LangChain",
+        "Browserbase"
+      ],
+      "tags": [
+        "high-volume",
+        "coding",
+        "cost-aware"
+      ],
+      "strengths": [
+        {
+          "en": "Good balance of price, latency, and tool-use support.",
+          "zh-TW": "價格、延遲與工具支援之間的平衡不錯。"
+        },
+        {
+          "en": "Useful default for production agent loops that do not need frontier reasoning every turn.",
+          "zh-TW": "很適合作為不需要每輪都用前沿推理的 production agent 預設。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Not the best choice for the hardest reasoning tasks.",
+          "zh-TW": "對最難的推理任務不是最佳選擇。"
+        },
+        {
+          "en": "Still more expensive than ultra-cheap routing tiers.",
+          "zh-TW": "仍比超低價 routing 層更貴。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:openai-official",
+          "label": "OpenAI official",
+          "url": "https://openai.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:gpt-5-mini-model-docs",
+          "label": "GPT-5 mini model docs",
+          "url": "https://platform.openai.com/docs/models/gpt-5-mini",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:openai-api-pricing",
+          "label": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:gpt-5-mini-verdictlens-review",
+          "label": "GPT-5 mini VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:gpt-5-mini",
+      "status": "active",
+      "displayName": "GPT-5 mini",
+      "summary": {
+        "en": "A lower-cost GPT-5 variant tuned for low-latency, high-volume workloads.",
+        "zh-TW": "較低成本的 GPT-5 變體，適合低延遲與高吞吐工作負載。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "gpt-5-nano",
+      "name": "GPT-5 nano",
+      "providerId": "openai",
+      "family": "GPT-5",
+      "officialUrl": "https://openai.com/",
+      "docsUrl": "https://platform.openai.com/docs/models/gpt-5-nano",
+      "pricingUrl": "https://openai.com/api/pricing/",
+      "description": {
+        "en": "The fastest and cheapest GPT-5 tier for summarization, classification, and simple automation.",
+        "zh-TW": "速度最快、成本最低的 GPT-5 層級，適合摘要、分類與簡單自動化。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "400K tokens",
+      "maxOutputTokens": "128K tokens",
+      "pricing": {
+        "input": "$0.05 / 1M input tokens",
+        "output": "$0.40 / 1M output tokens",
+        "inputUsdPerMillion": "0.05",
+        "outputUsdPerMillion": "0.40"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 85,
+      "scores": {
+        "capability": 80,
+        "useCaseFitness": 84,
+        "costEfficiency": 97,
+        "speed": 96,
+        "reliability": 86,
+        "agentReadiness": 84,
+        "ecosystem": 94
+      },
+      "bestUseCases": [
+        "agent-automation",
+        "research"
+      ],
+      "worksWith": [
+        "LangChain",
+        "Zapier AI Actions",
+        "n8n",
+        "OpenAI Responses API"
+      ],
+      "tags": [
+        "cheap",
+        "summarization",
+        "classification"
+      ],
+      "strengths": [
+        {
+          "en": "Very strong cost profile for routing, triage, and pre-processing.",
+          "zh-TW": "很適合拿來做 routing、分類與前處理。"
+        },
+        {
+          "en": "Maintains built-in tool support despite the low price tier.",
+          "zh-TW": "即使在低價位仍保留內建工具支援。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Capability ceiling is lower for nuanced coding or planning.",
+          "zh-TW": "在細緻 coding 或規劃任務上的能力上限較低。"
+        },
+        {
+          "en": "Best used as part of a routed stack rather than as the only model.",
+          "zh-TW": "更適合放在 routed stack 裡，而不是單獨承擔全部工作。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:openai-official",
+          "label": "OpenAI official",
+          "url": "https://openai.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:gpt-5-nano-model-docs",
+          "label": "GPT-5 nano model docs",
+          "url": "https://platform.openai.com/docs/models/gpt-5-nano",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:openai-api-pricing",
+          "label": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:gpt-5-nano-verdictlens-review",
+          "label": "GPT-5 nano VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:gpt-5-nano",
+      "status": "active",
+      "displayName": "GPT-5 nano",
+      "summary": {
+        "en": "The fastest and cheapest GPT-5 tier for summarization, classification, and simple automation.",
+        "zh-TW": "速度最快、成本最低的 GPT-5 層級，適合摘要、分類與簡單自動化。"
+      },
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "gpt-realtime-mini",
+      "name": "gpt-realtime-mini",
+      "providerId": "openai",
+      "family": "GPT Realtime",
+      "officialUrl": "https://openai.com/",
+      "docsUrl": "https://platform.openai.com/docs/models/gpt-realtime-mini",
+      "pricingUrl": "https://openai.com/api/pricing/",
+      "description": {
+        "en": "A cost-efficient realtime model for voice and streaming interactions over WebRTC, WebSocket, or SIP.",
+        "zh-TW": "面向語音與串流互動的高性價比 realtime 模型，可走 WebRTC、WebSocket 或 SIP。"
+      },
+      "modalities": [
+        "text",
+        "audio",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "audio",
+          "image"
+        ],
+        "output": [
+          "text",
+          "audio"
+        ]
+      },
+      "contextWindow": "32K tokens",
+      "maxOutputTokens": "4,096 tokens",
+      "pricing": {
+        "input": "$0.60 / 1M text input tokens",
+        "output": "$2.40 / 1M text output tokens",
+        "inputUsdPerMillion": "0.60",
+        "outputUsdPerMillion": "2.40",
+        "notes": "OpenAI lists separate audio pricing on the API pricing page."
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": false,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 84,
+      "scores": {
+        "capability": 79,
+        "useCaseFitness": 88,
+        "costEfficiency": 89,
+        "speed": 98,
+        "reliability": 84,
+        "agentReadiness": 87,
+        "ecosystem": 90
+      },
+      "bestUseCases": [
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Voice agents",
+        "WebRTC apps",
+        "Telephony"
+      ],
+      "tags": [
+        "realtime",
+        "voice",
+        "streaming"
+      ],
+      "strengths": [
+        {
+          "en": "Low-latency audio and text interaction is the main strength.",
+          "zh-TW": "低延遲音訊與文字互動是最大優勢。"
+        },
+        {
+          "en": "Useful when UX speed matters more than deep long-form reasoning.",
+          "zh-TW": "當 UX 速度比長篇深度推理更重要時很有價值。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Smaller context and output limits than general frontier text models.",
+          "zh-TW": "上下文與輸出上限都小於通用前沿文字模型。"
+        },
+        {
+          "en": "Not the right default for research-heavy or long-document tasks.",
+          "zh-TW": "不適合作為研究型或長文件任務的預設模型。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:openai-official",
+          "label": "OpenAI official",
+          "url": "https://openai.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:gpt-realtime-mini-model-docs",
+          "label": "gpt-realtime-mini model docs",
+          "url": "https://platform.openai.com/docs/models/gpt-realtime-mini",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "maxOutputTokens"
+          ]
+        },
+        {
+          "id": "pricing-page:openai-api-pricing",
+          "label": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:gpt-realtime-mini-verdictlens-review",
+          "label": "gpt-realtime-mini VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:gpt-realtime-mini",
+      "status": "active",
+      "displayName": "gpt-realtime-mini",
+      "summary": {
+        "en": "A cost-efficient realtime model for voice and streaming interactions over WebRTC, WebSocket, or SIP.",
+        "zh-TW": "面向語音與串流互動的高性價比 realtime 模型，可走 WebRTC、WebSocket 或 SIP。"
+      },
+      "bestFor": [
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "gpt-image-1-mini",
+      "name": "gpt-image-1-mini",
+      "providerId": "openai",
+      "family": "GPT Image",
+      "officialUrl": "https://openai.com/",
+      "docsUrl": "https://platform.openai.com/docs/models/gpt-image-1-mini",
+      "pricingUrl": "https://openai.com/api/pricing/",
+      "description": {
+        "en": "OpenAI’s lower-cost image generation tier for high-volume image workflows.",
+        "zh-TW": "OpenAI 較低成本的圖像生成層，適合高吞吐影像工作流。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "contextWindow": "Model-page pricing only",
+      "pricing": {
+        "input": "$2 / 1M text input tokens or $2.50 / 1M image input tokens",
+        "output": "$8 / 1M image output tokens",
+        "inputUsdPerMillion": "2",
+        "outputUsdPerMillion": "8",
+        "notes": "OpenAI also publishes per-image generation prices by size and quality."
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": false,
+        "structuredOutput": false,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 79,
+      "scores": {
+        "capability": 82,
+        "useCaseFitness": 84,
+        "costEfficiency": 85,
+        "speed": 80,
+        "reliability": 81,
+        "agentReadiness": 70,
+        "ecosystem": 88
+      },
+      "bestUseCases": [
+        "research"
+      ],
+      "worksWith": [
+        "Creative tooling",
+        "Marketing pipelines",
+        "Image editing flows"
+      ],
+      "tags": [
+        "image-generation",
+        "creative",
+        "multimodal"
+      ],
+      "strengths": [
+        {
+          "en": "Lower-cost image generation option from the same OpenAI stack.",
+          "zh-TW": "可在同一 OpenAI stack 中使用的低成本圖像生成選項。"
+        },
+        {
+          "en": "Useful when teams want simpler procurement and vendor consolidation.",
+          "zh-TW": "適合想簡化採購與供應商整合的團隊。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Not a general text model and should not be compared like one.",
+          "zh-TW": "不是通用文字模型，不該用同樣方式比較。"
+        },
+        {
+          "en": "Official docs emphasize pricing more than broader capability detail.",
+          "zh-TW": "官方頁面更偏重價格資訊，而不是更完整的能力說明。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:openai-official",
+          "label": "OpenAI official",
+          "url": "https://openai.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:gpt-image-1-mini-model-docs",
+          "label": "gpt-image-1-mini model docs",
+          "url": "https://platform.openai.com/docs/models/gpt-image-1-mini",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile"
+          ]
+        },
+        {
+          "id": "pricing-page:openai-api-pricing",
+          "label": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:gpt-image-1-mini-verdictlens-review",
+          "label": "gpt-image-1-mini VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:gpt-image-1-mini",
+      "status": "active",
+      "displayName": "gpt-image-1-mini",
+      "summary": {
+        "en": "OpenAI’s lower-cost image generation tier for high-volume image workflows.",
+        "zh-TW": "OpenAI 較低成本的圖像生成層，適合高吞吐影像工作流。"
+      },
+      "bestFor": [
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "providerId": "anthropic",
+      "family": "Claude 4",
+      "officialUrl": "https://www.anthropic.com/",
+      "docsUrl": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+      "pricingUrl": "https://www.anthropic.com/pricing#api",
+      "description": {
+        "en": "Anthropic’s highest-capability Claude tier for difficult reasoning, long-form synthesis, and premium agent work.",
+        "zh-TW": "Anthropic 最高能力的 Claude 層級，適合高難度推理、長篇整合與高價值 agent 工作。"
+      },
+      "modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "200K tokens",
+      "maxOutputTokens": "32K tokens",
+      "pricing": {
+        "input": "$15 / 1M input tokens",
+        "output": "$75 / 1M output tokens",
+        "inputUsdPerMillion": "15",
+        "outputUsdPerMillion": "75"
+      },
+      "speedCategory": "Deliberate",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 94,
+      "scores": {
+        "capability": 97,
+        "useCaseFitness": 94,
+        "costEfficiency": 71,
+        "speed": 76,
+        "reliability": 94,
+        "agentReadiness": 95,
+        "ecosystem": 92
+      },
+      "bestUseCases": [
+        "coding",
+        "research",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Claude Code",
+        "Anthropic API",
+        "LangGraph",
+        "MCP clients"
+      ],
+      "tags": [
+        "frontier",
+        "reasoning",
+        "long-form"
+      ],
+      "strengths": [
+        {
+          "en": "Top-tier reasoning and synthesis for hard tasks.",
+          "zh-TW": "在高難度任務上的推理與整合能力屬第一梯隊。"
+        },
+        {
+          "en": "Strong fit for premium research and coding workflows.",
+          "zh-TW": "很適合高價值研究與 coding 工作流。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Premium pricing makes cost control important.",
+          "zh-TW": "價格偏高，必須重視成本控制。"
+        },
+        {
+          "en": "Often better reserved for escalation rather than every request.",
+          "zh-TW": "更適合作為升級路由，而不是每個請求都直接使用。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:anthropic-official",
+          "label": "Anthropic official",
+          "url": "https://www.anthropic.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:claude-models-overview",
+          "label": "Claude models overview",
+          "url": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:anthropic-api-pricing",
+          "label": "Anthropic API pricing",
+          "url": "https://www.anthropic.com/pricing#api",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:claude-opus-4-6-verdictlens-review",
+          "label": "Claude Opus 4.6 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:claude-opus-4-6",
+      "status": "active",
+      "displayName": "Claude Opus 4.6",
+      "summary": {
+        "en": "Anthropic’s highest-capability Claude tier for difficult reasoning, long-form synthesis, and premium agent work.",
+        "zh-TW": "Anthropic 最高能力的 Claude 層級，適合高難度推理、長篇整合與高價值 agent 工作。"
+      },
+      "bestFor": [
+        "coding",
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "providerId": "anthropic",
+      "family": "Claude 4",
+      "officialUrl": "https://www.anthropic.com/",
+      "docsUrl": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+      "pricingUrl": "https://www.anthropic.com/pricing#api",
+      "description": {
+        "en": "Anthropic’s balanced Claude tier for broad production use, coding, and agent orchestration.",
+        "zh-TW": "Anthropic 較均衡的 Claude 層級，適合廣泛 production、coding 與 agent 編排。"
+      },
+      "modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "200K tokens",
+      "maxOutputTokens": "64K tokens",
+      "pricing": {
+        "input": "$3 / 1M input tokens",
+        "output": "$15 / 1M output tokens",
+        "inputUsdPerMillion": "3",
+        "outputUsdPerMillion": "15"
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 92,
+      "scores": {
+        "capability": 93,
+        "useCaseFitness": 95,
+        "costEfficiency": 85,
+        "speed": 87,
+        "reliability": 93,
+        "agentReadiness": 95,
+        "ecosystem": 92
+      },
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Claude Code",
+        "Anthropic API",
+        "LangChain",
+        "MCP clients"
+      ],
+      "tags": [
+        "balanced",
+        "coding",
+        "agents"
+      ],
+      "strengths": [
+        {
+          "en": "One of the strongest default choices for practical coding and agent work.",
+          "zh-TW": "是實務 coding 與 agent 工作很強的預設選擇之一。"
+        },
+        {
+          "en": "Better price-performance than the premium Opus tier for many teams.",
+          "zh-TW": "對多數團隊來說，價格效益通常比 Opus 更合理。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Still premium-priced versus budget routing tiers.",
+          "zh-TW": "與低價 routing 層相比仍偏貴。"
+        },
+        {
+          "en": "May not justify use on simple high-volume automation.",
+          "zh-TW": "在簡單高量自動化場景上未必划算。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:anthropic-official",
+          "label": "Anthropic official",
+          "url": "https://www.anthropic.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:claude-models-overview",
+          "label": "Claude models overview",
+          "url": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:anthropic-api-pricing",
+          "label": "Anthropic API pricing",
+          "url": "https://www.anthropic.com/pricing#api",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:claude-sonnet-4-6-verdictlens-review",
+          "label": "Claude Sonnet 4.6 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:claude-sonnet-4-6",
+      "status": "active",
+      "displayName": "Claude Sonnet 4.6",
+      "summary": {
+        "en": "Anthropic’s balanced Claude tier for broad production use, coding, and agent orchestration.",
+        "zh-TW": "Anthropic 較均衡的 Claude 層級，適合廣泛 production、coding 與 agent 編排。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "providerId": "anthropic",
+      "family": "Claude 4",
+      "officialUrl": "https://www.anthropic.com/",
+      "docsUrl": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+      "pricingUrl": "https://www.anthropic.com/pricing#api",
+      "description": {
+        "en": "Anthropic’s faster lower-cost Claude tier for lightweight production tasks.",
+        "zh-TW": "Anthropic 速度較快、成本較低的 Claude 層級，適合輕量 production 任務。"
+      },
+      "modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "200K tokens",
+      "maxOutputTokens": "64K tokens",
+      "pricing": {
+        "input": "$1 / 1M input tokens",
+        "output": "$5 / 1M output tokens",
+        "inputUsdPerMillion": "1",
+        "outputUsdPerMillion": "5"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 87,
+      "scores": {
+        "capability": 84,
+        "useCaseFitness": 87,
+        "costEfficiency": 90,
+        "speed": 93,
+        "reliability": 89,
+        "agentReadiness": 87,
+        "ecosystem": 90
+      },
+      "bestUseCases": [
+        "agent-automation",
+        "research"
+      ],
+      "worksWith": [
+        "Anthropic API",
+        "automation workers",
+        "classification flows"
+      ],
+      "tags": [
+        "fast",
+        "budget",
+        "classification"
+      ],
+      "strengths": [
+        {
+          "en": "Useful for faster Claude-aligned production paths.",
+          "zh-TW": "適合需要 Claude 風格但更快的 production 路徑。"
+        },
+        {
+          "en": "Good step-down tier under Sonnet for routed stacks.",
+          "zh-TW": "在 routed stack 裡很適合作為 Sonnet 之下的降級層。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Not the best option for deep reasoning or hard coding.",
+          "zh-TW": "不是深度推理或高難度 coding 的最佳選擇。"
+        },
+        {
+          "en": "Many teams will still want Sonnet for their main interactive tier.",
+          "zh-TW": "很多團隊主互動層仍會偏向 Sonnet。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:anthropic-official",
+          "label": "Anthropic official",
+          "url": "https://www.anthropic.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:claude-models-overview",
+          "label": "Claude models overview",
+          "url": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:anthropic-api-pricing",
+          "label": "Anthropic API pricing",
+          "url": "https://www.anthropic.com/pricing#api",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:claude-haiku-4-5-verdictlens-review",
+          "label": "Claude Haiku 4.5 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:claude-haiku-4-5",
+      "status": "active",
+      "displayName": "Claude Haiku 4.5",
+      "summary": {
+        "en": "Anthropic’s faster lower-cost Claude tier for lightweight production tasks.",
+        "zh-TW": "Anthropic 速度較快、成本較低的 Claude 層級，適合輕量 production 任務。"
+      },
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "gemini-2-5-pro",
+      "name": "Gemini 2.5 Pro",
       "providerId": "google",
-      "officialUrl": "https://ai.google.dev/gemini-api",
-      "docsUrl": "https://ai.google.dev/gemini-api/docs/models",
+      "family": "Gemini 2.5",
+      "officialUrl": "https://ai.google.dev/",
+      "docsUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro",
       "pricingUrl": "https://ai.google.dev/gemini-api/docs/pricing",
       "description": {
-        "en": "Low-latency multimodal workhorse for assistant surfaces, routing layers, and lightweight agent execution.",
-        "zh-TW": "低延遲多模態工作馬，適合助理介面、路由層與輕量 agent 執行。"
+        "en": "Google’s most advanced Gemini 2.5 model for complex reasoning and coding tasks.",
+        "zh-TW": "Google 在 Gemini 2.5 系列中最先進的模型，適合複雜推理與 coding 任務。"
       },
       "modalities": [
         "text",
@@ -782,116 +1303,274 @@
           "text",
           "image",
           "audio",
-          "video",
-          "file"
+          "video"
         ],
         "output": [
           "text",
           "json"
         ]
       },
-      "contextWindow": "1M",
+      "contextWindow": "1M tokens",
       "pricing": {
-        "input": "$0.7 / 1M tok",
-        "output": "$2.8 / 1M tok",
-        "inputUsdPerMillion": "0.7",
-        "outputUsdPerMillion": "2.8"
+        "input": "$1.25 / 1M input tokens (≤200K prompts)",
+        "output": "$10 / 1M output tokens (≤200K prompts)",
+        "inputUsdPerMillion": "1.25",
+        "outputUsdPerMillion": "10",
+        "notes": "Google lists higher rates for prompts above 200K tokens."
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 91,
+      "scores": {
+        "capability": 94,
+        "useCaseFitness": 92,
+        "costEfficiency": 84,
+        "speed": 84,
+        "reliability": 89,
+        "agentReadiness": 90,
+        "ecosystem": 92
+      },
+      "bestUseCases": [
+        "coding",
+        "research"
+      ],
+      "worksWith": [
+        "Gemini API",
+        "Vertex AI",
+        "grounded search flows"
+      ],
+      "tags": [
+        "multimodal",
+        "reasoning",
+        "long-context"
+      ],
+      "strengths": [
+        {
+          "en": "Strong multimodal reasoning with very large context.",
+          "zh-TW": "多模態推理強，且上下文很大。"
+        },
+        {
+          "en": "Good fit for teams already using Google AI or Vertex AI paths.",
+          "zh-TW": "對已經在用 Google AI 或 Vertex AI 的團隊很順。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Google pricing becomes more complex on very long prompts and grounded calls.",
+          "zh-TW": "在超長 prompt 與 grounding 呼叫時，Google 定價會更複雜。"
+        },
+        {
+          "en": "Tooling conventions differ from OpenAI and Anthropic-centered stacks.",
+          "zh-TW": "工具介面習慣與 OpenAI / Anthropic 生態不完全一致。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:google-ai-for-developers",
+          "label": "Google AI for Developers",
+          "url": "https://ai.google.dev/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:gemini-2-5-pro-model-docs",
+          "label": "Gemini 2.5 Pro model docs",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow"
+          ]
+        },
+        {
+          "id": "pricing-page:gemini-api-pricing",
+          "label": "Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "manual-review:gemini-2-5-pro-verdictlens-review",
+          "label": "Gemini 2.5 Pro VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:gemini-2-5-pro",
+      "status": "active",
+      "displayName": "Gemini 2.5 Pro",
+      "summary": {
+        "en": "Google’s most advanced Gemini 2.5 model for complex reasoning and coding tasks.",
+        "zh-TW": "Google 在 Gemini 2.5 系列中最先進的模型，適合複雜推理與 coding 任務。"
+      },
+      "bestFor": [
+        "coding",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "gemini-2-5-flash",
+      "name": "Gemini 2.5 Flash",
+      "providerId": "google",
+      "family": "Gemini 2.5",
+      "officialUrl": "https://ai.google.dev/",
+      "docsUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash",
+      "pricingUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "description": {
+        "en": "Google’s price-performance Gemini 2.5 tier for low-latency, high-volume reasoning work.",
+        "zh-TW": "Google 偏重價格效能的 Gemini 2.5 層級，適合低延遲、高吞吐的推理工作。"
+      },
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "1M tokens",
+      "pricing": {
+        "input": "$0.30 / 1M text-image-video input tokens",
+        "output": "$2.50 / 1M output tokens",
+        "inputUsdPerMillion": "0.30",
+        "outputUsdPerMillion": "2.50",
+        "notes": "Google lists separate audio pricing and grounding fees."
       },
       "speedCategory": "Fast",
       "toolSupport": {
         "functionCalling": true,
         "structuredOutput": true,
-        "webSearch": true
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": false
       },
-      "overallScore": 86,
+      "overallScore": 88,
       "scores": {
-        "capability": 82,
-        "useCaseFitness": 86,
-        "costEfficiency": 95,
-        "speed": 97,
-        "reliability": 86,
-        "agentReadiness": 84,
-        "ecosystem": 90
+        "capability": 86,
+        "useCaseFitness": 89,
+        "costEfficiency": 91,
+        "speed": 92,
+        "reliability": 87,
+        "agentReadiness": 88,
+        "ecosystem": 91
       },
       "bestUseCases": [
         "agent-automation",
         "research"
       ],
       "worksWith": [
-        "Routing layers",
-        "Multimodal inboxes",
-        "n8n",
-        "Vertex AI stacks"
+        "Gemini API",
+        "Vertex AI",
+        "grounded search flows"
       ],
       "tags": [
-        "multimodal",
         "fast",
-        "assistant"
+        "multimodal",
+        "price-performance"
       ],
       "strengths": [
         {
-          "en": "Excellent latency for multimodal interfaces",
-          "zh-TW": "多模態介面的延遲表現很優秀"
+          "en": "Attractive cost-performance profile for multimodal workloads.",
+          "zh-TW": "對多模態工作負載來說成本效能很有吸引力。"
         },
         {
-          "en": "Very compelling value for large-scale ingestion",
-          "zh-TW": "大規模資料吞吐時成本效益佳"
+          "en": "Useful when teams want one vendor for search-grounded and multimodal flows.",
+          "zh-TW": "適合想用單一供應商處理 grounding 與多模態流程的團隊。"
         }
       ],
       "caveats": [
         {
-          "en": "Reasoning depth trails premium frontier models",
-          "zh-TW": "推理深度仍落後旗艦級模型"
+          "en": "May need careful prompt and product tuning for complex agent patterns.",
+          "zh-TW": "在複雜 agent 模式下，仍需要較細的 prompt 與產品調校。"
         },
         {
-          "en": "May need a higher-tier fallback for sensitive outputs",
-          "zh-TW": "高敏感輸出情境可能需要更高階備援模型"
+          "en": "Ecosystem examples are not as ubiquitous as OpenAI defaults.",
+          "zh-TW": "生態範例的普及度仍不如 OpenAI 預設路線。"
         }
       ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:gemini-2-5-flash",
-      "status": "active",
-      "displayName": "Gemini 2.5 Flash",
-      "summary": {
-        "en": "Low-latency multimodal workhorse for assistant surfaces, routing layers, and lightweight agent execution.",
-        "zh-TW": "低延遲多模態工作馬，適合助理介面、路由層與輕量 agent 執行。"
-      },
-      "bestFor": [
-        "agent-automation",
-        "research"
-      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
       "sourceRefs": [
         {
-          "id": "official-site:gemini-2-5-flash-official",
-          "label": "Gemini 2.5 Flash official",
-          "url": "https://ai.google.dev/gemini-api",
+          "id": "official-site:google-ai-for-developers",
+          "label": "Google AI for Developers",
+          "url": "https://ai.google.dev/",
           "kind": "official-site",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "officialUrl"
           ]
         },
         {
-          "id": "official-docs:gemini-2-5-flash-docs",
-          "label": "Gemini 2.5 Flash docs",
-          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "id": "official-docs:gemini-2-5-flash-model-docs",
+          "label": "Gemini 2.5 Flash model docs",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash",
           "kind": "official-docs",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "docsUrl"
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow"
           ]
         },
         {
-          "id": "pricing-page:gemini-2-5-flash-pricing",
-          "label": "Gemini 2.5 Flash pricing",
+          "id": "pricing-page:gemini-api-pricing",
+          "label": "Gemini API pricing",
           "url": "https://ai.google.dev/gemini-api/docs/pricing",
           "kind": "pricing-page",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "pricing"
+            "pricing",
+            "pricingUrl",
+            "toolSupport"
           ]
         },
         {
@@ -900,793 +1579,415 @@
           "url": "https://verdictlens.local/manual-review",
           "kind": "manual-review",
           "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "bestFor",
             "worksWith",
             "strengths",
-            "caveats"
-          ]
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
         }
       ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "grok-3-beta",
-      "name": "Grok 3 Beta",
-      "family": "Grok 3",
-      "providerId": "xai",
-      "officialUrl": "https://x.ai/",
-      "docsUrl": "https://docs.x.ai/",
-      "description": {
-        "en": "Strong real-time orientation and increasingly capable reasoning model with distinctive web freshness advantages.",
-        "zh-TW": "偏向即時資訊場景、推理能力持續增強，且具備新鮮網路資訊優勢的模型。"
-      },
-      "modalities": [
-        "text",
-        "image",
-        "tools"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "contextWindow": "256K",
-      "pricing": {
-        "input": "$5 / 1M tok",
-        "output": "$15 / 1M tok",
-        "inputUsdPerMillion": "5",
-        "outputUsdPerMillion": "15"
-      },
-      "speedCategory": "Balanced",
-      "toolSupport": {
-        "functionCalling": true,
-        "webSearch": true
-      },
-      "overallScore": 83,
-      "scores": {
-        "capability": 86,
-        "useCaseFitness": 84,
-        "costEfficiency": 74,
-        "speed": 86,
-        "reliability": 80,
-        "agentReadiness": 78,
-        "ecosystem": 79
-      },
-      "bestUseCases": [
-        "research"
-      ],
-      "worksWith": [
-        "Fresh web scans",
-        "Market monitoring",
-        "social-context workflows"
-      ],
-      "tags": [
-        "web-aware",
-        "analysis",
-        "realtime"
-      ],
-      "strengths": [
-        {
-          "en": "Useful when freshness matters",
-          "zh-TW": "重視資訊新鮮度時很有價值"
-        },
-        {
-          "en": "Confident long-form synthesis style",
-          "zh-TW": "長文整合輸出風格有辨識度"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Ecosystem and enterprise controls still maturing",
-          "zh-TW": "生態與企業級控制面仍在成熟中"
-        },
-        {
-          "en": "Less proven for complex agent loops",
-          "zh-TW": "複雜 agent loop 的實戰驗證較少"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "status": "preview",
-      "id": "model:grok-3-beta",
-      "displayName": "Grok 3 Beta",
+      "id": "model:gemini-2-5-flash",
+      "status": "active",
+      "displayName": "Gemini 2.5 Flash",
       "summary": {
-        "en": "Strong real-time orientation and increasingly capable reasoning model with distinctive web freshness advantages.",
-        "zh-TW": "偏向即時資訊場景、推理能力持續增強，且具備新鮮網路資訊優勢的模型。"
+        "en": "Google’s price-performance Gemini 2.5 tier for low-latency, high-volume reasoning work.",
+        "zh-TW": "Google 偏重價格效能的 Gemini 2.5 層級，適合低延遲、高吞吐的推理工作。"
       },
       "bestFor": [
+        "agent-automation",
         "research"
       ],
-      "sourceRefs": [
-        {
-          "id": "official-site:grok-3-beta-official",
-          "label": "Grok 3 Beta official",
-          "url": "https://x.ai/",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:grok-3-beta-docs",
-          "label": "Grok 3 Beta docs",
-          "url": "https://docs.x.ai/",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "manual-review:grok-3-beta-verdictlens-review",
-          "label": "Grok 3 Beta VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
     },
     {
-      "slug": "deepseek-r1",
-      "name": "DeepSeek R1",
-      "family": "DeepSeek",
+      "slug": "deepseek-chat-v3-2",
+      "name": "deepseek-chat (DeepSeek-V3.2)",
       "providerId": "deepseek",
+      "family": "DeepSeek-V3.2",
       "officialUrl": "https://www.deepseek.com/",
-      "docsUrl": "https://api-docs.deepseek.com/",
+      "docsUrl": "https://api-docs.deepseek.com/quick_start/pricing",
+      "pricingUrl": "https://api-docs.deepseek.com/quick_start/pricing",
       "description": {
-        "en": "High-value reasoning model that punches above its price tier for technical problem solving and analytical depth.",
-        "zh-TW": "高性價比推理模型，在技術解題與分析深度上常有超出價格帶的表現。"
+        "en": "DeepSeek’s non-thinking API SKU mapped to the DeepSeek-V3.2 model version.",
+        "zh-TW": "DeepSeek 的非 thinking API SKU，對應 DeepSeek-V3.2 模型版本。"
       },
       "modalities": [
         "text"
       ],
       "modalityProfile": {
         "input": [
-          "text",
-          "file"
+          "text"
         ],
         "output": [
-          "text"
+          "text",
+          "json"
         ]
       },
-      "contextWindow": "128K",
+      "contextWindow": "128K tokens",
+      "maxOutputTokens": "8K tokens max",
       "pricing": {
-        "input": "$0.55 / 1M tok",
-        "output": "$2.2 / 1M tok",
-        "inputUsdPerMillion": "0.55",
-        "outputUsdPerMillion": "2.2"
+        "input": "$0.28 / 1M input tokens (cache miss)",
+        "output": "$0.42 / 1M output tokens",
+        "inputUsdPerMillion": "0.28",
+        "outputUsdPerMillion": "0.42",
+        "notes": "DeepSeek also lists lower cache-hit pricing."
       },
-      "speedCategory": "Deliberate",
+      "speedCategory": "Fast",
       "toolSupport": {
-        "functionCalling": true
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
       },
-      "overallScore": 85,
+      "overallScore": 86,
       "scores": {
-        "capability": 90,
+        "capability": 84,
         "useCaseFitness": 86,
-        "costEfficiency": 97,
-        "speed": 67,
-        "reliability": 81,
-        "agentReadiness": 76,
-        "ecosystem": 73
+        "costEfficiency": 96,
+        "speed": 92,
+        "reliability": 82,
+        "agentReadiness": 84,
+        "ecosystem": 80
       },
       "bestUseCases": [
         "coding",
-        "research"
+        "agent-automation"
       ],
       "worksWith": [
-        "Cost-sensitive reasoning stacks",
-        "batch analysis",
-        "fallback reasoning lanes"
+        "DeepSeek API",
+        "routing layers",
+        "budget coding flows"
       ],
       "tags": [
-        "reasoning",
-        "value",
-        "math"
+        "budget",
+        "coding",
+        "api-sku"
       ],
       "strengths": [
         {
-          "en": "Very attractive for reasoning-heavy workloads on a budget",
-          "zh-TW": "預算有限時做重推理任務非常划算"
+          "en": "Very aggressive API pricing for practical text workloads.",
+          "zh-TW": "在實務文字工作負載上有非常激進的 API 定價。"
         },
         {
-          "en": "Strong analytical style for math and code",
-          "zh-TW": "在數學與程式分析上表現強勢"
+          "en": "Useful as a cheaper mainline or fallback model in routed stacks.",
+          "zh-TW": "適合作為 routed stack 裡較便宜的主線或 fallback。"
         }
       ],
       "caveats": [
         {
-          "en": "Latency and ecosystem maturity remain trade-offs",
-          "zh-TW": "延遲與生態成熟度仍是代價"
+          "en": "API SKU naming differs from the broader model-family branding.",
+          "zh-TW": "API SKU 命名和外部模型家族品牌名稱不完全一致。"
         },
         {
-          "en": "Operational guarantees vary by deployment path",
-          "zh-TW": "不同部署路徑下的穩定性保證不一"
+          "en": "Some enterprises will still prefer vendors with broader compliance posture.",
+          "zh-TW": "部分企業仍可能偏好合規姿態更完整的供應商。"
         }
       ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:deepseek-r1",
-      "status": "active",
-      "displayName": "DeepSeek R1",
-      "summary": {
-        "en": "High-value reasoning model that punches above its price tier for technical problem solving and analytical depth.",
-        "zh-TW": "高性價比推理模型，在技術解題與分析深度上常有超出價格帶的表現。"
-      },
-      "bestFor": [
-        "coding",
-        "research"
-      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
       "sourceRefs": [
         {
-          "id": "official-site:deepseek-r1-official",
-          "label": "DeepSeek R1 official",
+          "id": "official-site:deepseek-official",
+          "label": "DeepSeek official",
           "url": "https://www.deepseek.com/",
           "kind": "official-site",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "officialUrl"
           ]
         },
         {
-          "id": "official-docs:deepseek-r1-docs",
-          "label": "DeepSeek R1 docs",
-          "url": "https://api-docs.deepseek.com/",
+          "id": "official-docs:deepseek-models-and-pricing",
+          "label": "DeepSeek models and pricing",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing",
           "kind": "official-docs",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "docsUrl"
+            "summary",
+            "description",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport",
+            "pricing",
+            "pricingUrl"
           ]
         },
         {
-          "id": "manual-review:deepseek-r1-verdictlens-review",
-          "label": "DeepSeek R1 VerdictLens review",
+          "id": "manual-review:deepseek-chat-deepseek-v3-2-verdictlens-review",
+          "label": "deepseek-chat (DeepSeek-V3.2) VerdictLens review",
           "url": "https://verdictlens.local/manual-review",
           "kind": "manual-review",
           "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "bestFor",
             "worksWith",
             "strengths",
-            "caveats"
-          ]
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
         }
       ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+      "id": "model:deepseek-chat-v3-2",
+      "status": "active",
+      "displayName": "deepseek-chat (DeepSeek-V3.2)",
+      "summary": {
+        "en": "DeepSeek’s non-thinking API SKU mapped to the DeepSeek-V3.2 model version.",
+        "zh-TW": "DeepSeek 的非 thinking API SKU，對應 DeepSeek-V3.2 模型版本。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
     },
     {
-      "slug": "llama-4-maverick",
-      "name": "Llama 4 Maverick",
-      "family": "Llama 4",
-      "providerId": "meta",
-      "officialUrl": "https://ai.meta.com/llama/",
-      "docsUrl": "https://ai.meta.com/llama/",
+      "slug": "deepseek-reasoner-v3-2",
+      "name": "deepseek-reasoner (DeepSeek-V3.2)",
+      "providerId": "deepseek",
+      "family": "DeepSeek-V3.2",
+      "officialUrl": "https://www.deepseek.com/",
+      "docsUrl": "https://api-docs.deepseek.com/quick_start/pricing",
+      "pricingUrl": "https://api-docs.deepseek.com/quick_start/pricing",
       "description": {
-        "en": "Flexible open-weight option with broad community experimentation and strong customization potential.",
-        "zh-TW": "彈性高的開放權重模型，社群實驗豐富，客製化潛力強。"
+        "en": "DeepSeek’s thinking API SKU mapped to the DeepSeek-V3.2 model version.",
+        "zh-TW": "DeepSeek 的 thinking API SKU，對應 DeepSeek-V3.2 模型版本。"
       },
       "modalities": [
-        "text",
-        "image"
+        "text"
       ],
       "modalityProfile": {
         "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
           "text"
-        ]
-      },
-      "contextWindow": "256K",
-      "pricing": {
-        "input": "Self-host / variable",
-        "output": "Self-host / variable",
-        "notes": "Depends on infra and serving path."
-      },
-      "speedCategory": "Balanced",
-      "toolSupport": {
-        "functionCalling": true
-      },
-      "overallScore": 80,
-      "scores": {
-        "capability": 84,
-        "useCaseFitness": 82,
-        "costEfficiency": 88,
-        "speed": 79,
-        "reliability": 77,
-        "agentReadiness": 75,
-        "ecosystem": 89
-      },
-      "bestUseCases": [
-        "agent-automation",
-        "research"
-      ],
-      "worksWith": [
-        "self-hosted inference",
-        "vector retrieval",
-        "custom fine-tuning"
-      ],
-      "tags": [
-        "open-weight",
-        "customizable",
-        "self-hosted"
-      ],
-      "strengths": [
-        {
-          "en": "Strong fit for teams that need control and self-hosting",
-          "zh-TW": "需要掌控權與自架的團隊會很適合"
-        },
-        {
-          "en": "Community momentum creates many integration paths",
-          "zh-TW": "社群動能帶來豐富整合方式"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Production quality depends heavily on deployment discipline",
-          "zh-TW": "正式環境品質非常依賴部署水準"
-        },
-        {
-          "en": "Benchmark strength does not always translate to polished UX",
-          "zh-TW": "benchmark 成績不一定等於實際體驗成熟"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:llama-4-maverick",
-      "status": "active",
-      "displayName": "Llama 4 Maverick",
-      "summary": {
-        "en": "Flexible open-weight option with broad community experimentation and strong customization potential.",
-        "zh-TW": "彈性高的開放權重模型，社群實驗豐富，客製化潛力強。"
-      },
-      "bestFor": [
-        "agent-automation",
-        "research"
-      ],
-      "sourceRefs": [
-        {
-          "id": "official-site:llama-4-maverick-official",
-          "label": "Llama 4 Maverick official",
-          "url": "https://ai.meta.com/llama/",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:llama-4-maverick-docs",
-          "label": "Llama 4 Maverick docs",
-          "url": "https://ai.meta.com/llama/",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "manual-review:llama-4-maverick-verdictlens-review",
-          "label": "Llama 4 Maverick VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "qwen-3-max",
-      "name": "Qwen 3 Max",
-      "family": "Qwen 3",
-      "providerId": "alibaba-cloud",
-      "officialUrl": "https://www.alibabacloud.com/product/model-studio",
-      "docsUrl": "https://www.alibabacloud.com/help/en/model-studio/",
-      "description": {
-        "en": "Ambitious frontier contender with strong multilingual performance and good enterprise utility across Asian markets.",
-        "zh-TW": "具競爭力的前沿模型，在多語言尤其亞洲市場企業場景中有不錯表現。"
-      },
-      "modalities": [
-        "text",
-        "image",
-        "tools"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "file"
         ],
         "output": [
           "text",
           "json"
         ]
       },
-      "contextWindow": "256K",
+      "contextWindow": "128K tokens",
+      "maxOutputTokens": "64K tokens max",
       "pricing": {
-        "input": "$2.4 / 1M tok",
-        "output": "$9 / 1M tok",
-        "inputUsdPerMillion": "2.4",
-        "outputUsdPerMillion": "9"
+        "input": "$0.28 / 1M input tokens (cache miss)",
+        "output": "$0.42 / 1M output tokens",
+        "inputUsdPerMillion": "0.28",
+        "outputUsdPerMillion": "0.42",
+        "notes": "DeepSeek lists the same published token rates with a larger reasoning-oriented output budget."
       },
       "speedCategory": "Balanced",
       "toolSupport": {
         "functionCalling": true,
-        "structuredOutput": true
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
       },
-      "overallScore": 84,
+      "overallScore": 87,
       "scores": {
-        "capability": 88,
-        "useCaseFitness": 85,
-        "costEfficiency": 86,
-        "speed": 82,
-        "reliability": 82,
-        "agentReadiness": 80,
-        "ecosystem": 81
-      },
-      "bestUseCases": [
-        "research",
-        "agent-automation"
-      ],
-      "worksWith": [
-        "multilingual support workflows",
-        "enterprise copilots",
-        "Asian-market products"
-      ],
-      "tags": [
-        "multilingual",
-        "enterprise",
-        "asia"
-      ],
-      "strengths": [
-        {
-          "en": "Strong multilingual coverage and pragmatic enterprise fit",
-          "zh-TW": "多語能力強，企業落地實用度高"
-        },
-        {
-          "en": "Balanced performance profile without extreme weaknesses",
-          "zh-TW": "整體表現均衡，沒有明顯短板"
-        }
-      ],
-      "caveats": [
-        {
-          "en": "Global ecosystem mindshare is still catching up",
-          "zh-TW": "全球生態心智仍在追趕中"
-        },
-        {
-          "en": "Docs and examples can vary by region",
-          "zh-TW": "文件與案例完整度因地區而異"
-        }
-      ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:qwen-3-max",
-      "status": "active",
-      "displayName": "Qwen 3 Max",
-      "summary": {
-        "en": "Ambitious frontier contender with strong multilingual performance and good enterprise utility across Asian markets.",
-        "zh-TW": "具競爭力的前沿模型，在多語言尤其亞洲市場企業場景中有不錯表現。"
-      },
-      "bestFor": [
-        "research",
-        "agent-automation"
-      ],
-      "sourceRefs": [
-        {
-          "id": "official-site:qwen-3-max-official",
-          "label": "Qwen 3 Max official",
-          "url": "https://www.alibabacloud.com/product/model-studio",
-          "kind": "official-site",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "officialUrl"
-          ]
-        },
-        {
-          "id": "official-docs:qwen-3-max-docs",
-          "label": "Qwen 3 Max docs",
-          "url": "https://www.alibabacloud.com/help/en/model-studio/",
-          "kind": "official-docs",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "manual-review:qwen-3-max-verdictlens-review",
-          "label": "Qwen 3 Max VerdictLens review",
-          "url": "https://verdictlens.local/manual-review",
-          "kind": "manual-review",
-          "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "bestFor",
-            "worksWith",
-            "strengths",
-            "caveats"
-          ]
-        }
-      ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
-    },
-    {
-      "slug": "mistral-large-2",
-      "name": "Mistral Large 2",
-      "family": "Mistral Large",
-      "providerId": "mistral",
-      "officialUrl": "https://mistral.ai/products/la-plateforme",
-      "docsUrl": "https://docs.mistral.ai/",
-      "pricingUrl": "https://mistral.ai/pricing",
-      "description": {
-        "en": "European flagship model with solid reasoning, concise style, and attractive deployment flexibility.",
-        "zh-TW": "歐洲旗艦模型，具備紮實推理、精簡風格與靈活部署優勢。"
-      },
-      "modalities": [
-        "text",
-        "image"
-      ],
-      "modalityProfile": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text",
-          "json"
-        ]
-      },
-      "contextWindow": "128K",
-      "pricing": {
-        "input": "$2 / 1M tok",
-        "output": "$6 / 1M tok",
-        "inputUsdPerMillion": "2",
-        "outputUsdPerMillion": "6"
-      },
-      "speedCategory": "Balanced",
-      "toolSupport": {
-        "functionCalling": true,
-        "structuredOutput": true
-      },
-      "overallScore": 82,
-      "scores": {
-        "capability": 84,
-        "useCaseFitness": 83,
-        "costEfficiency": 87,
+        "capability": 87,
+        "useCaseFitness": 86,
+        "costEfficiency": 95,
         "speed": 84,
-        "reliability": 81,
-        "agentReadiness": 78,
-        "ecosystem": 78
+        "reliability": 82,
+        "agentReadiness": 85,
+        "ecosystem": 80
       },
       "bestUseCases": [
-        "research",
-        "coding"
+        "coding",
+        "research"
       ],
       "worksWith": [
-        "EU deployment needs",
-        "internal copilots",
-        "API-first stacks"
+        "DeepSeek API",
+        "longer reasoning flows",
+        "budget research stacks"
       ],
       "tags": [
-        "enterprise",
-        "concise",
-        "eu"
+        "reasoning",
+        "budget",
+        "api-sku"
       ],
       "strengths": [
         {
-          "en": "Clean enterprise-friendly posture and deployment options",
-          "zh-TW": "企業友善姿態與部署選項清楚"
+          "en": "Keeps DeepSeek’s price profile while exposing a reasoning-oriented API tier.",
+          "zh-TW": "在維持 DeepSeek 價格優勢的同時，提供偏推理導向的 API 層。"
         },
         {
-          "en": "Good balance between cost and reasoning quality",
-          "zh-TW": "成本與推理品質之間取得不錯平衡"
+          "en": "Appealing for teams that need cheaper deep-thinking capacity.",
+          "zh-TW": "對需要更便宜深度思考能力的團隊很有吸引力。"
         }
       ],
       "caveats": [
         {
-          "en": "Ecosystem is smaller than the hyperscaler leaders",
-          "zh-TW": "生態規模仍小於超大平台領先者"
+          "en": "Vendor and ecosystem maturity still trail the largest hyperscalers.",
+          "zh-TW": "供應商與生態成熟度仍落後於最大型雲端供應商。"
         },
         {
-          "en": "Less differentiated for multimodal-heavy product surfaces",
-          "zh-TW": "對多模態產品面來說差異化較少"
+          "en": "Operational posture should be reviewed carefully for enterprise adoption.",
+          "zh-TW": "若要企業導入，仍應仔細檢查營運與合規姿態。"
         }
       ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:mistral-large-2",
-      "status": "active",
-      "displayName": "Mistral Large 2",
-      "summary": {
-        "en": "European flagship model with solid reasoning, concise style, and attractive deployment flexibility.",
-        "zh-TW": "歐洲旗艦模型，具備紮實推理、精簡風格與靈活部署優勢。"
-      },
-      "bestFor": [
-        "research",
-        "coding"
-      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
       "sourceRefs": [
         {
-          "id": "official-site:mistral-large-2-official",
-          "label": "Mistral Large 2 official",
-          "url": "https://mistral.ai/products/la-plateforme",
+          "id": "official-site:deepseek-official",
+          "label": "DeepSeek official",
+          "url": "https://www.deepseek.com/",
           "kind": "official-site",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "officialUrl"
           ]
         },
         {
-          "id": "official-docs:mistral-large-2-docs",
-          "label": "Mistral Large 2 docs",
-          "url": "https://docs.mistral.ai/",
+          "id": "official-docs:deepseek-models-and-pricing",
+          "label": "DeepSeek models and pricing",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing",
           "kind": "official-docs",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "docsUrl"
+            "summary",
+            "description",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport",
+            "pricing",
+            "pricingUrl"
           ]
         },
         {
-          "id": "pricing-page:mistral-large-2-pricing",
-          "label": "Mistral Large 2 pricing",
-          "url": "https://mistral.ai/pricing",
-          "kind": "pricing-page",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "pricing"
-          ]
-        },
-        {
-          "id": "manual-review:mistral-large-2-verdictlens-review",
-          "label": "Mistral Large 2 VerdictLens review",
+          "id": "manual-review:deepseek-reasoner-deepseek-v3-2-verdictlens-review",
+          "label": "deepseek-reasoner (DeepSeek-V3.2) VerdictLens review",
           "url": "https://verdictlens.local/manual-review",
           "kind": "manual-review",
           "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "bestFor",
             "worksWith",
             "strengths",
-            "caveats"
-          ]
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
         }
       ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+      "id": "model:deepseek-reasoner-v3-2",
+      "status": "active",
+      "displayName": "deepseek-reasoner (DeepSeek-V3.2)",
+      "summary": {
+        "en": "DeepSeek’s thinking API SKU mapped to the DeepSeek-V3.2 model version.",
+        "zh-TW": "DeepSeek 的 thinking API SKU，對應 DeepSeek-V3.2 模型版本。"
+      },
+      "bestFor": [
+        "coding",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
     },
     {
       "slug": "command-a",
       "name": "Command A",
-      "family": "Command",
       "providerId": "cohere",
+      "family": "Command",
       "officialUrl": "https://cohere.com/",
-      "docsUrl": "https://docs.cohere.com/",
-      "pricingUrl": "https://cohere.com/pricing",
+      "docsUrl": "https://docs.cohere.com/docs/command-a",
+      "pricingUrl": "https://docs.cohere.com/docs/command-a",
       "description": {
-        "en": "Enterprise-oriented model with strong retrieval posture, business language handling, and dependable workflow integration.",
-        "zh-TW": "偏企業導向的模型，適合檢索增強、商務語言處理與穩定工作流整合。"
+        "en": "Cohere’s performant enterprise model for tool use, RAG, agents, and multilingual workflows.",
+        "zh-TW": "Cohere 面向企業的高性能模型，適合工具使用、RAG、agent 與多語工作流。"
       },
       "modalities": [
-        "text",
-        "tools"
+        "text"
       ],
       "modalityProfile": {
         "input": [
-          "text",
-          "file"
+          "text"
         ],
         "output": [
           "text",
           "json"
         ]
       },
-      "contextWindow": "256K",
+      "contextWindow": "256K tokens",
       "pricing": {
-        "input": "$2 / 1M tok",
-        "output": "$8 / 1M tok",
-        "inputUsdPerMillion": "2",
-        "outputUsdPerMillion": "8"
+        "input": "$2.50 / 1M input tokens",
+        "output": "$10 / 1M output tokens",
+        "inputUsdPerMillion": "2.50",
+        "outputUsdPerMillion": "10"
       },
       "speedCategory": "Balanced",
       "toolSupport": {
         "functionCalling": true,
-        "structuredOutput": true
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
       },
-      "overallScore": 81,
+      "overallScore": 88,
       "scores": {
-        "capability": 82,
-        "useCaseFitness": 84,
-        "costEfficiency": 83,
-        "speed": 82,
-        "reliability": 84,
-        "agentReadiness": 79,
-        "ecosystem": 77
+        "capability": 89,
+        "useCaseFitness": 90,
+        "costEfficiency": 84,
+        "speed": 84,
+        "reliability": 88,
+        "agentReadiness": 90,
+        "ecosystem": 85
       },
       "bestUseCases": [
-        "research",
-        "agent-automation"
+        "agent-automation",
+        "research"
       ],
       "worksWith": [
-        "RAG stacks",
-        "enterprise search",
-        "business writing workflows"
+        "Cohere API",
+        "RAG pipelines",
+        "enterprise search"
       ],
       "tags": [
         "enterprise",
-        "retrieval",
-        "workflow"
+        "rag",
+        "multilingual"
       ],
       "strengths": [
         {
-          "en": "Strong fit for internal knowledge workflows",
-          "zh-TW": "很適合內部知識工作流"
+          "en": "Strong enterprise-facing positioning around RAG and tool use.",
+          "zh-TW": "在企業 RAG 與工具使用上定位清楚。"
         },
         {
-          "en": "Dependable enterprise integration story",
-          "zh-TW": "企業整合敘事穩定可信"
+          "en": "Long context helps with knowledge-heavy workflows.",
+          "zh-TW": "長上下文對知識密集型工作流有幫助。"
         }
       ],
       "caveats": [
         {
-          "en": "Less mindshare in cutting-edge coding circles",
-          "zh-TW": "在最前沿 coding 圈中的心智較弱"
+          "en": "Ecosystem mindshare is smaller than OpenAI or Anthropic.",
+          "zh-TW": "生態心智份額小於 OpenAI 與 Anthropic。"
         },
         {
-          "en": "Not the most exciting pick for multimodal experiences",
-          "zh-TW": "多模態體驗不是它的主打強項"
+          "en": "Some teams may prefer more standardized agent examples elsewhere.",
+          "zh-TW": "部分團隊可能更偏好其他生態較標準化的 agent 範例。"
         }
       ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:command-a",
-      "status": "active",
-      "displayName": "Command A",
-      "summary": {
-        "en": "Enterprise-oriented model with strong retrieval posture, business language handling, and dependable workflow integration.",
-        "zh-TW": "偏企業導向的模型，適合檢索增強、商務語言處理與穩定工作流整合。"
-      },
-      "bestFor": [
-        "research",
-        "agent-automation"
-      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
       "sourceRefs": [
         {
-          "id": "official-site:command-a-official",
-          "label": "Command A official",
+          "id": "official-site:cohere-official",
+          "label": "Cohere official",
           "url": "https://cohere.com/",
           "kind": "official-site",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "officialUrl"
           ]
@@ -1694,23 +1995,17 @@
         {
           "id": "official-docs:command-a-docs",
           "label": "Command A docs",
-          "url": "https://docs.cohere.com/",
+          "url": "https://docs.cohere.com/docs/command-a",
           "kind": "official-docs",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "docsUrl"
-          ]
-        },
-        {
-          "id": "pricing-page:command-a-pricing",
-          "label": "Command A pricing",
-          "url": "https://cohere.com/pricing",
-          "kind": "pricing-page",
-          "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
-          "fieldPaths": [
-            "pricing"
+            "summary",
+            "description",
+            "contextWindow",
+            "toolSupport",
+            "pricing",
+            "pricingUrl"
           ]
         },
         {
@@ -1719,127 +2014,709 @@
           "url": "https://verdictlens.local/manual-review",
           "kind": "manual-review",
           "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "bestFor",
             "worksWith",
             "strengths",
-            "caveats"
-          ]
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
         }
       ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+      "id": "model:command-a",
+      "status": "active",
+      "displayName": "Command A",
+      "summary": {
+        "en": "Cohere’s performant enterprise model for tool use, RAG, agents, and multilingual workflows.",
+        "zh-TW": "Cohere 面向企業的高性能模型，適合工具使用、RAG、agent 與多語工作流。"
+      },
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
     },
     {
-      "slug": "perplexity-sonar-reasoning-pro",
-      "name": "Sonar Reasoning Pro",
-      "family": "Sonar",
-      "providerId": "perplexity",
-      "officialUrl": "https://www.perplexity.ai/hub/blog/sonar",
-      "docsUrl": "https://docs.perplexity.ai/",
+      "slug": "command-a-reasoning",
+      "name": "Command A Reasoning",
+      "providerId": "cohere",
+      "family": "Command",
+      "officialUrl": "https://cohere.com/",
+      "docsUrl": "https://docs.cohere.com/docs/command-a-reasoning",
+      "pricingUrl": "https://docs.cohere.com/docs/command-a-reasoning",
       "description": {
-        "en": "Research-first model experience optimized for answer grounding, current web synthesis, and citation-friendly output.",
-        "zh-TW": "偏研究導向的模型體驗，強調有根據的答案、即時網頁整合與引用友善輸出。"
+        "en": "Cohere’s reasoning-oriented Command tier for complex agentic enterprise workflows.",
+        "zh-TW": "Cohere 偏 reasoning 的 Command 層，適合複雜 agent 企業工作流。"
       },
       "modalities": [
-        "text",
-        "web"
+        "text"
       ],
       "modalityProfile": {
         "input": [
-          "text",
-          "file"
+          "text"
         ],
         "output": [
-          "text"
+          "text",
+          "json"
         ]
       },
-      "contextWindow": "128K",
+      "contextWindow": "256K tokens",
       "pricing": {
-        "input": "$2 / 1M tok",
-        "output": "$8 / 1M tok",
-        "inputUsdPerMillion": "2",
-        "outputUsdPerMillion": "8"
+        "input": "Free while rate limits apply",
+        "output": "Free while rate limits apply",
+        "notes": "Official docs state Command A Reasoning is free for trial and production keys until rate limits are reached."
       },
-      "speedCategory": "Balanced",
+      "speedCategory": "Deliberate",
       "toolSupport": {
-        "webSearch": true
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
       },
-      "overallScore": 83,
+      "overallScore": 86,
       "scores": {
-        "capability": 85,
-        "useCaseFitness": 89,
-        "costEfficiency": 82,
-        "speed": 80,
+        "capability": 90,
+        "useCaseFitness": 87,
+        "costEfficiency": 89,
+        "speed": 76,
         "reliability": 84,
-        "agentReadiness": 74,
-        "ecosystem": 76
+        "agentReadiness": 89,
+        "ecosystem": 84
       },
       "bestUseCases": [
+        "agent-automation",
         "research"
       ],
       "worksWith": [
-        "citation-heavy briefs",
-        "market scans",
-        "answer-grounding workflows"
+        "Cohere API",
+        "enterprise agents",
+        "tool-use workflows"
       ],
       "tags": [
-        "research",
-        "citations",
-        "web"
+        "reasoning",
+        "enterprise",
+        "agents"
       ],
       "strengths": [
         {
-          "en": "Great for research UX with source visibility",
-          "zh-TW": "研究型體驗下可見來源這點很有優勢"
+          "en": "Reasoning-focused variant with strong enterprise task framing.",
+          "zh-TW": "推理導向的變體，且企業任務定位明確。"
         },
         {
-          "en": "Useful for analyst workflows that need current context",
-          "zh-TW": "需要即時背景的分析流程相當適合"
+          "en": "The official free-access positioning lowers experimentation risk.",
+          "zh-TW": "官方提供的免費使用定位，降低了試驗成本。"
         }
       ],
       "caveats": [
         {
-          "en": "Not a primary choice for tool-heavy coding agents",
-          "zh-TW": "不適合做工具密集的 coding agent 主力"
+          "en": "Published pricing posture is unusual and may change.",
+          "zh-TW": "官方目前的定價姿態較特殊，後續可能變動。"
         },
         {
-          "en": "Less control than fully orchestrated platform APIs",
-          "zh-TW": "相比完整平台 API，可控性較低"
+          "en": "Teams should verify production access expectations before committing.",
+          "zh-TW": "在正式投入前，仍應先確認 production 存取條件。"
         }
       ],
-      "updatedAt": "2026-04-09T04:20:00+08:00",
-      "id": "model:perplexity-sonar-reasoning-pro",
-      "status": "active",
-      "displayName": "Sonar Reasoning Pro",
-      "summary": {
-        "en": "Research-first model experience optimized for answer grounding, current web synthesis, and citation-friendly output.",
-        "zh-TW": "偏研究導向的模型體驗，強調有根據的答案、即時網頁整合與引用友善輸出。"
-      },
-      "bestFor": [
-        "research"
-      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
       "sourceRefs": [
         {
-          "id": "official-site:sonar-reasoning-pro-official",
-          "label": "Sonar Reasoning Pro official",
-          "url": "https://www.perplexity.ai/hub/blog/sonar",
+          "id": "official-site:cohere-official",
+          "label": "Cohere official",
+          "url": "https://cohere.com/",
           "kind": "official-site",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "officialUrl"
           ]
         },
         {
-          "id": "official-docs:sonar-reasoning-pro-docs",
-          "label": "Sonar Reasoning Pro docs",
-          "url": "https://docs.perplexity.ai/",
+          "id": "official-docs:command-a-reasoning-docs",
+          "label": "Command A Reasoning docs",
+          "url": "https://docs.cohere.com/docs/command-a-reasoning",
           "kind": "official-docs",
           "trustTier": 5,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
-            "docsUrl"
+            "summary",
+            "description",
+            "contextWindow",
+            "toolSupport",
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:command-a-reasoning-verdictlens-review",
+          "label": "Command A Reasoning VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:command-a-reasoning",
+      "status": "active",
+      "displayName": "Command A Reasoning",
+      "summary": {
+        "en": "Cohere’s reasoning-oriented Command tier for complex agentic enterprise workflows.",
+        "zh-TW": "Cohere 偏 reasoning 的 Command 層，適合複雜 agent 企業工作流。"
+      },
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "command-r7b",
+      "name": "Command R7B",
+      "providerId": "cohere",
+      "family": "Command",
+      "officialUrl": "https://cohere.com/",
+      "docsUrl": "https://docs.cohere.com/docs/command-r7b",
+      "pricingUrl": "https://docs.cohere.com/docs/command-r7b",
+      "description": {
+        "en": "Cohere’s smallest and fastest R-family enterprise model.",
+        "zh-TW": "Cohere R 系列中最小、最快的企業模型。"
+      },
+      "modalities": [
+        "text"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "128K tokens",
+      "pricing": {
+        "input": "$0.0375 / 1M input tokens",
+        "output": "$0.15 / 1M output tokens",
+        "inputUsdPerMillion": "0.0375",
+        "outputUsdPerMillion": "0.15"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 83,
+      "scores": {
+        "capability": 78,
+        "useCaseFitness": 82,
+        "costEfficiency": 97,
+        "speed": 95,
+        "reliability": 84,
+        "agentReadiness": 81,
+        "ecosystem": 83
+      },
+      "bestUseCases": [
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Cohere API",
+        "classification",
+        "budget enterprise assistants"
+      ],
+      "tags": [
+        "small-model",
+        "budget",
+        "fast"
+      ],
+      "strengths": [
+        {
+          "en": "Very compelling price and latency profile.",
+          "zh-TW": "價格與延遲表現都很有吸引力。"
+        },
+        {
+          "en": "Good choice for enterprise assistants that do not need frontier depth.",
+          "zh-TW": "對不需要前沿深度的企業助理來說是好選擇。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Capability ceiling is lower than larger premium models.",
+          "zh-TW": "能力上限低於更大的高階模型。"
+        },
+        {
+          "en": "Best used where efficiency matters more than nuance.",
+          "zh-TW": "更適合效率優先、而不是細膩理解優先的場景。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:cohere-official",
+          "label": "Cohere official",
+          "url": "https://cohere.com/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:command-r7b-docs",
+          "label": "Command R7B docs",
+          "url": "https://docs.cohere.com/docs/command-r7b",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:command-r7b-verdictlens-review",
+          "label": "Command R7B VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:command-r7b",
+      "status": "active",
+      "displayName": "Command R7B",
+      "summary": {
+        "en": "Cohere’s smallest and fastest R-family enterprise model.",
+        "zh-TW": "Cohere R 系列中最小、最快的企業模型。"
+      },
+      "bestFor": [
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "sonar",
+      "name": "Sonar",
+      "providerId": "perplexity",
+      "family": "Sonar",
+      "officialUrl": "https://www.perplexity.ai/",
+      "docsUrl": "https://docs.perplexity.ai/docs/sonar/models/sonar",
+      "pricingUrl": "https://docs.perplexity.ai/docs/getting-started/pricing",
+      "description": {
+        "en": "Perplexity’s lightweight search model for quick grounded answers with real-time web search.",
+        "zh-TW": "Perplexity 輕量級搜尋模型，適合快速且有即時網頁依據的回答。"
+      },
+      "modalities": [
+        "text",
+        "search"
+      ],
+      "contextWindow": "Search-context dependent",
+      "pricing": {
+        "input": "$1 / 1M input tokens",
+        "output": "$1 / 1M output tokens",
+        "inputUsdPerMillion": "1",
+        "outputUsdPerMillion": "1",
+        "notes": "Perplexity also charges request fees by search context size."
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": false,
+        "structuredOutput": false,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 85,
+      "scores": {
+        "capability": 80,
+        "useCaseFitness": 90,
+        "costEfficiency": 91,
+        "speed": 94,
+        "reliability": 86,
+        "agentReadiness": 78,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "research"
+      ],
+      "worksWith": [
+        "Search-backed answers",
+        "news monitoring",
+        "web-grounded assistants"
+      ],
+      "tags": [
+        "search",
+        "grounded",
+        "web"
+      ],
+      "strengths": [
+        {
+          "en": "Fast grounded answers are the core product strength.",
+          "zh-TW": "快速且有根據的回答是核心優勢。"
+        },
+        {
+          "en": "Good for teams that care more about answer freshness than raw frontier reasoning.",
+          "zh-TW": "適合更重視資訊新鮮度，而非純前沿推理的團隊。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "This is a search-native product tier, not a general-purpose long-context flagship.",
+          "zh-TW": "這是 search-native 產品層，不是通用長上下文旗艦模型。"
+        },
+        {
+          "en": "Request-fee economics should be reviewed alongside token prices.",
+          "zh-TW": "除了 token 價格，也要一併檢查 request fee。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:perplexity-official",
+          "label": "Perplexity official",
+          "url": "https://www.perplexity.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:sonar-model-docs",
+          "label": "Sonar model docs",
+          "url": "https://docs.perplexity.ai/docs/sonar/models/sonar",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:perplexity-pricing",
+          "label": "Perplexity pricing",
+          "url": "https://docs.perplexity.ai/docs/getting-started/pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:sonar-verdictlens-review",
+          "label": "Sonar VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:sonar",
+      "status": "active",
+      "displayName": "Sonar",
+      "summary": {
+        "en": "Perplexity’s lightweight search model for quick grounded answers with real-time web search.",
+        "zh-TW": "Perplexity 輕量級搜尋模型，適合快速且有即時網頁依據的回答。"
+      },
+      "bestFor": [
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "sonar-pro",
+      "name": "Sonar Pro",
+      "providerId": "perplexity",
+      "family": "Sonar",
+      "officialUrl": "https://www.perplexity.ai/",
+      "docsUrl": "https://docs.perplexity.ai/docs/sonar/models/sonar-pro",
+      "pricingUrl": "https://docs.perplexity.ai/docs/getting-started/pricing",
+      "description": {
+        "en": "Perplexity’s advanced search model with deeper content understanding and enhanced search accuracy.",
+        "zh-TW": "Perplexity 進階搜尋模型，提供更深內容理解與更高搜尋準確度。"
+      },
+      "modalities": [
+        "text",
+        "search"
+      ],
+      "contextWindow": "Search-context dependent",
+      "pricing": {
+        "input": "$3 / 1M input tokens",
+        "output": "$15 / 1M output tokens",
+        "inputUsdPerMillion": "3",
+        "outputUsdPerMillion": "15",
+        "notes": "Request fees vary by search context size and Pro Search mode."
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": false,
+        "structuredOutput": false,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 87,
+      "scores": {
+        "capability": 86,
+        "useCaseFitness": 92,
+        "costEfficiency": 78,
+        "speed": 86,
+        "reliability": 88,
+        "agentReadiness": 80,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "research"
+      ],
+      "worksWith": [
+        "research copilots",
+        "search-grounded Q&A",
+        "news workflows"
+      ],
+      "tags": [
+        "search",
+        "research",
+        "grounded"
+      ],
+      "strengths": [
+        {
+          "en": "Better fit for more complex search-heavy questions than base Sonar.",
+          "zh-TW": "比基礎 Sonar 更適合複雜的搜尋導向問題。"
+        },
+        {
+          "en": "Good middle tier for research stacks that need freshness and depth.",
+          "zh-TW": "對需要兼顧資訊新鮮度與深度的 research stack 來說很適中。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Pricing jumps meaningfully over base Sonar.",
+          "zh-TW": "價格相較基礎 Sonar 有明顯提升。"
+        },
+        {
+          "en": "Still a search-native product rather than a broad general foundation model.",
+          "zh-TW": "本質上仍是 search-native 產品，而不是廣義基礎模型。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:perplexity-official",
+          "label": "Perplexity official",
+          "url": "https://www.perplexity.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:sonar-pro-model-docs",
+          "label": "Sonar Pro model docs",
+          "url": "https://docs.perplexity.ai/docs/sonar/models/sonar-pro",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:perplexity-pricing",
+          "label": "Perplexity pricing",
+          "url": "https://docs.perplexity.ai/docs/getting-started/pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:sonar-pro-verdictlens-review",
+          "label": "Sonar Pro VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:sonar-pro",
+      "status": "active",
+      "displayName": "Sonar Pro",
+      "summary": {
+        "en": "Perplexity’s advanced search model with deeper content understanding and enhanced search accuracy.",
+        "zh-TW": "Perplexity 進階搜尋模型，提供更深內容理解與更高搜尋準確度。"
+      },
+      "bestFor": [
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "sonar-reasoning-pro",
+      "name": "Sonar Reasoning Pro",
+      "providerId": "perplexity",
+      "family": "Sonar",
+      "officialUrl": "https://www.perplexity.ai/",
+      "docsUrl": "https://docs.perplexity.ai/docs/sonar/models/sonar-reasoning-pro",
+      "pricingUrl": "https://docs.perplexity.ai/docs/getting-started/pricing",
+      "description": {
+        "en": "Perplexity’s reasoning-enhanced search model for harder grounded questions.",
+        "zh-TW": "Perplexity 強化 reasoning 的搜尋模型，適合較難且需要 grounding 的問題。"
+      },
+      "modalities": [
+        "text",
+        "search"
+      ],
+      "contextWindow": "Search-context dependent",
+      "pricing": {
+        "input": "$2 / 1M input tokens",
+        "output": "$8 / 1M output tokens",
+        "inputUsdPerMillion": "2",
+        "outputUsdPerMillion": "8",
+        "notes": "Request fees vary by search context size."
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": false,
+        "structuredOutput": false,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 88,
+      "scores": {
+        "capability": 88,
+        "useCaseFitness": 92,
+        "costEfficiency": 83,
+        "speed": 82,
+        "reliability": 88,
+        "agentReadiness": 80,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "research"
+      ],
+      "worksWith": [
+        "deeper search workflows",
+        "analysis assistants",
+        "research copilots"
+      ],
+      "tags": [
+        "reasoning",
+        "search",
+        "analysis"
+      ],
+      "strengths": [
+        {
+          "en": "Better fit when grounded research also needs explicit reasoning.",
+          "zh-TW": "當 grounded research 同時需要更明確推理時會更有優勢。"
+        },
+        {
+          "en": "Price sits below Sonar Pro on token costs.",
+          "zh-TW": "token 成本低於 Sonar Pro。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Still inherits search-context pricing complexity.",
+          "zh-TW": "仍然承接 search-context 的定價複雜性。"
+        },
+        {
+          "en": "Not positioned as a universal coding or automation default.",
+          "zh-TW": "不是通用 coding 或 automation 的預設選項。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:perplexity-official",
+          "label": "Perplexity official",
+          "url": "https://www.perplexity.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:sonar-reasoning-pro-model-docs",
+          "label": "Sonar Reasoning Pro model docs",
+          "url": "https://docs.perplexity.ai/docs/sonar/models/sonar-reasoning-pro",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:perplexity-pricing",
+          "label": "Perplexity pricing",
+          "url": "https://docs.perplexity.ai/docs/getting-started/pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
           ]
         },
         {
@@ -1848,16 +2725,608 @@
           "url": "https://verdictlens.local/manual-review",
           "kind": "manual-review",
           "trustTier": 3,
-          "fetchedAt": "2026-04-09T04:20:00+08:00",
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
           "fieldPaths": [
             "bestFor",
             "worksWith",
             "strengths",
-            "caveats"
-          ]
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
         }
       ],
-      "lastVerifiedAt": "2026-04-09T04:20:00+08:00"
+      "id": "model:sonar-reasoning-pro",
+      "status": "active",
+      "displayName": "Sonar Reasoning Pro",
+      "summary": {
+        "en": "Perplexity’s reasoning-enhanced search model for harder grounded questions.",
+        "zh-TW": "Perplexity 強化 reasoning 的搜尋模型，適合較難且需要 grounding 的問題。"
+      },
+      "bestFor": [
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "sonar-deep-research",
+      "name": "Sonar Deep Research",
+      "providerId": "perplexity",
+      "family": "Sonar",
+      "officialUrl": "https://www.perplexity.ai/",
+      "docsUrl": "https://docs.perplexity.ai/docs/sonar/models/sonar-deep-research",
+      "pricingUrl": "https://docs.perplexity.ai/docs/getting-started/pricing",
+      "description": {
+        "en": "Perplexity’s deepest research tier with citation and search-query pricing components.",
+        "zh-TW": "Perplexity 最深度的研究層，包含 citation 與 search-query 定價元件。"
+      },
+      "modalities": [
+        "text",
+        "search"
+      ],
+      "contextWindow": "Search-context dependent",
+      "pricing": {
+        "input": "$2 / 1M input tokens",
+        "output": "$8 / 1M output tokens",
+        "inputUsdPerMillion": "2",
+        "outputUsdPerMillion": "8",
+        "notes": "Perplexity also charges citation tokens, reasoning tokens, and search-query fees."
+      },
+      "speedCategory": "Deliberate",
+      "toolSupport": {
+        "functionCalling": false,
+        "structuredOutput": false,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 86,
+      "scores": {
+        "capability": 89,
+        "useCaseFitness": 94,
+        "costEfficiency": 73,
+        "speed": 70,
+        "reliability": 87,
+        "agentReadiness": 81,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "research"
+      ],
+      "worksWith": [
+        "deep research workflows",
+        "citation-heavy reports",
+        "analyst assistants"
+      ],
+      "tags": [
+        "deep-research",
+        "citations",
+        "search"
+      ],
+      "strengths": [
+        {
+          "en": "Built specifically for deeper research and citation-heavy output.",
+          "zh-TW": "就是為更深入研究與 citation 密集輸出而設計。"
+        },
+        {
+          "en": "Makes source-backed reporting more explicit than generic chat models.",
+          "zh-TW": "比一般聊天模型更明確地支援來源導向報告。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "The pricing model has multiple moving parts and needs careful review.",
+          "zh-TW": "定價模型有多個元件，必須仔細檢查。"
+        },
+        {
+          "en": "Latency and cost profile are less suitable for lightweight interactive use.",
+          "zh-TW": "延遲與成本輪廓不太適合輕量互動場景。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:perplexity-official",
+          "label": "Perplexity official",
+          "url": "https://www.perplexity.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:sonar-deep-research-docs",
+          "label": "Sonar Deep Research docs",
+          "url": "https://docs.perplexity.ai/docs/sonar/models/sonar-deep-research",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:perplexity-pricing",
+          "label": "Perplexity pricing",
+          "url": "https://docs.perplexity.ai/docs/getting-started/pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:sonar-deep-research-verdictlens-review",
+          "label": "Sonar Deep Research VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:sonar-deep-research",
+      "status": "active",
+      "displayName": "Sonar Deep Research",
+      "summary": {
+        "en": "Perplexity’s deepest research tier with citation and search-query pricing components.",
+        "zh-TW": "Perplexity 最深度的研究層，包含 citation 與 search-query 定價元件。"
+      },
+      "bestFor": [
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "mistral-large-3",
+      "name": "Mistral Large 3",
+      "providerId": "mistral",
+      "family": "Mistral Large",
+      "officialUrl": "https://mistral.ai/",
+      "docsUrl": "https://docs.mistral.ai/models/mistral-large-3-25-12",
+      "pricingUrl": "https://docs.mistral.ai/models/mistral-large-3-25-12",
+      "description": {
+        "en": "Mistral’s open-weight multimodal flagship with a Mixture-of-Experts architecture.",
+        "zh-TW": "Mistral 的 open-weight 多模態旗艦模型，採用 Mixture-of-Experts 架構。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "256K tokens",
+      "pricing": {
+        "input": "$0.50 / 1M input tokens",
+        "output": "$1.50 / 1M output tokens",
+        "inputUsdPerMillion": "0.50",
+        "outputUsdPerMillion": "1.50"
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 89,
+      "scores": {
+        "capability": 90,
+        "useCaseFitness": 89,
+        "costEfficiency": 91,
+        "speed": 83,
+        "reliability": 86,
+        "agentReadiness": 88,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "coding",
+        "research"
+      ],
+      "worksWith": [
+        "Mistral API",
+        "self-hosted evaluation",
+        "document workflows"
+      ],
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "moe"
+      ],
+      "strengths": [
+        {
+          "en": "Open-weight positioning makes it strategically interesting for some teams.",
+          "zh-TW": "open-weight 定位對部分團隊很有策略吸引力。"
+        },
+        {
+          "en": "Price-performance looks strong relative to many premium closed models.",
+          "zh-TW": "相對不少高價封閉模型，價格效能很不錯。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Tooling ecosystem is still smaller than the biggest US vendors.",
+          "zh-TW": "工具生態仍小於最大的美系供應商。"
+        },
+        {
+          "en": "Teams should validate downstream hosting and maintenance assumptions.",
+          "zh-TW": "若要落地，仍應確認後續 hosting 與維運假設。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:mistral-official",
+          "label": "Mistral official",
+          "url": "https://mistral.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:mistral-large-3-docs",
+          "label": "Mistral Large 3 docs",
+          "url": "https://docs.mistral.ai/models/mistral-large-3-25-12",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "contextWindow",
+            "pricing",
+            "pricingUrl",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "manual-review:mistral-large-3-verdictlens-review",
+          "label": "Mistral Large 3 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:mistral-large-3",
+      "status": "active",
+      "displayName": "Mistral Large 3",
+      "summary": {
+        "en": "Mistral’s open-weight multimodal flagship with a Mixture-of-Experts architecture.",
+        "zh-TW": "Mistral 的 open-weight 多模態旗艦模型，採用 Mixture-of-Experts 架構。"
+      },
+      "bestFor": [
+        "coding",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "mistral-medium-3",
+      "name": "Mistral Medium 3",
+      "providerId": "mistral",
+      "family": "Mistral Medium",
+      "officialUrl": "https://mistral.ai/",
+      "docsUrl": "https://docs.mistral.ai/models/mistral-medium-3-25-05",
+      "pricingUrl": "https://docs.mistral.ai/models/mistral-medium-3-25-05",
+      "description": {
+        "en": "Mistral’s mid-tier enterprise model with strong function calling and agent-oriented features.",
+        "zh-TW": "Mistral 中階企業模型，具備不錯的 function calling 與 agent 導向功能。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "128K tokens",
+      "pricing": {
+        "input": "$0.40 / 1M input tokens",
+        "output": "$2 / 1M output tokens",
+        "inputUsdPerMillion": "0.40",
+        "outputUsdPerMillion": "2"
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 86,
+      "scores": {
+        "capability": 86,
+        "useCaseFitness": 86,
+        "costEfficiency": 90,
+        "speed": 84,
+        "reliability": 84,
+        "agentReadiness": 87,
+        "ecosystem": 83
+      },
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Mistral API",
+        "agent toolchains",
+        "document Q&A"
+      ],
+      "tags": [
+        "mid-tier",
+        "agents",
+        "function-calling"
+      ],
+      "strengths": [
+        {
+          "en": "Looks like a practical middle tier for cost-aware teams.",
+          "zh-TW": "看起來很像成本敏感團隊可用的實務中階層。"
+        },
+        {
+          "en": "Official docs expose agent and structured-output features clearly.",
+          "zh-TW": "官方文件對 agent 與 structured output 功能描述清楚。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Less ecosystem gravity than the biggest model platforms.",
+          "zh-TW": "生態引力仍低於最大模型平台。"
+        },
+        {
+          "en": "Teams should test model behavior carefully on their own evals.",
+          "zh-TW": "仍應在自家 eval 上仔細測試模型行為。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:mistral-official",
+          "label": "Mistral official",
+          "url": "https://mistral.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:mistral-medium-3-docs",
+          "label": "Mistral Medium 3 docs",
+          "url": "https://docs.mistral.ai/models/mistral-medium-3-25-05",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "contextWindow",
+            "pricing",
+            "pricingUrl",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "manual-review:mistral-medium-3-verdictlens-review",
+          "label": "Mistral Medium 3 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:mistral-medium-3",
+      "status": "active",
+      "displayName": "Mistral Medium 3",
+      "summary": {
+        "en": "Mistral’s mid-tier enterprise model with strong function calling and agent-oriented features.",
+        "zh-TW": "Mistral 中階企業模型，具備不錯的 function calling 與 agent 導向功能。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "mistral-small-3-2",
+      "name": "Mistral Small 3.2",
+      "providerId": "mistral",
+      "family": "Mistral Small",
+      "officialUrl": "https://mistral.ai/",
+      "docsUrl": "https://docs.mistral.ai/models/mistral-small-3-2-25-06",
+      "pricingUrl": "https://docs.mistral.ai/models/mistral-small-3-2-25-06",
+      "description": {
+        "en": "Mistral’s lower-cost small model for efficient production use.",
+        "zh-TW": "Mistral 較低成本的小模型，適合高效率 production 使用。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "128K tokens",
+      "pricing": {
+        "input": "$0.10 / 1M input tokens",
+        "output": "$0.30 / 1M output tokens",
+        "inputUsdPerMillion": "0.10",
+        "outputUsdPerMillion": "0.30"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 82,
+      "scores": {
+        "capability": 77,
+        "useCaseFitness": 81,
+        "costEfficiency": 96,
+        "speed": 93,
+        "reliability": 82,
+        "agentReadiness": 80,
+        "ecosystem": 82
+      },
+      "bestUseCases": [
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Mistral API",
+        "classification",
+        "routing layers"
+      ],
+      "tags": [
+        "small-model",
+        "budget",
+        "efficient"
+      ],
+      "strengths": [
+        {
+          "en": "Strong efficiency tier inside the Mistral stack.",
+          "zh-TW": "在 Mistral stack 裡是很強的效率層。"
+        },
+        {
+          "en": "Good candidate for routing, extraction, and lighter assistants.",
+          "zh-TW": "適合 routing、擷取與較輕量助理。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Limited headroom for advanced reasoning.",
+          "zh-TW": "進階推理的能力空間有限。"
+        },
+        {
+          "en": "Best used with escalation paths to larger models.",
+          "zh-TW": "最好搭配升級到更大模型的路徑。"
+        }
+      ],
+      "updatedAt": "2026-04-09T08:00:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:mistral-official",
+          "label": "Mistral official",
+          "url": "https://mistral.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:mistral-small-3-2-docs",
+          "label": "Mistral Small 3.2 docs",
+          "url": "https://docs.mistral.ai/models/mistral-small-3-2-25-06",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "contextWindow",
+            "pricing",
+            "pricingUrl",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "manual-review:mistral-small-3-2-verdictlens-review",
+          "label": "Mistral Small 3.2 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:mistral-small-3-2",
+      "status": "active",
+      "displayName": "Mistral Small 3.2",
+      "summary": {
+        "en": "Mistral’s lower-cost small model for efficient production use.",
+        "zh-TW": "Mistral 較低成本的小模型，適合高效率 production 使用。"
+      },
+      "bestFor": [
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
     }
   ]
 }

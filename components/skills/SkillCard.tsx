@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { clsx } from 'clsx';
 import { Locale, Skill } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
-import { localizeDifficulty, scoreTone } from '@/lib/helpers';
+import { localizeDifficulty, localizeSkillCategory, scoreTone } from '@/lib/helpers';
 import { ExternalLink } from '@/components/shared/ExternalLink';
 
 export function SkillCard({ skill, locale }: { skill: Skill; locale: Locale }) {
@@ -12,7 +12,7 @@ export function SkillCard({ skill, locale }: { skill: Skill; locale: Locale }) {
     <article className="card group p-5">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-label text-[var(--text-muted)]">{skill.category}</p>
+          <p className="text-label text-[var(--text-muted)]">{localizeSkillCategory(locale, skill)}{skill.subCategory ? ` · ${skill.subCategory}` : ''}</p>
           <h3 className="mt-2 text-xl font-semibold text-white">{skill.name}</h3>
         </div>
         <div className={clsx('rounded-[22px] border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
