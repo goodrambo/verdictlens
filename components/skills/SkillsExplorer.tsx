@@ -5,9 +5,10 @@ import { useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Skill } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
-import { easeOfSetupScore, formatDate, getOfficialFieldPaths, getPrimarySource, localizeDifficulty, localizeFieldPath, localizeSkillCategory, localizeUseCase, providerNames, scoreTone, skillBestFor } from '@/lib/helpers';
+import { easeOfSetupScore, formatDate, getOfficialFieldPaths, getPrimarySource, localizeCatalogTier, localizeDifficulty, localizeFieldPath, localizeSkillCategory, localizeUseCase, providerNames, scoreTone, skillBestFor } from '@/lib/helpers';
 
 type SkillSortKey = 'overall' | 'name' | 'compatibility' | 'setup';
+type SkillCatalogKey = 'all' | 'curated' | 'registry-validated' | 'registry-listed';
 
 export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Locale }) {
   const copy = ui[locale];
@@ -15,6 +16,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
   const [category, setCategory] = useState('all');
   const [skillType, setSkillType] = useState('all');
   const [provider, setProvider] = useState('all');
+  const [catalogTier, setCatalogTier] = useState<SkillCatalogKey>('all');
   const [useCase, setUseCase] = useState('all');
   const [sortKey, setSortKey] = useState<SkillSortKey>('overall');
 
@@ -33,6 +35,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           item.category,
           item.subCategory ?? '',
           item.skillType,
+          item.catalogTier,
           ...item.tags,
           ...item.worksWith,
           ...providerNames(item.supportedProviderIds),
@@ -42,7 +45,12 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           .join(' ')
           .toLowerCase();
 
-        return (!q || searchable.includes(q)) && (category === 'all' || item.categoryId === category) && (skillType === 'all' || item.skillType === skillType) && (provider === 'all' || item.supportedProviderIds.includes(provider as Skill['supportedProviderIds'][number])) && (useCase === 'all' || skillBestFor(item).includes(useCase));
+        return (!q || searchable.includes(q))
+          && (category === 'all' || item.categoryId === category)
+          && (skillType === 'all' || item.skillType === skillType)
+          && (provider === 'all' || item.supportedProviderIds.includes(provider as Skill['supportedProviderIds'][number]))
+          && (catalogTier === 'all' || item.catalogTier === catalogTier)
+          && (useCase === 'all' || skillBestFor(item).includes(useCase));
       })
       .sort((a, b) => {
         if (sortKey === 'name') return a.name.localeCompare(b.name);
@@ -50,41 +58,47 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
         if (sortKey === 'setup') return easeOfSetupScore(b.installDifficulty, b.easeOfSetupScore) - easeOfSetupScore(a.installDifficulty, a.easeOfSetupScore) || a.name.localeCompare(b.name);
         return b.overallScore - a.overallScore || a.name.localeCompare(b.name);
       });
-  }, [category, provider, query, skillType, skills, sortKey, useCase]);
+  }, [catalogTier, category, provider, query, skillType, skills, sortKey, useCase]);
 
   function clearFilters() {
     setQuery('');
     setCategory('all');
     setSkillType('all');
     setProvider('all');
+    setCatalogTier('all');
     setUseCase('all');
     setSortKey('overall');
   }
+
+  const curatedCount = skills.filter((item) => item.catalogTier === 'curated').length;
+  const registryValidatedCount = skills.filter((item) => item.catalogTier === 'registry-validated').length;
+  const registryListedCount = skills.filter((item) => item.catalogTier === 'registry-listed').length;
 
   return (
     <div className="space-y-6 md:space-y-7">
       <section className="panel p-5 md:p-6">
         <div className="grid gap-5 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
           <div>
-            <p className="text-label text-[var(--accent-2)]">{locale === 'en' ? 'Normalized skill registry' : '正規化技能 registry'}</p>
+            <p className="text-label text-[var(--accent-2)]">{locale === 'en' ? 'Layered skill registry' : '分層技能 registry'}</p>
             <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl [text-wrap:balance]">
-              {locale === 'en' ? 'Skills are treated as compatibility and operations infrastructure.' : '把 Skills 當成相容性與營運基礎設施來整理。'}
+              {locale === 'en' ? 'Scale and trust are separated on purpose.' : '刻意把規模與信任分開呈現。'}
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-muted)] md:text-base">
               {locale === 'en'
-                ? 'Official sources, install method, deployment model, permission posture, provider support, and works-with relationships are first-class fields so this can evolve into a real registry and routing layer later.'
-                : '把官方來源、安裝方式、部署模式、權限姿態、供應商支援與 works-with 關係都做成一等欄位，未來才有機會自然長成真正的 registry 與 routing layer。'}
+                ? 'Curated reviews, registry-validated MCP servers, and broader registry-listed entries now share one live catalog—but each item keeps its own source trail and trust layer visible by default.'
+                : '現在把人工 curated、registry 已驗證的 MCP server，以及更廣泛的 registry 收錄項目放進同一個 live catalog；但每個項目的來源軌跡與信任層級都會直接標出來。'}
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <MetricCard label={copy.labels.results} value={String(filtered.length)} />
-            <MetricCard label={copy.labels.supportedProviders} value={String(providers.length)} />
-            <MetricCard label={copy.labels.sourceSignals} value={locale === 'en' ? 'Official-first' : '官方優先'} />
+            <MetricCard label={locale === 'en' ? 'Curated' : '人工 curated'} value={String(curatedCount)} />
+            <MetricCard label={locale === 'en' ? 'Registry validated' : 'registry 已驗證'} value={String(registryValidatedCount)} />
+            <MetricCard label={locale === 'en' ? 'Registry listed' : 'registry 已收錄'} value={String(registryListedCount)} />
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
           <label className="space-y-2 text-sm text-[var(--text-muted)] xl:col-span-2">
             <span>{copy.labels.search}</span>
             <input
@@ -120,6 +134,16 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           </label>
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
+            <span>{copy.labels.catalogTier}</span>
+            <select value={catalogTier} onChange={(event) => setCatalogTier(event.target.value as SkillCatalogKey)} className="input-base">
+              <option value="all">{copy.labels.all}</option>
+              <option value="curated">{localizeCatalogTier(locale, 'curated')}</option>
+              <option value="registry-validated">{localizeCatalogTier(locale, 'registry-validated')}</option>
+              <option value="registry-listed">{localizeCatalogTier(locale, 'registry-listed')}</option>
+            </select>
+          </label>
+
+          <label className="space-y-2 text-sm text-[var(--text-muted)]">
             <span>{copy.labels.supportedProviders}</span>
             <select value={provider} onChange={(event) => setProvider(event.target.value)} className="input-base">
               <option value="all">{copy.labels.all}</option>
@@ -131,7 +155,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
             </select>
           </label>
 
-          <label className="space-y-2 text-sm text-[var(--text-muted)] xl:col-start-5">
+          <label className="space-y-2 text-sm text-[var(--text-muted)] xl:col-start-6">
             <span>{copy.labels.bestFor}</span>
             <select value={useCase} onChange={(event) => setUseCase(event.target.value)} className="input-base">
               <option value="all">{copy.labels.all}</option>
@@ -171,7 +195,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
 
       <section className="hidden overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.045] shadow-[var(--shadow-soft)] backdrop-blur-xl lg:block">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[1420px] border-collapse text-left">
+          <table className="w-full min-w-[1460px] border-collapse text-left">
             <thead>
               <tr className="border-b border-white/10 bg-[var(--surface-2)] text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted-2)]">
                 <th className="px-5 py-4 font-medium">{copy.labels.name}</th>
@@ -185,14 +209,18 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
             <tbody>
               {filtered.map((skill, index) => {
                 const primarySource = getPrimarySource(skill);
+                const officialFieldPaths = getOfficialFieldPaths(skill);
 
                 return (
                   <tr key={skill.slug} className={clsx('border-b border-white/6 align-top text-[15px] text-slate-200 transition hover:bg-[var(--accent-soft-2)]', index % 2 === 0 ? 'bg-white/[0.015]' : undefined)}>
                     <td className="px-5 py-5">
-                      <div className="min-w-[18rem] max-w-[20rem]">
+                      <div className="min-w-[18rem] max-w-[21rem]">
                         <div className="flex items-start justify-between gap-3">
                           <div>
-                            <div className="text-base font-semibold text-white">{skill.displayName}</div>
+                            <div className="flex flex-wrap items-center gap-2">
+                              <div className="text-base font-semibold text-white">{skill.displayName}</div>
+                              <span className="chip text-[11px] text-[var(--accent-2)]">{localizeCatalogTier(locale, skill.catalogTier)}</span>
+                            </div>
                             <div className="mt-1 text-sm text-[var(--text-muted)]">{localizeSkillCategory(locale, skill)}{skill.subCategory ? ` · ${skill.subCategory}` : ''} · {skill.skillType}</div>
                           </div>
                           <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
@@ -226,13 +254,14 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                       </div>
                     </td>
                     <td className="px-5 py-5">
-                      <div className="min-w-[14rem] space-y-2 text-sm">
+                      <div className="min-w-[15rem] space-y-2 text-sm">
+                        <div className="chip inline-flex text-[11px] text-[var(--text-muted)]">{localizeCatalogTier(locale, skill.catalogTier)}</div>
                         <a href={primarySource.url} target="_blank" rel="noreferrer" className="inline-flex items-center text-[var(--accent)] hover:text-white">
                           {primarySource.label} ↗
                         </a>
                         <div className="text-[var(--text-muted)]">{copy.labels.lastVerified}: {formatDate(locale, skill.lastVerifiedAt)}</div>
                         <div className="flex flex-wrap gap-1.5">
-                          {getOfficialFieldPaths(skill).slice(0, 3).map((fieldPath) => (
+                          {(officialFieldPaths.length ? officialFieldPaths : ['summary']).slice(0, 3).map((fieldPath) => (
                             <span key={fieldPath} className="chip text-[11px] text-[var(--text-muted)]">
                               {localizeFieldPath(locale, fieldPath)}
                             </span>
@@ -256,6 +285,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
       <div className="grid gap-4 lg:hidden">
         {filtered.map((skill) => {
           const primarySource = getPrimarySource(skill);
+          const officialFieldPaths = getOfficialFieldPaths(skill);
 
           return (
             <article key={skill.slug} className="card p-5">
@@ -263,6 +293,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                 <div>
                   <div className="text-sm text-[var(--text-muted)]">{localizeSkillCategory(locale, skill)}{skill.subCategory ? ` · ${skill.subCategory}` : ''} · {skill.skillType}</div>
                   <h3 className="mt-1 text-xl font-semibold text-white">{skill.displayName}</h3>
+                  <div className="mt-2 inline-flex chip text-[11px] text-[var(--accent-2)]">{localizeCatalogTier(locale, skill.catalogTier)}</div>
                 </div>
                 <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(skill.overallScore))}>
                   <div className="text-[11px] uppercase tracking-[0.2em] text-white/65">Score</div>
@@ -273,13 +304,14 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
               <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{pick(locale, skill.summary)}</p>
 
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <InfoBlock label={copy.labels.catalogTier} value={localizeCatalogTier(locale, skill.catalogTier)} />
                 <InfoBlock label={copy.labels.bestFor} value={skillBestFor(skill).map((item) => localizeUseCase(locale, item)).join(' · ')} />
                 <InfoBlock label={copy.labels.worksWith} value={skill.worksWith.slice(0, 3).join(' · ')} />
                 <InfoBlock label={copy.labels.installMethod} value={`${skill.installMethod} · ${skill.deployment}`} />
                 <InfoBlock label={copy.labels.supportedProviders} value={providerNames(skill.supportedProviderIds).join(' · ')} />
                 <InfoBlock label={copy.labels.supportedHosts} value={skill.supportedHosts.join(' · ')} />
                 <InfoBlock label={copy.labels.lastVerified} value={formatDate(locale, skill.lastVerifiedAt)} />
-                <InfoBlock label={copy.labels.sourceSignals} value={getOfficialFieldPaths(skill).slice(0, 3).map((fieldPath) => localizeFieldPath(locale, fieldPath)).join(' · ')} />
+                <InfoBlock label={copy.labels.sourceSignals} value={(officialFieldPaths.length ? officialFieldPaths : ['summary']).slice(0, 3).map((fieldPath) => localizeFieldPath(locale, fieldPath)).join(' · ')} />
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">

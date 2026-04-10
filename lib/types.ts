@@ -41,6 +41,7 @@ export type SourceKind =
   | 'official-docs'
   | 'official-site'
   | 'official-registry'
+  | 'community-registry'
   | 'github'
   | 'pricing-page'
   | 'blog'
@@ -134,6 +135,10 @@ export type SkillCategoryId =
   | 'execution-sandboxes'
   | 'data-extraction';
 
+export type SkillCatalogTier = 'curated' | 'registry-validated' | 'registry-listed';
+
+export type SkillArtifactKind = 'skill' | 'mcp-server' | 'connector' | 'workflow' | 'tool-wrapper';
+
 export type Skill = {
   id: string;
   slug: string;
@@ -147,6 +152,8 @@ export type Skill = {
   category: string;
   subCategory?: string;
   skillType: 'mcp' | 'api' | 'connector' | 'browser' | 'workflow' | 'coding' | 'memory' | 'search' | 'security' | 'extraction';
+  catalogTier: SkillCatalogTier;
+  artifactKind: SkillArtifactKind;
   summary: LocalizedText;
   description: LocalizedText;
   officialUrl?: string;

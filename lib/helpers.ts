@@ -1,6 +1,6 @@
 import { providerMap } from '@/lib/content/providers';
 import { getSkillCategory } from '@/lib/content/skill-categories';
-import { Locale, Model, ProviderId, Skill, SourceKind, SourceRef } from '@/lib/types';
+import { Locale, Model, ProviderId, Skill, SkillCatalogTier, SourceKind, SourceRef } from '@/lib/types';
 import { pick } from '@/lib/i18n';
 
 const useCaseLabels = {
@@ -13,6 +13,7 @@ const sourceKindLabels: Record<SourceKind, { en: string; 'zh-TW': string }> = {
   'official-docs': { en: 'Official docs', 'zh-TW': '官方文件' },
   'official-site': { en: 'Official site', 'zh-TW': '官方網站' },
   'official-registry': { en: 'Official registry', 'zh-TW': '官方 registry' },
+  'community-registry': { en: 'Community registry', 'zh-TW': '社群 registry' },
   github: { en: 'GitHub', 'zh-TW': 'GitHub' },
   'pricing-page': { en: 'Pricing page', 'zh-TW': '價格頁' },
   blog: { en: 'Blog', 'zh-TW': '部落格' },
@@ -70,8 +71,18 @@ export function localizeUseCase(locale: Locale, slug: string) {
   return pick(locale, useCaseLabels[slug as keyof typeof useCaseLabels] ?? { en: slug, 'zh-TW': slug });
 }
 
+const catalogTierLabels: Record<SkillCatalogTier, { en: string; 'zh-TW': string }> = {
+  curated: { en: 'Curated review', 'zh-TW': '人工 curated' },
+  'registry-validated': { en: 'Registry validated', 'zh-TW': 'registry 已驗證' },
+  'registry-listed': { en: 'Registry listed', 'zh-TW': 'registry 已收錄' },
+};
+
 export function localizeSourceKind(locale: Locale, kind: SourceKind) {
   return pick(locale, sourceKindLabels[kind] ?? { en: kind, 'zh-TW': kind });
+}
+
+export function localizeCatalogTier(locale: Locale, tier: SkillCatalogTier) {
+  return pick(locale, catalogTierLabels[tier] ?? { en: tier, 'zh-TW': tier });
 }
 
 export function localizeSkillCategory(locale: Locale, skill: Pick<Skill, 'categoryId' | 'categoryLabel'>) {

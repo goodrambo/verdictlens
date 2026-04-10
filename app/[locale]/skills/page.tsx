@@ -33,8 +33,8 @@ export default async function SkillsPage({ params }: { params: Promise<{ locale:
           title={copy.sections.exploreSkills}
           body={
             locale === 'en'
-              ? 'The supporting stack is often what determines whether a model is usable in real work. This directory makes that layer easier to compare.'
-              : '真正決定模型能不能穩定落地的，往往是支援工具層。這個目錄先把那一層整理得更容易比較。'
+              ? 'The supporting stack is often what determines whether a model is usable in real work. This directory now scales past a thousand live entries by separating curated review, registry validation, and broader registry listing instead of pretending they are the same thing.'
+              : '真正決定模型能不能穩定落地的，往往是支援工具層。這個目錄現在把人工 curated、registry 驗證與更廣泛的 registry 收錄分開呈現，讓 live catalog 在超過千筆之後仍然盡量保持可讀。'
           }
         />
         <SkillsExplorer skills={skills} locale={locale} />

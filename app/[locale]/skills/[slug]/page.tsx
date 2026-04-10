@@ -123,16 +123,20 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ lo
           <div className="panel p-6">
             <h2 className="text-2xl font-semibold text-white">{copy.labels.sourceSignals}</h2>
             <div className="mt-4 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
-              <div className="text-sm font-medium text-white">{locale === 'en' ? 'Officially verified registry fields' : '官方已驗證 registry 欄位'}</div>
+              <div className="text-sm font-medium text-white">{locale === 'en' ? 'Verified registry fields' : '已驗證 registry 欄位'}</div>
               <div className="mt-3 flex flex-wrap gap-2">
-                {officialFieldPaths.map((fieldPath) => (
+                {(officialFieldPaths.length ? officialFieldPaths : ['summary', 'repoUrl']).map((fieldPath) => (
                   <span key={fieldPath} className="chip text-xs text-[var(--text-muted)]">{localizeFieldPath(locale, fieldPath)}</span>
                 ))}
               </div>
               <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
-                {locale === 'en'
-                  ? 'Editorial guidance like best-fit recommendations, strengths, caveats, and scoring is kept separate from official registry facts.'
-                  : '適合場景建議、優勢、注意事項與評分等編輯欄位，會和官方 registry 事實分開呈現。'}
+                {skill.catalogTier === 'curated'
+                  ? (locale === 'en'
+                      ? 'Editorial guidance like best-fit recommendations, strengths, caveats, and scoring is kept separate from official registry facts.'
+                      : '適合場景建議、優勢、注意事項與評分等編輯欄位，會和官方 registry 事實分開呈現。')
+                  : (locale === 'en'
+                      ? 'This entry is live under the scaled catalog policy: maintainer repo + community registry metadata are visible, but VerdictLens did not treat it as fully official-field verified.'
+                      : '這個項目是依照擴大後的 live catalog 規則上線：可看到 maintainer repo 與社群 registry metadata，但 VerdictLens 不把它當成官方欄位已完整驗證。')}
               </p>
             </div>
             <div className="mt-4 space-y-3">

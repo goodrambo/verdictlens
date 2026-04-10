@@ -26,6 +26,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const copy = ui[locale];
   const featuredModels = featuredModelSlugs.map((slug) => modelMap[slug]);
   const featuredSkills = featuredSkillSlugs.map((slug) => skillMap[slug]);
+  const curatedSkillCount = skills.filter((skill) => skill.catalogTier === 'curated').length;
+  const registryValidatedSkillCount = skills.filter((skill) => skill.catalogTier === 'registry-validated').length;
+  const registryListedSkillCount = skills.filter((skill) => skill.catalogTier === 'registry-listed').length;
 
   const entryPaths = [
     {
@@ -83,8 +86,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
                   {[
                     locale === 'en' ? `${models.length} verified AI models` : `${models.length} 個已驗證 AI 模型`,
-                    locale === 'en' ? `${skills.length} verified AI skills` : `${skills.length} 個已驗證 AI 技能`,
-                    locale === 'en' ? 'Official-source mapping + bilingual structured data' : '官方來源映射 + 雙語結構化資料',
+                    locale === 'en'
+                      ? `${skills.length} live skills · ${curatedSkillCount} curated · ${registryValidatedSkillCount} registry validated`
+                      : `${skills.length} 個 live skills · ${curatedSkillCount} 個人工 curated · ${registryValidatedSkillCount} 個 registry 已驗證`,
+                    locale === 'en'
+                      ? `${registryListedSkillCount} additional registry-listed entries with visible trust layering`
+                      : `${registryListedSkillCount} 個額外 registry 收錄項目，並保留可見的信任分層`,
                   ].map((item, index) => (
                     <div key={item} className="panel-subtle p-4">
                       <div className="text-[11px] uppercase tracking-[0.28em] text-[var(--text-muted-2)]">0{index + 1}</div>

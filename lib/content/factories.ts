@@ -129,6 +129,8 @@ type SkillSeed = {
   category?: string;
   subCategory?: string;
   skillType: Skill['skillType'];
+  catalogTier?: Skill['catalogTier'];
+  artifactKind?: Skill['artifactKind'];
   officialUrl?: string;
   docsUrl?: string;
   repoUrl?: string;
@@ -179,6 +181,8 @@ export function defineSkill(seed: SkillSeed): Skill {
     status: seed.status ?? 'active',
     displayName: seed.name,
     summary: seed.description,
+    catalogTier: seed.catalogTier ?? 'curated',
+    artifactKind: seed.artifactKind ?? 'skill',
     preferredSourceUrl,
     deployment: seed.deployment ?? 'hybrid',
     installMethod: seed.installMethod ?? 'manual',
