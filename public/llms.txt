@@ -86,6 +86,7 @@ formats: text/html, application/json
 - terraform-mcp-server | Terraform MCP Server | type=coding | install=manual | deployment=hybrid | providers=openai,anthropic,google,any | preferred_source=https://developer.hashicorp.com/terraform/mcp-server
 - elevenlabs-mcp | ElevenLabs MCP | type=extraction | install=pip | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://github.com/elevenlabs/elevenlabs-mcp
 - vercel-skills | Vercel Skills | type=coding | install=npm | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://vercel.com/docs/agent-resources/skills
+- discord-mcp | Discord MCP | type=mcp | install=manual | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://github.com/SaseQ/discord-mcp
 - x-research-skill | X Research Skill | type=search | install=github | deployment=local | providers=openai,anthropic,google,any | preferred_source=https://github.com/rohunvora/x-research-skill
 
 [crawl_hints]

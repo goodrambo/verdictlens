@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-09T17:49:28.418Z",
-  "count": 32,
+  "updatedAt": "2026-04-10T00:52:52.249Z",
+  "count": 33,
   "registryReady": true,
   "items": [
     {
@@ -4835,6 +4835,145 @@
       "setupDifficulty": "easy",
       "bestFor": [
         "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-10T01:45:00.000Z"
+    },
+    {
+      "slug": "discord-mcp",
+      "name": "Discord MCP",
+      "providerId": "any",
+      "categoryId": "workflow-automation",
+      "subCategory": "Discord automation server",
+      "skillType": "mcp",
+      "repoUrl": "https://github.com/SaseQ/discord-mcp",
+      "preferredSourceUrl": "https://github.com/SaseQ/discord-mcp",
+      "officialSourceLabel": "GitHub repo",
+      "description": {
+        "en": "A focused MCP server for reading Discord state, sending messages, managing channels, and handling server-level automation tasks.",
+        "zh-TW": "一個聚焦的 Discord MCP server，可讀取伺服器狀態、傳送訊息、管理頻道，並處理伺服器層級的自動化任務。"
+      },
+      "supportedProviderIds": [
+        "openai",
+        "anthropic",
+        "google",
+        "any"
+      ],
+      "installDifficulty": "Moderate",
+      "utilityScore": 82,
+      "compatibilityScore": 85,
+      "reliabilityScore": 77,
+      "docsScore": 80,
+      "adoptionScore": 75,
+      "safetyMaintenanceScore": 67,
+      "overallScore": 79,
+      "bestUseCases": [
+        "agent-automation"
+      ],
+      "deployment": "local",
+      "installMethod": "manual",
+      "supportedHosts": [
+        "OpenClaw",
+        "Claude Code",
+        "Codex CLI",
+        "Cursor",
+        "Claude Desktop"
+      ],
+      "capabilities": [
+        "discord messaging",
+        "channel management",
+        "role and member actions",
+        "server introspection"
+      ],
+      "auth": {
+        "type": "local-config",
+        "notes": "Requires a Discord bot token and MCP client/server configuration."
+      },
+      "permissionProfile": {
+        "level": "high",
+        "notes": "This server can read and modify Discord server state, so bot scopes and target guilds need tight control."
+      },
+      "worksWith": [
+        "OpenClaw",
+        "Claude Code",
+        "Codex CLI",
+        "Discord bot API"
+      ],
+      "tags": [
+        "mcp",
+        "discord",
+        "automation"
+      ],
+      "strengths": [
+        {
+          "en": "Capability boundary is concrete: it is an MCP layer for Discord operations, not a vague “community agent” bundle.",
+          "zh-TW": "能力邊界很具體：它就是 Discord 操作的 MCP 層，不是模糊的「社群 agent」大禮包。"
+        },
+        {
+          "en": "Maintainer repo documents OpenClaw, Claude Code, Codex, Cursor, and Claude Desktop setup paths directly.",
+          "zh-TW": "maintainer repo 直接文件化了 OpenClaw、Claude Code、Codex、Cursor 與 Claude Desktop 的接法。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "High-permission Discord automations deserve especially careful token scoping and bot-role review.",
+          "zh-TW": "高權限的 Discord 自動化尤其需要審慎控管 token scope 與 bot role。"
+        },
+        {
+          "en": "Community-maintained MCP servers can change quickly, so live claims should stay narrow and operational rather than promotional.",
+          "zh-TW": "社群維護的 MCP server 變動可能很快，因此 live 描述應維持狹窄、偏操作面，而不是宣傳式表述。"
+        }
+      ],
+      "updatedAt": "2026-04-10T01:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "github:discord-mcp-repo",
+          "label": "Discord MCP repo",
+          "url": "https://github.com/SaseQ/discord-mcp",
+          "kind": "github",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "repoUrl",
+            "summary",
+            "description",
+            "installMethod",
+            "supportedHosts",
+            "auth",
+            "permissionProfile"
+          ]
+        },
+        {
+          "id": "manual-review:discord-mcp-verdictlens-review",
+          "label": "Discord MCP VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-10T01:45:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "capabilities",
+            "permissionProfile",
+            "overallScore"
+          ],
+          "notes": "Validated against the maintainer repo plus independent MCP discovery listings such as mcpindex, LobeHub MCP, and Glama; live entry keeps claims narrow to the documented Discord server automation surface."
+        }
+      ],
+      "category": "Workflow automation",
+      "categoryLabel": {
+        "en": "Workflow automation",
+        "zh-TW": "工作流自動化"
+      },
+      "id": "skill:discord-mcp",
+      "status": "active",
+      "displayName": "Discord MCP",
+      "summary": {
+        "en": "A focused MCP server for reading Discord state, sending messages, managing channels, and handling server-level automation tasks.",
+        "zh-TW": "一個聚焦的 Discord MCP server，可讀取伺服器狀態、傳送訊息、管理頻道，並處理伺服器層級的自動化任務。"
+      },
+      "setupDifficulty": "moderate",
+      "bestFor": [
         "agent-automation"
       ],
       "lastVerifiedAt": "2026-04-10T01:45:00.000Z"

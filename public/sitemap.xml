@@ -935,6 +935,22 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/vercel-skills" />
   </url>
   <url>
+    <loc>http://localhost:3000/en/skills/discord-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/discord-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/discord-mcp" />
+  </url>
+  <url>
+    <loc>http://localhost:3000/zh-TW/skills/discord-mcp</loc>
+    <lastmod>2026-04-10T01:45:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/skills/discord-mcp" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW/skills/discord-mcp" />
+  </url>
+  <url>
     <loc>http://localhost:3000/en/skills/x-research-skill</loc>
     <lastmod>2026-04-10T01:45:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
