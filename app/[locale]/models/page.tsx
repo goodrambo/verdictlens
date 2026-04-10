@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { ModelsExplorer } from '@/components/models/ModelsExplorer';
 import { SectionIntro } from '@/components/shared/SectionIntro';
 import { models } from '@/lib/data';
@@ -37,7 +38,9 @@ export default async function ModelsPage({ params }: { params: Promise<{ locale:
               : '更清楚的模型目錄，方便做探索、shortlist，並直接跳到官方頁面，同時保留排名脈絡。'
           }
         />
-        <ModelsExplorer models={models} locale={locale} />
+        <Suspense fallback={<div className="rounded-[28px] border border-white/10 bg-white/4 p-8 text-sm text-[var(--text-muted)]">{locale === 'en' ? 'Loading model directory…' : '正在載入模型目錄…'}</div>}>
+          <ModelsExplorer models={models} locale={locale} />
+        </Suspense>
       </div>
     </main>
   );

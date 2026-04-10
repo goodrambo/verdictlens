@@ -2,15 +2,22 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { clsx } from 'clsx';
 import { Locale, Model } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
-import { compareHref, formatDate, getOfficialFieldPaths, getPrimarySource, getProvider, localizeFieldPath, localizeSpeed, localizeUseCase, modelBestFor, scoreTone, speedRank } from '@/lib/helpers';
+import { PaginationControls } from '@/components/shared/PaginationControls';
+import { compareHref, getPrimarySource, getProvider, localizeSpeed, localizeUseCase, modelBestFor, scoreTone, speedRank } from '@/lib/helpers';
 
 type ModelSortKey = 'overall' | 'name' | 'cost' | 'speed';
 
+const PAGE_SIZE = 8;
+
 export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Locale }) {
   const copy = ui[locale];
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState('');
   const [provider, setProvider] = useState('all');
   const [useCase, setUseCase] = useState('all');
@@ -49,13 +56,33 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
       });
   }, [models, provider, query, sortKey, useCase]);
 
+  const rawPage = Number(searchParams.get('page') ?? '1');
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentPage = Math.min(Math.max(Number.isFinite(rawPage) ? Math.floor(rawPage) : 1, 1), totalPages);
+  const paginated = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return filtered.slice(start, start + PAGE_SIZE);
+  }, [currentPage, filtered]);
+
   const selectedModels = compareSelection.map((slug) => models.find((item) => item.slug === slug)).filter(Boolean) as Model[];
+
+  function updatePage(nextPage: number) {
+    const safePage = Math.min(Math.max(nextPage, 1), totalPages);
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (safePage <= 1) params.delete('page');
+    else params.set('page', String(safePage));
+
+    const queryString = params.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+  }
 
   function clearFilters() {
     setQuery('');
     setProvider('all');
     setUseCase('all');
     setSortKey('overall');
+    updatePage(1);
   }
 
   function toggleCompare(slug: string) {
@@ -73,12 +100,12 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
           <div>
             <p className="text-label text-[var(--accent)]">{locale === 'en' ? 'Discovery → shortlist → compare' : 'Discovery → shortlist → compare'}</p>
             <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl [text-wrap:balance]">
-              {locale === 'en' ? 'Built to help teams narrow choices, not just browse inventory.' : '不是把庫存全攤開，而是幫團隊更快縮小選項。'}
+              {locale === 'en' ? 'A lighter directory surface for faster first-pass decisions.' : '先用更輕的目錄表面，幫你更快做第一輪篩選。'}
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-muted)] md:text-base">
               {locale === 'en'
-                ? 'Each row keeps best-fit workflows, compatibility cues, trust signals, and compare entry points visible so the directory can lead naturally into shortlists and later routing flows.'
-                : '列表直接保留適合工作流、相容性線索、信任訊號與 compare 入口，讓目錄自然往 shortlist 與後續 routing 流程前進。'}
+                ? 'The list now focuses on who the model is for, what the price/speed snapshot looks like, and how to jump into details or compare mode. Deeper context stays on the detail page.'
+                : '列表現在只優先顯示這個模型適合誰、價格與速度大概如何，以及怎麼進入詳情或 compare；更深的資訊放回 detail page。'}
             </p>
           </div>
 
@@ -132,7 +159,10 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
             <span>{copy.labels.search}</span>
             <input
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                updatePage(1);
+              }}
               placeholder={locale === 'en' ? 'Search by model, provider, workflow, or integration' : '依模型、供應商、工作流或整合搜尋'}
               className="input-base"
             />
@@ -140,7 +170,14 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
             <span>{copy.labels.provider}</span>
-            <select value={provider} onChange={(event) => setProvider(event.target.value)} className="input-base">
+            <select
+              value={provider}
+              onChange={(event) => {
+                setProvider(event.target.value);
+                updatePage(1);
+              }}
+              className="input-base"
+            >
               <option value="all">{copy.labels.all}</option>
               {providers.map((item) => (
                 <option key={item.id} value={item.id}>
@@ -152,7 +189,14 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
             <span>{copy.labels.bestFor}</span>
-            <select value={useCase} onChange={(event) => setUseCase(event.target.value)} className="input-base">
+            <select
+              value={useCase}
+              onChange={(event) => {
+                setUseCase(event.target.value);
+                updatePage(1);
+              }}
+              className="input-base"
+            >
               <option value="all">{copy.labels.all}</option>
               {useCases.map((item) => (
                 <option key={item} value={item}>
@@ -173,7 +217,10 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
             <button
               key={option.key}
               type="button"
-              onClick={() => setSortKey(option.key)}
+              onClick={() => {
+                setSortKey(option.key);
+                updatePage(1);
+              }}
               className={clsx(
                 'chip text-sm transition',
                 sortKey === option.key ? 'border-[var(--border-strong)] bg-[var(--accent-soft)] text-[var(--accent-contrast)]' : 'text-[var(--text-muted)] hover:border-white/20 hover:bg-white/8 hover:text-white',
@@ -188,22 +235,23 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
         </div>
       </section>
 
+      {filtered.length ? (
+        <PaginationControls locale={locale} currentPage={currentPage} totalPages={totalPages} totalItems={filtered.length} pageSize={PAGE_SIZE} onPageChange={updatePage} />
+      ) : null}
+
       <section className="hidden overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.045] shadow-[var(--shadow-soft)] backdrop-blur-xl lg:block">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[1340px] border-collapse text-left">
+          <table className="w-full min-w-[1120px] border-collapse text-left">
             <thead>
               <tr className="border-b border-white/10 bg-[var(--surface-2)] text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted-2)]">
                 <th className="px-5 py-4 font-medium">{copy.labels.name}</th>
                 <th className="px-5 py-4 font-medium">{copy.labels.bestFor}</th>
-                <th className="px-5 py-4 font-medium">{copy.labels.worksWith}</th>
-                <th className="px-5 py-4 font-medium">{copy.labels.pricing}</th>
-                <th className="px-5 py-4 font-medium">{copy.labels.trustSignals}</th>
-                <th className="px-5 py-4 font-medium">{copy.labels.compareNow}</th>
+                <th className="px-5 py-4 font-medium">{locale === 'en' ? 'Snapshot' : '快速摘要'}</th>
                 <th className="px-5 py-4 font-medium">{copy.labels.viewDetails}</th>
               </tr>
             </thead>
             <tbody>
-              {filtered.map((model, index) => {
+              {paginated.map((model, index) => {
                 const providerInfo = getProvider(model.providerId);
                 const primarySource = getPrimarySource(model);
                 const selected = compareSelection.includes(model.slug);
@@ -211,23 +259,20 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
                 return (
                   <tr key={model.slug} className={clsx('border-b border-white/6 align-top text-[15px] text-slate-200 transition hover:bg-[var(--accent-soft)]', index % 2 === 0 ? 'bg-white/[0.015]' : undefined)}>
                     <td className="px-5 py-5">
-                      <div className="min-w-[18rem] max-w-[20rem]">
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <div className="text-base font-semibold text-white">{model.displayName}</div>
-                            <div className="mt-1 text-sm text-[var(--text-muted)]">{providerInfo.name}</div>
-                          </div>
-                          <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(model.overallScore))}>
-                            <div className="text-[11px] uppercase tracking-[0.2em] text-white/65">Score</div>
-                            <div className="text-xl font-semibold text-white">{model.overallScore}</div>
-                          </div>
+                      <div className="min-w-[18rem] max-w-[24rem]">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-sm text-[var(--text-muted)]">{providerInfo.name}</span>
+                          <span className={clsx('rounded-full border border-white/10 px-2.5 py-1 text-[11px] font-medium', scoreTone(model.overallScore))}>
+                            {copy.labels.overallScore}: {model.overallScore}
+                          </span>
                         </div>
-                        <p className="mt-3 line-clamp-2 text-sm leading-6 text-[var(--text-muted)]">{pick(locale, model.summary)}</p>
+                        <div className="mt-2 text-lg font-semibold text-white">{model.displayName}</div>
+                        <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--text-muted)]">{pick(locale, model.summary)}</p>
                       </div>
                     </td>
                     <td className="px-5 py-5">
                       <div className="flex max-w-[14rem] flex-wrap gap-2">
-                        {modelBestFor(model).map((item) => (
+                        {modelBestFor(model).slice(0, 3).map((item) => (
                           <span key={item} className="chip text-xs text-[var(--text-muted)]">
                             {localizeUseCase(locale, item)}
                           </span>
@@ -235,47 +280,31 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
                       </div>
                     </td>
                     <td className="px-5 py-5">
-                      <div className="flex max-w-[16rem] flex-wrap gap-2">
-                        {model.worksWith.slice(0, 4).map((item) => (
-                          <span key={item} className="chip text-xs text-[var(--text-muted)]">{item}</span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="px-5 py-5">
-                      <div className="min-w-[13rem] space-y-2 text-sm">
+                      <div className="min-w-[15rem] space-y-2 text-sm">
                         <div className="text-white">{model.pricing.input}</div>
                         <div className="text-[var(--text-muted)]">{model.pricing.output}</div>
-                        <div className="text-[var(--accent)]">{localizeSpeed(locale, model.speedCategory)}</div>
-                      </div>
-                    </td>
-                    <td className="px-5 py-5">
-                      <div className="min-w-[14rem] space-y-2 text-sm">
-                        <a href={primarySource.url} target="_blank" rel="noreferrer" className="inline-flex items-center text-[var(--accent)] hover:text-white">
-                          {primarySource.label} ↗
-                        </a>
-                        <div className="text-[var(--text-muted)]">{copy.labels.lastVerified}: {formatDate(locale, model.lastVerifiedAt)}</div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {getOfficialFieldPaths(model).slice(0, 3).map((fieldPath) => (
-                            <span key={fieldPath} className="chip text-[11px] text-[var(--text-muted)]">
-                              {localizeFieldPath(locale, fieldPath)}
-                            </span>
-                          ))}
+                        <div className="flex flex-wrap gap-2 text-xs text-[var(--text-muted)]">
+                          <span className="chip">{localizeSpeed(locale, model.speedCategory)}</span>
+                          <span className="chip">{model.contextWindow}</span>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-5">
-                      <button
-                        type="button"
-                        onClick={() => toggleCompare(model.slug)}
-                        className={clsx('rounded-full border px-3.5 py-2 text-sm font-medium transition', selected ? 'border-[var(--border-strong)] bg-[var(--accent-soft)] text-[var(--accent-contrast)]' : 'border-white/10 bg-white/5 text-[var(--text-muted)] hover:border-white/20 hover:bg-white/8 hover:text-white')}
-                      >
-                        {selected ? copy.labels.removeFromCompare : copy.labels.addToCompare}
-                      </button>
-                    </td>
-                    <td className="px-5 py-5">
-                      <Link href={`/${locale}/models/${model.slug}`} className="btn-primary">
-                        {copy.labels.viewDetails}
-                      </Link>
+                      <div className="flex min-w-[16rem] flex-wrap items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => toggleCompare(model.slug)}
+                          className={clsx('rounded-full border px-3.5 py-2 text-sm font-medium transition', selected ? 'border-[var(--border-strong)] bg-[var(--accent-soft)] text-[var(--accent-contrast)]' : 'border-white/10 bg-white/5 text-[var(--text-muted)] hover:border-white/20 hover:bg-white/8 hover:text-white')}
+                        >
+                          {selected ? copy.labels.removeFromCompare : copy.labels.addToCompare}
+                        </button>
+                        <a href={primarySource.url} target="_blank" rel="noreferrer" className="btn-secondary text-sm">
+                          {copy.labels.officialLink} ↗
+                        </a>
+                        <Link href={`/${locale}/models/${model.slug}`} className="btn-primary">
+                          {copy.labels.viewDetails}
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 );
@@ -286,7 +315,7 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
       </section>
 
       <div className="grid gap-4 lg:hidden">
-        {filtered.map((model) => {
+        {paginated.map((model) => {
           const providerInfo = getProvider(model.providerId);
           const primarySource = getPrimarySource(model);
           const selected = compareSelection.includes(model.slug);
@@ -294,30 +323,33 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
           return (
             <article key={model.slug} className="card p-5">
               <div className="flex items-start justify-between gap-4">
-                <div>
+                <div className="min-w-0">
                   <div className="text-sm text-[var(--text-muted)]">{providerInfo.name}</div>
                   <h3 className="mt-1 text-xl font-semibold text-white">{model.displayName}</h3>
                 </div>
-                <div className={clsx('rounded-2xl border border-white/10 bg-gradient-to-br px-3 py-2 text-right', scoreTone(model.overallScore))}>
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-white/65">Score</div>
-                  <div className="text-xl font-semibold text-white">{model.overallScore}</div>
-                </div>
+                <span className={clsx('rounded-full border border-white/10 px-2.5 py-1 text-[11px] font-medium', scoreTone(model.overallScore))}>
+                  {model.overallScore}
+                </span>
               </div>
 
-              <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{pick(locale, model.summary)}</p>
+              <p className="mt-3 line-clamp-2 text-sm leading-6 text-[var(--text-muted)]">{pick(locale, model.summary)}</p>
 
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <InfoBlock label={copy.labels.bestFor} value={modelBestFor(model).map((item) => localizeUseCase(locale, item)).join(' · ')} />
-                <InfoBlock label={copy.labels.worksWith} value={model.worksWith.slice(0, 3).join(' · ')} />
-                <InfoBlock label={copy.labels.pricing} value={`${model.pricing.input} · ${localizeSpeed(locale, model.speedCategory)}`} />
-                <InfoBlock label={copy.labels.lastVerified} value={formatDate(locale, model.lastVerifiedAt)} />
-                <InfoBlock label={copy.labels.sourceSignals} value={getOfficialFieldPaths(model).slice(0, 3).map((fieldPath) => localizeFieldPath(locale, fieldPath)).join(' · ')} />
+              <div className="mt-4 flex flex-wrap gap-2">
+                {modelBestFor(model).slice(0, 2).map((item) => (
+                  <span key={item} className="chip text-xs text-[var(--text-muted)]">
+                    {localizeUseCase(locale, item)}
+                  </span>
+                ))}
+                <span className="chip text-xs text-[var(--text-muted)]">{localizeSpeed(locale, model.speedCategory)}</span>
+                <span className="chip text-xs text-[var(--text-muted)]">{model.contextWindow}</span>
+              </div>
+
+              <div className="mt-4 panel-subtle p-3.5 text-sm">
+                <div className="text-white">{model.pricing.input}</div>
+                <div className="mt-1 text-[var(--text-muted)]">{model.pricing.output}</div>
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
-                <a href={primarySource.url} target="_blank" rel="noreferrer" className="btn-secondary text-sm">
-                  {copy.labels.officialLink} ↗
-                </a>
                 <button
                   type="button"
                   onClick={() => toggleCompare(model.slug)}
@@ -325,6 +357,9 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
                 >
                   {selected ? copy.labels.removeFromCompare : copy.labels.addToCompare}
                 </button>
+                <a href={primarySource.url} target="_blank" rel="noreferrer" className="btn-secondary text-sm">
+                  {copy.labels.officialLink} ↗
+                </a>
                 <Link href={`/${locale}/models/${model.slug}`} className="btn-primary ml-auto">
                   {copy.labels.viewDetails}
                 </Link>
@@ -337,15 +372,10 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
       {!filtered.length ? (
         <div className="rounded-[28px] border border-dashed border-white/12 bg-white/4 p-10 text-center text-[var(--text-muted)]">{copy.labels.noResults}</div>
       ) : null}
-    </div>
-  );
-}
 
-function InfoBlock({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="panel-subtle p-3.5">
-      <div className="text-xs uppercase tracking-[0.22em] text-[var(--text-muted-2)]">{label}</div>
-      <div className="mt-2 text-sm leading-6 text-white">{value || '—'}</div>
+      {filtered.length ? (
+        <PaginationControls locale={locale} currentPage={currentPage} totalPages={totalPages} totalItems={filtered.length} pageSize={PAGE_SIZE} onPageChange={updatePage} />
+      ) : null}
     </div>
   );
 }

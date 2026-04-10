@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { SkillsExplorer } from '@/components/skills/SkillsExplorer';
 import { SectionIntro } from '@/components/shared/SectionIntro';
 import { skills } from '@/lib/data';
@@ -37,7 +38,9 @@ export default async function SkillsPage({ params }: { params: Promise<{ locale:
               : '真正決定模型能不能穩定落地的，往往是支援工具層。這個目錄現在把人工 curated、registry 驗證與更廣泛的 registry 收錄分開呈現，讓 live catalog 在超過千筆之後仍然盡量保持可讀。'
           }
         />
-        <SkillsExplorer skills={skills} locale={locale} />
+        <Suspense fallback={<div className="rounded-[28px] border border-white/10 bg-white/4 p-8 text-sm text-[var(--text-muted)]">{locale === 'en' ? 'Loading skills directory…' : '正在載入技能目錄…'}</div>}>
+          <SkillsExplorer skills={skills} locale={locale} />
+        </Suspense>
       </div>
     </main>
   );
