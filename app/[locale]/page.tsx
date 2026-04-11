@@ -87,11 +87,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {[
                     locale === 'en' ? `${models.length} verified AI models` : `${models.length} 個已驗證 AI 模型`,
                     locale === 'en'
-                      ? `${skills.length} live skills · ${curatedSkillCount} curated · ${registryValidatedSkillCount} registry validated`
-                      : `${skills.length} 個 live skills · ${curatedSkillCount} 個人工 curated · ${registryValidatedSkillCount} 個 registry 已驗證`,
+                      ? `${skills.length} live skills with setup notes and official links`
+                      : `${skills.length} 個 live skills，附設定摘要與官方連結`,
                     locale === 'en'
-                      ? `${registryListedSkillCount} additional registry-listed entries with visible trust layering`
-                      : `${registryListedSkillCount} 個額外 registry 收錄項目，並保留可見的信任分層`,
+                      ? `${curatedSkillCount} editor-reviewed picks · ${registryValidatedSkillCount} verified listings · ${registryListedSkillCount} broader directory entries`
+                      : `${curatedSkillCount} 個編輯精選 · ${registryValidatedSkillCount} 個已驗證收錄 · ${registryListedSkillCount} 個更廣泛的目錄項目`,
                   ].map((item, index) => (
                     <div key={item} className="panel-subtle p-4">
                       <div className="text-[11px] uppercase tracking-[0.28em] text-[var(--text-muted-2)]">0{index + 1}</div>
@@ -102,6 +102,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </div>
               <div className="panel p-5 md:p-6">
                 <p className="text-label text-[var(--text-muted)]">{copy.sections.compareHeadline}</p>
+                <h2 className="mt-3 text-xl font-semibold text-white md:text-2xl">
+                  {locale === 'en' ? 'Already have finalists? Compare 2–3 side by side.' : '如果已經有候選名單，直接把 2–3 個模型並排比較。'}
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-[var(--text-muted)]">
+                  {locale === 'en'
+                    ? 'Use compare after browsing models to pressure-test pricing, speed, context window, and workflow fit in one table.'
+                    : '先從模型列表縮小候選，再用 compare 一次檢查價格、速度、上下文視窗與工作流適配。'}
+                </p>
                 <div className="mt-4 space-y-3">
                   {featuredModels.slice(0, 3).map((model) => (
                     <div key={model.slug} className="panel-subtle flex items-center justify-between gap-4 px-4 py-3.5">
@@ -117,7 +125,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   ))}
                 </div>
                 <Link href={`/${locale}/compare`} className="mt-4 inline-flex items-center text-sm text-[var(--accent)] hover:text-white">
-                  {copy.compare.title} →
+                  {locale === 'en' ? 'Open compare workspace' : '打開比較工作台'} →
                 </Link>
               </div>
             </div>

@@ -1,12 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { type ReactNode, useMemo, useState } from 'react';
+import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Model } from '@/lib/types';
 import { ui } from '@/lib/i18n';
-import { getPrimarySource, getProvider, localizeSpeed, scoreTone } from '@/lib/helpers';
+import { compareHref, getPrimarySource, getProvider, localizeSpeed, scoreTone } from '@/lib/helpers';
 
 const metrics = [
   ['capability', 'Capability'],
@@ -18,16 +17,31 @@ const metrics = [
   ['ecosystem', 'Ecosystem'],
 ] as const;
 
+const defaultSelection = ['gpt-5-4-pro', 'claude-3-7-sonnet', 'gemini-2-5-pro'];
+
 export function CompareWorkbench({ models, locale, initialSelected }: { models: Model[]; locale: Locale; initialSelected: string[] }) {
   const copy = ui[locale];
-  const searchParams = useSearchParams();
-  const seededFromQuery = (searchParams.get('models') ?? '')
-    .split(',')
-    .map((item) => item.trim())
-    .filter(Boolean)
-    .slice(0, 3);
-  const seeded = seededFromQuery.length ? seededFromQuery : initialSelected.length ? initialSelected : ['gpt-5-4-pro', 'claude-3-7-sonnet', 'gemini-2-5-pro'];
-  const [selected, setSelected] = useState<string[]>(Array.from(new Set(seeded)).slice(0, 3));
+  const [selected, setSelected] = useState<string[]>(normalizeSelection(initialSelected.length ? initialSelected : defaultSelection));
+  const [syncEnabled, setSyncEnabled] = useState(initialSelected.length > 0);
+
+  useEffect(() => {
+    const fromUrl = readSelectedFromLocation();
+    if (fromUrl.length) {
+      setSelected(fromUrl);
+      setSyncEnabled(true);
+      return;
+    }
+
+    if (initialSelected.length) {
+      setSelected(normalizeSelection(initialSelected));
+      setSyncEnabled(true);
+    }
+  }, [initialSelected]);
+
+  useEffect(() => {
+    if (!syncEnabled) return;
+    syncSelectionInUrl(locale, selected);
+  }, [locale, selected, syncEnabled]);
 
   const active = useMemo(
     () => selected.map((slug) => models.find((item) => item.slug === slug)).filter(Boolean) as Model[],
@@ -39,16 +53,28 @@ export function CompareWorkbench({ models, locale, initialSelected }: { models: 
       <div className="panel grid gap-5 p-5 md:p-6 xl:grid-cols-[1.1fr_0.9fr]">
         <div>
           <p className="text-label text-[var(--accent)]">{copy.labels.compareShortlist}</p>
-          <h3 className="mt-3 text-2xl font-semibold text-white">{locale === 'en' ? 'Compare a real shortlist, not abstract rankings.' : '比較真正的 shortlist，不是只比抽象排名。'}</h3>
+          <h3 className="mt-3 text-2xl font-semibold text-white">{locale === 'en' ? 'Pressure-test your finalists side by side.' : '把最後候選名單放在一起壓力測試。'}</h3>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-muted)]">
             {locale === 'en'
-              ? 'Use this table after discovery to pressure-test practical differences: price, speed, workflow fit, official links, and likely stack compatibility.'
-              : '這個頁面是 discovery 之後的壓力測試：把價格、速度、工作流適配、官方連結與可能的 stack 相容性一起看。'}
+              ? 'This is the step after browsing: compare the practical differences that usually decide the shortlist—price, speed, context window, workflow fit, and official links.'
+              : '這是瀏覽之後的下一步：把真正會影響決策的差異放在一起看，像是價格、速度、上下文視窗、工作流適配與官方連結。'}
           </p>
         </div>
 
         <div className="panel-subtle p-4">
-          <p className="text-sm font-medium text-white">{locale === 'en' ? 'Selected shortlist' : '已選 shortlist'}</p>
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-medium text-white">{locale === 'en' ? 'Selected shortlist' : '已選 shortlist'}</p>
+              <p className="mt-1 text-sm leading-6 text-[var(--text-muted)]">
+                {active.length >= 2
+                  ? (locale === 'en' ? 'Good to go. Adjust the slots below if you want to swap in another finalist.' : '已可直接比較；如果想換候選模型，下面可以隨時調整。')
+                  : (locale === 'en' ? 'Pick two or three models here, or jump back to the directory to build the shortlist while browsing.' : '先在這裡挑 2 到 3 個模型，或回到模型目錄一邊瀏覽一邊建立 shortlist。')}
+              </p>
+            </div>
+            <Link href={`/${locale}/models`} className="text-sm text-[var(--accent)] transition hover:text-white">
+              {locale === 'en' ? 'Browse models' : '回到模型列表'} →
+            </Link>
+          </div>
           <div className="mt-3 flex flex-wrap gap-2">
             {active.map((model) => (
               <span key={model.slug} className="chip text-xs text-[var(--text-muted)]">{model.name}</span>
@@ -66,7 +92,8 @@ export function CompareWorkbench({ models, locale, initialSelected }: { models: 
               onChange={(e) => {
                 const next = [...selected];
                 next[slot] = e.target.value;
-                setSelected(Array.from(new Set(next.filter(Boolean))).slice(0, 3));
+                setSyncEnabled(true);
+                setSelected(normalizeSelection(next));
               }}
               className="input-base"
             >
@@ -104,9 +131,12 @@ export function CompareWorkbench({ models, locale, initialSelected }: { models: 
                           </a>
                           <div className="text-[var(--text-muted)]">{copy.labels.worksWith}: {model.worksWith.slice(0, 2).join(' · ') || '—'}</div>
                         </div>
-                        <div className="mt-3 flex flex-wrap gap-2">
+                        <div className="mt-3 flex flex-wrap gap-3">
                           <Link href={`/${locale}/models/${model.slug}`} className="inline-flex items-center text-xs text-[var(--text-muted)] hover:text-white">
                             {copy.labels.viewDetails} →
+                          </Link>
+                          <Link href={compareHref(locale, active.map((item) => item.slug))} className="inline-flex items-center text-xs text-[var(--accent)] hover:text-white">
+                            {locale === 'en' ? 'Share this compare view' : '分享這個比較頁'} →
                           </Link>
                         </div>
                       </th>
@@ -131,7 +161,12 @@ export function CompareWorkbench({ models, locale, initialSelected }: { models: 
           </div>
         </div>
       ) : (
-        <div className="rounded-[28px] border border-dashed border-white/12 bg-white/4 p-10 text-center text-[var(--text-muted)]">{copy.compare.empty}</div>
+        <div className="rounded-[28px] border border-dashed border-white/12 bg-white/4 p-10 text-center text-[var(--text-muted)]">
+          <p>{copy.compare.empty}</p>
+          <Link href={`/${locale}/models`} className="mt-4 inline-flex items-center text-[var(--accent)] hover:text-white">
+            {locale === 'en' ? 'Build a shortlist from the model directory' : '到模型目錄建立 shortlist'} →
+          </Link>
+        </div>
       )}
     </div>
   );
@@ -159,4 +194,27 @@ function translateMetric(label: string) {
     Ecosystem: '生態',
   };
   return map[label] ?? label;
+}
+
+function normalizeSelection(slugs: string[]) {
+  return Array.from(new Set(slugs.filter(Boolean))).slice(0, 3);
+}
+
+function readSelectedFromLocation() {
+  if (typeof window === 'undefined') return [];
+
+  return normalizeSelection(
+    (new URLSearchParams(window.location.search).get('models') ?? '')
+      .split(',')
+      .map((item) => item.trim()),
+  );
+}
+
+function syncSelectionInUrl(locale: Locale, selected: string[]) {
+  if (typeof window === 'undefined') return;
+
+  const url = new URL(window.location.href);
+  const nextHref = compareHref(locale, selected);
+  const nextUrl = new URL(nextHref, url.origin);
+  window.history.replaceState(window.history.state, '', `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
 }

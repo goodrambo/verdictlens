@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { SkillsExplorer } from '@/components/skills/SkillsExplorer';
 import { SectionIntro } from '@/components/shared/SectionIntro';
 import { skills } from '@/lib/data';
@@ -34,13 +33,11 @@ export default async function SkillsPage({ params }: { params: Promise<{ locale:
           title={copy.sections.exploreSkills}
           body={
             locale === 'en'
-              ? 'The supporting stack is often what determines whether a model is usable in real work. This directory now scales past a thousand live entries by separating curated review, registry validation, and broader registry listing instead of pretending they are the same thing.'
-              : '真正決定模型能不能穩定落地的，往往是支援工具層。這個目錄現在把人工 curated、registry 驗證與更廣泛的 registry 收錄分開呈現，讓 live catalog 在超過千筆之後仍然盡量保持可讀。'
+              ? 'Browse the tools and workflow building blocks that make a model useful in real work. The goal here is simple: spot what helps, what it takes to set up, and where to click next.'
+              : '瀏覽真正讓模型能在工作中派上用場的工具與工作流元件。這頁的目標很簡單：先看懂它能幫什麼、設定大概要花多少力氣，以及下一步該點哪裡。'
           }
         />
-        <Suspense fallback={<div className="rounded-[28px] border border-white/10 bg-white/4 p-8 text-sm text-[var(--text-muted)]">{locale === 'en' ? 'Loading skills directory…' : '正在載入技能目錄…'}</div>}>
-          <SkillsExplorer skills={skills} locale={locale} />
-        </Suspense>
+        <SkillsExplorer skills={skills} locale={locale} />
       </div>
     </main>
   );

@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Skill } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
@@ -16,9 +15,6 @@ const PAGE_SIZE = 9;
 
 export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Locale }) {
   const copy = ui[locale];
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('all');
   const [skillType, setSkillType] = useState('all');
@@ -26,6 +22,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
   const [catalogTier, setCatalogTier] = useState<SkillCatalogKey>('all');
   const [useCase, setUseCase] = useState('all');
   const [sortKey, setSortKey] = useState<SkillSortKey>('overall');
+  const [page, setPage] = useState(1);
 
   const categories = useMemo(() => Array.from(new Set(skills.map((item) => item.categoryId))).sort(), [skills]);
   const skillTypes = useMemo(() => Array.from(new Set(skills.map((item) => item.skillType))).sort(), [skills]);
@@ -67,23 +64,28 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
       });
   }, [catalogTier, category, provider, query, skillType, skills, sortKey, useCase]);
 
-  const rawPage = Number(searchParams.get('page') ?? '1');
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const currentPage = Math.min(Math.max(Number.isFinite(rawPage) ? Math.floor(rawPage) : 1, 1), totalPages);
+  const currentPage = Math.min(Math.max(page, 1), totalPages);
   const paginated = useMemo(() => {
     const start = (currentPage - 1) * PAGE_SIZE;
     return filtered.slice(start, start + PAGE_SIZE);
   }, [currentPage, filtered]);
 
+  useEffect(() => {
+    setPage(readPageFromLocation());
+  }, []);
+
+  useEffect(() => {
+    if (page !== currentPage) {
+      setPage(currentPage);
+      syncPageInUrl(currentPage);
+    }
+  }, [currentPage, page]);
+
   function updatePage(nextPage: number) {
     const safePage = Math.min(Math.max(nextPage, 1), totalPages);
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (safePage <= 1) params.delete('page');
-    else params.set('page', String(safePage));
-
-    const queryString = params.toString();
-    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+    setPage(safePage);
+    syncPageInUrl(safePage);
   }
 
   function clearFilters() {
@@ -106,22 +108,22 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
       <section className="panel p-5 md:p-6">
         <div className="grid gap-5 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
           <div>
-            <p className="text-label text-[var(--accent-2)]">{locale === 'en' ? 'Layered skill registry' : '分層技能 registry'}</p>
+            <p className="text-label text-[var(--accent-2)]">{locale === 'en' ? 'Tools and integrations' : '工具與整合'}</p>
             <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl [text-wrap:balance]">
-              {locale === 'en' ? 'A clearer entry page, not a wall of metadata.' : '先做成清楚的入口頁，不再是一整牆 metadata。'}
+              {locale === 'en' ? 'Find useful AI tools without decoding the whole catalog.' : '不用先讀懂整個目錄，也能先找到有用的 AI 工具。'}
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-muted)] md:text-base">
               {locale === 'en'
-                ? 'The list now highlights just enough to decide where to click next: what the skill is, who it fits, setup shape, trust tier, and a clear path into details.'
-                : '列表現在只保留足夠做下一步判斷的資訊：這個 skill 是什麼、適合誰、安裝形態、信任層級，以及明確的詳情入口。'}
+                ? 'Use the first pass to answer four quick questions: what does it help with, who is it for, how much setup does it need, and where should you click next?'
+                : '第一輪先回答四個問題就夠了：它在幫什麼、適合誰、設定大概多麻煩，以及下一步該點哪裡。'}
             </p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <MetricCard label={copy.labels.results} value={String(filtered.length)} />
-            <MetricCard label={locale === 'en' ? 'Curated' : '人工 curated'} value={String(curatedCount)} />
-            <MetricCard label={locale === 'en' ? 'Registry validated' : 'registry 已驗證'} value={String(registryValidatedCount)} />
-            <MetricCard label={locale === 'en' ? 'Registry listed' : 'registry 已收錄'} value={String(registryListedCount)} />
+            <MetricCard label={locale === 'en' ? 'Editor-reviewed' : '編輯精選'} value={String(curatedCount)} />
+            <MetricCard label={locale === 'en' ? 'Verified listings' : '已驗證收錄'} value={String(registryValidatedCount)} />
+            <MetricCard label={locale === 'en' ? 'Directory listings' : '目錄收錄'} value={String(registryListedCount)} />
           </div>
         </div>
 
@@ -134,7 +136,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
                 setQuery(event.target.value);
                 updatePage(1);
               }}
-              placeholder={locale === 'en' ? 'Search by skill, category, provider, or capability' : '依技能、分類、供應商或能力搜尋'}
+              placeholder={locale === 'en' ? 'Search by tool, category, provider, or capability' : '依工具、分類、供應商或能力搜尋'}
               className="input-base"
             />
           </label>
@@ -159,7 +161,7 @@ export function SkillsExplorer({ skills, locale }: { skills: Skill[]; locale: Lo
           </label>
 
           <label className="space-y-2 text-sm text-[var(--text-muted)]">
-            <span>{locale === 'en' ? 'Registry type' : 'Registry 類型'}</span>
+            <span>{locale === 'en' ? 'Skill type' : '技能類型'}</span>
             <select
               value={skillType}
               onChange={(event) => {
@@ -399,4 +401,20 @@ function MetricCard({ label, value }: { label: string; value: string }) {
       <div className="mt-2 text-lg font-semibold text-white">{value}</div>
     </div>
   );
+}
+
+function readPageFromLocation() {
+  if (typeof window === 'undefined') return 1;
+
+  const raw = Number(new URLSearchParams(window.location.search).get('page') ?? '1');
+  return Number.isFinite(raw) ? Math.max(1, Math.floor(raw)) : 1;
+}
+
+function syncPageInUrl(page: number) {
+  if (typeof window === 'undefined') return;
+
+  const url = new URL(window.location.href);
+  if (page <= 1) url.searchParams.delete('page');
+  else url.searchParams.set('page', String(page));
+  window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`);
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { CompareWorkbench } from '@/components/compare/CompareWorkbench';
 import { SectionIntro } from '@/components/shared/SectionIntro';
 import { models } from '@/lib/data';
@@ -30,9 +29,7 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
     <main>
       <div className="container-shell py-10 md:py-14">
         <SectionIntro eyebrow={copy.nav.compare} title={copy.compare.title} body={copy.compare.body} />
-        <Suspense fallback={<div className="rounded-[28px] border border-white/10 bg-white/4 p-8 text-sm text-[var(--text-muted)]">{copy.compare.shortlistHint}</div>}>
-          <CompareWorkbench models={models} locale={locale} initialSelected={[]} />
-        </Suspense>
+        <CompareWorkbench models={models} locale={locale} initialSelected={[]} />
       </div>
     </main>
   );

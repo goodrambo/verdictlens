@@ -106,8 +106,8 @@ export const ui = {
       sortCost: 'Best cost efficiency',
       compareNow: 'Compare now',
       compareShortlist: 'Compare shortlist',
-      compareSelected: 'Compare selected',
-      addToCompare: 'Add to compare',
+      compareSelected: 'Compare shortlist',
+      addToCompare: 'Add to shortlist',
       removeFromCompare: 'Remove',
       scoreBreakdown: 'Score breakdown',
       strengths: 'Strengths',
@@ -292,3 +292,4 @@ export const ui = {
     },
   },
 };
+

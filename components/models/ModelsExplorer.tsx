@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { Locale, Model } from '@/lib/types';
 import { pick, ui } from '@/lib/i18n';
@@ -15,14 +14,12 @@ const PAGE_SIZE = 8;
 
 export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Locale }) {
   const copy = ui[locale];
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [query, setQuery] = useState('');
   const [provider, setProvider] = useState('all');
   const [useCase, setUseCase] = useState('all');
   const [sortKey, setSortKey] = useState<ModelSortKey>('overall');
   const [compareSelection, setCompareSelection] = useState<string[]>([]);
+  const [page, setPage] = useState(1);
 
   const providers = useMemo(
     () => Array.from(new Set(models.map((item) => item.providerId))).map((providerId) => getProvider(providerId)).sort((a, b) => a.name.localeCompare(b.name)),
@@ -56,9 +53,8 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
       });
   }, [models, provider, query, sortKey, useCase]);
 
-  const rawPage = Number(searchParams.get('page') ?? '1');
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const currentPage = Math.min(Math.max(Number.isFinite(rawPage) ? Math.floor(rawPage) : 1, 1), totalPages);
+  const currentPage = Math.min(Math.max(page, 1), totalPages);
   const paginated = useMemo(() => {
     const start = (currentPage - 1) * PAGE_SIZE;
     return filtered.slice(start, start + PAGE_SIZE);
@@ -66,15 +62,21 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
 
   const selectedModels = compareSelection.map((slug) => models.find((item) => item.slug === slug)).filter(Boolean) as Model[];
 
+  useEffect(() => {
+    setPage(readPageFromLocation());
+  }, []);
+
+  useEffect(() => {
+    if (page !== currentPage) {
+      setPage(currentPage);
+      syncPageInUrl(currentPage);
+    }
+  }, [currentPage, page]);
+
   function updatePage(nextPage: number) {
     const safePage = Math.min(Math.max(nextPage, 1), totalPages);
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (safePage <= 1) params.delete('page');
-    else params.set('page', String(safePage));
-
-    const queryString = params.toString();
-    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+    setPage(safePage);
+    syncPageInUrl(safePage);
   }
 
   function clearFilters() {
@@ -100,12 +102,12 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
           <div>
             <p className="text-label text-[var(--accent)]">{locale === 'en' ? 'Discovery → shortlist → compare' : 'Discovery → shortlist → compare'}</p>
             <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl [text-wrap:balance]">
-              {locale === 'en' ? 'A lighter directory surface for faster first-pass decisions.' : '先用更輕的目錄表面，幫你更快做第一輪篩選。'}
+              {locale === 'en' ? 'Browse first. Build your shortlist as you go.' : '先輕鬆瀏覽，再順手把 shortlist 建起來。'}
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-muted)] md:text-base">
               {locale === 'en'
-                ? 'The list now focuses on who the model is for, what the price/speed snapshot looks like, and how to jump into details or compare mode. Deeper context stays on the detail page.'
-                : '列表現在只優先顯示這個模型適合誰、價格與速度大概如何，以及怎麼進入詳情或 compare；更深的資訊放回 detail page。'}
+                ? 'Keep the first pass light: scan who each model fits, what price and speed look like, then either open details or save it for side-by-side compare.'
+                : '第一輪先看得輕一點：快速掃描適合對象、價格與速度，再決定要看詳情，還是先收進並排比較的 shortlist。'}
             </p>
           </div>
 
@@ -113,7 +115,11 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-sm font-medium text-white">{copy.labels.compareShortlist}</p>
-                <p className="mt-1 text-sm leading-6 text-[var(--text-muted)]">{copy.compare.shortlistHint}</p>
+                <p className="mt-1 text-sm leading-6 text-[var(--text-muted)]">
+                  {locale === 'en'
+                    ? 'Add up to three models from the directory below. Once you have two or more, jump straight into compare.'
+                    : '從下面的列表加入最多三個模型；挑到兩個以上後，就能直接進入比較。'}
+                </p>
               </div>
               <span className="inline-flex min-w-10 items-center justify-center rounded-full border border-white/10 bg-white/8 px-3 py-1 text-sm font-semibold text-white">
                 {selectedModels.length}/3
@@ -135,9 +141,16 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
                 ))
               ) : (
                 <div className="rounded-2xl border border-dashed border-white/10 px-3 py-4 text-sm text-[var(--text-muted)]">
-                  {locale === 'en' ? 'Pick models from the directory to start a shortlist.' : '先從列表挑模型，開始建立 shortlist。'}
+                  {locale === 'en' ? 'Nothing shortlisted yet. Use “Add to shortlist” on any model below.' : '目前還沒有 shortlist。直接在下面任何模型按「加入比較清單」即可。'}
                 </div>
               )}
+            </div>
+
+            <div className="mt-4 flex items-center justify-between gap-3 text-xs text-[var(--text-muted)]">
+              <span>{selectedModels.length >= 2 ? (locale === 'en' ? 'Compare ready' : '已可開始比較') : (locale === 'en' ? 'Choose 2–3 models' : '先選 2–3 個模型')}</span>
+              <Link href={compareHref(locale, compareSelection)} className="text-[var(--accent)] transition hover:text-white">
+                {locale === 'en' ? 'Open compare workspace' : '打開比較工作台'} →
+              </Link>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-3">
@@ -147,9 +160,11 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
               >
                 {copy.labels.compareSelected}
               </Link>
-              <button type="button" onClick={() => setCompareSelection([])} className="btn-secondary text-sm">
-                {copy.labels.clearSelection}
-              </button>
+              {selectedModels.length ? (
+                <button type="button" onClick={() => setCompareSelection([])} className="btn-secondary text-sm">
+                  {copy.labels.clearSelection}
+                </button>
+              ) : null}
             </div>
           </div>
         </div>
@@ -378,4 +393,20 @@ export function ModelsExplorer({ models, locale }: { models: Model[]; locale: Lo
       ) : null}
     </div>
   );
+}
+
+function readPageFromLocation() {
+  if (typeof window === 'undefined') return 1;
+
+  const raw = Number(new URLSearchParams(window.location.search).get('page') ?? '1');
+  return Number.isFinite(raw) ? Math.max(1, Math.floor(raw)) : 1;
+}
+
+function syncPageInUrl(page: number) {
+  if (typeof window === 'undefined') return;
+
+  const url = new URL(window.location.href);
+  if (page <= 1) url.searchParams.delete('page');
+  else url.searchParams.set('page', String(page));
+  window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`);
 }

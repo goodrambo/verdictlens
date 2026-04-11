@@ -72,9 +72,9 @@ export function localizeUseCase(locale: Locale, slug: string) {
 }
 
 const catalogTierLabels: Record<SkillCatalogTier, { en: string; 'zh-TW': string }> = {
-  curated: { en: 'Curated review', 'zh-TW': '人工 curated' },
-  'registry-validated': { en: 'Registry validated', 'zh-TW': 'registry 已驗證' },
-  'registry-listed': { en: 'Registry listed', 'zh-TW': 'registry 已收錄' },
+  curated: { en: 'Editor-reviewed', 'zh-TW': '編輯精選' },
+  'registry-validated': { en: 'Verified listing', 'zh-TW': '已驗證收錄' },
+  'registry-listed': { en: 'Directory listing', 'zh-TW': '目錄收錄' },
 };
 
 export function localizeSourceKind(locale: Locale, kind: SourceKind) {

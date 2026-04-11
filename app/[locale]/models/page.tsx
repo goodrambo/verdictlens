@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { ModelsExplorer } from '@/components/models/ModelsExplorer';
 import { SectionIntro } from '@/components/shared/SectionIntro';
 import { models } from '@/lib/data';
@@ -34,13 +34,12 @@ export default async function ModelsPage({ params }: { params: Promise<{ locale:
           title={copy.sections.exploreModels}
           body={
             locale === 'en'
-              ? 'A cleaner model directory for discovery, shortlisting, and jumping to official vendor pages without losing the ranking context.'
-              : '更清楚的模型目錄，方便做探索、shortlist，並直接跳到官方頁面，同時保留排名脈絡。'
+              ? 'Browse models, build a shortlist, and compare when you are down to the two or three that actually fit the job.'
+              : '先瀏覽模型、建立 shortlist，等縮小到真正適合的 2 到 3 個候選時，再進一步並排比較。'
           }
+          action={<Link href={`/${locale}/compare`} className="btn-secondary text-sm">{copy.nav.compare}</Link>}
         />
-        <Suspense fallback={<div className="rounded-[28px] border border-white/10 bg-white/4 p-8 text-sm text-[var(--text-muted)]">{locale === 'en' ? 'Loading model directory…' : '正在載入模型目錄…'}</div>}>
-          <ModelsExplorer models={models} locale={locale} />
-        </Suspense>
+        <ModelsExplorer models={models} locale={locale} />
       </div>
     </main>
   );
