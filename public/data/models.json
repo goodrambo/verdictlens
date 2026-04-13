@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-11T00:03:45.548Z",
-  "count": 22,
+  "updatedAt": "2026-04-13T05:42:12.615Z",
+  "count": 29,
   "shortlistReady": true,
   "comparePath": "/compare",
   "items": [
@@ -1603,6 +1603,938 @@
         "research"
       ],
       "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "gemini-2-5-flash-lite",
+      "name": "Gemini 2.5 Flash-Lite",
+      "providerId": "google",
+      "family": "Gemini 2.5",
+      "officialUrl": "https://ai.google.dev/",
+      "docsUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite",
+      "pricingUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "description": {
+        "en": "Google’s cheapest Gemini 2.5 tier for high-frequency multimodal classification, extraction, and lightweight agent work.",
+        "zh-TW": "Google 成本最低的 Gemini 2.5 層級，適合高頻多模態分類、擷取與輕量 agent 工作。"
+      },
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "file"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "file"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "1,048,576 input tokens",
+      "maxOutputTokens": "65,536 tokens",
+      "pricing": {
+        "input": "$0.10 / 1M text-image-video input tokens",
+        "output": "$0.40 / 1M output tokens",
+        "inputUsdPerMillion": "0.10",
+        "outputUsdPerMillion": "0.40",
+        "notes": "Google lists separate audio pricing and grounding fees on the Gemini pricing page."
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": true
+      },
+      "overallScore": 86,
+      "scores": {
+        "capability": 80,
+        "useCaseFitness": 88,
+        "costEfficiency": 97,
+        "speed": 96,
+        "reliability": 86,
+        "agentReadiness": 87,
+        "ecosystem": 91
+      },
+      "bestUseCases": [
+        "agent-automation",
+        "research"
+      ],
+      "worksWith": [
+        "Gemini API",
+        "Vertex AI",
+        "high-volume extraction flows"
+      ],
+      "tags": [
+        "flash-lite",
+        "budget",
+        "multimodal"
+      ],
+      "strengths": [
+        {
+          "en": "Very strong cost profile for large-scale classification and extraction pipelines.",
+          "zh-TW": "很適合大規模分類與擷取流程，成本輪廓非常漂亮。"
+        },
+        {
+          "en": "Keeps Gemini’s multimodal inputs and structured outputs at a lower price tier.",
+          "zh-TW": "在較低價位仍保留 Gemini 的多模態輸入與 structured outputs。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Not the right pick for harder frontier reasoning.",
+          "zh-TW": "對較難的前沿推理不是最佳選擇。"
+        },
+        {
+          "en": "Google’s pricing surface still includes separate audio and grounding fees.",
+          "zh-TW": "Google 的定價面仍包含獨立的音訊與 grounding 費用。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:google-ai-for-developers",
+          "label": "Google AI for Developers",
+          "url": "https://ai.google.dev/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:gemini-2-5-flash-lite-model-docs",
+          "label": "Gemini 2.5 Flash-Lite model docs",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "maxOutputTokens",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:gemini-api-pricing",
+          "label": "Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:gemini-2-5-flash-lite-verdictlens-review",
+          "label": "Gemini 2.5 Flash-Lite VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:gemini-2-5-flash-lite",
+      "status": "active",
+      "displayName": "Gemini 2.5 Flash-Lite",
+      "summary": {
+        "en": "Google’s cheapest Gemini 2.5 tier for high-frequency multimodal classification, extraction, and lightweight agent work.",
+        "zh-TW": "Google 成本最低的 Gemini 2.5 層級，適合高頻多模態分類、擷取與輕量 agent 工作。"
+      },
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
+    },
+    {
+      "slug": "grok-4-20",
+      "name": "Grok 4.20",
+      "providerId": "xai",
+      "family": "Grok 4",
+      "officialUrl": "https://x.ai/",
+      "docsUrl": "https://docs.x.ai/developers/models",
+      "pricingUrl": "https://docs.x.ai/developers/models",
+      "description": {
+        "en": "xAI’s flagship Grok reasoning tier with a very large context window and native tool-oriented positioning.",
+        "zh-TW": "xAI 的旗艦 Grok 推理層，具備超大上下文與偏工具導向的官方定位。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "2M tokens",
+      "pricing": {
+        "input": "$2 / 1M input tokens ($0.20 cached)",
+        "output": "$6 / 1M output tokens",
+        "inputUsdPerMillion": "2",
+        "outputUsdPerMillion": "6"
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 90,
+      "scores": {
+        "capability": 93,
+        "useCaseFitness": 90,
+        "costEfficiency": 82,
+        "speed": 86,
+        "reliability": 86,
+        "agentReadiness": 92,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "xAI API",
+        "server-side search tools",
+        "MCP-capable agent stacks"
+      ],
+      "tags": [
+        "reasoning",
+        "long-context",
+        "tool-use"
+      ],
+      "strengths": [
+        {
+          "en": "Big context window and official support for tool-centric workflows are the main draw.",
+          "zh-TW": "超大上下文與官方工具導向工作流支援，是主要賣點。"
+        },
+        {
+          "en": "Useful for teams wanting frontier-style reasoning outside the usual OpenAI/Anthropic duopoly.",
+          "zh-TW": "對想跳脫 OpenAI / Anthropic 雙雄、又需要前沿推理的團隊很有吸引力。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "xAI’s ecosystem depth is still thinner than the most mature platforms.",
+          "zh-TW": "xAI 的生態厚度仍比最成熟的平台薄。"
+        },
+        {
+          "en": "Official pricing is bundled with xAI-native server-side tools, so cost modeling needs care.",
+          "zh-TW": "官方定價與 xAI 內建 server-side tools 關聯較深，估算成本時要更小心。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:xai-official",
+          "label": "xAI official",
+          "url": "https://x.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:xai-models-and-pricing",
+          "label": "xAI models and pricing",
+          "url": "https://docs.x.ai/developers/models",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "toolSupport",
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:grok-4-20-verdictlens-review",
+          "label": "Grok 4.20 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:grok-4-20",
+      "status": "active",
+      "displayName": "Grok 4.20",
+      "summary": {
+        "en": "xAI’s flagship Grok reasoning tier with a very large context window and native tool-oriented positioning.",
+        "zh-TW": "xAI 的旗艦 Grok 推理層，具備超大上下文與偏工具導向的官方定位。"
+      },
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
+    },
+    {
+      "slug": "grok-4-1-fast",
+      "name": "Grok 4.1 Fast",
+      "providerId": "xai",
+      "family": "Grok 4.1",
+      "officialUrl": "https://x.ai/",
+      "docsUrl": "https://docs.x.ai/developers/models",
+      "pricingUrl": "https://docs.x.ai/developers/models",
+      "description": {
+        "en": "xAI’s lower-cost Grok 4.1 fast tier for cheaper reasoning-oriented production traffic.",
+        "zh-TW": "xAI 較低成本的 Grok 4.1 fast 層，適合更便宜的推理導向 production 流量。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "2M tokens",
+      "pricing": {
+        "input": "$0.20 / 1M input tokens ($0.05 cached)",
+        "output": "$0.50 / 1M output tokens",
+        "inputUsdPerMillion": "0.20",
+        "outputUsdPerMillion": "0.50"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": true,
+        "codeExecution": true
+      },
+      "overallScore": 87,
+      "scores": {
+        "capability": 84,
+        "useCaseFitness": 88,
+        "costEfficiency": 94,
+        "speed": 94,
+        "reliability": 85,
+        "agentReadiness": 89,
+        "ecosystem": 84
+      },
+      "bestUseCases": [
+        "agent-automation",
+        "research"
+      ],
+      "worksWith": [
+        "xAI API",
+        "cost-aware reasoning flows",
+        "tool-first assistants"
+      ],
+      "tags": [
+        "fast",
+        "budget-reasoning",
+        "tool-use"
+      ],
+      "strengths": [
+        {
+          "en": "Much cheaper Grok-family entry point while keeping the same large context footprint.",
+          "zh-TW": "用更低價格進入 Grok 家族，且保留同樣的大上下文規模。"
+        },
+        {
+          "en": "Useful for teams that want xAI coverage without paying flagship rates on every request.",
+          "zh-TW": "適合想納入 xAI，但不想每次都付旗艦價格的團隊。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Lower ceiling than the flagship Grok 4.20 tier on hardest tasks.",
+          "zh-TW": "在最難任務上的能力上限低於旗艦 Grok 4.20。"
+        },
+        {
+          "en": "xAI platform conventions are still less standardized than older API ecosystems.",
+          "zh-TW": "xAI 平台慣例仍不如較老牌 API 生態那麼標準化。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:xai-official",
+          "label": "xAI official",
+          "url": "https://x.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:xai-models-and-pricing",
+          "label": "xAI models and pricing",
+          "url": "https://docs.x.ai/developers/models",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "toolSupport",
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:grok-4-1-fast-verdictlens-review",
+          "label": "Grok 4.1 Fast VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:grok-4-1-fast",
+      "status": "active",
+      "displayName": "Grok 4.1 Fast",
+      "summary": {
+        "en": "xAI’s lower-cost Grok 4.1 fast tier for cheaper reasoning-oriented production traffic.",
+        "zh-TW": "xAI 較低成本的 Grok 4.1 fast 層，適合更便宜的推理導向 production 流量。"
+      },
+      "bestFor": [
+        "agent-automation",
+        "research"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
+    },
+    {
+      "slug": "qwen3-max",
+      "name": "Qwen3-Max",
+      "providerId": "alibaba-cloud",
+      "family": "Qwen3",
+      "officialUrl": "https://www.alibabacloud.com/product/model-studio",
+      "docsUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
+      "pricingUrl": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+      "description": {
+        "en": "Alibaba Cloud’s flagship Qwen3 tier for the hardest text-generation and agent-style tasks.",
+        "zh-TW": "阿里雲的旗艦 Qwen3 層級，面向高難度文字生成與 agent 式任務。"
+      },
+      "modalities": [
+        "text"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "262,144 tokens",
+      "pricing": {
+        "input": "$1.20 / 1M input tokens (≤32K prompts)",
+        "output": "$6 / 1M output tokens (≤32K prompts)",
+        "inputUsdPerMillion": "1.20",
+        "outputUsdPerMillion": "6",
+        "notes": "Alibaba Cloud publishes tiered pricing above 32K input tokens, up to a 252K-token request band."
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": true,
+        "remoteMcp": false,
+        "codeExecution": true
+      },
+      "overallScore": 88,
+      "scores": {
+        "capability": 91,
+        "useCaseFitness": 89,
+        "costEfficiency": 83,
+        "speed": 82,
+        "reliability": 86,
+        "agentReadiness": 89,
+        "ecosystem": 80
+      },
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Alibaba Cloud Model Studio",
+        "Qwen agent flows",
+        "search-enabled reasoning"
+      ],
+      "tags": [
+        "flagship",
+        "reasoning",
+        "qwen"
+      ],
+      "strengths": [
+        {
+          "en": "Good flagship coverage for the commercial Qwen family, which was previously missing from live catalog.",
+          "zh-TW": "補上原本 live catalog 缺的商業 Qwen 旗艦覆蓋。"
+        },
+        {
+          "en": "Official docs explicitly position it for complex tasks and search-agent workflows.",
+          "zh-TW": "官方文件明確把它定位在複雜任務與 search-agent 工作流。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Pricing is tiered by prompt length, so simple headline comparisons can hide cost jumps.",
+          "zh-TW": "定價會隨 prompt 長度分層，單看 headline 價格可能忽略成本跳升。"
+        },
+        {
+          "en": "Global ecosystem gravity is still smaller than the biggest US API vendors.",
+          "zh-TW": "全球生態引力仍小於最大型的美系 API 供應商。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:alibaba-cloud-model-studio",
+          "label": "Alibaba Cloud Model Studio",
+          "url": "https://www.alibabacloud.com/product/model-studio",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:alibaba-cloud-supported-models-overview",
+          "label": "Alibaba Cloud supported models overview",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/models",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "contextWindow",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "pricing-page:alibaba-cloud-model-pricing",
+          "label": "Alibaba Cloud model pricing",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:qwen3-max-verdictlens-review",
+          "label": "Qwen3-Max VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:qwen3-max",
+      "status": "active",
+      "displayName": "Qwen3-Max",
+      "summary": {
+        "en": "Alibaba Cloud’s flagship Qwen3 tier for the hardest text-generation and agent-style tasks.",
+        "zh-TW": "阿里雲的旗艦 Qwen3 層級，面向高難度文字生成與 agent 式任務。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
+    },
+    {
+      "slug": "qwen3-5-plus",
+      "name": "Qwen3.5-Plus",
+      "providerId": "alibaba-cloud",
+      "family": "Qwen3.5",
+      "officialUrl": "https://www.alibabacloud.com/product/model-studio",
+      "docsUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
+      "pricingUrl": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+      "description": {
+        "en": "Alibaba Cloud’s balanced Qwen3.5 tier that adds text, image, and video inputs at a much lower price than flagship Qwen3-Max.",
+        "zh-TW": "阿里雲較均衡的 Qwen3.5 層級，支援文字、圖片與影片輸入，價格明顯低於旗艦 Qwen3-Max。"
+      },
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "1M tokens",
+      "pricing": {
+        "input": "$0.40 / 1M input tokens (≤256K prompts)",
+        "output": "$2.40 / 1M output tokens (≤256K prompts)",
+        "inputUsdPerMillion": "0.40",
+        "outputUsdPerMillion": "2.40",
+        "notes": "Alibaba Cloud lists a higher tier above 256K input tokens."
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 87,
+      "scores": {
+        "capability": 86,
+        "useCaseFitness": 89,
+        "costEfficiency": 91,
+        "speed": 90,
+        "reliability": 85,
+        "agentReadiness": 86,
+        "ecosystem": 80
+      },
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Alibaba Cloud Model Studio",
+        "multimodal Qwen apps",
+        "cost-aware assistant tiers"
+      ],
+      "tags": [
+        "multimodal",
+        "balanced",
+        "qwen"
+      ],
+      "strengths": [
+        {
+          "en": "Covers the practical middle of the commercial Qwen family with multimodal support.",
+          "zh-TW": "補上商業 Qwen 家族中最實用的中段多模態層。"
+        },
+        {
+          "en": "Strong price/performance story relative to the flagship model.",
+          "zh-TW": "相較旗艦層有不錯的價格效能故事。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Official docs are less familiar to many English-first buyers than US vendor docs.",
+          "zh-TW": "對很多以英文市場為主的買家來說，官方文件熟悉度較低。"
+        },
+        {
+          "en": "Some capability details are presented across multiple Alibaba docs rather than one compact page.",
+          "zh-TW": "部分能力資訊分散在多份阿里文件中，不像某些供應商集中在單頁。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:alibaba-cloud-model-studio",
+          "label": "Alibaba Cloud Model Studio",
+          "url": "https://www.alibabacloud.com/product/model-studio",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:alibaba-cloud-supported-models-overview",
+          "label": "Alibaba Cloud supported models overview",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/models",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow"
+          ]
+        },
+        {
+          "id": "pricing-page:alibaba-cloud-model-pricing",
+          "label": "Alibaba Cloud model pricing",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:qwen3-5-plus-verdictlens-review",
+          "label": "Qwen3.5-Plus VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:qwen3-5-plus",
+      "status": "active",
+      "displayName": "Qwen3.5-Plus",
+      "summary": {
+        "en": "Alibaba Cloud’s balanced Qwen3.5 tier that adds text, image, and video inputs at a much lower price than flagship Qwen3-Max.",
+        "zh-TW": "阿里雲較均衡的 Qwen3.5 層級，支援文字、圖片與影片輸入，價格明顯低於旗艦 Qwen3-Max。"
+      },
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
+    },
+    {
+      "slug": "qwen3-vl-plus",
+      "name": "Qwen3-VL-Plus",
+      "providerId": "alibaba-cloud",
+      "family": "Qwen3-VL",
+      "officialUrl": "https://www.alibabacloud.com/product/model-studio",
+      "docsUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
+      "pricingUrl": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+      "description": {
+        "en": "Alibaba Cloud’s higher-end Qwen3 vision-language tier for multimodal understanding with thinking and non-thinking modes.",
+        "zh-TW": "阿里雲較高階的 Qwen3 視覺語言層，支援 thinking / non-thinking 模式的多模態理解。"
+      },
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "262,144 tokens",
+      "maxOutputTokens": "32,768 tokens",
+      "pricing": {
+        "input": "$0.20 / 1M input tokens (≤32K prompts)",
+        "output": "$1.60 / 1M output tokens (≤32K prompts)",
+        "inputUsdPerMillion": "0.20",
+        "outputUsdPerMillion": "1.60",
+        "notes": "Alibaba Cloud lists higher price bands above 32K input tokens."
+      },
+      "speedCategory": "Balanced",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 85,
+      "scores": {
+        "capability": 86,
+        "useCaseFitness": 88,
+        "costEfficiency": 90,
+        "speed": 84,
+        "reliability": 84,
+        "agentReadiness": 84,
+        "ecosystem": 79
+      },
+      "bestUseCases": [
+        "research",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Alibaba Cloud Model Studio",
+        "multimodal document flows",
+        "vision-heavy assistants"
+      ],
+      "tags": [
+        "vision-language",
+        "multimodal",
+        "qwen"
+      ],
+      "strengths": [
+        {
+          "en": "Adds a clean commercial Qwen vision-language representative to the live set.",
+          "zh-TW": "讓 live set 補上一個清楚的商業 Qwen 視覺語言代表。"
+        },
+        {
+          "en": "Official docs publish both context window and tiered multimodal pricing.",
+          "zh-TW": "官方文件有公開上下文視窗與分層多模態定價。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "Vision pricing is tiered, so simple cost labels still need nuance.",
+          "zh-TW": "視覺模型定價同樣分層，簡化標籤仍需要補充說明。"
+        },
+        {
+          "en": "Less ecosystem mindshare than Google or OpenAI multimodal defaults.",
+          "zh-TW": "生態心智份額仍低於 Google 或 OpenAI 的多模態預設。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:alibaba-cloud-model-studio",
+          "label": "Alibaba Cloud Model Studio",
+          "url": "https://www.alibabacloud.com/product/model-studio",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:alibaba-cloud-supported-models-overview",
+          "label": "Alibaba Cloud supported models overview",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/models",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "modalities",
+            "modalityProfile",
+            "contextWindow",
+            "maxOutputTokens"
+          ]
+        },
+        {
+          "id": "pricing-page:alibaba-cloud-model-pricing",
+          "label": "Alibaba Cloud model pricing",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+          "kind": "pricing-page",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "pricing",
+            "pricingUrl"
+          ]
+        },
+        {
+          "id": "manual-review:qwen3-vl-plus-verdictlens-review",
+          "label": "Qwen3-VL-Plus VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:qwen3-vl-plus",
+      "status": "active",
+      "displayName": "Qwen3-VL-Plus",
+      "summary": {
+        "en": "Alibaba Cloud’s higher-end Qwen3 vision-language tier for multimodal understanding with thinking and non-thinking modes.",
+        "zh-TW": "阿里雲較高階的 Qwen3 視覺語言層，支援 thinking / non-thinking 模式的多模態理解。"
+      },
+      "bestFor": [
+        "research",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
     },
     {
       "slug": "deepseek-chat-v3-2",
@@ -3327,6 +4259,149 @@
         "agent-automation"
       ],
       "lastVerifiedAt": "2026-04-09T08:00:00.000Z"
+    },
+    {
+      "slug": "codestral-25-08",
+      "name": "Codestral 25.08",
+      "providerId": "mistral",
+      "family": "Codestral",
+      "officialUrl": "https://mistral.ai/",
+      "docsUrl": "https://docs.mistral.ai/models/codestral-25-08",
+      "pricingUrl": "https://docs.mistral.ai/models/codestral-25-08",
+      "description": {
+        "en": "Mistral’s specialist coding model for low-latency code generation and fill-in-the-middle workflows.",
+        "zh-TW": "Mistral 專門面向 coding 的模型，適合低延遲程式生成與 fill-in-the-middle 工作流。"
+      },
+      "modalities": [
+        "text"
+      ],
+      "modalityProfile": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text",
+          "json"
+        ]
+      },
+      "contextWindow": "128K tokens",
+      "pricing": {
+        "input": "$0.30 / 1M input tokens",
+        "output": "$0.90 / 1M output tokens",
+        "inputUsdPerMillion": "0.30",
+        "outputUsdPerMillion": "0.90"
+      },
+      "speedCategory": "Fast",
+      "toolSupport": {
+        "functionCalling": true,
+        "structuredOutput": true,
+        "webSearch": false,
+        "remoteMcp": false,
+        "codeExecution": false
+      },
+      "overallScore": 87,
+      "scores": {
+        "capability": 88,
+        "useCaseFitness": 92,
+        "costEfficiency": 90,
+        "speed": 93,
+        "reliability": 84,
+        "agentReadiness": 89,
+        "ecosystem": 82
+      },
+      "bestUseCases": [
+        "coding",
+        "agent-automation"
+      ],
+      "worksWith": [
+        "Mistral API",
+        "code completion",
+        "FIM editors"
+      ],
+      "tags": [
+        "coding",
+        "fill-in-the-middle",
+        "low-latency"
+      ],
+      "strengths": [
+        {
+          "en": "Adds a purpose-built coding specialist instead of only general Mistral models.",
+          "zh-TW": "不只放通用 Mistral 模型，也補上一個專門的 coding specialist。"
+        },
+        {
+          "en": "Official docs clearly call out low-latency code generation and FIM workflows.",
+          "zh-TW": "官方文件明確標出低延遲 code generation 與 FIM 工作流。"
+        }
+      ],
+      "caveats": [
+        {
+          "en": "This is a narrower coding-focused model, not the best all-purpose research tier.",
+          "zh-TW": "它是較窄的 coding 導向模型，不是最佳的通用研究層。"
+        },
+        {
+          "en": "Teams still need their own evals for repo-specific coding behavior.",
+          "zh-TW": "團隊仍要用自家 eval 驗證在特定 codebase 的表現。"
+        }
+      ],
+      "updatedAt": "2026-04-13T05:45:00.000Z",
+      "sourceRefs": [
+        {
+          "id": "official-site:mistral-official",
+          "label": "Mistral official",
+          "url": "https://mistral.ai/",
+          "kind": "official-site",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "officialUrl"
+          ]
+        },
+        {
+          "id": "official-docs:codestral-25-08-docs",
+          "label": "Codestral 25.08 docs",
+          "url": "https://docs.mistral.ai/models/codestral-25-08",
+          "kind": "official-docs",
+          "trustTier": 5,
+          "fetchedAt": "2026-04-13T05:45:00.000Z",
+          "fieldPaths": [
+            "summary",
+            "description",
+            "contextWindow",
+            "pricing",
+            "pricingUrl",
+            "toolSupport"
+          ]
+        },
+        {
+          "id": "manual-review:codestral-25-08-verdictlens-review",
+          "label": "Codestral 25.08 VerdictLens review",
+          "url": "https://verdictlens.local/manual-review",
+          "kind": "manual-review",
+          "trustTier": 3,
+          "fetchedAt": "2026-04-09T08:00:00.000Z",
+          "fieldPaths": [
+            "bestFor",
+            "worksWith",
+            "strengths",
+            "caveats",
+            "overallScore",
+            "scores"
+          ],
+          "notes": "Editorial shortlist guidance is intentionally separated from official provider facts."
+        }
+      ],
+      "id": "model:codestral-25-08",
+      "status": "active",
+      "displayName": "Codestral 25.08",
+      "summary": {
+        "en": "Mistral’s specialist coding model for low-latency code generation and fill-in-the-middle workflows.",
+        "zh-TW": "Mistral 專門面向 coding 的模型，適合低延遲程式生成與 fill-in-the-middle 工作流。"
+      },
+      "bestFor": [
+        "coding",
+        "agent-automation"
+      ],
+      "lastVerifiedAt": "2026-04-13T05:45:00.000Z"
     }
   ]
 }

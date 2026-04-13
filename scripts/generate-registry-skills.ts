@@ -8,7 +8,7 @@ import type { LocalizedText, Skill } from '../lib/types';
 const REGISTRY_REPO = 'https://github.com/photonx/awesome-mcp-registry.git';
 const REGISTRY_WEB_URL = 'https://github.com/photonx/awesome-mcp-registry';
 const REGISTRY_RAW_BASE = 'https://raw.githubusercontent.com/photonx/awesome-mcp-registry/main';
-const TARGET_GENERATED_COUNT = 1100;
+const TARGET_GENERATED_COUNT = 1500;
 const OFF_SPEC_MANUAL_SKILL_SLUGS = new Set(['langgraph', 'langchain', 'openai-agents-sdk', 'weaviate', 'mem0']);
 const BAD_PATTERN = /\b(registry|catalog|directory|template|boilerplate|starter|scaffold|example|examples|demo|sample|tutorial|course)\b/i;
 
